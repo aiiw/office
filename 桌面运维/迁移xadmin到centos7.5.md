@@ -36,12 +36,33 @@ conda create -n python388 python=3.8.8
 
 首先在系统安装好uwsgi,yum install uwsgi
 
+```
+首先查查源的django版本
+(base) D:\xadmin01\xadmin01>django-admin --version
+3.2.4
+
+(base) D:\xadmin01\xadmin01>
+```
+
+
+
 ```text
-pip3 install django （如果用于生产的话，则需要指定安装和你项目相同的版本）
+(python388) [root@localhost xadmin01]# pip install django==3.2.4
+Collecting django==3.2.4
+  Downloading Django-3.2.4-py3-none-any.whl (7.9 MB)
 pip3 install uwsgi
 ```
 
-4 将需要迁移的包上传到centos，上传方法参照如下：
+4 在需要迁移的包中导出包
+
+```
+4.1将xadmin生成 xadmin.zip
+4.2cmd,切换到项目根目录，pipreqs ./ --encoding=utf8
+```
+
+![image-20220517095042453](https://raw.githubusercontent.com/aiiw/office/main/img/image-20220517095042453.png)
+
+5 将需要迁移的包上传到centos，上传方法参照如下：
 
 ```
 yum install samba samba-client samba-common
@@ -50,12 +71,73 @@ smbclient //192.168.4.253/oksoft -U 11608@mastercn.local
 
 lcd /home
 
-get requirements01.txt
+get requirements.txt
 
 get xadmin01.rar
 ```
 
-5进入python388环境
+5进入python388环境，安装 requirements
 
+```
 conda activate python388
+
+pip install -r requirements.txt
+```
+
+6  将数据迁移到centos,并导入
+
+```text
+#导出Mysql,django为你的数据库mysqldump -uroot -p123456 dj3>django.sql
+#把django.sql上传到服务器，在服务器里用下面命令导入
+
+mysql -uroot -ppassword 
+create database dj3
+
+use dj3
+
+source your /home/django.sql
+```
+
+7 启动程序 ，调试
+
+```
+python manage.py runserver 
+发现还有缺少的包，就pip install 包
+```
+
+
+
+```
+解决ImportError: cannot import name 'six' from 'django.utils'
+首先导入six库，pip3 install six
+
+1.进入python3.6/site-packages
+
+2.将six.py 复制到 django/utils即可
+```
+
+```
+报错：
+
+ModuleNotFoundError: No module named 'crispy_forms'
+
+解决方法：
+
+pip install django_debug_toolbar
+pip install django-crispy-forms
+```
+
+```
+已安装情况下仍然报错
+报错内容为找不到mysqlclient
+django.core.exceptions.ImproperlyConfigured: Error loading MySQLdb module. Did you install mysqlclient?
+
+ImportError: cannot import name 'python_2_unicode_compatible' from 'django.utils.encoding' (/root/anaconda3/envs/python388/lib/python3.8/site-packages/django/utils/encoding.py)
+通常解决办法
+
+目录中__init__.py中添加
+import pymysql
+pymysql.install_as_MySQLdb()
+
+```
 

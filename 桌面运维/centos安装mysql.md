@@ -100,6 +100,12 @@ sudo systemctl status mysqld.service  #BL7平台
 
 出现这个说明MySQl已经启动。
 
+```
+实际到这里无法启动的，需要重新执行一次sudo yum install mysql-community-server
+然后执行这个就成功了：sudo service mysqld status
+
+```
+
 **四、设置MySQL密码。**
 
 MySQL在启动的时候，就已经自动进行了初始化。下面我们可以通过这个命令来查看超级用户的密码，这个存放在MySQL日志里：
