@@ -6,9 +6,13 @@ union
 select CONVERT(varchar(111),getdate(),111),'111'
 union
 select CONVERT(varchar(111),getdate(),112),'112'
+结果：
+2022/05/23	111
+20220523	112
+2022-05-23	23
 ```
 
-![image-20220523093957500](https://raw.githubusercontent.com/aiiw/office/main/img/image-20220523093957500.png)
+
 
 | Style ID    | Style 格式                            |
 | :---------- | ------------------------------------- |
