@@ -28,9 +28,9 @@ conda remove -n rcnn --all 删除环境
 
 2.3 创建3.8的环境
 
-conda create -n python388 python=3.8.8
+~~conda create -n python388 python=3.8.8~~
 
-
+搞错了，实际的虚拟环境是xadmin01,  python3.7.10
 
 3 在虚拟环境里用pip3 安装django和uwsgi
 
@@ -40,14 +40,14 @@ conda create -n python388 python=3.8.8
 首先查查源的django版本
 (base) D:\xadmin01\xadmin01>django-admin --version
 3.2.4
-
+搞错了，实际的虚拟环境是xadmin01,  django 2.2.5
 (base) D:\xadmin01\xadmin01>
 ```
 
 
 
 ```text
-(python388) [root@localhost xadmin01]# pip install django==3.2.4
+(python388) [root@localhost xadmin01]# pip install django==2.2.5
 Collecting django==3.2.4
   Downloading Django-3.2.4-py3-none-any.whl (7.9 MB)
 pip3 install uwsgi
@@ -103,41 +103,69 @@ source your /home/django.sql
 ```
 python manage.py runserver 
 发现还有缺少的包，就pip install 包
-```
 
 
+1 ModuleNotFoundError: No module named 'future'
+pip install future
 
-```
+2 No module named 'crispy_forms'
+解决方法：
+pip install django_debug_toolbar
+pip install django-crispy-forms
+
+
+3
+xadmin01/lib/python3.7/site-packages/django/utils/__init__.py)
 解决ImportError: cannot import name 'six' from 'django.utils'
 首先导入six库，pip3 install six
 
 1.进入python3.6/site-packages
 
 2.将six.py 复制到 django/utils即可
-```
+[root@localhost site-packages]# cd /root/anaconda3/envs/xadmin01/lib/python3.7/site-packages/
+[root@localhost site-packages]# pwd
+/root/anaconda3/envs/xadmin01/lib/python3.7/site-packages
+[root@localhost site-packages]# cp six.py ./django/utils/
 
-```
-报错：
 
-ModuleNotFoundError: No module named 'crispy_forms'
+4 oduleNotFoundError: No module named 'reversion'
+pip install reversion
 
-解决方法：
-
-pip install django_debug_toolbar
-pip install django-crispy-forms
-```
-
-```
+5 django.core.exceptions.ImproperlyConfigured: Error loading MySQLdb module.
+Did you install mysqlclient?
+pip install pymysql
 已安装情况下仍然报错
-报错内容为找不到mysqlclient
+报错内容为找不到
 django.core.exceptions.ImproperlyConfigured: Error loading MySQLdb module. Did you install mysqlclient?
 
 ImportError: cannot import name 'python_2_unicode_compatible' from 'django.utils.encoding' (/root/anaconda3/envs/python388/lib/python3.8/site-packages/django/utils/encoding.py)
 通常解决办法
-
-目录中__init__.py中添加
+/root/anaconda3/envs/xadmin01/lib/python3.7/site-packages/django/db/backends/mysql/目录中__init__.py中添加
 import pymysql
 pymysql.install_as_MySQLdb()
 
+6 ImportError: cannot import name 'python_2_unicode_compatible' from 'django.utils.encoding'
+添加from six import python_2_unicode_compatible
+
+7 ModuleNotFoundError: No module named 'django.contrib.formtools'
+ pip3 install django-formtools
+ 
+ 8ModuleNotFoundError: No module named 'httplib2'
+ 
+ 8 ImportError: cannot import name 'FieldDoesNotExist' from 'django.db.models'
+ /home/xadmin01/xadmin01/extra_apps/xadmin/plugins/aggregation.py
+ try:
+    from django.db.models.fields import FieldDoesNotExist
+except ImportError:
+    from django.core.exceptions import FieldDoesNotExist
+    
+ 9 ModuleNotFoundError: No module named 'import_export'
+  pip install django-import_export
+  
+ 10 
 ```
+
+
+
+
 
