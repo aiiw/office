@@ -1,6 +1,6 @@
 OSI参考模型和TCP/IP参考模型
 
-![image-20220523085929913](https://raw.githubusercontent.com/aiiw/office/main/img/image-20220523085929913.png)
+![image-20220523200950164](https://raw.githubusercontent.com/aiiw/office/main/img/image-20220523200950164.png)
 
 应用层——消息
 传输层——数据段(segment)
@@ -28,10 +28,7 @@ OSI参考模型和TCP/IP参考模型
 6.bit流(bit)
 bit是在物理层的介质上直接实现无结构bit流传送的。
 
+![image-20220523201014142](https://raw.githubusercontent.com/aiiw/office/main/img/image-20220523201014142.png)
 
+![image-20220523201027985](https://raw.githubusercontent.com/aiiw/office/main/img/image-20220523201027985.png)
 
-![image-20220523090014210](https://raw.githubusercontent.com/aiiw/office/main/img/image-20220523090014210.png)
-
-![image-20220523090021007](
-
-)
