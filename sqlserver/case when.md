@@ -193,3 +193,71 @@ NAME
 (三)转换结果
 
 [![img](https://pic2.zhimg.com/80/v2-0940c202a73c6664c60ffac08a9e2391_720w.jpg)](https://pic2.zhimg.com/80/v2-0940c202a73c6664c60ffac08a9e2391_720w.jpg)
+
+#### 例子
+
+```sql
+select m.本周第一天 本周第一天,
+               m.站点 站点,
+               m.是否及时 是否及时,
+               count(1) 数量
+          from wo_start_m m
+         group by m.本周第一天, m.站点, m.是否及时
+         
+         EG:本周第一天，站点 ，是否及时，数量
+```
+
+```sql
+select pv.本周第一天,
+       max(case
+             when pv.站点 = 'A' and pv.是否及时 = '及时' then
+              pv.数量
+           end) a及时,
+       max(case
+             when pv.站点 = 'A' and pv.是否及时 = '不及时' then
+              pv.数量
+           end) a不及时,
+                  max(case
+             when pv.站点 = 'W' and pv.是否及时 = '及时' then
+              pv.数量
+           end) W及时,
+       max(case
+             when pv.站点 = 'W' and pv.是否及时 = '不及时' then
+              pv.数量
+           end) W不及时,
+                  max(case
+             when pv.站点 = 'D' and pv.是否及时 = '及时' then
+              pv.数量
+           end) D及时,
+       max(case
+             when pv.站点 = 'D' and pv.是否及时 = '不及时' then
+              pv.数量
+           end) D不及时,
+                  max(case
+             when pv.站点 = 'H' and pv.是否及时 = '及时' then
+              pv.数量
+           end) H及时,
+       max(case
+             when pv.站点 = 'H' and pv.是否及时 = '不及时' then
+              pv.数量
+           end) H不及时
+  from (select m.本周第一天 本周第一天,
+               m.站点 站点,
+               m.是否及时 是否及时,
+               count(1) 数量
+          from wo_start_m m
+         group by m.本周第一天, m.站点, m.是否及时) pv
+
+ group by pv.本周第一天
+
+EG:本周第一天，a及时，a不及时，W及时.......
+```
+
+```
+flow
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+```
+
