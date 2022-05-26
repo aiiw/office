@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: img
+---
+
 ```
 echo "# mypy" >> README.md
 git init
@@ -14,7 +18,8 @@ git commit -m "提交注释"
 
 
 
-问题坑:
-https://blog.csdn.net/lishuangquan1987/article/details/123588802
 
-![image-20220526175503177](C:/Users/11608/AppData/Roaming/Typora/typora-user-images/image-20220526175503177.png)
+
+
+
+![image-20220526204044778](https://gitee.com/aiiw/images/raw/master/img/image-20220526204044778.png)
