@@ -5,6 +5,7 @@
 set /p b= 请输入前缀:
 net localgroup administrators /add mastercn.local\%b%
 pause
+
 ```
 
 ## 显示公告栏
