@@ -31,3 +31,4 @@ select distinct substr(m.imaa001, 1, 6),
 ```
 
 ![image-20220523115749124](https://raw.githubusercontent.com/aiiw/office/main/img/image-20220523115749124.png)
+

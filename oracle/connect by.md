@@ -1,4 +1,4 @@
-```
+```sql
 select t.sfaa025 父单号,
        t.sfaadocno 单号,
        t.sfaa010 料号,
