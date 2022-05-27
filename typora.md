@@ -154,16 +154,7 @@ graph TB
 
 
 
-```
-```mermaid
-graph TB
-    id1(圆角矩形)--普通线-->id2[矩形]
-    subgraph 子图表
-        id2==粗线==>id3{菱形}
-        id3-.虚线.->id4>右向旗帜]
-        id3--无箭头---id5((圆形))
-    end
-```
+
 
 子图表普通线粗线虚线无箭头矩形菱形右向旗帜圆形圆角矩形
 
@@ -179,7 +170,7 @@ sequenceDiagram
 
 例如：
 
-```
+```mermaid
 sequenceDiagram
     张三->>李四: 吃了吗？
     李四->>张三: 吃了
@@ -191,12 +182,10 @@ sequenceDiagram
 
 上例中的张三、李四都是参与者，上例中的语法是最简单的，也可以明显表明参与者有哪些:
 
-```
+```mermaid
 sequenceDiagram
     participant 参与者 1
     participant 参与者 2
-    ...
-    participant 简称 as 参与者 3 #该语法可以在接下来的描述中使用简称来代替参与者 3
 ```
 
 ### 消息线
@@ -272,7 +261,7 @@ end
 ```
 ```
 
-```
+```mermaid
 sequenceDiagram
     participant z as 张三
     participant l as 李四
@@ -334,7 +323,7 @@ T3: 2014-01-02, 9d
 
 先看一个复杂的甘特图：
 
-```
+```mermaid
 gantt
     dateFormat  YYYY-MM-DD
     title Adding GANTT diagram functionality to mermaid
