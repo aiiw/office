@@ -70,7 +70,7 @@ mermaid 美人鱼，是一个类似 markdown，用文本语法来描述文档图
 Mermaid 支持多种图表的方向，语法如下：
 
 ```
-graph 方向描述
+```mermaid ` 开始的代码块。**
     图表中的其他语句...
 ```
 
@@ -142,7 +142,20 @@ end
 
 举个例子:
 
+```mermaid
+graph TB
+    id1(圆角矩形)--普通线-->id2[矩形]
+    subgraph 子图表
+        id2==粗线==>id3{菱形}
+        id3-.虚线.->id4>右向旗帜]
+        id3--无箭头---id5((圆形))
+    end
 ```
+
+
+
+```
+```mermaid
 graph TB
     id1(圆角矩形)--普通线-->id2[矩形]
     subgraph 子图表
@@ -257,6 +270,9 @@ end
 ### 举个例子
 
 ```
+```
+
+```
 sequenceDiagram
     participant z as 张三
     participant l as 李四
@@ -283,6 +299,22 @@ sequenceDiagram
 甘特图是一类条形图，由Karol Adamiechi在1896年提出, 而在1910年Henry Gantt也独立的提出了此种图形表示。通常用在对项目终端元素和总结元素的开始及完成时间进行的描述。
 
 示例：
+
+```mermaid
+gantt
+dateFormat YYYY-MM-DD
+
+section S1
+T1: 2014-01-01, 9d
+
+section S2
+T2: 2014-01-11, 9d
+
+section S3
+T3: 2014-01-02, 9d
+```
+
+
 
 ```
 gantt
