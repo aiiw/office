@@ -4,6 +4,8 @@
 
 前后端传输数据的编码格式主要有三种, 本文接下来将详细演示。
 
+![image-20220530111150490](https://gitee.com/aiiw/images/raw/master/img/image-20220530111150490.png)
+
 ```python
  urlencoded
  formdata
