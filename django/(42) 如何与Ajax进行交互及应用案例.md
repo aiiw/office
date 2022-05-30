@@ -7,9 +7,9 @@
 ![image-20220530111150490](https://gitee.com/aiiw/images/raw/master/img/image-20220530111150490.png)
 
 ```python
- urlencoded
- formdata
- json
+ urlencoded--对应上图的 x-www-form-urlencode
+ formdata--对应上图的form-data
+ json--对应上图的raw
 ```
 
 ## Ajax提交urlencoded格式数据
