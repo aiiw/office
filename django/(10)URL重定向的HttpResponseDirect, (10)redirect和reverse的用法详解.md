@@ -26,18 +26,6 @@ def my_view(request):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 **redirect真正NB的地方在于，它不仅能根据URL重定向，还可以根据对象Object重定向和根据视图view重定向**，根据视图重定向的时候还可以传递额外的参数。
 
 
@@ -71,7 +59,7 @@ def my_view(request):
 
 **HttpResponseDirect方法**
 
-HttpResponseRedirect是django首选的URL重定向方法，在django.http模块里。该方法的第一个参数是必要的，是用来重定向的URL地址。这个URL可以是完整的链接（比如’http://www.baidu.com‘），也可以是一个不包含域名的静态链接（例如‘/index/’）。
+**HttpResponseRedirect是django首选的URL重定向方法**，在django.http模块里。该方法的第一个参数是必要的，是用来重定向的URL地址。这个URL可以是完整的链接（比如’http://www.baidu.com‘），也可以是一个不包含域名的静态链接（例如‘/index/’）。
 
 
 
@@ -208,7 +196,7 @@ def my_view(request):
 
 
 
-还有一点容易被人们忽略的是reverse方法不仅能对命名的urls进行反向解析，还可以对视图函数进行反向解析，找到需要重新定向的url, 如下面代码所示。当然但这个方法我们并不推荐使用。与此功能相反的是resolve方法，该方法可以根据url找到对应视图函数。
+还有一点容易被人们忽略的是reverse方法**不仅能对命名的urls进行反向解析，还可以对视图函数进行反向解析**，找到需要重新定向的url, 如下面代码所示。当然但这个方法我们并不推荐使用。与此功能相反的是resolve方法，该方法可以根据url找到对应视图函数。
 
 ```python
 from django.urls import reverse

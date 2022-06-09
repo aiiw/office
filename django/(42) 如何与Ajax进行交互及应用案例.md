@@ -100,9 +100,9 @@ Ajax上传文件需要借助于js内置对象`FormData`，另外上传文件时�
 
 前后端传输数据的时候一定要确保声明的编码格式跟数据真正的格式是一致的。如果你通过Ajax发送Json格式数据给Django后端，请一定注意以下三点：
 
-1. `contentType`参数指定成`application/json`;
-2. 数据是真正的json格式数据；
-3. Django后端不会帮你处理json格式数据需要你自己去`request.body`获取并处理。
+1. **`contentType`参数指定成`application/json`;**
+2. **数据是真正的json格式数据；**
+3. **Django后端不会帮你处理json格式数据需要你自己去`request.body`获取并处理。**
 
 ```python
  $("#submitBtn").click(function () {

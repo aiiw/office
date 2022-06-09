@@ -1,6 +1,9 @@
 **一个最基本的django模型**
 
-
+```
+python manage.py makemigrations upfile
+python manage.py migrate upfile
+```
 
 我们来先看下一个新闻博客的Article模型。这个模型是最基本的django模型，里面包括了各个字段（fields)，重写了显示文章对象名字的__str__方法（python内置的），并在Meta选项里给模型命名(verbose name)。我们建议每个django模型至少包括字段，重写的__str__方法和Meta选项。
 
