@@ -30,5 +30,12 @@ select distinct substr(m.imaa001, 1, 6),
    and m.imaastus = 'Y'
 ```
 
-![image-20220523115749124](https://raw.githubusercontent.com/aiiw/office/main/img/image-20220523115749124.png)
+![image-20220611085042904](https://gitee.com/aiiw/images/raw/master/img/image-20220611085042904.png)
 
+![image-20220611085100321](https://gitee.com/aiiw/images/raw/master/img/image-20220611085100321.png)
+
+![image-20220611085112800](C:/Users/11608/AppData/Roaming/Typora/typora-user-images/image-20220611085112800.png)
+
+![image-20220611085131598](https://gitee.com/aiiw/images/raw/master/img/image-20220611085131598.png)
+
+![image-20220611085149174](C:/Users/11608/AppData/Roaming/Typora/typora-user-images/image-20220611085149174.png)
