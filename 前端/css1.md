@@ -16,13 +16,13 @@
 
 ![image-20230403095121387](C:/Users/11608/AppData/Roaming/Typora/typora-user-images/image-20230403095121387.png)
 
-![image-20230403095143582](C:/Users/11608/AppData/Roaming/Typora/typora-user-images/image-20230403095143582.png)
+![image-20230403095143582](https://gitee.com/aiiw/images/raw/master/img/image-20230403095143582.png)
 
 ![image-20230403095350224](C:/Users/11608/AppData/Roaming/Typora/typora-user-images/image-20230403095350224.png)
 
 
 
-![image-20230403100141541](C:/Users/11608/AppData/Roaming/Typora/typora-user-images/image-20230403100141541.png)
+![image-20230403100141541](https://gitee.com/aiiw/images/raw/master/img/image-20230403100141541.png)
 
 可以使用CSS的`line-height`属性来实现文字的上下居中，将它的值设置为容器高度的值即可。例如：
 
@@ -112,7 +112,7 @@ fix:粘在浏览器
 
 绝对定位是不占用位置的，只有相对定位是占用位置的，浮动也是不占用位置的。
 
-![image-20230404094346562](C:/Users/11608/AppData/Roaming/Typora/typora-user-images/image-20230404094346562.png)
+![image-20230404094346562](https://gitee.com/aiiw/images/raw/master/img/image-20230404094346562.png)
 
 ![](C:/Users/11608/AppData/Roaming/Typora/typora-user-images/image-20230404095021733.png)
 
@@ -266,7 +266,7 @@ css
 | `sticky`   | 是             | 父容器和视口（浏览器窗口） | `top`、`bottom`、`left`、`right` | 无                                                           |
 | `float`    | 是             | 元素在标准流中的位置       | `left`、`right`                  | 通过将元素包裹在一个容器中，设置容器 `text-align: center;` 和元素 `display: inline-block;` |
 
-![image-20230404161630955](C:/Users/11608/AppData/Roaming/Typora/typora-user-images/image-20230404161630955.png)
+![image-20230404161630955](https://gitee.com/aiiw/images/raw/master/img/image-20230404161630955.png)
 
 | 对齐方式                          | 描述                           | 使用条件                                                     |
 | --------------------------------- | ------------------------------ | ------------------------------------------------------------ |

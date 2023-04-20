@@ -1,1 +1,1 @@
-![image-20230313163040391](C:/Users/11608/AppData/Roaming/Typora/typora-user-images/image-20230313163040391.png)
+![image-20230313163040391](https://gitee.com/aiiw/images/raw/master/img/image-20230313163040391.png)
