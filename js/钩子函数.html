@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hook Function Example</title>
+</head>
+
+<body>
+    <form id="my-form">
+        <input type="text" id="my-input" placeholder="Type something...">
+        <button type="submit" id="my-button">Submit</button>
+    </form>
+    <script>
+        // 获取表单、输入框和提交按钮元素，并定义钩子函数
+        var myForm = document.getElementById('my-form');
+        var myInput = document.getElementById('my-input');
+        var myButton = document.getElementById('my-button');
+
+        function hookFunction(event) {
+            // event.preventDefault();
+            console.log('User Input:', myInput.value);
+            console.log('Hook Function Executed!');
+        }
+        // 在表单上注册事件监听器，并在回调函数中使用钩子函数作为回调函数
+        myForm.addEventListener('submit', function (event) {
+            hookFunction(event);
+        });
+    </script>
+</body>
+
+</html>

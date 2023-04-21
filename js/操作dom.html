@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    </script>
+</head>
+
+<body>
+
+    <ul id="list" style="margin: 10px;">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+    </ul>
+    <div class="mydiv"><button id="btn">添加一个D</button></div>
+
+    <script>
+        const btn1 = document.querySelector("#btn") //queryselector是按css选择器的命名
+        btn1.innerText = "123567"; //注意这里是加载的问题，如果放在head会报错
+        // btn1.onclick = () => {
+        //     alert("aaaa")
+        // }
+        // btn1.addEventListener("click", () => {
+        //     alert("bbbb")
+        // })
+        const ul1 = document.getElementById("list")
+        // btn1.addEventListener("click", () => {
+        //     const li1 = document.createElement('li');
+        //     li1.id = '属性';
+        //     li1.innerText = '这个是我创建出来的' //如果这个li1在函数外面，只能创建一个
+        //     console.log(li1);
+        //     ul1.appendChild(li1)
+
+        // })
+
+        const btn2 = document.querySelector(".mydiv") //  这个只能修改样式
+        btn1.addEventListener('click', () => {
+            const li1 = document.createElement('li');
+            li1.id = '属性';
+            li1.innerText = '这个是我创建出来的' //如果这个li1在函数外面，只能创建一个
+            console.log(li1);
+            ul1.insertAdjacentElement("afterbegin", li1)
+            ul1.insertAdjacentHTML("afterbegin", "<li>html</li>")
+
+            btn2.style.backgroundColor = "red";
+            btn2.style.width = '180px' //这个地方没有提示，一直以为没有这个功能。
+
+
+        })
+    </script>
+</body>
+
+</html>

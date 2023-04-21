@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css1.css">
+    <style>
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            overflow: hidden;
+        }
+
+        .box2 .m {
+            /* width: 50px;
+            height: 50px; */
+            background-color: aqua;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+
+
+        .box3 {
+            /* 如果body下有一个div元素，如果让它水平 居中  */
+            background-color: pink;
+            height: 50px;
+            /* 没有指定宽度会占用父的所有宽度 */
+            width: 50%;
+            margin: 0 auto;
+
+            /* 设置子元素平均位置 */
+
+            position: relative;
+
+        }
+
+        .box .child {
+            position: absolute;
+            margin: 0px;
+        }
+
+        .n1 {
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            background-color: brown;
+            top: 50%;
+            transform: translate(0, -50%);
+            left: 20%;
+            border-radius: 50%;
+            line-height: 30px;
+            text-align: center;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+            /* 第一个是向x,第二个向y,第三个是羽化 a是透明度 */
+
+        }
+
+        .n2 {
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            background-color: brown;
+            top: 50%;
+            transform: translate(0, -50%);
+            left: 40%;
+            border-radius: 50%;
+            line-height: 30px;
+            text-align: center;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+            /* 第一个是向x,第二个向y,第三个是羽化 a是透明度 */
+        }
+
+        .n3 {
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            background-color: brown;
+            top: 50%;
+            transform: translate(0, -50%);
+            left: 60%;
+            border-radius: 50%;
+            line-height: 30px;
+            text-align: center;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+            /* 第一个是向x,第二个向y,第三个是羽化 a是透明度 */
+        }
+
+        .n4 {
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            background-color: brown;
+            top: 50%;
+            transform: translate(0, -50%);
+            left: 80%;
+            border-radius: 50%;
+            line-height: 30px;
+            text-align: center;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+            /* 第一个是向x,第二个向y,第三个是羽化 a是透明度 */
+        }
+
+        /*  测试了属性选择器,[]属性前不写元素,表示所有元素
+            [class^="n"] {
+            position: relative;
+            background-color: blue;
+            width: 10px;
+            height: 10px;
+            margin: 10px;
+            padding: 10px;
+            float: left;
+        } */
+
+
+        /* box4 flex定位 */
+        .box4 {
+            /* 如果body下有一个div元素，如果让它水平 居中  */
+
+            background-color: rgb(245, 3, 43);
+            height: 50px;
+            /* 没有指定宽度会占用父的所有宽度 */
+            width: 50%;
+            margin: 0 auto;
+            margin-top: 1px;
+
+            /* 设置子元素平均位置 */
+
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            /* 水平居中 */
+            justify-content: space-around;
+            /* 垂直居中 */
+            align-items: center;
+
+        }
+
+        [name^="m"] {
+
+            height: 30px;
+            width: 30px;
+            background-color: brown;
+            border-radius: 50%;
+            line-height: 30px;
+            text-align: center;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+        }
+
+
+
+        .box5 {
+            /* 如果body下有一个div元素，如果让它水平 居中  */
+
+            background-color: rgb(193, 245, 3);
+
+            /* 没有指定宽度会占用父的所有宽度 */
+            width: 50%;
+            margin: 0 auto;
+            height: 350px;
+
+
+            /* 设置子元素平均位置 */
+
+            position: relative;
+
+
+            align-items: center;
+
+        }
+
+        .grid {
+            /* 没有指定宽度会占用父的所有宽度 */
+            width: 50%;
+            margin: 0 auto;
+            background-color: bisque;
+            display: flex;
+            flex-wrap: wrap;
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            justify-content: space-between;
+        }
+
+        .cell {
+            box-sizing: border-box;
+            width: 70px;
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            /* flex-basis: 33.33%; */
+            height: 70px;
+            border: 1px solid black;
+            border-radius: 50%;
+
+            text-align: center;
+            line-height: 70px;
+            font-size: 24px;
+
+            /* 过度 */
+            transition: all 1s;
+        }
+
+        /* 使用伪机构 */
+        .cell:hover {
+            background-color: brown;
+            width: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">1234567890</div>
+    <div class="box2">
+        <div class="m">123456789122222222222222222222222222222</div>
+    </div>
+    <div class="box3">位移定位
+        <div class="child">
+            <div class="n1" name="n1">1</div>
+            <div class="n2" name="n2">2</div>
+            <div class="n3" name="n3">3</div>
+            <div class="n4" name="n4">4</div>
+        </div>
+    </div>
+
+    <div class="box4">
+        <div class="m5" name="m5">1</div>
+        <div class="m6" name="m6">2</div>
+        <div class="m7" name="m7">3</div>
+        <div class="m8" name="m8">4</div>
+
+    </div>
+
+    <div class="box5">这个是使用flex划分多行多列
+        <div class="grid">
+            <div class="cell">1</div>
+            <div class="cell">2</div>
+            <div class="cell">3</div>
+            <div class="cell">4</div>
+            <div class="cell">5</div>
+            <div class="cell">6</div>
+            <div class="cell">7</div>
+            <div class="cell">8</div>
+            <div class="cell">9</div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

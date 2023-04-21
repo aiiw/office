@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function changdom() {
+            let a = Math.floor(Math.random() * 255)
+            let b = Math.floor(Math.random() * 255)
+            let c = Math.floor(Math.random() * 255)
+            document.body.style.backgroundColor = `rgb(${a},${b},${c})`
+            // console.log('1');
+        }
+
+        function con1(fn, delay) {
+            let pre = 0;
+            return function () {
+                let now = new Date()
+
+                if (now - pre > delay) {
+                    console.log('3');
+                    console.log(now, pre, now - pre);
+                    fn()
+                    pre = now
+                }
+            }
+        }
+
+        window.addEventListener('resize', con1(changdom, 2000))
+    </script>
+</body>
+
+</html>

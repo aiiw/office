@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <input type="text">
+    <button id="btn">确定</button>
+    <button id="btn1">确定1</button>
+    <script>
+        function a() {
+            console.log("最终输出的结果:123455");
+            console.log("最终输出的结果", this)
+        }
+
+        function b(a) {
+            a()
+        }
+
+        function c(a) {
+            return a
+        }
+        // const btn = document.querySelector("#btn")
+        // btn.addEventListener("click", b(a)) //晕晕,这里会直接执行的,不用点都执行了
+
+        // const btn1 = document.querySelector("#btn")
+        // btn1.addEventListener("click", c(a)) //其实好理解,这个参数是只接收函数,上面在编译是已经执行为a() 返回 为null,
+
+        function d(a, s) {
+            let timer
+            console.log("外面的this:", this); //注意这里的this是直接()调用,所以为windows
+            return function () {
+                console.log(arguments)
+                console.log("里面的this:", this);
+                clearTimeout(timer)
+                console.log("我是在返回的函数中begin..");
+                timer = setTimeout(() => {
+                    console.log("setTimeout的this:", this); //哈哈,这里的this 也是btn,因为使用了箭头
+
+                    a.bind(this)()
+                    // a.apply(this) 这个直接执行了函数 ,参数只有一个数组
+                    //a.call(this) 这个直接执行了函数 ,参数以,arg1,arg2,arg3
+                }, s)
+                console.log("我是在返回的函数中end..");
+            }
+        }
+        const btn2 = document.querySelector("#btn")
+        btn2.addEventListener("click", d(a, 8000)) //其实好理解,这个参数是只接收函数,上面在编译是已经执行为a() 返回 为null,
+
+        const btn3 = document.querySelector("#btn1")
+        btn3.addEventListener("click", a) // 为这个btn3,绑定了a,所以a 的this,就是btn3
+    </script>
+</body>
+
+</html>
