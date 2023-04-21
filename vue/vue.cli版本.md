@@ -15,5 +15,7 @@ C:\Users\Mavis>vue -V
 npm list vue || npm list vue -g
 1
 注意：Vue Cli3.X和4.X的脚手架的模板和Vue Cli2.X完全不同。
+
+test
 ```
 
