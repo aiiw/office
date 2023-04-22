@@ -70,6 +70,52 @@ class Book(models.Model):
 ```
 
 ```python
+补充：
+from django.db import models
+
+class Book(models.Model):
+    # 定义Book模型类，继承自Django内置的models.Model类
+
+    class Genre(models.TextChoices):
+        # 枚举类型，定义了合法的图书类型
+        NOVEL = 'NV', '小说'
+        HISTORY = 'HI', '历史'
+        BIOGRAPHY = 'BG', '传记'
+        THRILLER = 'TH', '惊悚'
+
+    title = models.CharField(max_length=100, verbose_name="书籍标题")
+    # 字符串类型的书名，长度最大为100个字符，使用verbose_name参数定义了该字段在后台管理中显示的名称
+
+    author = models.CharField(max_length=100, verbose_name="作者")
+    # 字符串类型的作者名，长度最大为100个字符，使用verbose_name参数定义了该字段在后台管理中显示的名称
+
+    description = models.TextField(blank=True, verbose_name="书籍描述")
+    # 书籍描述，使用TextField类型表示，可以为空，使用verbose_name参数定义了该字段在后台管理中显示的名称
+
+    genre = models.CharField(max_length=2, choices=Genre.choices, default=Genre.NOVEL, verbose_name="图书类型")
+    # 图书类型，使用枚举类型Genre表示，使用choices参数指定所有可选值，使用default参数指定默认选项
+
+    publish_date = models.DateField(verbose_name="出版日期", help_text="格式：YYYY-MM-DD")
+    # 发布日期，使用DateField类型表示，使用verbose_name参数定义了该字段在后台管理中显示的名称，使用help_text参数添加了说明文本
+
+    class Meta:
+        verbose_name = "图书"
+        verbose_name_plural = "图书列表"
+    # Meta类包含了一些模型的元数据（metadata），例如模型的名称、排序方式等。
+
+    def __str__(self):
+        return self.title
+    # 定义__str__方法，返回书籍标题
+这段代码与之前的版本相比，主要增加了以下内容：
+
+Genre枚举类型：这个类型定义了合法的图书类型。我们使用了models.TextChoices来创建这个枚举类型，并将其他类型作为其成员。
+
+genre属性：这个属性使用了CharField类型，但是它还指定了一个叫做choices的参数。该参数指定了可选的枚举值，这里是Genre.choices。我们也使用了default参数，指定了默认选项为Genre.NOVEL。
+
+希望这些信息能够帮助您理解如何在Django模型中使用枚举类型，以及如何使用choices参数指定可选值。
+
+
+
 AutoField：自增长 ID 字段
 BigAutoField：64 位自增长 ID 字段
 BooleanField：布尔类型，True 或 False
