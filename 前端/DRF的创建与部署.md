@@ -1,6 +1,8 @@
+
+
 好的，以下是更详细的创建 Django DRF 项目步骤：
 
-1. 安装 Django
+1. # 安装 Django
 
 确保您的机器上已安装 Python，并使用以下命令安装 Django：
 
@@ -9,7 +11,7 @@ Copy Code
 pip install django
 ```
 
-1. 创建 Django 项目
+#      2.创建 Django 项目
 
 使用以下命令创建 Django 项目：
 
@@ -20,18 +22,18 @@ django-admin startproject project_name
 
 其中，project_name 是您要创建的项目名称。
 
-1. 创建 Django 应用
+# 3.创建 Django 应用
 
 在项目文件夹中执行以下命令创建 Django 应用：
 
 ```python
 Copy Code
-python manage.py startapp app_name
+python manage.py startapp myapi
 ```
 
 其中，app_name 是您要创建的应用名称。
 
-1. 配置数据库
+# 4.配置数据库
 
 在项目的 [settings.py](http://settings.py/) 文件中配置数据库信息。Django 默认使用 SQLite 数据库，因此可以直接使用该默认设置。如果您需要使用其他数据库，请参考 Django 的官方文档进行配置。
 
@@ -57,20 +59,6 @@ DATABASES = {
 
 ```python
 pythonCopy Code
-from django.db import models
-
-class Book(models.Model):
-    title = models.CharField(max_length=100)
-    author = models.CharField(max_length=100)
-    description = models.TextField(blank=True)
-    publish_date = models.DateField()
-
-    def __str__(self):
-        return self.title
-```
-
-```python
-补充：
 from django.db import models
 
 class Book(models.Model):
@@ -113,6 +101,11 @@ Genre枚举类型：这个类型定义了合法的图书类型。我们使用了
 genre属性：这个属性使用了CharField类型，但是它还指定了一个叫做choices的参数。该参数指定了可选的枚举值，这里是Genre.choices。我们也使用了default参数，指定了默认选项为Genre.NOVEL。
 
 希望这些信息能够帮助您理解如何在Django模型中使用枚举类型，以及如何使用choices参数指定可选值。
+```
+
+```python
+补充：
+
 
 
 
@@ -215,9 +208,36 @@ total_pages = Book.objects.aggregate(Sum('pages'))['pages__sum']  # 查询所有
 avg_price = Book.objects.aggregate(Avg('price'))['price__avg']  # 查询所有书
 ```
 
+```python
+#实例
+from books.models import Book
+import datetime
+
+data = [
+    {
+        "title": "Python编程入门",
+        "author": "John Smith",
+        "description": "一本介绍Python编程的书籍",
+        "genre": "CS",
+        "publish_date": datetime.date(2020, 1, 1)
+    },
+    {
+        "title": "Django Web开发",
+        "author": "Jane Doe",
+        "description": "一本介绍Django框架的书籍",
+        "genre": "CS",
+        "publish_date": datetime.date(2019, 1, 1)
+    }
+]
+
+for book_data in data:
+    book = Book(**book_data)
+    book.save()
+```
+
 在这个例子中，我们创建了一个 Book 类，并定义了 title、author、description 和 publish_date 四个字段。**str**() 方法用于在控制台中显示该模型的字符串表示形式。
 
-1. 迁移数据库
+# 5迁移数据库
 
 执行以下命令将模型迁移到数据库中：
 
@@ -225,68 +245,40 @@ avg_price = Book.objects.aggregate(Avg('price'))['price__avg']  # 查询所有�
 Copy Code
 python manage.py makemigrations
 python manage.py migrate
+
+##
+python manage.py createsuperuser 
+#按提示完成
 ```
 
-第一条命令会生成迁移文件，第二条命令会将迁移文件应用到数据库中。如果您对 Django 的数据库迁移机制不熟悉，可以阅读 Django 官方文档进行学习和了解。
+第一条命令会生成迁移文件，第二条命令会将迁移文件应用到数据库中。如果您对 Django 的数据库迁移机制不熟悉，可以阅读 Django 官方文档进行学习和了解
 
-1. 创建序列化器
+# 6配置DRF
 
-在 Django REST framework 中，序列化器负责将 Django 模型转换为 JSON 等格式。您可以在应用的 [serializers.py](http://serializers.py/) 文件中创建序列化器。
-
-例如，假设您有一个名为 Book 的模型，其中包含 title 和 author 两个字段。那么您可以创建一个 BookSerializer 序列化器来表示它：
-
-```python
-pythonCopy Code
-from rest_framework import serializers
-from .models import Book
-
-class BookSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Book
-        fields = ['id', 'title', 'author', 'description', 'publish_date']
 ```
-
-在这个例子中，我们从 rest_framework 库导入了 serializers 模块，并创建了一个 BookSerializer 类。Meta 内部类指定了要序列化的模型和它的字段列表。
-
-1. 创建视图
-
-在 Django REST framework 中，视图负责处理 HTTP 请求并返回响应。您可以在应用的 [views.py](http://views.py/) 文件中创建视图。
-
-例如，假设您已经创建了一个 BookSerializer 序列化器，并希望创建一个对应的视图来获取所有书籍的信息。那么您可以创建一个 AllBooksView 视图来实现它：
-
-```python
-pythonCopy Code
-from rest_framework import generics
-from .models import Book
-from .serializers import BookSerializer
-
-class AllBooksView(generics.ListAPIView):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
-```
-
-在这个例子中，我们从 rest_framework 库导入了 generics 模块，并创建了一个 AllBooksView 类。queryset 属性指定了要获取的所有书籍，serializer_class 属性指定了用于序列化数据的 BookSerializer 类。
-
-9
-
-1. 配置 URL
-
-在 Django 中，URL 映射用于将特定的 URL 请求映射到相应的视图函数或类。在 Django REST framework 中，通常使用类视图来处理请求，因此需要配置 URL 映射来将 URL 请求映射到相应的类视图。
-
-在项目的 [urls.py](http://urls.py/) 文件中配置 URL 映射。例如，假设您要将 /books 映射到 AllBooksView 视图，可以在项目的 [urls.py](http://urls.py/) 文件中添加以下代码：
-
-```python
-pythonCopy Code
-from django.urls import path
-from .views import AllBooksView
-
-urlpatterns = [
-    path('books/', AllBooksView.as_view(), name='all_books'),
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+	'myapi',
+    'rest_framework',
 ]
 ```
 
-在这个例子中，我们从 django.urls 模块导入了 path 函数，并使用它将 /books 路径映射到 AllBooksView 类视图。as_view() 方法将类视图转换为基于函数的视图，name 参数指定了 URL 的名称。
+# 7重新迁移下数据库,因为添加了应用
 
-如果您需要支持其他 HTTP 请求方法（如 POST、PUT、DELETE 等），可以创建相应的类视图，并在 urlpatterns 中添加相应的路径和视图。
+```
+python manage.py makemigrations
+python manage.py migrate
+```
 
-这些就是创建 Django DRF 项目的详细步骤，希望对您有所帮助！
+# 8查django版本
+
+```
+python -m django --version
+3.2.4
+```
+
