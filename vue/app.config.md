@@ -55,7 +55,7 @@ javascriptCopy Code
 export default {
   data() {
     return {
-      message: 'Hello World!'
+      message: 'Hello World!' //这个是向组件实例添加响应式属性
     }
   },
   mounted() {

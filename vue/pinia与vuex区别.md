@@ -6,7 +6,7 @@
 2. 创建 `store.ts` 文件，并在文件中创建 `Pinia` 实例和 `count` 变量；
 
 ```javascript
-typescriptCopy Code
+
 
 import { defineStore } from 'pinia';
 
@@ -21,7 +21,7 @@ export const useStore = defineStore({
 1. 在 `main.ts` 文件中注册 `Pinia` 实例；
 
 ```javascript
-typescriptCopy Code
+
 import { createApp } from 'vue';
 import App from './App.vue';
 import { createPinia } from 'pinia';
@@ -72,7 +72,7 @@ export default defineComponent({
 2. 创建 `store.ts` 文件，并在文件中创建 `state`、`getters`、`actions` 和 `mutations` 对象，并在 `Vuex.Store` 实例中注册它们；
 
 ```javascript
-typescriptCopy Code
+
 
 import Vuex from 'vuex';
 import { createApp } from 'vue';

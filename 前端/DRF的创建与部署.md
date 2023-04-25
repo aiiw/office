@@ -2,7 +2,7 @@
 
 好的，以下是更详细的创建 Django DRF 项目步骤：
 
-1. # 安装 Django
+# 1安装 Django
 
 确保您的机器上已安装 Python，并使用以下命令安装 Django：
 
@@ -105,10 +105,6 @@ genre属性：这个属性使用了CharField类型，但是它还指定了一个
 
 ```python
 补充：
-
-
-
-
 AutoField：自增长 ID 字段
 BigAutoField：64 位自增长 ID 字段
 BooleanField：布尔类型，True 或 False
@@ -275,10 +271,240 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-# 8查django版本
+# 8查django*版本及*DRF版本
 
 ```
+>python -V
+Python 3.8.8
+
 python -m django --version
 3.2.4
+
+pip freeze | findstr djangorestframework
+djangorestframework==3.12.4
 ```
 
+------
+
+# 9导入一些myapi的一些基本数据
+
+```python
+from myapi.models import Book
+import datetime
+
+data = [
+    {
+        "title": "红楼梦",
+        "author": "曹雪芹",
+        "description": "一部中国古典小说",
+        "genre": "NV",
+        "publish_date": datetime.date(1791, 1, 1)
+    },
+    {
+        "title": "西游记",
+        "author": "吴承恩",
+        "description": "一部神话小说",
+        "genre": "NV",
+        "publish_date": datetime.date(1592, 1, 1)
+    },
+    {
+        "title": "水浒传",
+        "author": "施耐庵",
+        "description": "一部英雄志小说",
+        "genre": "NV",
+        "publish_date": datetime.date(1368, 1, 1)
+    },
+    {
+        "title": "资治通鉴",
+        "author": "司马光",
+        "description": "一部历史著作",
+        "genre": "HI",
+        "publish_date": datetime.date(1084, 1, 1)
+    },
+    {
+        "title": "明朝那些事儿",
+        "author": "当年明月",
+        "description": "描述明朝历史事件的书籍",
+        "genre": "HI",
+        "publish_date": datetime.date(2006, 8, 1)
+    },
+    {
+        "title": "毛泽东传",
+        "author": "斯诺",
+        "description": "详细介绍毛泽东生平的传记",
+        "genre": "BG",
+        "publish_date": datetime.date(1960, 1, 1)
+    },
+    {
+        "title": "乔布斯传",
+        "author": "沃尔特·艾萨克森",
+        "description": "描写苹果公司创始人乔布斯生平的传记",
+        "genre": "BG",
+        "publish_date": datetime.date(2011, 10, 24)
+    },
+    {
+        "title": "福尔摩斯探案集",
+        "author": "阿瑟·柯南道尔",
+        "description": "一部侦探小说集",
+        "genre": "NV",
+        "publish_date": datetime.date(1892, 1, 1)
+    },
+    {
+        "title": "1984",
+        "author": "乔治·奥威尔",
+        "description": "一部反乌托邦小说",
+        "genre": "TH",
+        "publish_date": datetime.date(1949, 6, 8)
+    },
+    {
+        "title": "尘埃落定",
+        "author": "余华",
+        "description": "描写人性的惊悚小说",
+        "genre": "TH",
+        "publish_date": datetime.date(2018, 2, 1)
+    }
+]
+
+for book_data in data:
+    book = Book.objects.create(**book_data)
+    book.save()
+```
+
+------
+
+# 10 创建一个serializer来序列化模型数据
+
+```python
+from rest_framework import serializers
+from .models import Book
+
+class BookSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        fields = '__all__'
+```
+
+# 11 授权
+
+### 1 在`settings.py`文件中添加如下代码：
+
+```python
+pythonCopy CodeINSTALLED_APPS = [
+    # 其他应用
+    'rest_framework.authtoken',
+]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
+```
+
+该配置将会启用TokenAuthentication，并将其设置为默认的身份验证类。
+
+### 2 运行以下命令，在数据库中生成Token表：
+
+```python
+Copy Code
+python manage.py migrate
+```
+
+### 3 手动创建一个用户并为其生成Token：
+
+```python
+pythonCopy Code
+from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
+
+user = User.objects.create_user('username', password='password')
+token = Token.objects.create(user=user)
+print(token.key)
+```
+
+### 4在请求中添加Token：
+
+在每次请求时，需要在请求头中添加Authorization字段，值为`Token <token>`，其中`<token>`为刚才生成的token值。
+
+例如，使用curl进行GET请求：`curl -H "Authorization: Token <token>" http://localhost:8000/api/endpoint/`
+
+以上是使用DRF自带的TokenAuthentication实现DRF后台认证的基本步骤，你可以根据实际需求进行相应的修改和优化。
+
+```
+
+import requests
+
+url = 'http://127.0.0.1:9000/api/books/'
+headers = {'Authorization': 'Token 89ed43be846c72e393877b7a044dd263de9f5fe2'}
+
+response = requests.get(url, headers=headers)
+
+# 检查响应状态码
+if response.status_code == requests.codes.ok:
+    # 处理响应数据
+    data = response.json()
+    print(data)
+else:
+    print('请求失败，状态码为：', response.status_code)
+ 
+ 结果:
+ [{'id': 1, 'title': '红楼梦', 'author': '曹雪芹', 'description': '一部中国古典小说', 'genre': 'NV', 'publish_date': '1791-01-01'}, {'id': 2, 'title': '西游记', 'author': '吴承恩', 'description': '一部神话小说', 'genre': 'NV', 'publish_date': '1592-01-01'}, {'id': 3, 'title': '水浒传', 'author': '施耐庵', 'description': '一部英雄志小说', 'genre': 'NV', 'publish_date': '1368-01-01'}, {'id': 4, 'title': '资治通鉴', 'author': '司马光', 'description': '一部历史著作', 'genre': 'HI', 'publish_date': '1084-01-01'}, {'id': 5, 'title': '明朝那些事儿', 'author': '当年明月', 'description': '描述明朝历史事件的书籍', 'genre': 'HI', 'publish_date': '2006-08-01'}, {'id': 6, 'title': '毛泽东传', 'author': '斯诺', 'description': '详细介绍毛泽东生平的传记', 'genre': 'BG', 'publish_date': '1960-01-01'}, {'id': 7, 'title': '乔布斯传', 'author': '沃尔特·艾萨克森', 'description': '描写苹果公司创始人乔布斯生平的传记', 'genre': 'BG', 'publish_date': '2011-10-24'}, {'id': 8, 'title': '福尔摩斯探案集', 'author': '阿瑟·柯南道尔', 'description': '一部侦探小说集', 'genre': 'NV', 'publish_date': '1892-01-01'}, {'id': 9, 'title': '1984', 'author': '乔治·奥威尔', 'description': '一部反乌托邦小说', 'genre': 'TH', 'publish_date': '1949-06-08'}, {'id': 10, 'title': '尘埃落定', 'author': '余华', 'description': '描写人性的惊悚小说', 'genre': 'TH', 'publish_date': '2018-02-01'}, {'id': 11, 'title': '大话西游', 'author': '周星星', 'description': '讲述周星星的日子', 'genre': 'HI', 'publish_date': '2023-04-23'}, {'id': 12, 'title': '大话西游', 'author': '周星星', 'description': '讲述周星星的日子', 'genre': 'HI', 'publish_date': '2023-04-23'}, {'id': 13, 'title': '大话西游', 'author': '周星星', 'description': '122', 'genre': 'NV', 'publish_date': '2023-04-22'}]
+[Finished in 0.9s]
+```
+
+# 12附一个jwt的例子
+
+提供使用 `django-rest-framework-simplejwt` 库来实现 Token 过期功能的例子。
+
+### 1首先，你需要安装该库：
+
+```
+Copy Codepip install djangorestframework_simplejwt
+```
+
+### 2然后，在 Django 的配置文件中进行相应的配置：
+
+```
+pythonCopy CodeREST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+}
+```
+
+这段代码会让 Django REST Framework 在处理请求时使用 `JWTAuthentication` 来进行身份验证，同时设置 Access Token 的过期时间为 30 分钟，Refresh Token 的过期时间为 1 天。你可以根据自己的需求调整这些时间。
+
+### 3接下来，你需要在视图函数中使用 JWT 来生成 Token，并返回给客户端。
+
+具体来说，你可以使用 `jwt_encode_handler` 函数和 `jwt_payload_handler` 函数来生成 Token 和 Payload：
+
+```
+pythonCopy Codefrom rest_framework_simplejwt.tokens import jwt_encode_handler, jwt_payload_handler
+from django.contrib.auth.models import User
+from django.http import JsonResponse
+
+def get_token(request):
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    user = User.objects.get(username=username)
+    if user.check_password(password):
+        payload = jwt_payload_handler(user)
+        token = jwt_encode_handler(payload)
+        return JsonResponse({'token': token})
+    else:
+        return JsonResponse({'error': 'Invalid credentials'})
+```
+
+### 4最后，在 API 视图函数中使用 `JWTAuthentication` 进行身份验证即可。
+
+这个过程会自动检查 Token 是否过期，如果过期则返回错误响应。
+
+需要注意的是，`django-rest-framework-simplejwt` 库提供了许多其他有用的功能，例如支持 Refresh Token、Blacklist Token 等。你可以查阅其官方文档以获取更多信息和使用示例。

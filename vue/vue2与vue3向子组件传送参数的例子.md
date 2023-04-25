@@ -65,7 +65,7 @@ const message = "Hello from parent";
 <template>
   <div>
     <h2>{{ title }}</h2>
-    <p>{{ msg }}</p>
+    <p>{{ props.msg }}</p>
   </div>
 </template>
 
