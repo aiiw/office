@@ -1,4 +1,5 @@
 ```html
+#GRID 默认情况下，容器元素都是块级元素，但也可以设成行内元素.指的是容器,而项目是受列,行影响.在css定义了几列后,下面的html依次对应.
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,7 +79,7 @@
         由于上面的topmain为脱标,所以这里要使用margin-top 50px
         同时这里使用了flex容器,装载了两个子项目,分别为mymenu,mycontent*/
         .mybody {
-            margin-top: 50px;
+            margin-top: 52px;
             display: flex;
             /* 使用 flexbox 布局 */
             height: 100vh;
@@ -168,6 +169,9 @@
             flex: 1;
             /* 剩余空间全部分配给内容区域 */
             margin-left: 3px;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
         }
 
         /* 5 它是一个grid容器  margin: 0 auto;设置它的这个容器本身要居中.
@@ -309,7 +313,7 @@
             transform: scale(0.8);
         }
 
-        .container2 {
+        .container2_back {
             display: grid;
             /* width: 800px; */
             /* 新增此行 */
@@ -330,16 +334,26 @@
             /* 水平居中 */
         }
 
+
+        .lay2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(236, 245, 224);
+
+        }
+
+        /* 放弃使用auto-fill,因为它会自动生成一个100%的伪容器,单元格已经堆满一行了,包括未有内容的 */
         .container2 {
             display: grid;
-            grid-template-columns: repeat(auto-fill, 100px);
-            grid-template-rows: repeat(auto-fill, 100px);
-            width: 92%;
+            grid-template-columns: repeat(6, 100px);
+            /* grid-template-rows: repeat(auto-fill, 100px); */
+
 
             /* 如果希望网格容器铺满整个视口高度 */
             margin: 0 auto;
-            justify-content: center;
-            align-items: center;
+            /* justify-content: space-around;
+            align-items: center; */
             /* 垂直居中 */
             background-color: lightgrey;
 
@@ -353,9 +367,53 @@
 
         .cc2 {
             background-color: antiquewhite;
-            width: 100%;
-            height: 100%;
-            grid-row-start: auto;
+
+            line-height: 100px;
+            text-align: center;
+            transition: all 1s;
+        }
+
+        .cc2:hover {
+            cursor: pointer;
+            transform: scale(0.8);
+        }
+
+        .search {
+            margin-top: 3px;
+            border-radius: 8px;
+            border-style: groove;
+            height: 90px;
+            width: 83%;
+            margin: 3px auto;
+            /* 这个一定要指定边框的宽度 */
+            border-width: 1px;
+            border-color: rgb(236, 235, 235);
+            background-color: #fff;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        form {
+            /* margin: 0;
+            padding: 0;
+            border: none;
+            outline: none;
+            font-size: 1rem; */
+            /* 或者其他合适的值 */
+            /* height: 80px; */
+            margin: 5px;
+            background-color: coral;
+            border-radius: 5px;
+        }
+
+        .checkbox-group {
+            display: inline-block;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+
+        .checkbox-group label {
+            display: inline-block;
+        }
     </style>
 
 </head>
@@ -395,23 +453,107 @@
                     <div class="f3">f3</div>
                 </div>
                 <div class="item5 scale-down">
-                    <div class="ct">居中</div>
+                    <div class="ct"><input type="text" name="myout"></div>
                 </div>
 
             </div>
-            <div class="container2 ">
 
-                <div class="cc2">123</div>
-                <div class="cc2">123</div>
-                <div class="cc2">123</div>
-                <div class="cc2">123</div>
-                <div class="cc2">123</div>
-                <div class="cc2">123</div>
+            <div class="lay2">
+                <div class="container2 ">
+                    <div class="cc2">123</div>
+                    <div class="cc2">123</div>
+                    <div class="cc2">123</div>
+                    <div class="cc2">123</div>
+                    <div class="cc2">123</div>
+                    <div class="cc2">123</div>
 
+                </div>
+
+            </div>
+
+            <div class="search">
+                <form action="aaa">
+                    <label for="StaffIpt">员工：</label>
+                    <input type="text" name="keyword">
+                    <button type="submit" onclick="handleSubmit(event)">搜索</button>
+                    <select>
+                        <option value="option1" selected>选项1</option>
+                        <option value="option2">选项2</option>
+                        <option value="option3">选项3</option>
+                    </select>
+                    <label for="StaffIpt">密码：</label>
+                    <input type="password" name="psssword">
+                    <label for="checkeg">
+                        <div class="checkbox-group">
+                            <label>请选择你喜欢的选项:</label>
+                            <label><input type="checkbox" name="option1" value="option1">选项1</label>
+                            <label><input type="checkbox" name="option2" value="option2">选项2</label>
+                            <label><input type="checkbox" name="option3" value="option3">选项3</label>
+                            <label><input type="checkbox" name="option4" value="option4">选项4</label>
+                            <label><input type="checkbox" name="option5" value="option5">选项5</label>
+                            <button type="submit" onclick="ck1(event)">确认</button>
+                        </div>
+                    </label><br>
+                    <label for="fruits">请选择您喜欢的水果：</label>
+                    <select id="fruits" onchange="showSelectedFruit()">
+                        <option value="">请选择</option>
+                        <option value="apple">苹果</option>
+                        <option value="banana">香蕉</option>
+                        <option value="orange">橙子</option>
+                        <option value="grape">葡萄</option>
+                    </select>
+                </form>
+                <p>您选择的水果是：<span id="selectedFruit"></span></p>
             </div>
         </div>
     </div>
     <script>
+        // search 代码
+        function handleSubmit(event) {
+            event.preventDefault(); // 阻止表单提交的默认行为
+            // 在这里处理搜索的逻辑
+        }
+
+        function ck1(event) {
+
+            event.preventDefault();
+            const myout = document.querySelector('[name="myout"]')
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            //input[type="checkbox"] 是 CSS 选择器语法，
+            //用于选择 HTML 页面中所有 input 元素中 type 属性值为 "checkbox" 的元素
+            //不使用指定的元素是所有的属性:const checkboxes = document.querySelectorAll('[type="checkbox"]');
+            const selectedOptions = [];
+            checkboxes.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    selectedOptions.push(checkbox.value);
+                }
+            });
+            // checked：表示当前 checkbox 元素是否被勾选。
+            // value：表示当前 checkbox 元素的值。
+            // name：表示当前 checkbox 元素的名称。
+            console.log(`你选择了：${selectedOptions.join(', ')}`);
+            myout.value = `你选择了：${selectedOptions.join(', ')}`
+        }
+
+        function showSelectedFruit() {
+            const selectElement = document.getElementById("fruits");
+            // selectedIndex：获取或设置当前选中选项的索引。
+            // value：获取或设置当前选中选项的值。
+            // options：包含所有选项的 HTMLOptionsCollection 对象。可以通过该对象访问每个选项的值、文本、索引等。
+            // length：返回 select 元素中选项的数量。
+            const selectedValue = selectElement.value;
+            const selectedText = selectElement.options[selectElement.selectedIndex].text;
+            // options 属性返回一个 HTMLOptionsCollection 对象，它是 select 元素所有选项的集合
+            // 获取选中选项的值和文本
+            // const selectedValue = options[mySelect.selectedIndex].value;
+            // const selectedText = options[mySelect.selectedIndex].text;
+            const selectedFruitElement = document.getElementById("selectedFruit");
+            selectedFruitElement.innerHTML = `${selectedText} (${selectedValue})`;
+        }
+        // search 代码
+
+
+
         const menu = document.querySelector('.mymenu');
         const toggleBtn = document.getElementById('toggle-menu');
 
