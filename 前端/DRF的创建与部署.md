@@ -540,3 +540,20 @@ path('setuser/', include(router.urls)),
 - `PATCH /setuser/users/{pk}/`
 - `DELETE /setuser/users/{pk}/`
 
+# 14一个大坑
+
+如果使用 Postman 的 x-www-form-urlencoded 格式进行 POST 请求可以成功，而使用 JSON 格式时不行，那么很可能是后端代码不能正确地解析 JSON 数据。
+
+根据您提供的 Django 后端代码中的 *<h5>request.POST.get() 方法，它只能解析 x-www-form-urlencoded 格式的数据，而无法处理 JSON 格式的数据*<h5/>。因此，当您在请求正文中传递了一个 JSON 对象时，Django 会无法通过 request.POST.get() 方法获取您想要的数据。
+
+您需要使用以下两行代码来获取 POST 请求中的 JSON 数据：
+
+```
+复制代码json_data = json.loads(request.body)
+username = json_data.get('username', '')
+password = json_data.get('password', '')
+```
+
+这里，我们首先使用 json.loads() 函数将请求正文中的 JSON 数据转换为 Python 中的字典类型，然后通过 get() 方法来获取其中的 username 和 password 属性值。
+
+请尝试修改您的后端代码，并使用 Postman 发送 JSON 格式的 POST 请求，看是否能够成功接收并解析 JSON 数据。
