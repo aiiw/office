@@ -508,3 +508,35 @@ def get_token(request):
 这个过程会自动检查 Token 是否过期，如果过期则返回错误响应。
 
 需要注意的是，`django-rest-framework-simplejwt` 库提供了许多其他有用的功能，例如支持 Refresh Token、Blacklist Token 等。你可以查阅其官方文档以获取更多信息和使用示例。
+
+
+
+# 13附一个路由
+
+帮我列列，这样的代码最终生成的路由：
+
+router.register(r'users', UserViewSet)    
+
+path('setuser/', include(router.urls)),
+
+使用 `router.register(r'users', UserViewSet)` 后，`UserViewSet` 中默认提供了以下 URL：
+
+- `GET /users/`：获取所有用户的列表
+- `POST /users/`：创建一个新用户
+
+以及以下单个用户 URL：
+
+- `GET /users/{pk}/`：获取特定用户信息
+- `PUT /users/{pk}/`：更新特定用户信息
+- `PATCH /users/{pk}/`：更新特定用户信息（部分更新）
+- `DELETE /users/{pk}/`：删除特定用户
+
+这些 URL 将由 Django REST framework 的路由器自动生成，并附加到 `/setuser/` 路径上。具体来说，它们是：
+
+- `GET /setuser/users/`
+- `POST /setuser/users/`
+- `GET /setuser/users/{pk}/`
+- `PUT /setuser/users/{pk}/`
+- `PATCH /setuser/users/{pk}/`
+- `DELETE /setuser/users/{pk}/`
+
