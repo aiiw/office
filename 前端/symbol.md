@@ -14,10 +14,18 @@ myAppData.data2 = 'more data';
 
 在这个例子中，如果多个模块都试图往`myAppData`对象中添加属性，那么就有可能出现属性名冲突，导致数据被覆盖或者丢失。
 
+
+
+
+
+
+
 为了避免这种情况，我们可以使用Symbol作为属性名，确保每个属性名的唯一性，例如：
 
 ```
-javascript复制代码const myAppData = {};
+javascript复制代码
+
+const myAppData = {};
 
 // 模块1存储数据
 const dataKey1 = Symbol('data1');
