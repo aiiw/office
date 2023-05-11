@@ -36,7 +36,7 @@ console.log(q);
 
 //4 将fn 的条件结果使用 a数组记录
 
-//5 返回条件结果成立的第一个index<canvas width="1512" height="2138" id="original-creader-canvas-1" class="creader-canvas" style="width: 945px; height: 1336.45px;"></canvas>
+//5 返回条件结果成立的第一个index
 
 
 
