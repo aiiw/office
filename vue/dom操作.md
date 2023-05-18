@@ -5,7 +5,7 @@
 ```
 htmlCopy Code<template>
   <div>
-    <p ref="message">Hello, World!</p>
+    <p ref="message" qq="">Hello, World!</p>
     <button @click="changeMessage">Change message</button>
   </div>
 </template>
@@ -28,3 +28,26 @@ export default {
 在这个例子中，我们使用 `ref` 创建了对 `<p>` 标签的引用，并将其赋值给名为 `message` 的响应式变量。在 `changeMessage` 函数中，我们可以通过 `message.value` 访问该 DOM 元素，并修改其内容。当 `changeMessage` 被触发时，按钮文本将会改变为 "New message"。
 
 需要注意的是，在 Vue 3 中，你不能直接访问 DOM 元素。必须通过 `ref` 或 `reactive` 创建一个响应式变量，然后使用这个变量来操作 DOM 元素。
+
+```
+<template>
+  <el-badge :content="message" class="item" ref="myBadge" abc='1'>
+    <el-button @click="handleClick">comments</el-button>
+  </el-badge>
+</template>
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+
+const myBadge = ref(null)
+const message = ref('a')
+
+function handleClick() {
+  const badgeElement = myBadge.value.$el
+  if (badgeElement) {
+    console.log(badgeElement)
+  }
+}
+</script>
+```
+
