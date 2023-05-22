@@ -12,4 +12,4 @@
 
 
 
-![image-20230522113847197](C:/Users/11608/AppData/Roaming/Typora/typora-user-images/image-20230522113847197.png)
+![image-20230522113847197](https://gitee.com/aiiw/images/raw/master/img/image-20230522113847197.png)
