@@ -18,3 +18,27 @@
 是的，@Autowired注解的作用是自动装配依赖，意味着在Spring容器中查找匹配类型的bean。这个可以查到的前提，是不是需要注册为spring的组件才能被查到
 
 是的，只有被注册为Spring组件的bean才能被`@Autowired`注解自动装配。具体来说，这些bean需要使用Spring容器进行管理，可以通过在类上添加`@Component`、`@Service`、`@Repository`或`@Controller`等注解将其标记为Spring组件，也可以通过在配置文件中显式地声明bean来注册它们。只有这样，Spring才能够识别和管理这些bean，并提供自动装配功能。否则，即使存在符合条件的bean，它们也无法被自动装配。
+
+
+
+| 注解                     | 说明                                                         |
+| ------------------------ | ------------------------------------------------------------ |
+| `@RestController`        | 带有该注解的类会被 Spring Boot 解析为 RESTful Web 服务，可以通过 HTTP 请求访问。 |
+| `@RequestMapping`        | 处理请求地址映射的注解，可以设置 URL 映射路径、HTTP 请求方法等属性。 |
+| `@GetMapping`            | 用于处理 HTTP GET 请求的注解。                               |
+| `@PostMapping`           | 用于处理 HTTP POST 请求的注解。                              |
+| `@PutMapping`            | 用于处理 HTTP PUT 请求的注解。                               |
+| `@DeleteMapping`         | 用于处理 HTTP DELETE 请求的注解。                            |
+| `@RequestBody`           | 用于获取 HTTP 请求正文中的参数值。                           |
+| `@RequestParam`          | 用于获取 URL 中的参数值。                                    |
+| `@PathVariable`          | 用于获取 URL 中的变量值。                                    |
+| `@Autowired`             | 自动装配 Bean 对象，相当于 XML 配置文件中的 `<bean>` 标签。  |
+| `@Component`             | 将当前类标识为一个组件，交由 Spring 管理。                   |
+| `@Repository`            | 将 DAO 层对象标识为一个 Spring Bean 组件。                   |
+| `@Service`               | 将业务逻辑层对象标识为一个 Spring Bean 组件。                |
+| `@Controller`            | 将控制器层对象标识为一个 Spring Bean 组件。                  |
+| `@Configuration`         | 表示该类是一个配置类，相当于 XML 配置文件。                  |
+| `@Bean`                  | 将方法返回的对象注册为一个 Bean 组件，交由 Spring 管理。     |
+| `@Value`                 | 可以用来获取配置文件中的属性值。                             |
+| `@ConditionalOnProperty` | 可以根据指定的配置项进行条件判断。                           |
+| `@SpringBootApplication` | 一个复合注解，包含了 `@Configuration`、`@ComponentScan` 和 `@EnableAutoConfiguration` 注解，表示当前类是一个 Spring Boot 应用的主配置类。 |
