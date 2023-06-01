@@ -117,3 +117,31 @@ element_located_selection_state_to_be：跟上面的方法作用一样，只是�
 alert_is_present：判断页面上是否存在alert
 ```
 
+是的，`By.CSS_SELECTOR` 定位器可以根据 CSS 选择器定位元素，其语法与 JavaScript 中的 `querySelector()` 方法非常相似。
+
+使用 `By.CSS_SELECTOR` 定位器，您可以使用大多数标准的 CSS 选择器来定位元素。例如：
+
+- 标签名：使用标签名来定位元素。例如：`"div"`。
+- 类名：使用类名来定位元素。例如：`".my-class"`。
+- ID：使用元素的 ID 来定位元素。例如：`"#my-id"`。
+- 属性：使用元素的属性来定位元素。例如：`"[name='my-name']"`。
+- 运算符：使用运算符（如“>”、“+”、“~”）来定位元素。例如：`"ul > li"`。
+
+以下是一个示例代码，展示了如何使用 `By.CSS_SELECTOR` 定位器来查找具有特定 class 名称的所有元素：
+
+```
+pythonCopy Code# 导入selenium库
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+# 创建一个Chrome浏览器实例
+driver = webdriver.Chrome()
+
+# 打开网页
+driver.get("https://example.com")
+
+# 使用CSS选择器定位所有class为"my-class"的元素
+my_elements = driver.find_elements(By.CSS_SELECTOR, ".my-class")
+```
+
+在上面的代码中，我们将第一个参数设置为`By.CSS_SELECTOR`，并将第二个参数设置为`".my-class"`，该字符串表示具有类名为 "my-class" 的所有元素。我们使用`find_elements()`方法（注意是复数形式）返回所有匹配的元素并将它们存储在`my_elements`变量中。
