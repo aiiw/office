@@ -44,7 +44,9 @@ MyBean myBean = (MyBean) container.getBean("myBean");
 首先，我们需要在配置文件中定义所需的 Bean，例如：
 
 ```
-Copy Code<bean id="myBean" class="com.example.MyBean">
+Copy Code
+
+<bean id="myBean" class="com.example.MyBean">
     <property name="name" value="myBean"/>
 </bean>
 ```
