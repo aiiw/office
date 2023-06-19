@@ -74,3 +74,11 @@ Copy Codepublic class Person implements Serializable {
    ```
 
 总之，使用JavaBean的过程就是实例化该类并通过getter和setter方法来访问和修改其属性值。如果您想将该对象序列化到文件或网络中，可以使用Java内置的序列化机制或其他流式传输协议（例如JSON或XML）将对象编码为字节流，并在需要时解码。
+
+
+
+
+
+
+
+![image-20230608092721529](https://gitee.com/aiiw/images/raw/master/img/image-20230608092721529.png)
