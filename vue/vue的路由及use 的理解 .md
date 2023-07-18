@@ -20,8 +20,10 @@
 
 以下是一个示例，演示了如何创建Vue Router实例，并将其注册为全局路由实例：
 
-```
-jsCopy Code// router.js
+```vue
+jsCopy Code
+
+// router.js
 
 import { createRouter, createWebHistory } from 'vue-router'
 import routes from './routes'

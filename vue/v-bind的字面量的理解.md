@@ -68,7 +68,7 @@ Copy Code<el-col :span="columnWidth"></el-col>
 
 2023/5/18 08:59:44
 
-如果获取组件的属性
+## 如果获取组件的属性
 
 
 
@@ -85,7 +85,8 @@ Copy Code<el-col ref="myCol" :span="columnWidth"></el-col>
 我们可以使用 `$refs` 对象来获取组件实例，并通过 `$attrs` 属性来访问组件的属性值，如下所示：
 
 ```
-Copy Codethis.$refs.myCol.$attrs.span
+Copy Code
+this.$refs.myCol.$attrs.span
 ```
 
 这里，`$refs` 对象是 Vue 实例的一个属性，它包含了所有已注册的子组件和 DOM 元素，可以通过 `ref` 特性在模板中给组件或元素添加标识符。在上面的代码中，我们使用了 `ref` 特性将 `<el-col>` 组件的引用标识为 `myCol`，然后在 JavaScript 中使用 `$refs` 对象来获取该组件的实例。

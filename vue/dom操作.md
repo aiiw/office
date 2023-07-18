@@ -2,8 +2,9 @@
 
 要选择 DOM 元素并操作它们，你可以使用 `ref` 来创建对 DOM 元素的引用。这个引用可以被传递给组件或者其他函数，以便于访问和操作相关的 DOM 元素。例如：
 
-```
-htmlCopy Code<template>
+```vue
+htmlCopy Code
+<template>
   <div>
     <p ref="message" qq="">Hello, World!</p>
     <button @click="changeMessage">Change message</button>
@@ -29,7 +30,7 @@ export default {
 
 需要注意的是，在 Vue 3 中，你不能直接访问 DOM 元素。必须通过 `ref` 或 `reactive` 创建一个响应式变量，然后使用这个变量来操作 DOM 元素。
 
-```
+```vue
 <template>
   <el-badge :content="message" class="item" ref="myBadge" abc='1'>
     <el-button @click="handleClick">comments</el-button>
