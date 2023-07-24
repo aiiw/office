@@ -171,16 +171,18 @@ transform: translateX(-50%);
 
 1. 标准流
 
-```
-Copy Code.container {
+```css
+Copy Code
+.container {
   text-align: center;
 }
 ```
 
 1. 浮动
 
-```
-Copy Code.container {
+```css
+Copy Code
+.container {
   height: 300px;
   text-align: center;
 }
@@ -198,8 +200,9 @@ Copy Code.container {
 
 1. 定位
 
-```
-Copy Code.container {
+```css
+Copy Code
+.container {
   position: relative;
 }
 
@@ -213,7 +216,7 @@ Copy Code.container {
 
 1. 弹性布局
 
-```
+```css
 Copy Code.container {
   display: flex;
   justify-content: center;
@@ -223,15 +226,16 @@ Copy Code.container {
 
 1. 渐变
 
-```
-Copy Code.container {
+```css
+Copy Code
+.container {
   background-image: linear-gradient(to bottom right, #FF0080, #FF8C00);
 }
 ```
 
 希望这些代码能够对您有所帮助！
 
-```
+```css
 "transform" 和 "left" 都是 CSS 中用于控制元素位置的属性，但它们之间有一些根本性的区别。
 
 首先，"left" 是相对定位（position: relative）下的属性。它指定元素左边缘与其包含块的左边缘之间的距离。因此，当元素的位置发生改变时，它所占据的空间不会受到影响，而且周围的元素也不会受到影响。
@@ -243,7 +247,7 @@ Copy Code.container {
 总之，"left" 和 "transform" 虽然都可以用于控制元素位置，但它们基于的机制和使用方式有很大的不同。开发者需要根据具体需求选择合适的属性，以实现自己想要的布局效果。
 ```
 
-```
+```css
 transform: translate() 是 CSS3 中的一个变换属性，它用来移动元素。与 translate 搭配使用的是 transform 属性。
 
 当我们需要对一个元素进行平移操作时，必须将 translate 函数作为 transform 属性值来进行设置。比如：
