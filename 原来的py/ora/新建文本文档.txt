@@ -1,0 +1,3 @@
+for bb in range(1,10):
+  if bb=='1':
+  	break

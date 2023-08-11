@@ -1,0 +1,1937 @@
+D:\py\1
+D:\py\1.html
+D:\py\1.log
+D:\py\1.txt
+D:\py\1.xml
+D:\py\202111151624.log
+D:\py\202111151625.log
+D:\py\30个常用.py
+D:\py\a.txt
+D:\py\a.xml.swap
+D:\py\a1.txt
+D:\py\a2.txt
+D:\py\b.xml
+D:\py\c.txt
+D:\py\call_hrm.py
+D:\py\call_login.py
+D:\py\call_login.spec
+D:\py\cd.txt
+D:\py\check_pc_ping.kjb
+D:\py\code.png
+D:\py\Collections1.py
+D:\py\del_qy_user.py
+D:\py\excel1.py
+D:\py\generator.py
+D:\py\getmusic.py
+D:\py\getmusic.spec
+D:\py\getwebxml01.py
+D:\py\getwxemp.py
+D:\py\git01.txt
+D:\py\ip.txt
+D:\py\json_file
+D:\py\kqak.py
+D:\py\kqfstask.py
+D:\py\kqfstask.spec
+D:\py\kqfx.py
+D:\py\kqfx.spec
+D:\py\kqfxtask.py
+D:\py\kqfxtask.spec
+D:\py\lagou.txt
+D:\py\list.txt
+D:\py\log01.log
+D:\py\login.py
+D:\py\login.ui
+D:\py\mssql(还编码问题).py
+D:\py\myclass1.py
+D:\py\myclass2.py
+D:\py\myclass3.py
+D:\py\myclent.py
+D:\py\myclent1.py
+D:\py\mydedis01.py
+D:\py\myfastapi.py
+D:\py\mylogging.py
+D:\py\mymap.py
+D:\py\mypyqt5.py
+D:\py\myqt.spec
+D:\py\myredis01.py
+D:\py\myredis02.py
+D:\py\mythreading.py
+D:\py\myzip.py
+D:\py\none.py
+D:\py\none1.py
+D:\py\none2.py
+D:\py\numpy1.py
+D:\py\openpyxl1.py
+D:\py\opos.py
+D:\py\opos.spec
+D:\py\opxml.py
+D:\py\op_xml.py
+D:\py\op_xml1.py
+D:\py\op_xml2.py
+D:\py\oswalk.py
+D:\py\out.log
+D:\py\out1.log
+D:\py\output.xml
+D:\py\pc3.py
+D:\py\pc4.py
+D:\py\pcbili.py
+D:\py\pchrm.py
+D:\py\pchrm1.py
+D:\py\pchrm1.spec
+D:\py\pchrm2.py
+D:\py\pchrm2.spec
+D:\py\pcoa.py
+D:\py\pcoa1.py
+D:\py\pcoa2.py
+D:\py\pcoa_绑定微信账号.py
+D:\py\pcoa基础测试.py
+D:\py\pc人资.py
+D:\py\pc早报.py
+D:\py\pc质量反馈表.py
+D:\py\ping_check.py
+D:\py\pymssql.cp37-win_amd64.pyd
+D:\py\pymssql.cp38-win_amd64.pyd
+D:\py\pyopenpyxl.py
+D:\py\qiyewx.py
+D:\py\QR.png
+D:\py\qt1.py
+D:\py\queue2.py
+D:\py\queue3.py
+D:\py\range例子.py
+D:\py\readexcel-ds.py
+D:\py\readexcel.py
+D:\py\readme.md
+D:\py\remonth.py
+D:\py\request_xml.py
+D:\py\sendmail.py
+D:\py\sendoa.py
+D:\py\sendoa1.py
+D:\py\Sub 刷新数据().vba
+D:\py\t100脚本.py
+D:\py\tdoa02.ktr
+D:\py\test.json
+D:\py\test.png
+D:\py\test.py
+D:\py\test.spec
+D:\py\test.xml
+D:\py\test1.py
+D:\py\test123.py
+D:\py\test2.py
+D:\py\test5.py
+D:\py\test6.py
+D:\py\test6.spec
+D:\py\test7.py
+D:\py\testqueue.py
+D:\py\tpymssql.spec
+D:\py\vscodetest.py
+D:\py\vscode_js.html
+D:\py\vv.html
+D:\py\walkpath.py
+D:\py\walkpath.spec
+D:\py\webserver01.py
+D:\py\ws01.py
+D:\py\ws1.py
+D:\py\xml01.xml
+D:\py\xml_to_json.json
+D:\py\xml_to_json.py
+D:\py\xx.xml
+D:\py\yougetbili.py
+D:\py\zk_getaccesstocken.py
+D:\py\_mssql.cp37-win_amd64.pyd
+D:\py\_mssql.cp38-win_amd64.pyd
+D:\py\上下文.py
+D:\py\二叉树.py
+D:\py\人资补卡-批量3.py
+D:\py\人资补卡.py
+D:\py\人资补卡_批量.py
+D:\py\人资补卡_批量2.py
+D:\py\压缩office日记.py
+D:\py\哈希.py
+D:\py\字符串切片器.py
+D:\py\字符编码.py
+D:\py\字符编码２.py
+D:\py\定时任务.py
+D:\py\定时抓取重复卡号数据.py
+D:\py\对比工资excel.py
+D:\py\常用的excel操作.py
+D:\py\序列化.py
+D:\py\手工同步考勤到新系统.py
+D:\py\文件操作.py
+D:\py\日期专栏.py
+D:\py\杀死进程.py
+D:\py\正则.py
+D:\py\生成器调试.py
+D:\py\目录操作.py
+D:\py\线程一.py
+D:\py\线程二.py
+D:\py\线程加队列.py
+D:\py\线程加队列．py
+D:\py\线程加队列１.py
+D:\py\脚本参数.py
+D:\py\获取sql字段头.py
+D:\py\装饰器.py
+D:\py\装饰器模板.py
+D:\py\解决验证码.py
+D:\py\读取员工excel.py
+D:\py\重命名.py
+D:\py\验证码.py
+D:\py\验证码图片.py
+D:\py\验证码１.py
+  D:\py\.git
+  D:\py\.idea
+  D:\py\.vscode
+  D:\py\123
+  D:\py\bs4a
+  D:\py\connector
+  D:\py\dist
+  D:\py\dj
+  D:\py\excel
+  D:\py\img
+  D:\py\mypy
+  D:\py\mysql
+  D:\py\ora
+  D:\py\p123
+  D:\py\pcoa
+  D:\py\ping_log
+  D:\py\pyemail
+  D:\py\pymssql-2.1.5-py3.7.egg-info
+  D:\py\pymssql-2.1.5.dist-info
+  D:\py\re1
+  D:\py\sendoa
+  D:\py\simplejson
+  D:\py\__pycache__
+  D:\py\三字经-open例子
+D:\py\.git\COMMIT_EDITMSG
+D:\py\.git\config
+D:\py\.git\description
+D:\py\.git\FETCH_HEAD
+D:\py\.git\HEAD
+D:\py\.git\index
+  D:\py\.git\hooks
+  D:\py\.git\info
+  D:\py\.git\logs
+  D:\py\.git\objects
+  D:\py\.git\refs
+D:\py\.git\hooks\applypatch-msg.sample
+D:\py\.git\hooks\commit-msg.sample
+D:\py\.git\hooks\post-update.sample
+D:\py\.git\hooks\pre-applypatch.sample
+D:\py\.git\hooks\pre-commit.sample
+D:\py\.git\hooks\pre-push.sample
+D:\py\.git\hooks\pre-rebase.sample
+D:\py\.git\hooks\prepare-commit-msg.sample
+D:\py\.git\hooks\update.sample
+D:\py\.git\info\exclude
+D:\py\.git\logs\HEAD
+  D:\py\.git\logs\refs
+  D:\py\.git\logs\refs\heads
+  D:\py\.git\logs\refs\remotes
+D:\py\.git\logs\refs\heads\main
+  D:\py\.git\logs\refs\remotes\origin
+D:\py\.git\logs\refs\remotes\origin\main
+D:\py\.git\logs\refs\remotes\origin\newbranch
+  D:\py\.git\objects\00
+  D:\py\.git\objects\01
+  D:\py\.git\objects\02
+  D:\py\.git\objects\03
+  D:\py\.git\objects\04
+  D:\py\.git\objects\05
+  D:\py\.git\objects\06
+  D:\py\.git\objects\07
+  D:\py\.git\objects\08
+  D:\py\.git\objects\09
+  D:\py\.git\objects\0a
+  D:\py\.git\objects\0c
+  D:\py\.git\objects\0d
+  D:\py\.git\objects\0e
+  D:\py\.git\objects\0f
+  D:\py\.git\objects\10
+  D:\py\.git\objects\11
+  D:\py\.git\objects\12
+  D:\py\.git\objects\13
+  D:\py\.git\objects\14
+  D:\py\.git\objects\15
+  D:\py\.git\objects\16
+  D:\py\.git\objects\17
+  D:\py\.git\objects\18
+  D:\py\.git\objects\19
+  D:\py\.git\objects\1a
+  D:\py\.git\objects\1b
+  D:\py\.git\objects\1c
+  D:\py\.git\objects\1d
+  D:\py\.git\objects\1e
+  D:\py\.git\objects\1f
+  D:\py\.git\objects\20
+  D:\py\.git\objects\21
+  D:\py\.git\objects\22
+  D:\py\.git\objects\23
+  D:\py\.git\objects\24
+  D:\py\.git\objects\25
+  D:\py\.git\objects\26
+  D:\py\.git\objects\27
+  D:\py\.git\objects\28
+  D:\py\.git\objects\29
+  D:\py\.git\objects\2a
+  D:\py\.git\objects\2b
+  D:\py\.git\objects\2c
+  D:\py\.git\objects\2d
+  D:\py\.git\objects\2e
+  D:\py\.git\objects\30
+  D:\py\.git\objects\31
+  D:\py\.git\objects\32
+  D:\py\.git\objects\33
+  D:\py\.git\objects\34
+  D:\py\.git\objects\35
+  D:\py\.git\objects\36
+  D:\py\.git\objects\37
+  D:\py\.git\objects\38
+  D:\py\.git\objects\39
+  D:\py\.git\objects\3a
+  D:\py\.git\objects\3d
+  D:\py\.git\objects\3e
+  D:\py\.git\objects\3f
+  D:\py\.git\objects\40
+  D:\py\.git\objects\41
+  D:\py\.git\objects\42
+  D:\py\.git\objects\43
+  D:\py\.git\objects\44
+  D:\py\.git\objects\45
+  D:\py\.git\objects\46
+  D:\py\.git\objects\47
+  D:\py\.git\objects\48
+  D:\py\.git\objects\49
+  D:\py\.git\objects\4a
+  D:\py\.git\objects\4b
+  D:\py\.git\objects\4d
+  D:\py\.git\objects\4e
+  D:\py\.git\objects\4f
+  D:\py\.git\objects\50
+  D:\py\.git\objects\51
+  D:\py\.git\objects\52
+  D:\py\.git\objects\53
+  D:\py\.git\objects\54
+  D:\py\.git\objects\55
+  D:\py\.git\objects\56
+  D:\py\.git\objects\57
+  D:\py\.git\objects\58
+  D:\py\.git\objects\59
+  D:\py\.git\objects\5a
+  D:\py\.git\objects\5b
+  D:\py\.git\objects\5c
+  D:\py\.git\objects\5d
+  D:\py\.git\objects\5e
+  D:\py\.git\objects\5f
+  D:\py\.git\objects\60
+  D:\py\.git\objects\61
+  D:\py\.git\objects\62
+  D:\py\.git\objects\63
+  D:\py\.git\objects\64
+  D:\py\.git\objects\65
+  D:\py\.git\objects\66
+  D:\py\.git\objects\67
+  D:\py\.git\objects\68
+  D:\py\.git\objects\69
+  D:\py\.git\objects\6a
+  D:\py\.git\objects\6b
+  D:\py\.git\objects\6c
+  D:\py\.git\objects\6d
+  D:\py\.git\objects\6e
+  D:\py\.git\objects\6f
+  D:\py\.git\objects\70
+  D:\py\.git\objects\71
+  D:\py\.git\objects\72
+  D:\py\.git\objects\74
+  D:\py\.git\objects\75
+  D:\py\.git\objects\76
+  D:\py\.git\objects\77
+  D:\py\.git\objects\78
+  D:\py\.git\objects\79
+  D:\py\.git\objects\7a
+  D:\py\.git\objects\7b
+  D:\py\.git\objects\7c
+  D:\py\.git\objects\7d
+  D:\py\.git\objects\7e
+  D:\py\.git\objects\7f
+  D:\py\.git\objects\81
+  D:\py\.git\objects\82
+  D:\py\.git\objects\83
+  D:\py\.git\objects\85
+  D:\py\.git\objects\86
+  D:\py\.git\objects\87
+  D:\py\.git\objects\88
+  D:\py\.git\objects\89
+  D:\py\.git\objects\8a
+  D:\py\.git\objects\8b
+  D:\py\.git\objects\8c
+  D:\py\.git\objects\8d
+  D:\py\.git\objects\8e
+  D:\py\.git\objects\8f
+  D:\py\.git\objects\90
+  D:\py\.git\objects\91
+  D:\py\.git\objects\92
+  D:\py\.git\objects\93
+  D:\py\.git\objects\94
+  D:\py\.git\objects\95
+  D:\py\.git\objects\96
+  D:\py\.git\objects\97
+  D:\py\.git\objects\98
+  D:\py\.git\objects\99
+  D:\py\.git\objects\9a
+  D:\py\.git\objects\9b
+  D:\py\.git\objects\9c
+  D:\py\.git\objects\9d
+  D:\py\.git\objects\9e
+  D:\py\.git\objects\9f
+  D:\py\.git\objects\a0
+  D:\py\.git\objects\a1
+  D:\py\.git\objects\a2
+  D:\py\.git\objects\a3
+  D:\py\.git\objects\a4
+  D:\py\.git\objects\a5
+  D:\py\.git\objects\a6
+  D:\py\.git\objects\a9
+  D:\py\.git\objects\aa
+  D:\py\.git\objects\ab
+  D:\py\.git\objects\ac
+  D:\py\.git\objects\ad
+  D:\py\.git\objects\ae
+  D:\py\.git\objects\af
+  D:\py\.git\objects\b0
+  D:\py\.git\objects\b1
+  D:\py\.git\objects\b2
+  D:\py\.git\objects\b3
+  D:\py\.git\objects\b4
+  D:\py\.git\objects\b5
+  D:\py\.git\objects\b6
+  D:\py\.git\objects\b7
+  D:\py\.git\objects\b8
+  D:\py\.git\objects\b9
+  D:\py\.git\objects\ba
+  D:\py\.git\objects\bb
+  D:\py\.git\objects\bc
+  D:\py\.git\objects\bd
+  D:\py\.git\objects\be
+  D:\py\.git\objects\bf
+  D:\py\.git\objects\c0
+  D:\py\.git\objects\c1
+  D:\py\.git\objects\c2
+  D:\py\.git\objects\c3
+  D:\py\.git\objects\c4
+  D:\py\.git\objects\c5
+  D:\py\.git\objects\c6
+  D:\py\.git\objects\c7
+  D:\py\.git\objects\c8
+  D:\py\.git\objects\c9
+  D:\py\.git\objects\ca
+  D:\py\.git\objects\cb
+  D:\py\.git\objects\cc
+  D:\py\.git\objects\cd
+  D:\py\.git\objects\ce
+  D:\py\.git\objects\cf
+  D:\py\.git\objects\d1
+  D:\py\.git\objects\d2
+  D:\py\.git\objects\d3
+  D:\py\.git\objects\d4
+  D:\py\.git\objects\d5
+  D:\py\.git\objects\d6
+  D:\py\.git\objects\d7
+  D:\py\.git\objects\d8
+  D:\py\.git\objects\d9
+  D:\py\.git\objects\da
+  D:\py\.git\objects\db
+  D:\py\.git\objects\dc
+  D:\py\.git\objects\de
+  D:\py\.git\objects\df
+  D:\py\.git\objects\e0
+  D:\py\.git\objects\e1
+  D:\py\.git\objects\e2
+  D:\py\.git\objects\e3
+  D:\py\.git\objects\e4
+  D:\py\.git\objects\e5
+  D:\py\.git\objects\e6
+  D:\py\.git\objects\e7
+  D:\py\.git\objects\e8
+  D:\py\.git\objects\e9
+  D:\py\.git\objects\ea
+  D:\py\.git\objects\eb
+  D:\py\.git\objects\ec
+  D:\py\.git\objects\ed
+  D:\py\.git\objects\ee
+  D:\py\.git\objects\ef
+  D:\py\.git\objects\f0
+  D:\py\.git\objects\f1
+  D:\py\.git\objects\f2
+  D:\py\.git\objects\f4
+  D:\py\.git\objects\f5
+  D:\py\.git\objects\f6
+  D:\py\.git\objects\f7
+  D:\py\.git\objects\f8
+  D:\py\.git\objects\f9
+  D:\py\.git\objects\fa
+  D:\py\.git\objects\fb
+  D:\py\.git\objects\fc
+  D:\py\.git\objects\fd
+  D:\py\.git\objects\fe
+  D:\py\.git\objects\ff
+  D:\py\.git\objects\info
+  D:\py\.git\objects\pack
+D:\py\.git\objects\00\0e1528cabd24e55eca2c1f3aa0a616bd39705c
+D:\py\.git\objects\00\3b598cc6189bd3e351c016672bc67b33dd4898
+D:\py\.git\objects\01\29a9b282789a058567219bde205ef1743518f1
+D:\py\.git\objects\01\2d251ddd69f3867b3d67493cf592bb7a78ba83
+D:\py\.git\objects\02\b02671c421c442c988ef73218a25b1315f1867
+D:\py\.git\objects\02\fa976927b5e93c1023aaa732c0f99de7f8a483
+D:\py\.git\objects\03\be392f710b55a390861fcdea604045e23aaf4b
+D:\py\.git\objects\03\f5b61045f15c4486950b6137d877fe26bd969a
+D:\py\.git\objects\04\3466c17b27442b5c2c2e48e8b1e3588b9d6165
+D:\py\.git\objects\04\b426d499213ea7c4b9fe9d76b9927ef9385c8e
+D:\py\.git\objects\05\9035bd63c786fb479f6adaac65723a91086504
+D:\py\.git\objects\05\d59e18338aca57c64bf50f1772a119d463b7b1
+D:\py\.git\objects\06\0519393a23c1b5747c228d2f3cc4875af63896
+D:\py\.git\objects\06\152c9fed8961ea3b55c6da29bc2cc1036b12ec
+D:\py\.git\objects\06\2e8e2c181f02f866e443295d7613b4506e19fe
+D:\py\.git\objects\06\af26a47d03a287e53ea78fd63b132872ab93d4
+D:\py\.git\objects\07\91db0fce32b5fa8d4264901f5b5deda762d2a7
+D:\py\.git\objects\07\f4955ef2fb19a55e385f39aaaf2e82a9504880
+D:\py\.git\objects\08\1cbd9efe6f264b4d1e2aca367fb72700747915
+D:\py\.git\objects\08\a6eb82adf261b962f9a9c38d206f5b5be5fd30
+D:\py\.git\objects\09\051c13e15148464c124b8660b79c4ec6691eee
+D:\py\.git\objects\09\225d929e71aa5277a1b936b030bc1b8b015638
+D:\py\.git\objects\09\37148873779513d7c925e617e3f4adc6ed3622
+D:\py\.git\objects\09\6da6d7b469c710e19bc597609e016fcf1cc406
+D:\py\.git\objects\09\add67d283dfddda305c9b08234801750214e16
+D:\py\.git\objects\09\ebf243ca826a7065f7941b121f701bf1446ed4
+D:\py\.git\objects\0a\4fa03f0c536157a1f56d3ef3ebc4cd02dec99a
+D:\py\.git\objects\0c\7b1a6c444abcb041ddbc1c56e055144a695fb7
+D:\py\.git\objects\0c\7d4192851f49e6079ceb7dff7a4c3a172ed04b
+D:\py\.git\objects\0c\815d9b664379c7e77acbebb5495bc6fb5146e1
+D:\py\.git\objects\0c\bf8447783a548be6cd52d8d4854459525c4cca
+D:\py\.git\objects\0c\e9cfb922d1003de1ea2d1f39260c73e371014d
+D:\py\.git\objects\0d\33f8e5b21a5118174c25979d349ff30e69e721
+D:\py\.git\objects\0e\9caf65f9811ea3d655af2dff045ddbddbf9124
+D:\py\.git\objects\0e\e4e0107fdb9365b952eb33b9178fd98a271b42
+D:\py\.git\objects\0f\383e296d7ff0daa37342354f179f0fd3b9e54d
+D:\py\.git\objects\10\0b529e1fa97221f184dac805d98bfca925fc69
+D:\py\.git\objects\10\4a983227532a569afb630d19906cc38f9f0240
+D:\py\.git\objects\11\e7055e6f7aaff8ae7140067fb19203df6c6084
+D:\py\.git\objects\12\62b4800eca823af2db28e483ccf2b6b009d31e
+D:\py\.git\objects\12\7750db4ad25609167a57bd4a3ceda466783358
+D:\py\.git\objects\13\9542d46078a966a87fb3c5faf793b81063a264
+D:\py\.git\objects\13\b6b0bcebe6f2331bd4285114a8df8b16e0d830
+D:\py\.git\objects\13\c04adcac6c9263e57859e6170f4efa895bd400
+D:\py\.git\objects\14\08fe02268a56389d67425f6bbacea2bf7f0e3f
+D:\py\.git\objects\14\2c8cc3f15bc826e95840a409879d4b93bffa4c
+D:\py\.git\objects\14\7cee386974af55a1e2fd073adfbaa550050201
+D:\py\.git\objects\14\d1dfcd1c597cb74858191877d11387686dc69f
+D:\py\.git\objects\14\e171fcd51fdfb99dd21e54fdc419749f9f5221
+D:\py\.git\objects\14\e2f398fcd1b40ca29e08e52b5b2064f2be339e
+D:\py\.git\objects\15\609c015ff08b55ffdcffbd476cabd416427660
+D:\py\.git\objects\15\f64e99ef9dbb7b1cffa3683b6a7d0d55cf1331
+D:\py\.git\objects\15\f8598b75aac04ef73408275958a59a2b3df2e1
+D:\py\.git\objects\16\19491ac0630ffd2f2f0b416234e9b88db09e07
+D:\py\.git\objects\16\88eae20a55be879c0c4eaf630e33872dd16fe9
+D:\py\.git\objects\16\a29e5b944b9738a938b8b0d5b17e5eda72e393
+D:\py\.git\objects\16\b94273d01f7b0b23d40a641636bdad7a6fddc4
+D:\py\.git\objects\17\594f256e1aec7a64579a73ad236d7df7a752b8
+D:\py\.git\objects\17\8680eba937172c6adcb8720532c2d2c17c3418
+D:\py\.git\objects\17\8cc6a16578ac493ff511fedc4f1041162e9a3c
+D:\py\.git\objects\17\cf6840856e9d8add2df95ee69a83f5b12ea2da
+D:\py\.git\objects\17\d2f59a8be71bbdc6cfbb96ef7df0e6ecb63b42
+D:\py\.git\objects\18\50f51120ef06f4d416081c3cdc8e341000565e
+D:\py\.git\objects\18\77acd06683b7a6ac92d2642a7f09b9e6cb6172
+D:\py\.git\objects\19\6af9f5d0f2d1215209a75538df23faab6c0302
+D:\py\.git\objects\19\9bfa613e0427cf058fba146652d7376c2d78b5
+D:\py\.git\objects\19\b16ede46d5eb8734c7938324a0fc42462db9e6
+D:\py\.git\objects\19\b508988786b1acde1dbf7cd2a94e69992c8f62
+D:\py\.git\objects\19\ffd0d27f58764ff7cb68e4f8a71440192cdc7a
+D:\py\.git\objects\1a\2d64b847dc8b857db55cc4d41d16f9fa73db55
+D:\py\.git\objects\1a\3f26ca07f0aeaecd87cf0cb2abf58c34f33da7
+D:\py\.git\objects\1a\7778d5647ca29a53a5801aa5b62f8f5974f30d
+D:\py\.git\objects\1b\a3feb3d0e02c88d335daebffd1ec801f2a1a30
+D:\py\.git\objects\1b\ea13017fa07a59d97b5077f71a0df7d80c6fe3
+D:\py\.git\objects\1c\3bb8ccb5552ed75522b4e6f6944d743a07deb5
+D:\py\.git\objects\1c\3da1f9dfc5187b95e3c1be4e49432158062646
+D:\py\.git\objects\1d\886717d86a778c867c5306b8e499f66c5aca5b
+D:\py\.git\objects\1d\fcc2c5f95703ce2cf890a60e293b770bacb061
+D:\py\.git\objects\1e\f55a3ba6a4d09f3fcad0ea0eb641f0e4d9db67
+D:\py\.git\objects\1f\43d838d00b8ce0eb8dfc79abb7d45e0a44a740
+D:\py\.git\objects\1f\786a5dd811f6d5563721bac37a3ee2ba6a6048
+D:\py\.git\objects\1f\ffcd217626e80e0efcf9a40337e7205fc6fa1f
+D:\py\.git\objects\20\71a70206b83bf55d6b6e2b8b37c4d051a79e9e
+D:\py\.git\objects\21\2890c2398a842b3846112ce971cd54c9576099
+D:\py\.git\objects\21\3749e721ba250012c2d1eba6832b30811071f5
+D:\py\.git\objects\21\39a475c354f5c0d569adb22807ffd1eed1d2ec
+D:\py\.git\objects\21\866d4e3f6c7221bf186916f06591ffd3b88e0a
+D:\py\.git\objects\21\8caa5484c14de7189c13d5d261f64ac48ac2e2
+D:\py\.git\objects\21\baf908ee3a16ed17941c6a7b0e9cbac00b4778
+D:\py\.git\objects\21\bdcbd06fdf9cf19d8cbe690b6d4223f7850f28
+D:\py\.git\objects\22\12c4fe8127b13984735b48033700080d3deab1
+D:\py\.git\objects\22\416b957d46db8353a7e4a9959482b84dee76fe
+D:\py\.git\objects\22\c31a9800216b4687bc26fe1609038eb8b6cac2
+D:\py\.git\objects\23\2ed999522cd95a5ce7925873b551ed32fc6612
+D:\py\.git\objects\24\0e3ad241ffebb3cc833f587d76bb237dd2d20f
+D:\py\.git\objects\24\ff945b4ac8cbe76a0c0a8614b24369833564ce
+D:\py\.git\objects\25\4dcdc6608b4133a16b3769eae224cc4a4566de
+D:\py\.git\objects\25\d3305b3db019bb19e6463f89dd6420d135d5a1
+D:\py\.git\objects\26\3ca5972a2b9d37aa05572fcd6bdf343fc7d8cb
+D:\py\.git\objects\26\93a785dde97503cf50cf12d0bacc7a66c59c95
+D:\py\.git\objects\26\9ac7d70289b0f0bfed7a9a824fcfd9b1e0ff1b
+D:\py\.git\objects\26\e1277b1c60e590c57e88dc3e3e34c3d4dd35ef
+D:\py\.git\objects\26\e398a2cabaadc1611ffaa31a7f2e7764ad03a3
+D:\py\.git\objects\27\4615dd2234368ed3007319c0b8463ddd850d39
+D:\py\.git\objects\27\93f3ab4c75fc6a8a08d6cb29f56d9605606731
+D:\py\.git\objects\28\23879a51d911b5b1489f568bc5f83ac2fb4484
+D:\py\.git\objects\28\590afce9692b174a35dfde7f13067667542757
+D:\py\.git\objects\28\72a07610e218eec174a0118702e2439bd8e93c
+D:\py\.git\objects\28\9027cd0be6428871b335f7eb7cbada992cb22d
+D:\py\.git\objects\29\76dfd0381c0f60c7d4b58b820c86e280b1d194
+D:\py\.git\objects\2a\10d62d4d306ae32bac47c287706ec6c5155610
+D:\py\.git\objects\2a\197f991d2304ebec3495d19fbadaea38ea76c8
+D:\py\.git\objects\2a\75474501500f2bab06923e15ebe268248bf556
+D:\py\.git\objects\2a\d78ba9f08990375d0c9a545e181b51a5c1a244
+D:\py\.git\objects\2a\f031164fcc6c907c0a2be94059195c94207315
+D:\py\.git\objects\2b\0940b152789c3e44b65d52e335d0a625df7aa8
+D:\py\.git\objects\2b\7e1c656e79eb3405c849f4ebda0d301b1bc9bd
+D:\py\.git\objects\2b\99fadf1736b66befbf0c321ac1478260a10d8d
+D:\py\.git\objects\2b\ae3b6309efa4ae9573055de5359bb30f6b05f3
+D:\py\.git\objects\2b\e28e3c5e654448d4c73c85cb78811a0f8a1b1f
+D:\py\.git\objects\2c\2926211518674fd9bce9973bb3496411dce462
+D:\py\.git\objects\2c\bab4c713adfa14beffdf1ff330f989aaebcce8
+D:\py\.git\objects\2c\f2cc2966ed35c64deb84522561b5c0dcd821bf
+D:\py\.git\objects\2c\ff999f158f4cfbdea1c24299186151c9d679c5
+D:\py\.git\objects\2d\0423556fb26078bc5a98bbde35132a638301fe
+D:\py\.git\objects\2d\65b4f5a301da924c20fdf860a3b793f2474484
+D:\py\.git\objects\2d\eb483d93901992ef9b15245a8e64287c739909
+D:\py\.git\objects\2e\67ffae7c89556fcaaad40625034ad9608d3e63
+D:\py\.git\objects\2e\c45df430ec52681008d60f33e9bb6ca26bc81d
+D:\py\.git\objects\30\e6a09e2d626f11425f09ef754faad13841a4f9
+D:\py\.git\objects\31\18324cdbcfea94b976e613f700b2a48faee402
+D:\py\.git\objects\31\aff30f335ab621c62fa41dbd601c2a4fe792ce
+D:\py\.git\objects\31\d0bb9972b8ae676ba1640575f81186c1b74992
+D:\py\.git\objects\32\e828e6dd8eb5194d2b537e83844e1441fab4c4
+D:\py\.git\objects\33\cb33608576c087be94329af80a73f4ebc337f2
+D:\py\.git\objects\33\ec43e584a5b88a96fb3e0ceba1176025a02728
+D:\py\.git\objects\33\fcd2a654e3f90f7674940a5f1142227f3f27bd
+D:\py\.git\objects\34\1197d0b4633f557eb5be9a0d685b2a89dc46b6
+D:\py\.git\objects\34\6183a1d8fd600fe40f984acd757f68be8f4972
+D:\py\.git\objects\34\a7a0cfbf3626b843fc5cf85c36c9cfc56a1a6d
+D:\py\.git\objects\34\b04cd6dd1ab550fce0a9c4493595f5d8191de4
+D:\py\.git\objects\35\7fe244fe0629dbff85b1c998f19b0ee08f1d2d
+D:\py\.git\objects\35\b9b22074a9017ea6299f7872c18f0852de7f4d
+D:\py\.git\objects\35\cb03b9c8eefdfe41e942ac023eb1385549f382
+D:\py\.git\objects\35\d3e7591117939e68ad795562560f5afce86b72
+D:\py\.git\objects\35\e598f2994cf63e1123801b36bfeab7e46cf499
+D:\py\.git\objects\36\aedde5486874eee86006ebc6f316acfcb7d46b
+D:\py\.git\objects\36\b1dfa28486c016ef02cf42553c1ed0f0cdae97
+D:\py\.git\objects\36\b2617ece2503872151ceff29d043da0ae64098
+D:\py\.git\objects\36\d956cddd73ddab5a7c01e1d7cd9adb4ff90ab6
+D:\py\.git\objects\37\386bb72bfe1e0648f2fd745afab093ba1b7ead
+D:\py\.git\objects\37\9835d494d1be3fbb23745ec404fdc15b4cfa01
+D:\py\.git\objects\37\ca15808017c94ad40c11782ad82fbfd6b21aed
+D:\py\.git\objects\37\eb0e70ad633e905c86f9c554d536919ef02691
+D:\py\.git\objects\38\22d72090b17ec7f92edc205de8b0185df55e3c
+D:\py\.git\objects\38\238ed6c7343214c4fb4560771403d1a1760e19
+D:\py\.git\objects\38\db2312cc03fd7eeb053f8627d01f5bef474bca
+D:\py\.git\objects\39\86230e7b5fb2069f0378e6d1862b334c6768e7
+D:\py\.git\objects\39\a918023984d4574e1bc701f3543db8c827e2f1
+D:\py\.git\objects\39\c97dcb5d6c39ca741cc49bb892e8f1b558683d
+D:\py\.git\objects\39\e37a747e97c4630fcf45b17060584112fa1c48
+D:\py\.git\objects\3a\6548850d7017637e65852c099ac29012d3049b
+D:\py\.git\objects\3a\76f5a285741ac1934516c5174dda633cb23767
+D:\py\.git\objects\3a\840aa48cba3cdcba91be93cd4da4925fdaf301
+D:\py\.git\objects\3a\9c66bd170c2cd997a62f6e4a152cc802cd0035
+D:\py\.git\objects\3a\cf665d75dfce2a2ce384f71b223af5b929114a
+D:\py\.git\objects\3a\e652e8df92735b2e693511cc2cef48326c18b9
+D:\py\.git\objects\3d\0c75fa4c5c733b889d6779accb0f0a7ad641c2
+D:\py\.git\objects\3d\285167ff790ca9ee82eb40bc6d4e916ba2dadb
+D:\py\.git\objects\3d\6879460ee3e11e2f7204a0992f880b56a8c614
+D:\py\.git\objects\3d\c38f1d7cf9880c9e86892d3bc9a54932be9f84
+D:\py\.git\objects\3d\d5c44ae3a21b361fc2d5edf8962b38211ad198
+D:\py\.git\objects\3d\fde53cb758418ce1c11262343cad0b06f5dfe7
+D:\py\.git\objects\3e\5458ef369d8645bf1154c84c816c45be7a083e
+D:\py\.git\objects\3e\a1f15b21724b165cfdee6913154e86d0ca203f
+D:\py\.git\objects\3e\fd41cc98af07bc2e0942baeafd778190e91e5c
+D:\py\.git\objects\3f\38927810fb95ca3c581f136c38b1c930215323
+D:\py\.git\objects\3f\3c56ba4e6706b8b304798121e7415c5736c6dd
+D:\py\.git\objects\3f\fdce2373d437c366dcb1e191cec81bd901a130
+D:\py\.git\objects\40\7bdae5533bcec41a600cfd21d24e34eb700622
+D:\py\.git\objects\40\f0f0da2c40aaaa2fd7eb838273002fa0d3da05
+D:\py\.git\objects\41\54b811d8fa729e9b6131647dd84db5ff555e50
+D:\py\.git\objects\41\c1a7f34d41d34526a34ba44bbeb8399c70c081
+D:\py\.git\objects\42\09ea0629dd27a2a4dc2459be113441ce8a1272
+D:\py\.git\objects\42\962d8e8c84822bbf0c1df461effab2e63059d9
+D:\py\.git\objects\42\9ec37280e9a7a6eb0f9ae2b0bbb6a0296f6a06
+D:\py\.git\objects\42\a4b1ff02269a2f53b31ecfd2174b36d7db274b
+D:\py\.git\objects\42\e033d10d75bf33d8fde400af29db84a522c642
+D:\py\.git\objects\42\e9868c31dd7c792752c13095867f96a7364926
+D:\py\.git\objects\43\2a2c86aeb853bec224ff19513a7a3778c637d0
+D:\py\.git\objects\43\2d10894b8ac892b8f6c2fc0cc39360b3f3c40c
+D:\py\.git\objects\43\344812ee8ca62e0018541c16ffba21757a2e47
+D:\py\.git\objects\43\70f5e59658e97cdb1b6eb0c95b4c52afe27d89
+D:\py\.git\objects\43\8789405de13f25f3d4908c39181a4e56489dfe
+D:\py\.git\objects\44\da17522862511890878f10dbf7afff6b4901fc
+D:\py\.git\objects\45\3c73e6998f33d9fe6c4fc0ee7af939b67f60d3
+D:\py\.git\objects\45\5888f0b0d733c877b9547dfc23e7bb95b36607
+D:\py\.git\objects\45\fa8e5db682aed72da6d8b866f99d9436fd6201
+D:\py\.git\objects\46\065a776ed5718f7140ae3856c7f31ca951ba90
+D:\py\.git\objects\46\6ce84f8fb73c367aa500e3ed9b764241d0dfe5
+D:\py\.git\objects\46\8ebd4fcb9e730b71e12bdc11bc6f6abccd834e
+D:\py\.git\objects\47\844d8fa0de08d2ece9575860d32f3cf215f563
+D:\py\.git\objects\48\015038fc6945e1f0b6c39c6871ac32c292aaa6
+D:\py\.git\objects\48\68a1bd41be483106bc60ea9e459b1130933285
+D:\py\.git\objects\48\b066e8081ce46b58bb942ebf0e5743f6df97a3
+D:\py\.git\objects\48\fc3a7b7b01d78c8a1726db5b8d6bab2431c612
+D:\py\.git\objects\49\1526303d02c5844a9212460ab2221cdec78239
+D:\py\.git\objects\49\706bfd978b16c9cf31a89298bb71b4b91c7de6
+D:\py\.git\objects\49\7bca0ac9948908cd85466314048f354e21227c
+D:\py\.git\objects\4a\266b0338e453aced6b4ac28c6686a9e0030a6d
+D:\py\.git\objects\4a\7d83ed6112941a0806784b7645de3898aff4c6
+D:\py\.git\objects\4a\86cdd4bd360d3d4d6fbe831a89eade9def7c0e
+D:\py\.git\objects\4a\8e8399ef6ba9ccdfeb3b67d653d0772b55f849
+D:\py\.git\objects\4a\d7b0e861bab79be612a5e2804c4143335304f6
+D:\py\.git\objects\4b\06e8d68f043d6d655ae29498995ea6b71544f3
+D:\py\.git\objects\4b\67b012a2a1e83f211c4a8e3e286e337b456ac2
+D:\py\.git\objects\4b\f8c42f3dbc1fbdf695cc7d6e5c2f37d80c729e
+D:\py\.git\objects\4d\3596cbeefac44536277ffc87fb5c0f6aaac55d
+D:\py\.git\objects\4d\8cdb8d89beea29848506891494d6263eb77243
+D:\py\.git\objects\4d\d6e9a1bdd4c413032c3842abe6251540712d9a
+D:\py\.git\objects\4e\6a742f93d4604e354a9bb4ccf6c4ef90154f11
+D:\py\.git\objects\4e\e8d1d0ba0185e4f8504ac74461010beff470a4
+D:\py\.git\objects\4f\6e918039d5ba718ce5ef1628ae547d818d8d30
+D:\py\.git\objects\4f\77a574ceaaac6e03f467c2d95a64e2ce37c7d7
+D:\py\.git\objects\50\937333b99a5e168ac9e8292b22edd7e96c3e6a
+D:\py\.git\objects\51\1984c83519ccecec218bddebb79b94d7ffcef0
+D:\py\.git\objects\51\b354dc2d5e79670beb7b50cacc061a69e24b41
+D:\py\.git\objects\51\d061f4f3b3d8607200b7284cfa738cdaa8804d
+D:\py\.git\objects\52\5f816c7e80beec5c08d4f4fdce678bdc8742c6
+D:\py\.git\objects\52\dc804461ae0a190e710dd3f129a9c007f499a3
+D:\py\.git\objects\53\2851036c42db8e98cc250522dc4368456b097a
+D:\py\.git\objects\53\3d3ddb2dcbebf7d874eaa25ca9e3ec94578dfe
+D:\py\.git\objects\53\4c653d9ea8d0cbc2fa739ff1ea5f96333ccaf3
+D:\py\.git\objects\53\ea1e70be7d97103a3dbee9d4179ea5141b6776
+D:\py\.git\objects\54\05d659c3fa6f0ae0aad248474d693bab44c7fb
+D:\py\.git\objects\55\10ec1c296455a6863963ba17d4c06e447939de
+D:\py\.git\objects\55\27c47db5c9060e9d6cd201edaff409e905609c
+D:\py\.git\objects\55\5fd1c2509c087b0bd312faa8ef301da19f40e4
+D:\py\.git\objects\55\72471be8a66ba83dd2113f64d4c0c9dbb97548
+D:\py\.git\objects\56\113c30250fa664cb5ceb0e2a2b48cbd385c167
+D:\py\.git\objects\56\2adf5ecc18c7850cd4871434a3236e93e63677
+D:\py\.git\objects\56\3f0f6172d2a1c1c8b2b1a97180b77642d0668e
+D:\py\.git\objects\56\8a161247b1f6b8e89849308404b09e5ba905f7
+D:\py\.git\objects\56\baa1888dccd5f074581be16b5be207a58d88c3
+D:\py\.git\objects\56\da9a9044ad7d1f67633af7240b2dc1fe12f0a7
+D:\py\.git\objects\56\fd5cf3c29eb0e99af8ae2e1a37c6d449556706
+D:\py\.git\objects\57\5f8e37bef725cde6db6b72319a5d54dfd90f1a
+D:\py\.git\objects\57\6034e71beec6fa8fbee7b373063ee61961ac92
+D:\py\.git\objects\57\be66f4e58317a395f4b232e946b368ede53ba3
+D:\py\.git\objects\58\752f21adcaa9ad7f0cf5b972b721806b167925
+D:\py\.git\objects\59\0d69cbaa4c2501ecdfcbdc17ae0de8b0aa6930
+D:\py\.git\objects\59\76e68630c634dc9e80521dbb786f55ca934992
+D:\py\.git\objects\5a\48255d6f52aea389ab53592cec037d596ca80e
+D:\py\.git\objects\5a\5d02323f74bccf7ed7ef5708123bef292ab1c1
+D:\py\.git\objects\5a\77f731f5542eec4b7be02b269402f1b47ce641
+D:\py\.git\objects\5a\b7695ab8cabe0c5c8a814bb0ab1e8066578fbb
+D:\py\.git\objects\5a\cf886cd4bad665de2c126aceda414e227ebc65
+D:\py\.git\objects\5b\00cb5dac1228530037c061883755ecee7b76f1
+D:\py\.git\objects\5b\7a892287f71c79235f430242343a2c2939aa6c
+D:\py\.git\objects\5b\831376025f3c9596fe854379072c384478f41e
+D:\py\.git\objects\5b\9f677093aea701364bb4735688225b11581261
+D:\py\.git\objects\5b\a90a1615633d3caee9f301e8719cc436775b5e
+D:\py\.git\objects\5c\73784e99643f87566414838f04442a2cb43e5e
+D:\py\.git\objects\5c\76fd235e52753813ef614531ddcafd3ecfcb9f
+D:\py\.git\objects\5c\8d9c77a53778617d7a5d6648a188f33388c960
+D:\py\.git\objects\5c\eaa9da9d8d5cbb9e838c3c2abc3f2b870d9116
+D:\py\.git\objects\5d\6b2b1356ab6ee92c7dd966a9d9927f4b3eb97f
+D:\py\.git\objects\5d\812b3bbe21ac603aa55c91fcb06cc7e3506c06
+D:\py\.git\objects\5d\c2b30678d22401b74fefcd12e63f6cfed43061
+D:\py\.git\objects\5e\8cb6e595a9de207c925c6a402e0f15b9af54e8
+D:\py\.git\objects\5f\235d7ecc1171c776e68318df0b14dff1a539d6
+D:\py\.git\objects\5f\86820c09832fdc6a1636abc2e2f8ff2eda458e
+D:\py\.git\objects\5f\be397136daff51eb85498874a91ce089fa6560
+D:\py\.git\objects\5f\c14128443063530bc05788d2c34e79f15038e0
+D:\py\.git\objects\60\4eb513af6f1d72dff8a5959325d03937f1b2e1
+D:\py\.git\objects\60\c9e2389cac3e47b0a576b2b7d8c229d84fe0cf
+D:\py\.git\objects\61\93d8f35121b7202159de3072b87bf8d2f9065e
+D:\py\.git\objects\62\7e768ccb642f1a861b987b7302fff579a9f082
+D:\py\.git\objects\63\0481195a0e98f7286509cbe0785429f6bacda6
+D:\py\.git\objects\63\49bfd4ec51b54109b3c3090498cd50d4fb26be
+D:\py\.git\objects\63\5275e4dea981ff31a1f865c67f19d5c3179a79
+D:\py\.git\objects\64\49a67b2e51ef9dc46df330adc05cb8a1f6604b
+D:\py\.git\objects\65\a6c791ed6a5971c30fd2144d90ddfb0672f995
+D:\py\.git\objects\65\e3177a8d9851d251f8a342a48965f16e39b150
+D:\py\.git\objects\66\0403858e013a3daef5ebdf34e21225b1d1e629
+D:\py\.git\objects\66\25ccb6678d6b6c34d402561f874757ab068490
+D:\py\.git\objects\66\2eb667ece76d4a352dd09d7a51c0a1a0d21e9e
+D:\py\.git\objects\66\33718b6528f1744aa5e85497910b83b701c2a1
+D:\py\.git\objects\66\49a8c6e4382a796b26d73769fa70496803daa0
+D:\py\.git\objects\66\740cdbf38e2d6bce320ffda123d4b8dca29512
+D:\py\.git\objects\67\1c2454c8a27ea833ca5120ad6d1e65761084ed
+D:\py\.git\objects\67\9fb3dd461d695c2ff797e66302b0145a4283ae
+D:\py\.git\objects\67\a9c9ab72fc58295c1e45ad5b1043e89beb1d74
+D:\py\.git\objects\67\b1a99c6b4919c9f0c54b785edb86f05e88ae49
+D:\py\.git\objects\68\77e7e69228788ce78addc0072656e80283aaf1
+D:\py\.git\objects\69\60ee58ba8c1c3272605e0a34a33f7cb39189e0
+D:\py\.git\objects\69\86822083e5d249ac4af6c3b203df538e9639d5
+D:\py\.git\objects\69\aefd728d2cc2041117cccf35aaca63e7287f6a
+D:\py\.git\objects\6a\06f293233418ee716b6c5ebaf8c275945e361c
+D:\py\.git\objects\6a\3454d0a24f04a366b1336fc3adb7149991baf6
+D:\py\.git\objects\6a\90de51d440d5564fa6bd7d01897fbca1b7a84b
+D:\py\.git\objects\6b\bd2c11a3d2620f532363f02ac24cec63196357
+D:\py\.git\objects\6c\1854d406dbb027aef3f8ac66d8eb806a081b95
+D:\py\.git\objects\6c\4e06a97a13ef267bdf6f5d9870b0077e6c41b5
+D:\py\.git\objects\6c\82c937ec5b298753739e0f9c46550b6ef0f479
+D:\py\.git\objects\6c\a85de96cd62cffc98a2cd7a4a5ca0e44766a20
+D:\py\.git\objects\6c\d8168b1f5a713a45de743cacf35252460099ee
+D:\py\.git\objects\6d\235dc04560917a692a293c616854f6955afa71
+D:\py\.git\objects\6d\b369924c1d99acdb3cfe3979bba60ce34a1486
+D:\py\.git\objects\6d\cbfd9e44ca0946b3302f0ec8def8c567f56392
+D:\py\.git\objects\6d\d2f8ab695e4218e5d6a73623f1310928e0fc5f
+D:\py\.git\objects\6e\8e05233fe45e0890dbe5bf76d0ec52b43ea910
+D:\py\.git\objects\6e\adb3bc85354ac58eb499fd8ed02f4ecc8b0b64
+D:\py\.git\objects\6e\fc6e8af740c9ca3b55305c2de2aee549f26d9a
+D:\py\.git\objects\6f\2999d80857799e2305c10597ba063d1f345a1f
+D:\py\.git\objects\6f\d6609a69a9e82d8353d5135b9a2f1432ccc4fc
+D:\py\.git\objects\6f\e5e3ab0568815444990f9027a23fea800a408f
+D:\py\.git\objects\70\7f6d62f7f560868586fab0d6eb6b31ad448ca2
+D:\py\.git\objects\70\9f2e53550773ea28230e7d397e3e393eadba4f
+D:\py\.git\objects\70\b4e0adea8b5183dc28feb57ee25f3980047c86
+D:\py\.git\objects\70\ea75d867c030cbf71b06594d487d1f51db22fb
+D:\py\.git\objects\71\5ef07cae57c5457fa07a7a65a3602f4e9c7870
+D:\py\.git\objects\71\76e78913416cc5a274d96730bb2be1da2bbfd0
+D:\py\.git\objects\71\818dcee5e70b340e2597d19fe9406f34d1709f
+D:\py\.git\objects\71\ca4e02aee0fb47c2a4d7d53009c32a7169b9df
+D:\py\.git\objects\72\97b158eb19be365db2a0a14e0a96ac18ebd21c
+D:\py\.git\objects\72\bf1b04221aec6265db20ffabe10f9badfb6783
+D:\py\.git\objects\72\dc7e7d0ccd9cbb739d84f483790ddb7b82d5fe
+D:\py\.git\objects\74\1add2479c505bc4e4ff84adda57935c7b98731
+D:\py\.git\objects\74\36b13e01556de27e33e5a9345073f97b91e2e8
+D:\py\.git\objects\74\3dd0ec4e0b8d145df53f4468773eead4c10fb1
+D:\py\.git\objects\74\3eec8d8bff5a9f46c3dc30209d1b99d0b19011
+D:\py\.git\objects\74\8f071162c20878d386a63c4e019f1a04ad9a76
+D:\py\.git\objects\74\ad8325c330f72ea3bebda8f014342d1d1c2a70
+D:\py\.git\objects\75\738727a4c1294f59762d3c492a7b6f54816b84
+D:\py\.git\objects\75\89c5fda172bc4fe9b30e1bff7b70937df06c1f
+D:\py\.git\objects\75\c29ef3ecc270825392ced03252e14109f2a9f8
+D:\py\.git\objects\76\2c44331a99557d7900bc94b2fcec221563636c
+D:\py\.git\objects\77\9ad71a11f6a3d489cb169b438e8443793c78b0
+D:\py\.git\objects\77\bda43d23bdfa01bc08466865a10a32706fe19e
+D:\py\.git\objects\77\e550315d831812c4ed730c992d930bdfaa59c3
+D:\py\.git\objects\78\33f598067612f464f6a49f941f6d5888467a78
+D:\py\.git\objects\78\8f3a525b26b35f08731faff2c4994ab0bf96f4
+D:\py\.git\objects\79\15ae3723816c37cca36e1609d14784b2c7c588
+D:\py\.git\objects\79\35bec73ff1e1cfbd72d1b74e05942f0001efc0
+D:\py\.git\objects\79\502e1a404401c2b43f21dfbbb5c47c37432223
+D:\py\.git\objects\79\b8ae0c40f0e39ec65eec6fb0deb14d3356207b
+D:\py\.git\objects\7a\817d7b175162bb515e06231cdbf52b4744c6c9
+D:\py\.git\objects\7a\ad1ffec6fcca1d2f018872f1df026c14ee41ed
+D:\py\.git\objects\7b\5687c85971cef319d5e6c61e1bbf3fab40078f
+D:\py\.git\objects\7b\6c3031e9f3fe7e7be900dc6e9df9e62d1ddd48
+D:\py\.git\objects\7c\62c18b3f9ae3be04e2974fca81c6e4c4a5f0e7
+D:\py\.git\objects\7c\e503c2dd97ba78597f6ff6e4393132753573f6
+D:\py\.git\objects\7c\fdf941ead44e83ae1eecbcb9c714de0561cc6e
+D:\py\.git\objects\7d\14b4ab8d952ab5f528a4a3785585e39d867c7f
+D:\py\.git\objects\7d\a3cf9325619657162bcf93de313a1e6f8655ac
+D:\py\.git\objects\7e\301bdbcbcab8a401ba8b4bbc925549b54feeee
+D:\py\.git\objects\7e\a172e7d2affddc29f1bc322d3391a2ad3db753
+D:\py\.git\objects\7e\ba79e0152d93197dc405bb158545498e5b03a4
+D:\py\.git\objects\7f\0b0568fdc518c76c128f4dd207efc9711ae189
+D:\py\.git\objects\7f\b21b31f9b5e4d4d2a74a0ec62b90fe252f572b
+D:\py\.git\objects\7f\fc222337b47bc13cb4bb631e4e2334423fc064
+D:\py\.git\objects\81\34bddcfee9152e6e3de7e773ba09488b5ee7e7
+D:\py\.git\objects\81\436e5bbff5dc8d17188e0c81f6295d87236d75
+D:\py\.git\objects\81\5736bb16a04a3ac6f468ca23da40b6ea4e893e
+D:\py\.git\objects\81\c05f150212609de32bb2a05e61ffc234ef78ba
+D:\py\.git\objects\82\1d60b22ccf32fecc941481b1ff0db59970d4eb
+D:\py\.git\objects\82\cce21e6511618c2260e826615fcee140bd4bde
+D:\py\.git\objects\83\68c4e651738937eab84aec4097fccaa6e1e042
+D:\py\.git\objects\83\c80ec5c8c029da4f085bd210da0c41aca98e6d
+D:\py\.git\objects\85\7b2bfed92e232cf024a6164ea773b24d20579a
+D:\py\.git\objects\85\a94db531502d3fd2355f7df23b35023866540d
+D:\py\.git\objects\85\e385e1470fdaee90f409d02c559ca8804cd46d
+D:\py\.git\objects\86\22334b857b82ae2572f0b3a46700783be8b448
+D:\py\.git\objects\86\43bdf39a1f17a627d8b5aebfc8b72a75e5cc72
+D:\py\.git\objects\86\759db9e7948d2644f1f570b31000e28fa74842
+D:\py\.git\objects\86\ba69085941f09e3edc148c6f161db202ae2469
+D:\py\.git\objects\87\19740b4804bab851fe21ea8c4eb03d93bae95f
+D:\py\.git\objects\87\b1c20cd29db5a6d44299fb967687cd794d854f
+D:\py\.git\objects\87\ef0644737e9ec301510b7371ee9c88e3ecfa5b
+D:\py\.git\objects\88\3fedb38590b0343f316397572e65f602be52bf
+D:\py\.git\objects\88\70d8851eddc49dec72553ac8d61598b8770007
+D:\py\.git\objects\88\9433c0acd249df167aae3079f8a7faa17ae02a
+D:\py\.git\objects\89\0e2b216abf5ebbb360fcf1bc59d20dabe8946a
+D:\py\.git\objects\89\2240e2f94777edbecd8124ab362e9d3d4e3b9a
+D:\py\.git\objects\89\cb368897e1f84eca3c7dbb06001050d176f139
+D:\py\.git\objects\8a\2428ed73de432dfcc8b7e83e03464d808e7e5e
+D:\py\.git\objects\8a\3dc3e03db032a3551d40d087147d4cfa642dca
+D:\py\.git\objects\8b\137891791fe96927ad78e64b0aad7bded08bdc
+D:\py\.git\objects\8b\146df9a05294b435eaf9d92361af904814bd57
+D:\py\.git\objects\8b\64023eb35396185741440d1aacd002d229ce52
+D:\py\.git\objects\8b\89bb2537e771ab3b5be36a983608eaeeb9bf6c
+D:\py\.git\objects\8b\d76a69b52b389422efcc4c781dd1b7370d31cf
+D:\py\.git\objects\8c\1e91f63c015db448375de2f748f594097596ad
+D:\py\.git\objects\8c\38f3f3dad51e4585f3984282c2a4bec5349c1e
+D:\py\.git\objects\8d\22c1f807e1e809a94a86a9072f0c765af9fcee
+D:\py\.git\objects\8d\27cb0354fe4a2c6b2cfb1b3fa215bca022b8dd
+D:\py\.git\objects\8d\97a85f7bbc7ae6324e9082451f9a19c7bc21d1
+D:\py\.git\objects\8d\d90a1af50e780b48c28cb6cbddadf9f2b1464e
+D:\py\.git\objects\8e\bf50bd5a3c99bc840e7add913c779e059cdea3
+D:\py\.git\objects\8e\c2113a0f53f14c9d857394203594cbbe16a7c8
+D:\py\.git\objects\8f\8ecfb64a34c85b914b06378473af45c4816faf
+D:\py\.git\objects\8f\eee2c33b2e51a0aae3f98e199b3892b7b9daee
+D:\py\.git\objects\90\11a8fff4abed54756aa0fa101e81918707a674
+D:\py\.git\objects\90\21439402c3ff503d23826a1a5957c3fa1d9e99
+D:\py\.git\objects\90\315a21506754b79874e166d3ef044d4cb7bafa
+D:\py\.git\objects\90\cad829334f677a497519bb5abdaa997ff3d7d1
+D:\py\.git\objects\91\436b174bdd5037cf1289e446b33e1078566e13
+D:\py\.git\objects\91\4bff8bca5df977f143c8d0c8734a5510731d86
+D:\py\.git\objects\91\b4d4fb6f386416824faa6a2b471cabf0337390
+D:\py\.git\objects\91\ea44a218fbd2f408430959283f0419c921093e
+D:\py\.git\objects\92\d5c198a1193e7174e7aefd0fbcc17e1f49aecd
+D:\py\.git\objects\92\f7f8acfe5d2e30717c718fde2e03bca2721ef7
+D:\py\.git\objects\93\19350afa4bb9f50e806d25103231a0f394bd01
+D:\py\.git\objects\93\9ec8771b929af082f13023b2b53a7379d88c2f
+D:\py\.git\objects\94\6c31f6875ffdca5e5db5b43d253d36df7e056c
+D:\py\.git\objects\94\d01ab627755f43c7f48519af4e0a2a3d4b65c1
+D:\py\.git\objects\95\5e6767142991a187ad72b1e4ddf140ed547800
+D:\py\.git\objects\95\f34d77265aca74e469ca7cda19638c5f967bdd
+D:\py\.git\objects\96\72d51c2ddd1f367009b17ddeda479c5f013d0e
+D:\py\.git\objects\96\d7e94f0d2f6c9f45ff7d9d2f8443d88643a42e
+D:\py\.git\objects\97\4877e18f8be8f4805a5aa8db0f120a52d6bc94
+D:\py\.git\objects\97\750b5347049a0e046ce9ec4620d911a034d3ce
+D:\py\.git\objects\98\4721fd30a9422605a429918f4c4837ba7c706f
+D:\py\.git\objects\98\4c687b5ec319f0c3d8b493fe420105066eceb4
+D:\py\.git\objects\98\971b86ac7c096125a1d5d40e953e6c542f0820
+D:\py\.git\objects\98\a8aa94dd32f75dd378c672bfd7ded65f26eb7a
+D:\py\.git\objects\98\d09c8de4bebd3d6b6b5a7634624ea8bb5942d0
+D:\py\.git\objects\98\f92719aab391433bd5542ff2e8cb12dfee1f17
+D:\py\.git\objects\99\dfd63ad73d77afec4ce1eb1b4242402f79ea44
+D:\py\.git\objects\99\f6609ba1666212adf3c349b3c53dabaaf5f11e
+D:\py\.git\objects\9a\04be99e9024fc23f26d66c651e4e6ae68202db
+D:\py\.git\objects\9a\0ac494c3dbfd32fa9e7b12ca8909b7a75f37f3
+D:\py\.git\objects\9a\24d431c28a4359ab67f21434f2da888056f9f4
+D:\py\.git\objects\9a\a48add8f75cc15c722787474a41376d3500d71
+D:\py\.git\objects\9a\f485caa6a371203df1ee7bcb9e9b2c1fe7d17f
+D:\py\.git\objects\9b\d001fe44f863af43ffcd6b6b49668500102250
+D:\py\.git\objects\9c\00a9ac1011be8d56c3328f5e3dd0a16db99b71
+D:\py\.git\objects\9c\0408348a775354b4524b35000a077d5ebe8180
+D:\py\.git\objects\9c\0e6d87ca51e7b597b37498495838c96517eeb7
+D:\py\.git\objects\9d\403eef9655387209dc8405d731eaa740edafc6
+D:\py\.git\objects\9d\4163e9948205e086c3db3aa4c3639f02e8eff9
+D:\py\.git\objects\9d\5e5620e0c40b0ba85f3943f16744724448990b
+D:\py\.git\objects\9d\5f9fe0e590be855a2ce2f3f746972abccf0390
+D:\py\.git\objects\9d\cb41f3c753de4d9587cc136787f9868367e5a1
+D:\py\.git\objects\9e\99e302cfa267059a808ce55da88ce49f323554
+D:\py\.git\objects\9f\b5297690dd832fbfff7cade2a7f25991d0d9fa
+D:\py\.git\objects\a0\094ff798eb980e0c972fe7c2357727e0baffa4
+D:\py\.git\objects\a0\78bb064e47becadbfbc9e18255b11002e08c59
+D:\py\.git\objects\a1\070999a67c76618572869f4229bc3a91b498a5
+D:\py\.git\objects\a1\5f984be4c28eec90d6aea949f899126fa09460
+D:\py\.git\objects\a1\b589e38a32041e49332e5e81c2d363dc418d68
+D:\py\.git\objects\a1\f7c972c5581761179807cc49efe28adebea7a4
+D:\py\.git\objects\a2\4d6b1c501f8ce3270657abedb92168865d7e8d
+D:\py\.git\objects\a2\6b9776f153a205789e653a9852df2469a50452
+D:\py\.git\objects\a2\e2f9d1c9219f75ab226724f760f3c38e166230
+D:\py\.git\objects\a3\835412113cd6b76b8c1f8afea8da1d9b012346
+D:\py\.git\objects\a3\9ba64ab929aa3b5e2941248ae0347ec8b0b3c9
+D:\py\.git\objects\a3\c821043d285234f3a2d9bb00a69d6fea0aa4fb
+D:\py\.git\objects\a4\8d52cd5d5671535223aa40ff348d69d760fd42
+D:\py\.git\objects\a4\917560c0fb43e793bb4250eebbec5ca643a3d3
+D:\py\.git\objects\a5\f8c781b22ec951985ebe79de902738e83df85c
+D:\py\.git\objects\a6\902e6d7c611c79108cdd79f30f9efdc3302da8
+D:\py\.git\objects\a6\9b6639a7aad163c1ed7a357368d08d8f9a506e
+D:\py\.git\objects\a6\c1858b14ff19369e61e3f8f2fbc3462f3775df
+D:\py\.git\objects\a9\8c25d6f9544abdf58866e72aafcc41ca3a3ab3
+D:\py\.git\objects\a9\b2fc0ee456d821923aaceb3062e26a7933ecf0
+D:\py\.git\objects\a9\ede88b8c6b2a00cc18a8f3b871f432c43fb4c0
+D:\py\.git\objects\aa\3da8d80f5f7967c134ff9e28abc9df494c32d1
+D:\py\.git\objects\ab\1b1b1f6f58bc9e0426cf1d7738c9a951799517
+D:\py\.git\objects\ac\080732aa82860f347ab2bdc7629703b0f4547a
+D:\py\.git\objects\ac\404fd8b2149e87c8f2a4ff34999f4832b6ddf0
+D:\py\.git\objects\ac\70147733afc3a08bb8192e3ecc252864eeec26
+D:\py\.git\objects\ac\bde809dcd6b8279671e4761bd3aedc51a5a77b
+D:\py\.git\objects\ac\cbbaeeb3881e67d85939f4440469fdd292bf67
+D:\py\.git\objects\ac\d00fe48780994b24a3d99d132568fc3361143f
+D:\py\.git\objects\ac\d1d0c30b5a4e718e2aeea35441993f34d66c4b
+D:\py\.git\objects\ad\080da18107a45e6d52cee01bd308996c18cbe8
+D:\py\.git\objects\ad\784e639058d95059f6b643a8e7af19679b2771
+D:\py\.git\objects\ae\5cfa1ffcc173795c69da388fbae5b79150c358
+D:\py\.git\objects\ae\6a459d36b0815d6e03f60569220eaacf52850b
+D:\py\.git\objects\ae\7039770dfacd7e8fbd8b3a900d615be1f39f72
+D:\py\.git\objects\ae\7e9c7d5eb10ae3d7d93cfec325997874c7e617
+D:\py\.git\objects\ae\ff0945858d85bd164dc8841668e50ea2cdcf76
+D:\py\.git\objects\af\493028d8d3783f7bd9b280fc29fcc68fa0e845
+D:\py\.git\objects\af\6463d6d88f8178ac0a6e07662650c9a623bc48
+D:\py\.git\objects\af\70a498c77e3d8b1251ea406f9982551c0107bf
+D:\py\.git\objects\af\87931aeda319add8c395329ebc9eeb367e42cd
+D:\py\.git\objects\af\a67237e934a3f773406f2865f5fcf07828a214
+D:\py\.git\objects\af\aca71e5ff504771afad64a9f4911e2dc2064eb
+D:\py\.git\objects\af\fefd02630ffb7fa3a3a3c46bc9a789536b3107
+D:\py\.git\objects\b0\032935a4ceae3c7c3f21ffad48bf7723a1284f
+D:\py\.git\objects\b0\3c93829ff44b773d1c2f9839355904b3f8649b
+D:\py\.git\objects\b0\7777527604d1cdfbdf35990b9f7cd75727e105
+D:\py\.git\objects\b0\8fa7907dc15b5fc684de8212958a260382f941
+D:\py\.git\objects\b0\b000680dda689ff737976edfc0f09a86d063c0
+D:\py\.git\objects\b0\c8c9ab4ea76f02526a05240d5ba594e7b1ea88
+D:\py\.git\objects\b0\f02dd58d89509009978d2ffbf5e5df94b05232
+D:\py\.git\objects\b1\349f4777a96820ebc08cba921bdc8e9834ad48
+D:\py\.git\objects\b1\4e62d4fd78dfc7f1f07b8a1cecd99fb8cce244
+D:\py\.git\objects\b1\8b924e8a8c6031c3a35935001dec1da07d5f7c
+D:\py\.git\objects\b1\9778fa5f531a1f6d9ddadcc54088f45a6bd632
+D:\py\.git\objects\b2\23f86802cdda1b1a02d8d7bf4ea9eb4350f7f0
+D:\py\.git\objects\b2\41f64fcc61c296bc0c3006f280b8336997bce6
+D:\py\.git\objects\b2\9122131041a806129218870eea7ffcbe4c3dd0
+D:\py\.git\objects\b3\2cacde8811196ca84b70b987ba1bef9de7f9b4
+D:\py\.git\objects\b3\3b094edc842187a14caf7042f17a7c425f3225
+D:\py\.git\objects\b3\a8ff50ac88feffe1c5fa0a617669bf53ef8c65
+D:\py\.git\objects\b3\d6a06c7bdc7fd8f862ef02b790a0469205811b
+D:\py\.git\objects\b4\50c0fbd8d6af0210fdebebd8abdfef82ac8005
+D:\py\.git\objects\b4\c599765e4925a27081cacb7500c55ab4dfa482
+D:\py\.git\objects\b5\6b0b9bdb964fb565d07c74fe3c959069eb5f13
+D:\py\.git\objects\b5\eebdf9850d62464cf8189614ec12586b17aa5a
+D:\py\.git\objects\b6\0a242ff3e4307c9037d15a04d04c51aebef32a
+D:\py\.git\objects\b6\1585105e6ae69c8c391252f0a8ed1653e0801f
+D:\py\.git\objects\b6\74958fc918f6a8ed0fa54c3f6ab684283d3e9e
+D:\py\.git\objects\b6\c8351f2648aa76c1481636a3f2889c0ba49b83
+D:\py\.git\objects\b7\26553472955ec2f0d13c987da98d5c3a99b92a
+D:\py\.git\objects\b7\7659b13e6e35f5f4f79993c847745402601d40
+D:\py\.git\objects\b7\91b883b0490cf5c53b92df59cd5f5b4a4c2da5
+D:\py\.git\objects\b8\1909b8b1fb15d62819a339c942764085ebb51c
+D:\py\.git\objects\b8\7361ea938ed0348624638c38d14ad7762694fb
+D:\py\.git\objects\b8\8567e437db22554e4d095cfca9b7675babaaab
+D:\py\.git\objects\b8\ae1a5b2bc2822c8b522881b9b2d70812d7558e
+D:\py\.git\objects\b9\7ab1e913fc8fa21010fb85d9f7f7c8360d3ed5
+D:\py\.git\objects\b9\d93f0debedad91ea46eece5402238efc98f08c
+D:\py\.git\objects\b9\f049ae2cf08b575730bf7284e7687a419dfc8a
+D:\py\.git\objects\ba\6c5e7cd0a8acba114941af1fcd8e6eece39c67
+D:\py\.git\objects\ba\891275e1f3a4d7baaa854a46b3b6694373ff37
+D:\py\.git\objects\bb\3304bb193b2c66ed74f85aaf0a6ac3e1cbb0a9
+D:\py\.git\objects\bb\42d0ac7cd6438741d51afbeb9c9635c63dc0fe
+D:\py\.git\objects\bc\3ef19331a9e3a642b7b74d0bd35a7ec45983c1
+D:\py\.git\objects\bc\aa8c13f61bcab36c8bf629141484a8e9ff6feb
+D:\py\.git\objects\bc\cc1f501294b1511214d06e511158ab25b7deb9
+D:\py\.git\objects\bd\5fb984bf5d71c06137facce72789318479cce7
+D:\py\.git\objects\bd\d165eb4cd8af5b1bad5de209827eda48511027
+D:\py\.git\objects\bd\ebf1963af396d2a388cf60d62101af2d700074
+D:\py\.git\objects\be\1985baa59992b2f246b17357bc2b5d4bc59389
+D:\py\.git\objects\be\ed8cb18a9b6dd23b4c5e3a0da2f7907fda8c5e
+D:\py\.git\objects\bf\ee9058ecd44cf7737c2e51916a5b4361fe7706
+D:\py\.git\objects\c0\244c05b7ec671f216f6296cafe5caee73f216f
+D:\py\.git\objects\c0\2535f99603cb834a56b028ea80543e7b291760
+D:\py\.git\objects\c0\3c2a228d84ee41822fdbe4c3dff38a939a8813
+D:\py\.git\objects\c0\4a3a0fd14f62701ec56e52c836d1ed51a115f6
+D:\py\.git\objects\c1\1df65b5e23a2bf702e7dcabc8e9f285b060161
+D:\py\.git\objects\c1\3be9c80a3f01dbfc24576c14c5b870e10b7345
+D:\py\.git\objects\c1\a27b5e62e0865e5674394e8537b2d2d65a95f3
+D:\py\.git\objects\c2\5ce311a60f32f6a1b59ff84bc26dcc0fd6ac82
+D:\py\.git\objects\c2\cbddec7cf4a06fbeb76a312aa444f1ddbc0190
+D:\py\.git\objects\c3\06f3c97e3b409c433af9841912a9ca238d8808
+D:\py\.git\objects\c4\16f2070a34dbeffdbe5327f0d7b3c8cd5eb8f0
+D:\py\.git\objects\c4\5523b2f83d4ee6d8742e97d5c9f9775f01cae0
+D:\py\.git\objects\c4\a87cb1ee9a1a4e20ce6d375e5ee2b2249785fe
+D:\py\.git\objects\c5\3b275c383ae774ee46c860418da9bfabc1a4b0
+D:\py\.git\objects\c5\45e92fa37c82a61a68bc84928a1ce61ea2b995
+D:\py\.git\objects\c5\57f903fac592187e0378e31fa80c67c072652f
+D:\py\.git\objects\c5\5e972b49b2df14373c199230da2b9edd790736
+D:\py\.git\objects\c5\bf8feec3e5756adb7acf7c96b77b74e499a3dd
+D:\py\.git\objects\c5\ff9559fea212c27d76be4e094df518c3cd7671
+D:\py\.git\objects\c6\e8d0a628a6d3059de99d309d47c51597f6c4ff
+D:\py\.git\objects\c7\001130ec5308047f01eec0681a703b4c802d04
+D:\py\.git\objects\c7\af7f3c683552412bfb341c676df0799321d8e1
+D:\py\.git\objects\c7\d496be076480745a6c26640c70e90e38f5e538
+D:\py\.git\objects\c7\dc650ceff40502f3847914660545bb717d3d8f
+D:\py\.git\objects\c8\46e17071ff76ece29623c97adcc9ef0b2e5278
+D:\py\.git\objects\c8\9715ac5277e51bccb1db395579f0ca6b8ed653
+D:\py\.git\objects\c8\f1e1d38281a8be0af18956a99fe144bb989299
+D:\py\.git\objects\c9\f6ae1cb3ded5aadb577ef4ca246fb67eff4723
+D:\py\.git\objects\ca\4e49b210bbf61c286987ede50fbc595afa2aeb
+D:\py\.git\objects\ca\72a216b01b1e391bfdf67df69a568695e78e24
+D:\py\.git\objects\ca\8343f2e73d6442e2d875e91e6a1f429232abeb
+D:\py\.git\objects\ca\8a5697d9f1b400719b18e0d42a6c5882f76713
+D:\py\.git\objects\ca\ae14378f0ddc30ac3ca2077be7653f362a84c2
+D:\py\.git\objects\cb\057c64fa6aba1c6255aa2de615e3b13ad69dfd
+D:\py\.git\objects\cc\4b245dd2c3e002130bcd39b0e43e6ab4623450
+D:\py\.git\objects\cc\4c9b7e2b3464bc34223a330e19b8858c7dd7a7
+D:\py\.git\objects\cc\52211ebc7f09aca896dc3e0f9e0f8335d4f42d
+D:\py\.git\objects\cd\13187f57f09e1409853930e5fc269557cff64a
+D:\py\.git\objects\cd\aff37baac407071e21039b6eb08739757c1877
+D:\py\.git\objects\cd\bf2d61bac4bae7e662e9b349c5bf5590187f05
+D:\py\.git\objects\ce\9ea6d385b5cf915aa0f3693415d186007a4a46
+D:\py\.git\objects\ce\a25a575ed8780e4077f2a766675ed565e4d4b3
+D:\py\.git\objects\ce\c6cc8ee17175aa5a127fdf43aed1221dfbf500
+D:\py\.git\objects\ce\ed5fddb39a447c332b708635afbe927ae4f045
+D:\py\.git\objects\cf\214f5a82b88f02b81622084d68a0a5f9eb8776
+D:\py\.git\objects\cf\5c091055eb0e1872911509e2e07649ac6358e1
+D:\py\.git\objects\cf\791421a9af84e906b0a07703d6f01f3d4fe31d
+D:\py\.git\objects\cf\7f2c352b1a7708d0bee1cd0b134e6f47bcf535
+D:\py\.git\objects\cf\938986bc039cc0a6f00dad4f8bc38639fca318
+D:\py\.git\objects\cf\accc8f64e13e5493a3b30603b60710c68d0f20
+D:\py\.git\objects\cf\ddd846395a010868a16f125aca254380e27088
+D:\py\.git\objects\d1\1f42c29a7017135f07e2ae3c4cfedf3ac4f110
+D:\py\.git\objects\d1\45a17466271b59d6e748ca4cd564f8e13f961a
+D:\py\.git\objects\d1\565432beb92d4fc49fd66fbe7d9563d14ecb87
+D:\py\.git\objects\d1\97e77d328c25c0df1d493eef9087c82bc8e1f7
+D:\py\.git\objects\d1\cd7bbd68a259334794b48ac975a74603beabae
+D:\py\.git\objects\d1\eacb8c4c39fbdad1f24a026289314d0ea72884
+D:\py\.git\objects\d1\fadc3891c5315370eeb874329e8a858cfd1353
+D:\py\.git\objects\d1\fc0a68e36dec68c3f0c9c05e6f76cafc094428
+D:\py\.git\objects\d2\d74557e59bc67406cbdcf8a6a1178b6580b23c
+D:\py\.git\objects\d3\5bdf8b7568482665c3c716b8537b9acc292d0a
+D:\py\.git\objects\d3\e5f11caddb38459033597e19028e90d510ba4f
+D:\py\.git\objects\d4\655c5550fa6da10c2a682aea5ee19ade80a7a0
+D:\py\.git\objects\d4\7ac6b1342a981f7d6f98981935611f9e2a8d40
+D:\py\.git\objects\d4\de40f42dcdc7ab205b5513ea536e9cae180202
+D:\py\.git\objects\d5\69d3134468fcd8cefde7f861bccd8b9868684f
+D:\py\.git\objects\d5\738254541fa9a59282fa92c9b567a94940abf8
+D:\py\.git\objects\d5\a55ebd0f76a9879cd1732fadf3693570002a32
+D:\py\.git\objects\d5\de1801ae6b81360114f89863a816a9684df96d
+D:\py\.git\objects\d6\ac69cfb60ac72c22f86beaa1f193abf57edb11
+D:\py\.git\objects\d7\9d78960d8c5cbdb3d691c4c5216d97f1970817
+D:\py\.git\objects\d8\32bcd9eced197ee3f6d176c7422377cbfa0199
+D:\py\.git\objects\d8\4fd67892ad04dc677be79f12dcd63dccfb084b
+D:\py\.git\objects\d9\4e9e9968f0bffdb2c5bc89b62faac36dbec341
+D:\py\.git\objects\d9\8d9b9049311d6775ff977096b8d7af04eaa757
+D:\py\.git\objects\da\189d07d901969c21bd41d1174f07c4c7d29ca0
+D:\py\.git\objects\da\323ec7b7aeb4bfda888342c58466f0bf6854c2
+D:\py\.git\objects\db\0df36432847677842bbe5e45881ff38489da1a
+D:\py\.git\objects\db\2232d234c6534c9542b7f22cc9f5aa6cfb79ad
+D:\py\.git\objects\db\8338966c184bf1170b3a5e32f6be076b907035
+D:\py\.git\objects\db\cfc3d1f711abf1b47ff715d0105499349c941a
+D:\py\.git\objects\db\fb86aed06b002022fc1f556dc494ac3b42c84c
+D:\py\.git\objects\dc\2ded550c70be59929d5464cfee37abc6be935c
+D:\py\.git\objects\dc\638d77f207c0696b1a4c42a06041d427001283
+D:\py\.git\objects\dc\7c2ef2103a58d74db0135084df551490e8c40b
+D:\py\.git\objects\dc\9fc94956513a710b87df95207999f76883f789
+D:\py\.git\objects\de\77f82eefa2a50aa91bacbd2f442deeb9f60f4b
+D:\py\.git\objects\de\928b064ae65e6377a0c726e27ffe748bc9c51c
+D:\py\.git\objects\df\3c6c1aa557a76b14e625e09b09c08912659afc
+D:\py\.git\objects\df\430337a4518d173c2aa9d7b37080cb2651a4ab
+D:\py\.git\objects\df\6649962fa3272b0691df1868efe7004067b292
+D:\py\.git\objects\df\99e2db11012467a9c8c62beeaf095f8bfc8852
+D:\py\.git\objects\df\d619928b502a68379a8f3fe06fd8b39d1bd799
+D:\py\.git\objects\e0\27e58e546b56a302f9b2653992f6636d8f4739
+D:\py\.git\objects\e0\5f3c50f54109ec86174e9f877e07746b38537d
+D:\py\.git\objects\e1\571870a4b612be6066ead59933bd7f463681e2
+D:\py\.git\objects\e2\078905eeb9ddff5043fd01a84c6d695d780220
+D:\py\.git\objects\e2\474f80d4dcd6867fc0b77eda1296819b0533f4
+D:\py\.git\objects\e2\4f7521e2e8fe5f730625af7dac232b1116c8cc
+D:\py\.git\objects\e2\6d618e2701797395d7c1d9bf539518c4c880ca
+D:\py\.git\objects\e3\61b916496939f8ac4c46388462143675a1a991
+D:\py\.git\objects\e3\82ec21abbb0bb5991f82848396ad2164ec42fa
+D:\py\.git\objects\e4\b511ff58e4ca8736f2678a69565f5e8b3bf7d9
+D:\py\.git\objects\e5\db43e28f6d44c415ba36075700b5f199c71dfd
+D:\py\.git\objects\e6\71f7a2febba15823adfc76dda02b764ff3231e
+D:\py\.git\objects\e6\9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+D:\py\.git\objects\e6\ea56271c5f727856d4588876e03b36b45ce3bb
+D:\py\.git\objects\e7\99737e63fe3920b3ade81ceb82aa47d9587a78
+D:\py\.git\objects\e7\cc9a9fda99d6f0f2be2cb851ebf73f58790dad
+D:\py\.git\objects\e8\be343b1f045c8a37bb36ffe7aa56d88a324b39
+D:\py\.git\objects\e8\f0b474721fd3b30901a8f3f226d3bc2b4b791c
+D:\py\.git\objects\e9\2a167f5f373a2fa8c8d4dae3174e3084866178
+D:\py\.git\objects\e9\43d87eaab37c1311ce1d69c1dad300fc9c4273
+D:\py\.git\objects\e9\8f4c16030c5ffc4ae72a7661bc31d75aba3564
+D:\py\.git\objects\e9\aaabed68935cf9c3f65fdb32d447787cdae1d4
+D:\py\.git\objects\ea\354f27789bb9e26379905713d025a9393e8c12
+D:\py\.git\objects\ea\70aae1b4df8f488fd7b6109b643e279934c5b9
+D:\py\.git\objects\ea\a107798303f5d68a39695f1c395499f1963784
+D:\py\.git\objects\ea\ce54ac1f4aa6adbc93590bd95cb18d7a27aba8
+D:\py\.git\objects\eb\4bf189aea15ae6d590b76e935e6d930b4d6749
+D:\py\.git\objects\eb\62ea961a54a8dbc85719f7e52e73beb549733a
+D:\py\.git\objects\ec\03531feb455c660e0f55aa7159b517143632aa
+D:\py\.git\objects\ec\a4c93c4ecee663c3d026055c51bc70ae52b31b
+D:\py\.git\objects\ec\e64e6d72629f07e6391e031386bb3bfd52f56b
+D:\py\.git\objects\ed\b6dbe2e04c72ad9782e93ee2ab5884c152a5c7
+D:\py\.git\objects\ed\e6c64bffa326f49cc05bdea39937262d13d74a
+D:\py\.git\objects\ed\f4823a720350b91f095694d3396a4c8856e15d
+D:\py\.git\objects\ee\3708f5c367027a279b3a7b07e786ddbaad0b78
+D:\py\.git\objects\ee\c821c0311024af0a27bed83b03c1709e664b7f
+D:\py\.git\objects\ef\0533c0c219ad5ca4607b072aa60553c5de917c
+D:\py\.git\objects\ef\261267ea434a96f1492fd5774fd415e3e10d62
+D:\py\.git\objects\ef\78cf1d27afffc429bd01d5b8f652d34bd2341e
+D:\py\.git\objects\ef\f24c299c5be9e7f18203d36735e24ead50f20a
+D:\py\.git\objects\f0\349000f67a3868ddb7e37656041ad39377a2ad
+D:\py\.git\objects\f0\5e5c4a069062171c23f834fba12be4ce8f6fdb
+D:\py\.git\objects\f0\b5b10e76194121dfe5b9a6201e9d18b9882267
+D:\py\.git\objects\f1\39e3d14ea32dd03c0acc225fad377ffb8f72a4
+D:\py\.git\objects\f1\6f111a07ea9c730f46573e638aab620e1e3404
+D:\py\.git\objects\f1\fd5f5da17da3310271f50a59b3304c453886e1
+D:\py\.git\objects\f2\764c3a89965248524c4a027e35c1bc855fae0d
+D:\py\.git\objects\f2\b771b0ed229658dbc66a46e6a6b3ac4cfb7b8b
+D:\py\.git\objects\f4\c7d719b0e89dc994d1794c2748113ea78f4dd2
+D:\py\.git\objects\f4\db0b000dd3fac163fd8cd32ad27cf08b62b694
+D:\py\.git\objects\f5\1d145f88201c548b47b81e262e6f899c6386f4
+D:\py\.git\objects\f5\97a9c7f2a6fabd0ec91ab9f5c0a349749929da
+D:\py\.git\objects\f6\5141adce03252cea2d354ab427a64ea2bfd2c9
+D:\py\.git\objects\f6\82eb5fd45a1270c0e04047a29ee9371f1b2b1b
+D:\py\.git\objects\f6\c6762e49a121d3fb87436ba5528d4ec4e104dc
+D:\py\.git\objects\f7\6ba90317e26beb0f80082a98e1235470e5a247
+D:\py\.git\objects\f7\99735731362d25b19ffb1140e049380e3f6770
+D:\py\.git\objects\f8\030783767b1e376a81e975698606dfbbf8888f
+D:\py\.git\objects\f8\fd7c1a1bf4f0fbde734bb078d3875b98672e77
+D:\py\.git\objects\f9\f0480af5841f7e692c25560900bdb07f0891d9
+D:\py\.git\objects\f9\f92770cca33dc4fadf6df17526e8b61eb0c64a
+D:\py\.git\objects\fa\80b4da389c3c0fa4797b3a94ba4083d2bf1fd3
+D:\py\.git\objects\fb\9e48feab233940c1a7de8e2d8931091d93c76b
+D:\py\.git\objects\fc\3b8c69b9fb2c242c2aa31528e21361a4839486
+D:\py\.git\objects\fc\6f9810c772e098cf4eb457d54b5c2bfcb40dee
+D:\py\.git\objects\fc\d0563ccf47f3ec7d4000e8490ed767d147f8a4
+D:\py\.git\objects\fd\7d103a6d8580ff1ac49a53b20268d14579009a
+D:\py\.git\objects\fd\896cadee4f68dfce379bae1a95472e4e6ec764
+D:\py\.git\objects\fd\c8d138b2ee28efd48ec52f7ee85936491e03de
+D:\py\.git\objects\fe\50c6f92a5a1f07ac608771312b94a4c7c19df3
+D:\py\.git\objects\fe\71a4e2c44b7c0c11382d3bb2772e663bd75a14
+D:\py\.git\objects\ff\79c5ee0291d08321f4d07c0ce7a5db3411c530
+  D:\py\.git\refs\heads
+  D:\py\.git\refs\remotes
+  D:\py\.git\refs\tags
+D:\py\.git\refs\heads\main
+  D:\py\.git\refs\remotes\origin
+D:\py\.git\refs\remotes\origin\main
+D:\py\.git\refs\remotes\origin\newbranch
+D:\py\.idea\encodings.xml
+D:\py\.idea\misc.xml
+D:\py\.idea\modules.xml
+D:\py\.idea\py.iml
+D:\py\.idea\vcs.xml
+D:\py\.idea\workspace.xml
+D:\py\.vscode\launch.json
+  D:\py\123\123
+  D:\py\123\123\123
+D:\py\bs4a\bs4.py
+D:\py\bs4a\分析文控.py
+  D:\py\bs4a\bs4
+D:\py\bs4a\bs4\dammit.py
+D:\py\bs4a\bs4\diagnose.py
+D:\py\bs4a\bs4\element.py
+D:\py\bs4a\bs4\formatter.py
+D:\py\bs4a\bs4\testing.py
+D:\py\bs4a\bs4\__init__.py
+  D:\py\bs4a\bs4\builder
+  D:\py\bs4a\bs4\tests
+  D:\py\bs4a\bs4\__pycache__
+D:\py\bs4a\bs4\builder\_html5lib.py
+D:\py\bs4a\bs4\builder\_htmlparser.py
+D:\py\bs4a\bs4\builder\_lxml.py
+D:\py\bs4a\bs4\builder\__init__.py
+  D:\py\bs4a\bs4\builder\__pycache__
+D:\py\bs4a\bs4\builder\__pycache__\_html5lib.cpython-37.pyc
+D:\py\bs4a\bs4\builder\__pycache__\_html5lib.cpython-38.pyc
+D:\py\bs4a\bs4\builder\__pycache__\_htmlparser.cpython-37.pyc
+D:\py\bs4a\bs4\builder\__pycache__\_htmlparser.cpython-38.pyc
+D:\py\bs4a\bs4\builder\__pycache__\_lxml.cpython-37.pyc
+D:\py\bs4a\bs4\builder\__pycache__\_lxml.cpython-38.pyc
+D:\py\bs4a\bs4\builder\__pycache__\__init__.cpython-37.pyc
+D:\py\bs4a\bs4\builder\__pycache__\__init__.cpython-38.pyc
+D:\py\bs4a\bs4\tests\test_builder_registry.py
+D:\py\bs4a\bs4\tests\test_docs.py
+D:\py\bs4a\bs4\tests\test_html5lib.py
+D:\py\bs4a\bs4\tests\test_htmlparser.py
+D:\py\bs4a\bs4\tests\test_lxml.py
+D:\py\bs4a\bs4\tests\test_soup.py
+D:\py\bs4a\bs4\tests\test_tree.py
+D:\py\bs4a\bs4\tests\__init__.py
+  D:\py\bs4a\bs4\tests\__pycache__
+D:\py\bs4a\bs4\tests\__pycache__\test_builder_registry.cpython-37.pyc
+D:\py\bs4a\bs4\tests\__pycache__\test_docs.cpython-37.pyc
+D:\py\bs4a\bs4\tests\__pycache__\test_html5lib.cpython-37.pyc
+D:\py\bs4a\bs4\tests\__pycache__\test_htmlparser.cpython-37.pyc
+D:\py\bs4a\bs4\tests\__pycache__\test_lxml.cpython-37.pyc
+D:\py\bs4a\bs4\tests\__pycache__\test_soup.cpython-37.pyc
+D:\py\bs4a\bs4\tests\__pycache__\test_tree.cpython-37.pyc
+D:\py\bs4a\bs4\tests\__pycache__\__init__.cpython-37.pyc
+D:\py\bs4a\bs4\__pycache__\dammit.cpython-37.pyc
+D:\py\bs4a\bs4\__pycache__\dammit.cpython-38.pyc
+D:\py\bs4a\bs4\__pycache__\diagnose.cpython-37.pyc
+D:\py\bs4a\bs4\__pycache__\element.cpython-37.pyc
+D:\py\bs4a\bs4\__pycache__\element.cpython-38.pyc
+D:\py\bs4a\bs4\__pycache__\formatter.cpython-37.pyc
+D:\py\bs4a\bs4\__pycache__\formatter.cpython-38.pyc
+D:\py\bs4a\bs4\__pycache__\testing.cpython-37.pyc
+D:\py\bs4a\bs4\__pycache__\__init__.cpython-37.pyc
+D:\py\bs4a\bs4\__pycache__\__init__.cpython-38.pyc
+D:\py\connector\abstracts.py
+D:\py\connector\authentication.py
+D:\py\connector\catch23.py
+D:\py\connector\charsets.py
+D:\py\connector\connection.py
+D:\py\connector\connection_cext.py
+D:\py\connector\constants.py
+D:\py\connector\conversion.py
+D:\py\connector\cursor.py
+D:\py\connector\cursor_cext.py
+D:\py\connector\custom_types.py
+D:\py\connector\dbapi.py
+D:\py\connector\errorcode.py
+D:\py\connector\errors.py
+D:\py\connector\network.py
+D:\py\connector\optionfiles.py
+D:\py\connector\pooling.py
+D:\py\connector\protocol.py
+D:\py\connector\utils.py
+D:\py\connector\version.py
+D:\py\connector\__init__.py
+  D:\py\connector\django
+  D:\py\connector\fabric
+  D:\py\connector\locales
+  D:\py\connector\__pycache__
+D:\py\connector\django\base.py
+D:\py\connector\django\client.py
+D:\py\connector\django\compiler.py
+D:\py\connector\django\creation.py
+D:\py\connector\django\features.py
+D:\py\connector\django\introspection.py
+D:\py\connector\django\operations.py
+D:\py\connector\django\schema.py
+D:\py\connector\django\validation.py
+D:\py\connector\django\__init__.py
+  D:\py\connector\django\__pycache__
+D:\py\connector\django\__pycache__\base.cpython-37.pyc
+D:\py\connector\django\__pycache__\client.cpython-37.pyc
+D:\py\connector\django\__pycache__\compiler.cpython-37.pyc
+D:\py\connector\django\__pycache__\creation.cpython-37.pyc
+D:\py\connector\django\__pycache__\features.cpython-37.pyc
+D:\py\connector\django\__pycache__\introspection.cpython-37.pyc
+D:\py\connector\django\__pycache__\operations.cpython-37.pyc
+D:\py\connector\django\__pycache__\schema.cpython-37.pyc
+D:\py\connector\django\__pycache__\validation.cpython-37.pyc
+D:\py\connector\django\__pycache__\__init__.cpython-37.pyc
+D:\py\connector\fabric\balancing.py
+D:\py\connector\fabric\caching.py
+D:\py\connector\fabric\connection.py
+D:\py\connector\fabric\__init__.py
+  D:\py\connector\fabric\__pycache__
+D:\py\connector\fabric\__pycache__\balancing.cpython-37.pyc
+D:\py\connector\fabric\__pycache__\caching.cpython-37.pyc
+D:\py\connector\fabric\__pycache__\connection.cpython-37.pyc
+D:\py\connector\fabric\__pycache__\__init__.cpython-37.pyc
+D:\py\connector\locales\__init__.py
+  D:\py\connector\locales\eng
+  D:\py\connector\locales\__pycache__
+D:\py\connector\locales\eng\client_error.py
+D:\py\connector\locales\eng\__init__.py
+  D:\py\connector\locales\eng\__pycache__
+D:\py\connector\locales\eng\__pycache__\client_error.cpython-37.pyc
+D:\py\connector\locales\eng\__pycache__\__init__.cpython-37.pyc
+D:\py\connector\locales\__pycache__\__init__.cpython-37.pyc
+D:\py\connector\locales\__pycache__\__init__.cpython-38.pyc
+D:\py\connector\__pycache__\abstracts.cpython-37.pyc
+D:\py\connector\__pycache__\abstracts.cpython-38.pyc
+D:\py\connector\__pycache__\authentication.cpython-37.pyc
+D:\py\connector\__pycache__\authentication.cpython-38.pyc
+D:\py\connector\__pycache__\catch23.cpython-37.pyc
+D:\py\connector\__pycache__\catch23.cpython-38.pyc
+D:\py\connector\__pycache__\charsets.cpython-37.pyc
+D:\py\connector\__pycache__\charsets.cpython-38.pyc
+D:\py\connector\__pycache__\connection.cpython-37.pyc
+D:\py\connector\__pycache__\connection.cpython-38.pyc
+D:\py\connector\__pycache__\connection_cext.cpython-37.pyc
+D:\py\connector\__pycache__\constants.cpython-37.pyc
+D:\py\connector\__pycache__\constants.cpython-38.pyc
+D:\py\connector\__pycache__\conversion.cpython-37.pyc
+D:\py\connector\__pycache__\conversion.cpython-38.pyc
+D:\py\connector\__pycache__\cursor.cpython-37.pyc
+D:\py\connector\__pycache__\cursor.cpython-38.pyc
+D:\py\connector\__pycache__\cursor_cext.cpython-37.pyc
+D:\py\connector\__pycache__\custom_types.cpython-37.pyc
+D:\py\connector\__pycache__\custom_types.cpython-38.pyc
+D:\py\connector\__pycache__\dbapi.cpython-37.pyc
+D:\py\connector\__pycache__\dbapi.cpython-38.pyc
+D:\py\connector\__pycache__\errorcode.cpython-37.pyc
+D:\py\connector\__pycache__\errorcode.cpython-38.pyc
+D:\py\connector\__pycache__\errors.cpython-37.pyc
+D:\py\connector\__pycache__\errors.cpython-38.pyc
+D:\py\connector\__pycache__\network.cpython-37.pyc
+D:\py\connector\__pycache__\network.cpython-38.pyc
+D:\py\connector\__pycache__\optionfiles.cpython-37.pyc
+D:\py\connector\__pycache__\optionfiles.cpython-38.pyc
+D:\py\connector\__pycache__\pooling.cpython-37.pyc
+D:\py\connector\__pycache__\protocol.cpython-37.pyc
+D:\py\connector\__pycache__\protocol.cpython-38.pyc
+D:\py\connector\__pycache__\utils.cpython-37.pyc
+D:\py\connector\__pycache__\utils.cpython-38.pyc
+D:\py\connector\__pycache__\version.cpython-37.pyc
+D:\py\connector\__pycache__\version.cpython-38.pyc
+D:\py\connector\__pycache__\__init__.cpython-37.pyc
+D:\py\connector\__pycache__\__init__.cpython-38.pyc
+D:\py\dist\kq.exe
+D:\py\dj\db.sqlite3
+D:\py\dj\manage.py
+  D:\py\dj\.idea
+  D:\py\dj\dj
+  D:\py\dj\templates
+  D:\py\dj\TestModel
+D:\py\dj\.idea\dj.iml
+D:\py\dj\.idea\misc.xml
+D:\py\dj\.idea\modules.xml
+D:\py\dj\.idea\workspace.xml
+D:\py\dj\dj\aiiw.py
+D:\py\dj\dj\asgi.py
+D:\py\dj\dj\search.py
+D:\py\dj\dj\search2.py
+D:\py\dj\dj\settings.py
+D:\py\dj\dj\testdb.py
+D:\py\dj\dj\urls.py
+D:\py\dj\dj\wsgi.py
+D:\py\dj\dj\__init__.py
+  D:\py\dj\dj\__pycache__
+D:\py\dj\dj\__pycache__\aiiw.cpython-37.pyc
+D:\py\dj\dj\__pycache__\search.cpython-37.pyc
+D:\py\dj\dj\__pycache__\search2.cpython-37.pyc
+D:\py\dj\dj\__pycache__\settings.cpython-37.pyc
+D:\py\dj\dj\__pycache__\testdb.cpython-37.pyc
+D:\py\dj\dj\__pycache__\urls.cpython-37.pyc
+D:\py\dj\dj\__pycache__\wsgi.cpython-37.pyc
+D:\py\dj\dj\__pycache__\__init__.cpython-37.pyc
+D:\py\dj\templates\post.html
+D:\py\dj\templates\runoob.html
+D:\py\dj\templates\search_form.html
+D:\py\dj\TestModel\admin.py
+D:\py\dj\TestModel\apps.py
+D:\py\dj\TestModel\models.py
+D:\py\dj\TestModel\test.py
+D:\py\dj\TestModel\tests.py
+D:\py\dj\TestModel\views.py
+D:\py\dj\TestModel\__init__.py
+  D:\py\dj\TestModel\migrations
+  D:\py\dj\TestModel\__pycache__
+D:\py\dj\TestModel\migrations\0001_initial.py
+D:\py\dj\TestModel\migrations\0002_book.py
+D:\py\dj\TestModel\migrations\__init__.py
+  D:\py\dj\TestModel\migrations\__pycache__
+D:\py\dj\TestModel\migrations\__pycache__\0001_initial.cpython-37.pyc
+D:\py\dj\TestModel\migrations\__pycache__\0002_book.cpython-37.pyc
+D:\py\dj\TestModel\migrations\__pycache__\__init__.cpython-37.pyc
+D:\py\dj\TestModel\__pycache__\admin.cpython-37.pyc
+D:\py\dj\TestModel\__pycache__\models.cpython-37.pyc
+D:\py\dj\TestModel\__pycache__\views.cpython-37.pyc
+D:\py\dj\TestModel\__pycache__\__init__.cpython-37.pyc
+D:\py\img\1.png
+  D:\py\mypy\.git
+D:\py\mypy\.git\config
+D:\py\mypy\.git\description
+D:\py\mypy\.git\HEAD
+  D:\py\mypy\.git\hooks
+  D:\py\mypy\.git\info
+  D:\py\mypy\.git\objects
+  D:\py\mypy\.git\refs
+D:\py\mypy\.git\hooks\applypatch-msg.sample
+D:\py\mypy\.git\hooks\commit-msg.sample
+D:\py\mypy\.git\hooks\post-update.sample
+D:\py\mypy\.git\hooks\pre-applypatch.sample
+D:\py\mypy\.git\hooks\pre-commit.sample
+D:\py\mypy\.git\hooks\pre-push.sample
+D:\py\mypy\.git\hooks\pre-rebase.sample
+D:\py\mypy\.git\hooks\prepare-commit-msg.sample
+D:\py\mypy\.git\hooks\update.sample
+D:\py\mypy\.git\info\exclude
+  D:\py\mypy\.git\objects\4b
+  D:\py\mypy\.git\objects\info
+  D:\py\mypy\.git\objects\pack
+D:\py\mypy\.git\objects\4b\825dc642cb6eb9a060e54bf8d69288fbee4904
+  D:\py\mypy\.git\refs\heads
+  D:\py\mypy\.git\refs\tags
+D:\py\mysql\11.ico
+D:\py\mysql\11.php
+D:\py\mysql\66.ico
+D:\py\mysql\mysql.py
+D:\py\mysql\mysql.spec
+D:\py\mysql\mysql1.py
+D:\py\mysql\mysql2.py
+D:\py\mysql\oa.php
+D:\py\mysql\sw.ico
+D:\py\mysql\td_flow.py
+  D:\py\mysql\build
+  D:\py\mysql\connector
+  D:\py\mysql\dist
+  D:\py\mysql\__pycache__
+  D:\py\mysql\build\mysql
+D:\py\mysql\build\mysql\Analysis-00.toc
+D:\py\mysql\build\mysql\base_library.zip
+D:\py\mysql\build\mysql\EXE-00.toc
+D:\py\mysql\build\mysql\mysql.exe.manifest
+D:\py\mysql\build\mysql\PKG-00.pkg
+D:\py\mysql\build\mysql\PKG-00.toc
+D:\py\mysql\build\mysql\PYZ-00.pyz
+D:\py\mysql\build\mysql\PYZ-00.toc
+D:\py\mysql\build\mysql\warn-mysql.txt
+D:\py\mysql\build\mysql\xref-mysql.html
+D:\py\mysql\connector\abstracts.py
+D:\py\mysql\connector\authentication.py
+D:\py\mysql\connector\catch23.py
+D:\py\mysql\connector\charsets.py
+D:\py\mysql\connector\connection.py
+D:\py\mysql\connector\connection_cext.py
+D:\py\mysql\connector\constants.py
+D:\py\mysql\connector\conversion.py
+D:\py\mysql\connector\cursor.py
+D:\py\mysql\connector\cursor_cext.py
+D:\py\mysql\connector\custom_types.py
+D:\py\mysql\connector\dbapi.py
+D:\py\mysql\connector\errorcode.py
+D:\py\mysql\connector\errors.py
+D:\py\mysql\connector\network.py
+D:\py\mysql\connector\optionfiles.py
+D:\py\mysql\connector\pooling.py
+D:\py\mysql\connector\protocol.py
+D:\py\mysql\connector\utils.py
+D:\py\mysql\connector\version.py
+D:\py\mysql\connector\__init__.py
+  D:\py\mysql\connector\django
+  D:\py\mysql\connector\fabric
+  D:\py\mysql\connector\locales
+  D:\py\mysql\connector\__pycache__
+D:\py\mysql\connector\django\base.py
+D:\py\mysql\connector\django\client.py
+D:\py\mysql\connector\django\compiler.py
+D:\py\mysql\connector\django\creation.py
+D:\py\mysql\connector\django\features.py
+D:\py\mysql\connector\django\introspection.py
+D:\py\mysql\connector\django\operations.py
+D:\py\mysql\connector\django\schema.py
+D:\py\mysql\connector\django\validation.py
+D:\py\mysql\connector\django\__init__.py
+  D:\py\mysql\connector\django\__pycache__
+D:\py\mysql\connector\django\__pycache__\base.cpython-37.pyc
+D:\py\mysql\connector\django\__pycache__\client.cpython-37.pyc
+D:\py\mysql\connector\django\__pycache__\compiler.cpython-37.pyc
+D:\py\mysql\connector\django\__pycache__\creation.cpython-37.pyc
+D:\py\mysql\connector\django\__pycache__\features.cpython-37.pyc
+D:\py\mysql\connector\django\__pycache__\introspection.cpython-37.pyc
+D:\py\mysql\connector\django\__pycache__\operations.cpython-37.pyc
+D:\py\mysql\connector\django\__pycache__\schema.cpython-37.pyc
+D:\py\mysql\connector\django\__pycache__\validation.cpython-37.pyc
+D:\py\mysql\connector\django\__pycache__\__init__.cpython-37.pyc
+D:\py\mysql\connector\fabric\balancing.py
+D:\py\mysql\connector\fabric\caching.py
+D:\py\mysql\connector\fabric\connection.py
+D:\py\mysql\connector\fabric\__init__.py
+  D:\py\mysql\connector\fabric\__pycache__
+D:\py\mysql\connector\fabric\__pycache__\balancing.cpython-37.pyc
+D:\py\mysql\connector\fabric\__pycache__\caching.cpython-37.pyc
+D:\py\mysql\connector\fabric\__pycache__\connection.cpython-37.pyc
+D:\py\mysql\connector\fabric\__pycache__\__init__.cpython-37.pyc
+D:\py\mysql\connector\locales\__init__.py
+  D:\py\mysql\connector\locales\eng
+  D:\py\mysql\connector\locales\__pycache__
+D:\py\mysql\connector\locales\eng\client_error.py
+D:\py\mysql\connector\locales\eng\__init__.py
+  D:\py\mysql\connector\locales\eng\__pycache__
+D:\py\mysql\connector\locales\eng\__pycache__\client_error.cpython-37.pyc
+D:\py\mysql\connector\locales\eng\__pycache__\client_error.cpython-38.pyc
+D:\py\mysql\connector\locales\eng\__pycache__\__init__.cpython-37.pyc
+D:\py\mysql\connector\locales\eng\__pycache__\__init__.cpython-38.pyc
+D:\py\mysql\connector\locales\__pycache__\__init__.cpython-37.pyc
+D:\py\mysql\connector\locales\__pycache__\__init__.cpython-38.pyc
+D:\py\mysql\connector\__pycache__\abstracts.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\abstracts.cpython-38.pyc
+D:\py\mysql\connector\__pycache__\authentication.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\authentication.cpython-38.pyc
+D:\py\mysql\connector\__pycache__\catch23.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\catch23.cpython-38.pyc
+D:\py\mysql\connector\__pycache__\charsets.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\charsets.cpython-38.pyc
+D:\py\mysql\connector\__pycache__\connection.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\connection.cpython-38.pyc
+D:\py\mysql\connector\__pycache__\connection_cext.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\constants.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\constants.cpython-38.pyc
+D:\py\mysql\connector\__pycache__\conversion.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\conversion.cpython-38.pyc
+D:\py\mysql\connector\__pycache__\cursor.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\cursor.cpython-38.pyc
+D:\py\mysql\connector\__pycache__\cursor_cext.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\custom_types.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\custom_types.cpython-38.pyc
+D:\py\mysql\connector\__pycache__\dbapi.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\dbapi.cpython-38.pyc
+D:\py\mysql\connector\__pycache__\errorcode.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\errorcode.cpython-38.pyc
+D:\py\mysql\connector\__pycache__\errors.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\errors.cpython-38.pyc
+D:\py\mysql\connector\__pycache__\network.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\network.cpython-38.pyc
+D:\py\mysql\connector\__pycache__\optionfiles.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\optionfiles.cpython-38.pyc
+D:\py\mysql\connector\__pycache__\pooling.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\protocol.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\protocol.cpython-38.pyc
+D:\py\mysql\connector\__pycache__\utils.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\utils.cpython-38.pyc
+D:\py\mysql\connector\__pycache__\version.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\version.cpython-38.pyc
+D:\py\mysql\connector\__pycache__\__init__.cpython-37.pyc
+D:\py\mysql\connector\__pycache__\__init__.cpython-38.pyc
+D:\py\mysql\dist\mysql.exe
+D:\py\mysql\__pycache__\mysql.cpython-37.pyc
+D:\py\ora\1.xls
+D:\py\ora\connetc1.py
+D:\py\ora\connora.py
+D:\py\ora\getonebyname.py
+D:\py\ora\student.xls
+D:\py\ora\student_bak.xls
+D:\py\ora\student_bak1.xls
+D:\py\ora\test.py
+D:\py\ora\新建文本文档.txt
+D:\py\ora\递归.py
+  D:\py\ora\cx_Oracle-7.3.0.dist-info
+  D:\py\ora\xlwt
+D:\py\ora\cx_Oracle-7.3.0.dist-info\cx_Oracle.cp37-win_amd64.pyd
+D:\py\ora\cx_Oracle-7.3.0.dist-info\direct_url.json
+D:\py\ora\cx_Oracle-7.3.0.dist-info\INSTALLER
+D:\py\ora\cx_Oracle-7.3.0.dist-info\LICENSE.txt
+D:\py\ora\cx_Oracle-7.3.0.dist-info\METADATA
+D:\py\ora\cx_Oracle-7.3.0.dist-info\RECORD
+D:\py\ora\cx_Oracle-7.3.0.dist-info\top_level.txt
+D:\py\ora\cx_Oracle-7.3.0.dist-info\WHEEL
+D:\py\ora\xlwt\antlr.py
+D:\py\ora\xlwt\BIFFRecords.py
+D:\py\ora\xlwt\Bitmap.py
+D:\py\ora\xlwt\Cell.py
+D:\py\ora\xlwt\Column.py
+D:\py\ora\xlwt\compat.py
+D:\py\ora\xlwt\CompoundDoc.py
+D:\py\ora\xlwt\excel-formula.g
+D:\py\ora\xlwt\ExcelFormula.py
+D:\py\ora\xlwt\ExcelFormulaLexer.py
+D:\py\ora\xlwt\ExcelFormulaParser.py
+D:\py\ora\xlwt\ExcelMagic.py
+D:\py\ora\xlwt\Formatting.py
+D:\py\ora\xlwt\Row.py
+D:\py\ora\xlwt\Style.py
+D:\py\ora\xlwt\UnicodeUtils.py
+D:\py\ora\xlwt\Utils.py
+D:\py\ora\xlwt\Workbook.py
+D:\py\ora\xlwt\Worksheet.py
+D:\py\ora\xlwt\__init__.py
+  D:\py\ora\xlwt\__pycache__
+D:\py\ora\xlwt\__pycache__\antlr.cpython-37.pyc
+D:\py\ora\xlwt\__pycache__\BIFFRecords.cpython-37.pyc
+D:\py\ora\xlwt\__pycache__\Bitmap.cpython-37.pyc
+D:\py\ora\xlwt\__pycache__\Cell.cpython-37.pyc
+D:\py\ora\xlwt\__pycache__\Column.cpython-37.pyc
+D:\py\ora\xlwt\__pycache__\compat.cpython-37.pyc
+D:\py\ora\xlwt\__pycache__\CompoundDoc.cpython-37.pyc
+D:\py\ora\xlwt\__pycache__\ExcelFormula.cpython-37.pyc
+D:\py\ora\xlwt\__pycache__\ExcelFormulaLexer.cpython-37.pyc
+D:\py\ora\xlwt\__pycache__\ExcelFormulaParser.cpython-37.pyc
+D:\py\ora\xlwt\__pycache__\ExcelMagic.cpython-37.pyc
+D:\py\ora\xlwt\__pycache__\Formatting.cpython-37.pyc
+D:\py\ora\xlwt\__pycache__\Row.cpython-37.pyc
+D:\py\ora\xlwt\__pycache__\Style.cpython-37.pyc
+D:\py\ora\xlwt\__pycache__\UnicodeUtils.cpython-37.pyc
+D:\py\ora\xlwt\__pycache__\Utils.cpython-37.pyc
+D:\py\ora\xlwt\__pycache__\Workbook.cpython-37.pyc
+D:\py\ora\xlwt\__pycache__\Worksheet.cpython-37.pyc
+D:\py\ora\xlwt\__pycache__\__init__.cpython-37.pyc
+D:\py\p123\db.sqlite3
+D:\py\p123\manage.py
+  D:\py\p123\.idea
+  D:\py\p123\jquery
+  D:\py\p123\p123
+  D:\py\p123\static
+  D:\py\p123\templates
+  D:\py\p123\TestModel
+D:\py\p123\.idea\misc.xml
+D:\py\p123\.idea\modules.xml
+D:\py\p123\.idea\p123.iml
+D:\py\p123\.idea\workspace.xml
+D:\py\p123\jquery\j1.html
+D:\py\p123\jquery\jquery-3.5.1.js
+D:\py\p123\p123\asgi.py
+D:\py\p123\p123\search1.py
+D:\py\p123\p123\search2.py
+D:\py\p123\p123\settings.py
+D:\py\p123\p123\urls.py
+D:\py\p123\p123\views.py
+D:\py\p123\p123\wsgi.py
+D:\py\p123\p123\__init__.py
+  D:\py\p123\p123\__pycache__
+D:\py\p123\p123\__pycache__\search1.cpython-38.pyc
+D:\py\p123\p123\__pycache__\search2.cpython-38.pyc
+D:\py\p123\p123\__pycache__\settings.cpython-38.pyc
+D:\py\p123\p123\__pycache__\urls.cpython-38.pyc
+D:\py\p123\p123\__pycache__\views.cpython-38.pyc
+D:\py\p123\p123\__pycache__\wsgi.cpython-38.pyc
+D:\py\p123\p123\__pycache__\__init__.cpython-38.pyc
+D:\py\p123\static\123.txt
+D:\py\p123\static\j1.html
+D:\py\p123\static\jquery-3.5.1.js
+D:\py\p123\templates\form1.html
+D:\py\p123\templates\form2.html
+D:\py\p123\templates\testrequest.html
+D:\py\p123\templates\tp1.html
+D:\py\p123\TestModel\admin.py
+D:\py\p123\TestModel\apps.py
+D:\py\p123\TestModel\models.py
+D:\py\p123\TestModel\testdb.py
+D:\py\p123\TestModel\tests.py
+D:\py\p123\TestModel\views.py
+D:\py\p123\TestModel\__init__.py
+  D:\py\p123\TestModel\migrations
+  D:\py\p123\TestModel\__pycache__
+D:\py\p123\TestModel\migrations\0001_initial.py
+D:\py\p123\TestModel\migrations\__init__.py
+  D:\py\p123\TestModel\migrations\__pycache__
+D:\py\p123\TestModel\migrations\__pycache__\0001_initial.cpython-38.pyc
+D:\py\p123\TestModel\migrations\__pycache__\__init__.cpython-38.pyc
+D:\py\p123\TestModel\__pycache__\admin.cpython-38.pyc
+D:\py\p123\TestModel\__pycache__\models.cpython-38.pyc
+D:\py\p123\TestModel\__pycache__\testdb.cpython-38.pyc
+D:\py\p123\TestModel\__pycache__\__init__.cpython-38.pyc
+D:\py\pcoa\pcoa.py
+D:\py\pcoa\pcoa02.py
+D:\py\pcoa\pcoa03.py
+D:\py\ping_log\2021-11-29(161202).xlsx
+D:\py\ping_log\2021-11-29(161450).xlsx
+D:\py\ping_log\2021-11-29(161519).xlsx
+D:\py\pyemail\dependency_links.txt
+D:\py\pyemail\installed-files.txt
+D:\py\pyemail\PKG-INFO
+D:\py\pyemail\SOURCES.txt
+D:\py\pyemail\top_level.txt
+D:\py\pymssql-2.1.5-py3.7.egg-info\dependency_links.txt
+D:\py\pymssql-2.1.5-py3.7.egg-info\not-zip-safe
+D:\py\pymssql-2.1.5-py3.7.egg-info\PKG-INFO
+D:\py\pymssql-2.1.5-py3.7.egg-info\SOURCES.txt
+D:\py\pymssql-2.1.5-py3.7.egg-info\top_level.txt
+D:\py\pymssql-2.1.5.dist-info\INSTALLER
+D:\py\pymssql-2.1.5.dist-info\LICENSE
+D:\py\pymssql-2.1.5.dist-info\METADATA
+D:\py\pymssql-2.1.5.dist-info\RECORD
+D:\py\pymssql-2.1.5.dist-info\top_level.txt
+D:\py\pymssql-2.1.5.dist-info\WHEEL
+D:\py\re1\re1.py
+D:\py\re1\过滤T100脚本.py
+  D:\py\re1\__pycache__
+D:\py\re1\__pycache__\re.cpython-37.pyc
+D:\py\sendoa\sendoa.py
+D:\py\sendoa\__init__.py
+  D:\py\sendoa\connector
+  D:\py\sendoa\__pycache__
+D:\py\sendoa\connector\abstracts.py
+D:\py\sendoa\connector\authentication.py
+D:\py\sendoa\connector\catch23.py
+D:\py\sendoa\connector\charsets.py
+D:\py\sendoa\connector\connection.py
+D:\py\sendoa\connector\connection_cext.py
+D:\py\sendoa\connector\constants.py
+D:\py\sendoa\connector\conversion.py
+D:\py\sendoa\connector\cursor.py
+D:\py\sendoa\connector\cursor_cext.py
+D:\py\sendoa\connector\custom_types.py
+D:\py\sendoa\connector\dbapi.py
+D:\py\sendoa\connector\errorcode.py
+D:\py\sendoa\connector\errors.py
+D:\py\sendoa\connector\network.py
+D:\py\sendoa\connector\optionfiles.py
+D:\py\sendoa\connector\pooling.py
+D:\py\sendoa\connector\protocol.py
+D:\py\sendoa\connector\utils.py
+D:\py\sendoa\connector\version.py
+D:\py\sendoa\connector\__init__.py
+  D:\py\sendoa\connector\django
+  D:\py\sendoa\connector\fabric
+  D:\py\sendoa\connector\locales
+  D:\py\sendoa\connector\__pycache__
+D:\py\sendoa\connector\django\base.py
+D:\py\sendoa\connector\django\client.py
+D:\py\sendoa\connector\django\compiler.py
+D:\py\sendoa\connector\django\creation.py
+D:\py\sendoa\connector\django\features.py
+D:\py\sendoa\connector\django\introspection.py
+D:\py\sendoa\connector\django\operations.py
+D:\py\sendoa\connector\django\schema.py
+D:\py\sendoa\connector\django\validation.py
+D:\py\sendoa\connector\django\__init__.py
+  D:\py\sendoa\connector\django\__pycache__
+D:\py\sendoa\connector\django\__pycache__\base.cpython-37.pyc
+D:\py\sendoa\connector\django\__pycache__\client.cpython-37.pyc
+D:\py\sendoa\connector\django\__pycache__\compiler.cpython-37.pyc
+D:\py\sendoa\connector\django\__pycache__\creation.cpython-37.pyc
+D:\py\sendoa\connector\django\__pycache__\features.cpython-37.pyc
+D:\py\sendoa\connector\django\__pycache__\introspection.cpython-37.pyc
+D:\py\sendoa\connector\django\__pycache__\operations.cpython-37.pyc
+D:\py\sendoa\connector\django\__pycache__\schema.cpython-37.pyc
+D:\py\sendoa\connector\django\__pycache__\validation.cpython-37.pyc
+D:\py\sendoa\connector\django\__pycache__\__init__.cpython-37.pyc
+D:\py\sendoa\connector\fabric\balancing.py
+D:\py\sendoa\connector\fabric\caching.py
+D:\py\sendoa\connector\fabric\connection.py
+D:\py\sendoa\connector\fabric\__init__.py
+  D:\py\sendoa\connector\fabric\__pycache__
+D:\py\sendoa\connector\fabric\__pycache__\balancing.cpython-37.pyc
+D:\py\sendoa\connector\fabric\__pycache__\caching.cpython-37.pyc
+D:\py\sendoa\connector\fabric\__pycache__\connection.cpython-37.pyc
+D:\py\sendoa\connector\fabric\__pycache__\__init__.cpython-37.pyc
+D:\py\sendoa\connector\locales\__init__.py
+  D:\py\sendoa\connector\locales\eng
+  D:\py\sendoa\connector\locales\__pycache__
+D:\py\sendoa\connector\locales\eng\client_error.py
+D:\py\sendoa\connector\locales\eng\__init__.py
+  D:\py\sendoa\connector\locales\eng\__pycache__
+D:\py\sendoa\connector\locales\eng\__pycache__\client_error.cpython-37.pyc
+D:\py\sendoa\connector\locales\eng\__pycache__\__init__.cpython-37.pyc
+D:\py\sendoa\connector\locales\__pycache__\__init__.cpython-37.pyc
+D:\py\sendoa\connector\locales\__pycache__\__init__.cpython-38.pyc
+D:\py\sendoa\connector\__pycache__\abstracts.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\abstracts.cpython-38.pyc
+D:\py\sendoa\connector\__pycache__\authentication.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\authentication.cpython-38.pyc
+D:\py\sendoa\connector\__pycache__\catch23.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\catch23.cpython-38.pyc
+D:\py\sendoa\connector\__pycache__\charsets.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\charsets.cpython-38.pyc
+D:\py\sendoa\connector\__pycache__\connection.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\connection.cpython-38.pyc
+D:\py\sendoa\connector\__pycache__\connection_cext.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\constants.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\constants.cpython-38.pyc
+D:\py\sendoa\connector\__pycache__\conversion.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\conversion.cpython-38.pyc
+D:\py\sendoa\connector\__pycache__\cursor.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\cursor.cpython-38.pyc
+D:\py\sendoa\connector\__pycache__\cursor_cext.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\custom_types.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\custom_types.cpython-38.pyc
+D:\py\sendoa\connector\__pycache__\dbapi.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\dbapi.cpython-38.pyc
+D:\py\sendoa\connector\__pycache__\errorcode.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\errorcode.cpython-38.pyc
+D:\py\sendoa\connector\__pycache__\errors.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\errors.cpython-38.pyc
+D:\py\sendoa\connector\__pycache__\network.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\network.cpython-38.pyc
+D:\py\sendoa\connector\__pycache__\optionfiles.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\optionfiles.cpython-38.pyc
+D:\py\sendoa\connector\__pycache__\pooling.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\protocol.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\protocol.cpython-38.pyc
+D:\py\sendoa\connector\__pycache__\utils.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\utils.cpython-38.pyc
+D:\py\sendoa\connector\__pycache__\version.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\version.cpython-38.pyc
+D:\py\sendoa\connector\__pycache__\__init__.cpython-37.pyc
+D:\py\sendoa\connector\__pycache__\__init__.cpython-38.pyc
+D:\py\sendoa\__pycache__\sendoa.cpython-38.pyc
+D:\py\sendoa\__pycache__\__init__.cpython-38.pyc
+D:\py\simplejson\compat.py
+D:\py\simplejson\decoder.py
+D:\py\simplejson\encoder.py
+D:\py\simplejson\errors.py
+D:\py\simplejson\ordered_dict.py
+D:\py\simplejson\raw_json.py
+D:\py\simplejson\scanner.py
+D:\py\simplejson\tool.py
+D:\py\simplejson\_speedups.cp37-win_amd64.pyd
+D:\py\simplejson\__init__.py
+  D:\py\simplejson\tests
+  D:\py\simplejson\__pycache__
+D:\py\simplejson\tests\test_bigint_as_string.py
+D:\py\simplejson\tests\test_bitsize_int_as_string.py
+D:\py\simplejson\tests\test_check_circular.py
+D:\py\simplejson\tests\test_decimal.py
+D:\py\simplejson\tests\test_decode.py
+D:\py\simplejson\tests\test_default.py
+D:\py\simplejson\tests\test_dump.py
+D:\py\simplejson\tests\test_encode_basestring_ascii.py
+D:\py\simplejson\tests\test_encode_for_html.py
+D:\py\simplejson\tests\test_errors.py
+D:\py\simplejson\tests\test_fail.py
+D:\py\simplejson\tests\test_float.py
+D:\py\simplejson\tests\test_for_json.py
+D:\py\simplejson\tests\test_indent.py
+D:\py\simplejson\tests\test_item_sort_key.py
+D:\py\simplejson\tests\test_iterable.py
+D:\py\simplejson\tests\test_namedtuple.py
+D:\py\simplejson\tests\test_pass1.py
+D:\py\simplejson\tests\test_pass2.py
+D:\py\simplejson\tests\test_pass3.py
+D:\py\simplejson\tests\test_raw_json.py
+D:\py\simplejson\tests\test_recursion.py
+D:\py\simplejson\tests\test_scanstring.py
+D:\py\simplejson\tests\test_separators.py
+D:\py\simplejson\tests\test_speedups.py
+D:\py\simplejson\tests\test_str_subclass.py
+D:\py\simplejson\tests\test_subclass.py
+D:\py\simplejson\tests\test_tool.py
+D:\py\simplejson\tests\test_tuple.py
+D:\py\simplejson\tests\test_unicode.py
+D:\py\simplejson\tests\__init__.py
+  D:\py\simplejson\tests\__pycache__
+D:\py\simplejson\tests\__pycache__\test_bigint_as_string.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_bitsize_int_as_string.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_check_circular.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_decimal.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_decode.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_default.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_dump.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_encode_basestring_ascii.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_encode_for_html.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_errors.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_fail.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_float.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_for_json.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_indent.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_item_sort_key.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_iterable.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_namedtuple.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_pass1.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_pass2.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_pass3.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_raw_json.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_recursion.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_scanstring.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_separators.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_speedups.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_str_subclass.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_subclass.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_tool.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_tuple.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\test_unicode.cpython-37.pyc
+D:\py\simplejson\tests\__pycache__\__init__.cpython-37.pyc
+D:\py\simplejson\__pycache__\compat.cpython-37.pyc
+D:\py\simplejson\__pycache__\compat.cpython-38.pyc
+D:\py\simplejson\__pycache__\decoder.cpython-37.pyc
+D:\py\simplejson\__pycache__\decoder.cpython-38.pyc
+D:\py\simplejson\__pycache__\encoder.cpython-37.pyc
+D:\py\simplejson\__pycache__\encoder.cpython-38.pyc
+D:\py\simplejson\__pycache__\errors.cpython-37.pyc
+D:\py\simplejson\__pycache__\errors.cpython-38.pyc
+D:\py\simplejson\__pycache__\ordered_dict.cpython-37.pyc
+D:\py\simplejson\__pycache__\raw_json.cpython-37.pyc
+D:\py\simplejson\__pycache__\raw_json.cpython-38.pyc
+D:\py\simplejson\__pycache__\scanner.cpython-37.pyc
+D:\py\simplejson\__pycache__\scanner.cpython-38.pyc
+D:\py\simplejson\__pycache__\tool.cpython-37.pyc
+D:\py\simplejson\__pycache__\__init__.cpython-37.pyc
+D:\py\simplejson\__pycache__\__init__.cpython-38.pyc
+D:\py\__pycache__\call_login.cpython-37.pyc
+D:\py\__pycache__\getmusic.cpython-37.pyc
+D:\py\__pycache__\kqfstask.cpython-37.pyc
+D:\py\__pycache__\kqfx.cpython-37.pyc
+D:\py\__pycache__\kqfx.cpython-38.pyc
+D:\py\__pycache__\kqfxtask.cpython-37.pyc
+D:\py\__pycache__\login.cpython-37.pyc
+D:\py\__pycache__\login.cpython-38.pyc
+D:\py\__pycache__\myfastapi.cpython-38.pyc
+D:\py\__pycache__\numpy.cpython-38.pyc
+D:\py\__pycache__\opos.cpython-37.pyc
+D:\py\__pycache__\oswalk.cpython-37.pyc
+D:\py\__pycache__\oswalk.cpython-38.pyc
+D:\py\__pycache__\pchrm1.cpython-37.pyc
+D:\py\__pycache__\pchrm2.cpython-37.pyc
+D:\py\__pycache__\queue.cpython-37.pyc
+D:\py\__pycache__\queue.cpython-38.pyc
+D:\py\__pycache__\remonth.cpython-37.pyc
+D:\py\__pycache__\remonth.cpython-38.pyc
+D:\py\__pycache__\sendoa.cpython-38.pyc
+D:\py\__pycache__\sendoa1.cpython-38.pyc
+D:\py\__pycache__\test.cpython-37.pyc
+D:\py\__pycache__\test6.cpython-37.pyc
+D:\py\__pycache__\tpymssql.cpython-37.pyc
+D:\py\__pycache__\walkpath.cpython-37.pyc
+D:\py\__pycache__\压缩office日记.cpython-37.pyc
+D:\py\三字经-open例子\f1.txt
+D:\py\三字经-open例子\f2.txt
+D:\py\三字经-open例子\三字经.txt
+D:\py\三字经-open例子\千字文.txt
+D:\py\三字经-open例子\读取三字经转换格式.py

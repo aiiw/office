@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{ dict2 }}
+<table border="2">
+{% for a,b in dict2.items %}
+
+<p>{{ a }}</p>
+ <tr><td>{{ a }}</td><td>{{ b }}</td></tr>
+{% endfor %}
+</table>
+</body>
+</html>

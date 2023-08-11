@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+    <title>奥佳华订单系统</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            background: #efefef;
+            font-family: Georgia, Times, Verdana, Geneva, Arial, Helvetica, sans-serif;
+        }
+
+        div#mother {
+            margin: 0 auto;
+            /*width: 943px;
+            height: 572px;*/
+            width: 800px;
+            height: 550px;
+            position: relative;
+        }
+
+        div#errorBox {
+            background: url(/images/404_bg.png) no-repeat top left;
+            background-size: cover;
+            width: 661px;
+            height: 401px;
+            margin: auto;
+        }
+
+        div#errorText {
+            color: #39351e;
+            padding: 16px 15px 0 300px;
+        }
+
+            div#errorText p {
+                width: 330px;
+                font-size: 14px;
+                line-height: 20px;
+            }
+
+        div.link {
+            /*background:#f90;*/
+            height: 50px;
+            width: 145px;
+            float: left;
+            padding-top: 0px;
+            padding-left: 0px; /*18.11.16 原 0px*/
+        }
+
+        div#home {
+            margin: 20px 0 0 44px;
+        }
+
+        div#contact {
+            margin: 20px 0 0 25px;
+        }
+
+        h1 {
+            font-size: 30px;
+            /*margin-bottom: 30px;*/
+        }
+
+        #bottom {
+            /*margin:330px 15px 15px 295px;*/
+            position: relative;
+            padding-top: 80px;
+            padding-left: 320px;
+        }
+    </style>
+</head>
+<body>
+    <div id="mother">
+        <div id="errorBox">
+            <div id="errorText">
+                <h1>Sorry..页面没有找到！</h1>
+                <p>
+                    似乎你所寻找的网页已移动或丢失了。
+                <p>
+                    或者也许你只是键入错误了一些东西。
+                </p>
+                <p>
+                    请不要担心，这没事。如果该资源对你很重要，请与管理员联系。
+                </p>
+                <p style="font-weight: bold; font-family: 'Arial','Microsoft YaHei','黑体','宋体',sans-serif;">
+                    火星不太安全，我可以免费送你回地球
+                </p>
+            </div>
+            <a href="/main.aspx" title="立即返回首页">
+                <div class="link" id="home"></div>
+            </a>
+            <a href="/Login.aspx" title="重新登录">
+                <div class="link" id="contact"></div>
+            </a>
+            <div id="bottom" style="font-weight: bold;font-size: 20px; color: red;">
+                正在返回首页 <span style="color: green; font-size: 28px;" id="time">5</span> 秒
+            </div>
+        </div>
+       
+    </div>
+    <script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript">
+        function goBack() {
+            var time = parseInt($("#time").html());
+            if (time <= 0) {
+                window.location.href = "main.aspx";
+            }
+            else {
+                time--;
+                $("#time").html(time);
+            }
+        }
+        window.setInterval("goBack();", 1000);
+    </script>
+</body>
+</html>

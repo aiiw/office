@@ -1,0 +1,5910 @@
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede3a"), 
+    "id" : NumberInt(1), 
+    "name" : "广东万事泰集团有限公司", 
+    "parentid" : NumberInt(0), 
+    "order" : NumberInt(2000000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede3b"), 
+    "id" : NumberInt(31), 
+    "name" : "成本部", 
+    "parentid" : NumberInt(14), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede3c"), 
+    "id" : NumberInt(32), 
+    "name" : "品检办公室", 
+    "parentid" : NumberInt(15), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede3d"), 
+    "id" : NumberInt(33), 
+    "name" : "厨具品质部", 
+    "parentid" : NumberInt(15), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede3e"), 
+    "id" : NumberInt(34), 
+    "name" : "检测中心", 
+    "parentid" : NumberInt(15), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede3f"), 
+    "id" : NumberInt(35), 
+    "name" : "家电品质部", 
+    "parentid" : NumberInt(15), 
+    "order" : NumberInt(1999999992), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede40"), 
+    "id" : NumberInt(36), 
+    "name" : "工程质量检验组", 
+    "parentid" : NumberInt(33), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede41"), 
+    "id" : NumberInt(37), 
+    "name" : "来料检验组", 
+    "parentid" : NumberInt(33), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede42"), 
+    "id" : NumberInt(39), 
+    "name" : "技术管理部", 
+    "parentid" : NumberInt(16), 
+    "order" : NumberInt(1999999992), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede43"), 
+    "id" : NumberInt(4), 
+    "name" : "办公室", 
+    "parentid" : NumberInt(2), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede44"), 
+    "id" : NumberInt(40), 
+    "name" : "标准组", 
+    "parentid" : NumberInt(39), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede45"), 
+    "id" : NumberInt(41), 
+    "name" : "产品研发部", 
+    "parentid" : NumberInt(16), 
+    "order" : NumberInt(1999999988), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede46"), 
+    "id" : NumberInt(42), 
+    "name" : "产品策划组", 
+    "parentid" : NumberInt(41), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede47"), 
+    "id" : NumberInt(43), 
+    "name" : "工业设计组", 
+    "parentid" : NumberInt(41), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede48"), 
+    "id" : NumberInt(5), 
+    "name" : "秘书室", 
+    "parentid" : NumberInt(2), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede49"), 
+    "id" : NumberInt(69), 
+    "name" : "嘉办公室", 
+    "parentid" : NumberInt(24), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede4a"), 
+    "id" : NumberInt(73), 
+    "name" : "香港业务员", 
+    "parentid" : NumberInt(25), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede4b"), 
+    "id" : NumberInt(75), 
+    "name" : "电器办公室", 
+    "parentid" : NumberInt(22), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede4c"), 
+    "id" : NumberInt(76), 
+    "name" : "电器工程部", 
+    "parentid" : NumberInt(22), 
+    "order" : NumberInt(1999999986), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede4d"), 
+    "id" : NumberInt(79), 
+    "name" : "电器生产部", 
+    "parentid" : NumberInt(22), 
+    "order" : NumberInt(1999999981), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede4e"), 
+    "id" : NumberInt(8), 
+    "name" : "体系运营部", 
+    "parentid" : NumberInt(3), 
+    "order" : NumberInt(1999999989), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede4f"), 
+    "id" : NumberInt(80), 
+    "name" : "电器PMC部", 
+    "parentid" : NumberInt(22), 
+    "order" : NumberInt(1999999983), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede50"), 
+    "id" : NumberInt(85), 
+    "name" : "人力资源中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999991), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede51"), 
+    "id" : NumberInt(86), 
+    "name" : "行政部", 
+    "parentid" : NumberInt(85), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede52"), 
+    "id" : NumberInt(9), 
+    "name" : "进出口部", 
+    "parentid" : NumberInt(13), 
+    "order" : NumberInt(1999999995), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede53"), 
+    "id" : NumberInt(90), 
+    "name" : "技术管理组", 
+    "parentid" : NumberInt(39), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede54"), 
+    "id" : NumberInt(10), 
+    "name" : "采购部", 
+    "parentid" : NumberInt(3), 
+    "order" : NumberInt(1999999984), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede55"), 
+    "id" : NumberInt(11), 
+    "name" : "信息中心", 
+    "parentid" : NumberInt(3), 
+    "order" : NumberInt(1999999988), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede56"), 
+    "id" : NumberInt(114), 
+    "name" : "业务部", 
+    "parentid" : NumberInt(13), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede57"), 
+    "id" : NumberInt(117), 
+    "name" : "新材料研发部", 
+    "parentid" : NumberInt(29), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede58"), 
+    "id" : NumberInt(118), 
+    "name" : "智能技术研发部", 
+    "parentid" : NumberInt(29), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede59"), 
+    "id" : NumberInt(12), 
+    "name" : "审计室", 
+    "parentid" : NumberInt(2), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede5a"), 
+    "id" : NumberInt(13), 
+    "name" : "业务发展部", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999990), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede5b"), 
+    "id" : NumberInt(130), 
+    "name" : "嘉PMC部", 
+    "parentid" : NumberInt(24), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede5c"), 
+    "id" : NumberInt(131), 
+    "name" : "香港财务部", 
+    "parentid" : NumberInt(25), 
+    "order" : NumberInt(1999999993), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede5d"), 
+    "id" : NumberInt(14), 
+    "name" : "财务中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999986), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede5e"), 
+    "id" : NumberInt(141), 
+    "name" : "电器工程质量检验组", 
+    "parentid" : NumberInt(35), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede5f"), 
+    "id" : NumberInt(142), 
+    "name" : "电器来料检验组", 
+    "parentid" : NumberInt(35), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede60"), 
+    "id" : NumberInt(143), 
+    "name" : "家电开发组", 
+    "parentid" : NumberInt(41), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede61"), 
+    "id" : NumberInt(148), 
+    "name" : "工艺一科", 
+    "parentid" : NumberInt(201), 
+    "order" : NumberInt(1999999995), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede62"), 
+    "id" : NumberInt(149), 
+    "name" : "模具车间", 
+    "parentid" : NumberInt(148), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede63"), 
+    "id" : NumberInt(15), 
+    "name" : "品检中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999984), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede64"), 
+    "id" : NumberInt(150), 
+    "name" : "物控科", 
+    "parentid" : NumberInt(202), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede65"), 
+    "id" : NumberInt(151), 
+    "name" : "计划科", 
+    "parentid" : NumberInt(202), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede66"), 
+    "id" : NumberInt(158), 
+    "name" : "冲压复底二车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(1999999991), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede67"), 
+    "id" : NumberInt(159), 
+    "name" : "冲压复底一车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede68"), 
+    "id" : NumberInt(16), 
+    "name" : "技术中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999983), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede69"), 
+    "id" : NumberInt(161), 
+    "name" : "装配砂光一车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(1999999984), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede6a"), 
+    "id" : NumberInt(185), 
+    "name" : "香港跟单组", 
+    "parentid" : NumberInt(25), 
+    "order" : NumberInt(1999999991), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede6b"), 
+    "id" : NumberInt(2), 
+    "name" : "总裁办", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede6c"), 
+    "id" : NumberInt(22), 
+    "name" : "电器公司", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999961), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede6d"), 
+    "id" : NumberInt(24), 
+    "name" : "嘉事泰公司", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999962), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede6e"), 
+    "id" : NumberInt(25), 
+    "name" : "香港环球", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999954), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede6f"), 
+    "id" : NumberInt(26), 
+    "name" : "万富公司", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999951), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede70"), 
+    "id" : NumberInt(29), 
+    "name" : "研究所", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999980), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede71"), 
+    "id" : NumberInt(3), 
+    "name" : "企管中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999993), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede72"), 
+    "id" : NumberInt(30), 
+    "name" : "会计部", 
+    "parentid" : NumberInt(14), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede73"), 
+    "id" : NumberInt(187), 
+    "name" : "软件开发组", 
+    "parentid" : NumberInt(11), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede74"), 
+    "id" : NumberInt(189), 
+    "name" : "信息综合组", 
+    "parentid" : NumberInt(11), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede75"), 
+    "id" : NumberInt(190), 
+    "name" : "总裁室", 
+    "parentid" : NumberInt(2), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede76"), 
+    "id" : NumberInt(191), 
+    "name" : "人力资源部", 
+    "parentid" : NumberInt(85), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede77"), 
+    "id" : NumberInt(192), 
+    "name" : "成品检验组", 
+    "parentid" : NumberInt(33), 
+    "order" : NumberInt(1999999995), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede78"), 
+    "id" : NumberInt(193), 
+    "name" : "电器成品检验组", 
+    "parentid" : NumberInt(35), 
+    "order" : NumberInt(1999999995), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede79"), 
+    "id" : NumberInt(194), 
+    "name" : "电器检测室", 
+    "parentid" : NumberInt(35), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede7a"), 
+    "id" : NumberInt(197), 
+    "name" : "厨具中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999966), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede7b"), 
+    "id" : NumberInt(198), 
+    "name" : "钢线生产部", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede7c"), 
+    "id" : NumberInt(199), 
+    "name" : "铝线生产部", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999993), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede7d"), 
+    "id" : NumberInt(200), 
+    "name" : "配件生产部", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999992), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede7e"), 
+    "id" : NumberInt(201), 
+    "name" : "工程部", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999995), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede7f"), 
+    "id" : NumberInt(202), 
+    "name" : "PMC部", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede80"), 
+    "id" : NumberInt(203), 
+    "name" : "厨具综合办", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede81"), 
+    "id" : NumberInt(205), 
+    "name" : "装配砂光二车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(1999999985), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede82"), 
+    "id" : NumberInt(206), 
+    "name" : "铝压延车间", 
+    "parentid" : NumberInt(199), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede83"), 
+    "id" : NumberInt(207), 
+    "name" : "铝表面车间", 
+    "parentid" : NumberInt(199), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede84"), 
+    "id" : NumberInt(208), 
+    "name" : "铝装配车间", 
+    "parentid" : NumberInt(199), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede85"), 
+    "id" : NumberInt(209), 
+    "name" : "配件成形车间", 
+    "parentid" : NumberInt(200), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede86"), 
+    "id" : NumberInt(210), 
+    "name" : "配件抛光车间", 
+    "parentid" : NumberInt(200), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede87"), 
+    "id" : NumberInt(211), 
+    "name" : "项目一科", 
+    "parentid" : NumberInt(201), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede88"), 
+    "id" : NumberInt(212), 
+    "name" : "项目二科", 
+    "parentid" : NumberInt(201), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede89"), 
+    "id" : NumberInt(213), 
+    "name" : "试产车间", 
+    "parentid" : NumberInt(148), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede8a"), 
+    "id" : NumberInt(214), 
+    "name" : "工艺二科", 
+    "parentid" : NumberInt(201), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede8b"), 
+    "id" : NumberInt(215), 
+    "name" : "成品仓", 
+    "parentid" : NumberInt(150), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede8c"), 
+    "id" : NumberInt(216), 
+    "name" : "圆片仓", 
+    "parentid" : NumberInt(150), 
+    "order" : NumberInt(1999999995), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede8d"), 
+    "id" : NumberInt(217), 
+    "name" : "配套仓", 
+    "parentid" : NumberInt(150), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede8e"), 
+    "id" : NumberInt(218), 
+    "name" : "五金仓", 
+    "parentid" : NumberInt(150), 
+    "order" : NumberInt(1999999993), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede8f"), 
+    "id" : NumberInt(219), 
+    "name" : "物控办公室", 
+    "parentid" : NumberInt(150), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede90"), 
+    "id" : NumberInt(220), 
+    "name" : "行政科", 
+    "parentid" : NumberInt(203), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede91"), 
+    "id" : NumberInt(221), 
+    "name" : "报价科", 
+    "parentid" : NumberInt(203), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede92"), 
+    "id" : NumberInt(222), 
+    "name" : "质检科", 
+    "parentid" : NumberInt(203), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede93"), 
+    "id" : NumberInt(223), 
+    "name" : "设备科", 
+    "parentid" : NumberInt(203), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede94"), 
+    "id" : NumberInt(224), 
+    "name" : "PC计划组", 
+    "parentid" : NumberInt(80), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede95"), 
+    "id" : NumberInt(225), 
+    "name" : "MC物控组", 
+    "parentid" : NumberInt(80), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede96"), 
+    "id" : NumberInt(226), 
+    "name" : "嘉生产部", 
+    "parentid" : NumberInt(24), 
+    "order" : NumberInt(1999999989), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede97"), 
+    "id" : NumberInt(227), 
+    "name" : "厨具办公室", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede98"), 
+    "id" : NumberInt(228), 
+    "name" : "包装设计组", 
+    "parentid" : NumberInt(201), 
+    "order" : NumberInt(1999999993), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede99"), 
+    "id" : NumberInt(229), 
+    "name" : "企业文化部", 
+    "parentid" : NumberInt(85), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede9a"), 
+    "id" : NumberInt(230), 
+    "name" : "自动化装备部", 
+    "parentid" : NumberInt(29), 
+    "order" : NumberInt(1999999992), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede9b"), 
+    "id" : NumberInt(231), 
+    "name" : "设备管理组", 
+    "parentid" : NumberInt(230), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede9c"), 
+    "id" : NumberInt(232), 
+    "name" : "开发技术组", 
+    "parentid" : NumberInt(230), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede9d"), 
+    "id" : NumberInt(233), 
+    "name" : "市场部", 
+    "parentid" : NumberInt(13), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede9e"), 
+    "id" : NumberInt(234), 
+    "name" : "家电品质部", 
+    "parentid" : NumberInt(33), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ede9f"), 
+    "id" : NumberInt(235), 
+    "name" : "广州业务部", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999955), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edea0"), 
+    "id" : NumberInt(236), 
+    "name" : "广州业务员", 
+    "parentid" : NumberInt(235), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edea1"), 
+    "id" : NumberInt(237), 
+    "name" : "广州跟单", 
+    "parentid" : NumberInt(235), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edea2"), 
+    "id" : NumberInt(238), 
+    "name" : "电器质检科", 
+    "parentid" : NumberInt(22), 
+    "order" : NumberInt(1999999980), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edea3"), 
+    "id" : NumberInt(242), 
+    "name" : "嘉玻盖车间", 
+    "parentid" : NumberInt(226), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edea4"), 
+    "id" : NumberInt(243), 
+    "name" : "嘉铝板车间", 
+    "parentid" : NumberInt(226), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edea5"), 
+    "id" : NumberInt(244), 
+    "name" : "大件抛光一车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(1999999987), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edea6"), 
+    "id" : NumberInt(245), 
+    "name" : "大件抛光二车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(1999999986), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edea7"), 
+    "id" : NumberInt(439), 
+    "name" : "电器MC物控组", 
+    "parentid" : NumberInt(80), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edea8"), 
+    "id" : NumberInt(438), 
+    "name" : "财务中心", 
+    "parentid" : NumberInt(437), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edea9"), 
+    "id" : NumberInt(437), 
+    "name" : "职能部门", 
+    "parentid" : NumberInt(379), 
+    "order" : NumberInt(99996000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeaa"), 
+    "id" : NumberInt(436), 
+    "name" : "审计监察部", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(99892000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeab"), 
+    "id" : NumberInt(435), 
+    "name" : "OEM项目一组", 
+    "parentid" : NumberInt(362), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeac"), 
+    "id" : NumberInt(434), 
+    "name" : "欧德罗销售部", 
+    "parentid" : NumberInt(433), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edead"), 
+    "id" : NumberInt(433), 
+    "name" : "销售中心", 
+    "parentid" : NumberInt(379), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeae"), 
+    "id" : NumberInt(432), 
+    "name" : "电商事业部", 
+    "parentid" : NumberInt(379), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeaf"), 
+    "id" : NumberInt(431), 
+    "name" : "供应链中心", 
+    "parentid" : NumberInt(380), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeb0"), 
+    "id" : NumberInt(430), 
+    "name" : "铝线计划组", 
+    "parentid" : NumberInt(396), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeb1"), 
+    "id" : NumberInt(429), 
+    "name" : "铝线报价组", 
+    "parentid" : NumberInt(396), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeb2"), 
+    "id" : NumberInt(428), 
+    "name" : "铝智造质检科", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(99994000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeb3"), 
+    "id" : NumberInt(427), 
+    "name" : "自动化科", 
+    "parentid" : NumberInt(420), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeb4"), 
+    "id" : NumberInt(426), 
+    "name" : "物控办公室", 
+    "parentid" : NumberInt(359), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeb5"), 
+    "id" : NumberInt(425), 
+    "name" : "设备管理科", 
+    "parentid" : NumberInt(420), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeb6"), 
+    "id" : NumberInt(424), 
+    "name" : "厨具行政科", 
+    "parentid" : NumberInt(203), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeb7"), 
+    "id" : NumberInt(423), 
+    "name" : "铝项目一组", 
+    "parentid" : NumberInt(376), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeb8"), 
+    "id" : NumberInt(422), 
+    "name" : "铝智造办公室", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(99995000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeb9"), 
+    "id" : NumberInt(421), 
+    "name" : "铝智造线成型段", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(99996000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeba"), 
+    "id" : NumberInt(420), 
+    "name" : "设备部", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edebb"), 
+    "id" : NumberInt(419), 
+    "name" : "数据组", 
+    "parentid" : NumberInt(356), 
+    "order" : NumberInt(99995000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edebc"), 
+    "id" : NumberInt(418), 
+    "name" : "铝智造PMC科", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edebd"), 
+    "id" : NumberInt(417), 
+    "name" : "包装组", 
+    "parentid" : NumberInt(356), 
+    "order" : NumberInt(99996000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edebe"), 
+    "id" : NumberInt(416), 
+    "name" : "厨具策划组", 
+    "parentid" : NumberInt(410), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edebf"), 
+    "id" : NumberInt(415), 
+    "name" : "项目1组", 
+    "parentid" : NumberInt(407), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edec0"), 
+    "id" : NumberInt(414), 
+    "name" : "技术管理组", 
+    "parentid" : NumberInt(385), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edec1"), 
+    "id" : NumberInt(413), 
+    "name" : "OEM项目二组", 
+    "parentid" : NumberInt(362), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edec2"), 
+    "id" : NumberInt(412), 
+    "name" : "智能家居品管", 
+    "parentid" : NumberInt(379), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edec3"), 
+    "id" : NumberInt(411), 
+    "name" : "电器策划组", 
+    "parentid" : NumberInt(410), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edec4"), 
+    "id" : NumberInt(410), 
+    "name" : "产品策划部", 
+    "parentid" : NumberInt(16), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edec5"), 
+    "id" : NumberInt(409), 
+    "name" : "项目2组", 
+    "parentid" : NumberInt(407), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edec6"), 
+    "id" : NumberInt(408), 
+    "name" : "电控设计组", 
+    "parentid" : NumberInt(407), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edec7"), 
+    "id" : NumberInt(407), 
+    "name" : "家电研发部", 
+    "parentid" : NumberInt(16), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edec8"), 
+    "id" : NumberInt(406), 
+    "name" : "项目1组", 
+    "parentid" : NumberInt(400), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edec9"), 
+    "id" : NumberInt(405), 
+    "name" : "综合组", 
+    "parentid" : NumberInt(362), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeca"), 
+    "id" : NumberInt(404), 
+    "name" : "人资开发科", 
+    "parentid" : NumberInt(191), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edecb"), 
+    "id" : NumberInt(403), 
+    "name" : "电器工程组", 
+    "parentid" : NumberInt(79), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edecc"), 
+    "id" : NumberInt(402), 
+    "name" : "铝线配套仓", 
+    "parentid" : NumberInt(396), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edecd"), 
+    "id" : NumberInt(401), 
+    "name" : "项目2组", 
+    "parentid" : NumberInt(400), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edece"), 
+    "id" : NumberInt(400), 
+    "name" : "工业设计组", 
+    "parentid" : NumberInt(399), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edecf"), 
+    "id" : NumberInt(399), 
+    "name" : "工业设计部", 
+    "parentid" : NumberInt(16), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140eded0"), 
+    "id" : NumberInt(398), 
+    "name" : "人资保障科", 
+    "parentid" : NumberInt(191), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140eded1"), 
+    "id" : NumberInt(397), 
+    "name" : "成品仓", 
+    "parentid" : NumberInt(359), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140eded2"), 
+    "id" : NumberInt(396), 
+    "name" : "铝线PMC科", 
+    "parentid" : NumberInt(199), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140eded3"), 
+    "id" : NumberInt(395), 
+    "name" : "综合组", 
+    "parentid" : NumberInt(391), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140eded4"), 
+    "id" : NumberInt(394), 
+    "name" : "铝智造线装配段", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140eded5"), 
+    "id" : NumberInt(393), 
+    "name" : "基建工程组", 
+    "parentid" : NumberInt(86), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140eded6"), 
+    "id" : NumberInt(392), 
+    "name" : "项目组", 
+    "parentid" : NumberInt(391), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140eded7"), 
+    "id" : NumberInt(391), 
+    "name" : "顺德设计部", 
+    "parentid" : NumberInt(16), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140eded8"), 
+    "id" : NumberInt(390), 
+    "name" : "精铸钢项目组", 
+    "parentid" : NumberInt(29), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140eded9"), 
+    "id" : NumberInt(389), 
+    "name" : "铝线质检科", 
+    "parentid" : NumberInt(199), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ededa"), 
+    "id" : NumberInt(388), 
+    "name" : "铝智造工程组", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ededb"), 
+    "id" : NumberInt(387), 
+    "name" : "电器PC计划组", 
+    "parentid" : NumberInt(80), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ededc"), 
+    "id" : NumberInt(386), 
+    "name" : "标准组", 
+    "parentid" : NumberInt(385), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ededd"), 
+    "id" : NumberInt(385), 
+    "name" : "标准化组", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edede"), 
+    "id" : NumberInt(384), 
+    "name" : "抛光大件一车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140ededf"), 
+    "id" : NumberInt(383), 
+    "name" : "配套仓", 
+    "parentid" : NumberInt(359), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edee0"), 
+    "id" : NumberInt(382), 
+    "name" : "钢项目二组", 
+    "parentid" : NumberInt(374), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edee1"), 
+    "id" : NumberInt(381), 
+    "name" : "产品部", 
+    "parentid" : NumberInt(380), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edee2"), 
+    "id" : NumberInt(380), 
+    "name" : "新零售事业部", 
+    "parentid" : NumberInt(379), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edee3"), 
+    "id" : NumberInt(379), 
+    "name" : "智能家居公司", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(99893000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edee4"), 
+    "id" : NumberInt(378), 
+    "name" : "香港跟单员", 
+    "parentid" : NumberInt(25), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edee5"), 
+    "id" : NumberInt(377), 
+    "name" : "铝项目二组", 
+    "parentid" : NumberInt(376), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edee6"), 
+    "id" : NumberInt(376), 
+    "name" : "铝项目科", 
+    "parentid" : NumberInt(356), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edee7"), 
+    "id" : NumberInt(375), 
+    "name" : "钢项目一组", 
+    "parentid" : NumberInt(374), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edee8"), 
+    "id" : NumberInt(374), 
+    "name" : "钢项目科", 
+    "parentid" : NumberInt(356), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edee9"), 
+    "id" : NumberInt(373), 
+    "name" : "嘉玻盖车间", 
+    "parentid" : NumberInt(24), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeea"), 
+    "id" : NumberInt(372), 
+    "name" : "IQC&外检组", 
+    "parentid" : NumberInt(33), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeeb"), 
+    "id" : NumberInt(371), 
+    "name" : "项目组", 
+    "parentid" : NumberInt(86), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeec"), 
+    "id" : NumberInt(370), 
+    "name" : "广州跟单员", 
+    "parentid" : NumberInt(235), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeed"), 
+    "id" : NumberInt(369), 
+    "name" : "行政事务组", 
+    "parentid" : NumberInt(86), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeee"), 
+    "id" : NumberInt(368), 
+    "name" : "安保后勤组", 
+    "parentid" : NumberInt(86), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edeef"), 
+    "id" : NumberInt(367), 
+    "name" : "硬件网络组", 
+    "parentid" : NumberInt(11), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edef0"), 
+    "id" : NumberInt(366), 
+    "name" : "铝智造线表面处理段", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edef1"), 
+    "id" : NumberInt(365), 
+    "name" : "铝智造线", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edef2"), 
+    "id" : NumberInt(364), 
+    "name" : "工艺科", 
+    "parentid" : NumberInt(356), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edef3"), 
+    "id" : NumberInt(363), 
+    "name" : "技改组", 
+    "parentid" : NumberInt(362), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edef4"), 
+    "id" : NumberInt(362), 
+    "name" : "电器开发科", 
+    "parentid" : NumberInt(22), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edef5"), 
+    "id" : NumberInt(361), 
+    "name" : "钢线质检科", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edef6"), 
+    "id" : NumberInt(360), 
+    "name" : "圆片仓", 
+    "parentid" : NumberInt(359), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edef7"), 
+    "id" : NumberInt(359), 
+    "name" : "钢线物控科", 
+    "parentid" : NumberInt(354), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edef8"), 
+    "id" : NumberInt(358), 
+    "name" : "钢线计划科", 
+    "parentid" : NumberInt(354), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edef9"), 
+    "id" : NumberInt(357), 
+    "name" : "模具车间", 
+    "parentid" : NumberInt(356), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edefa"), 
+    "id" : NumberInt(356), 
+    "name" : "工程中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edefb"), 
+    "id" : NumberInt(355), 
+    "name" : "钢线报价科", 
+    "parentid" : NumberInt(354), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edefc"), 
+    "id" : NumberInt(354), 
+    "name" : "钢线PMC科", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edefd"), 
+    "id" : NumberInt(353), 
+    "name" : "嘉铝板车间", 
+    "parentid" : NumberInt(24), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6278e7fef081331e140edefe"), 
+    "id" : NumberInt(440), 
+    "name" : "云智汇（规划咨询机构）", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(99), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db374"), 
+    "id" : NumberInt(1), 
+    "name" : "广东万事泰集团有限公司", 
+    "parentid" : NumberInt(0), 
+    "order" : NumberInt(2000000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db375"), 
+    "id" : NumberInt(86), 
+    "name" : "行政部", 
+    "parentid" : NumberInt(85), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db376"), 
+    "id" : NumberInt(9), 
+    "name" : "进出口部", 
+    "parentid" : NumberInt(13), 
+    "order" : NumberInt(1999999995), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db377"), 
+    "id" : NumberInt(90), 
+    "name" : "技术管理组", 
+    "parentid" : NumberInt(39), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db378"), 
+    "id" : NumberInt(10), 
+    "name" : "采购部", 
+    "parentid" : NumberInt(3), 
+    "order" : NumberInt(1999999984), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db379"), 
+    "id" : NumberInt(11), 
+    "name" : "信息中心", 
+    "parentid" : NumberInt(3), 
+    "order" : NumberInt(1999999988), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db37a"), 
+    "id" : NumberInt(114), 
+    "name" : "业务部", 
+    "parentid" : NumberInt(13), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db37b"), 
+    "id" : NumberInt(117), 
+    "name" : "新材料研发部", 
+    "parentid" : NumberInt(29), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db37c"), 
+    "id" : NumberInt(118), 
+    "name" : "智能技术研发部", 
+    "parentid" : NumberInt(29), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db37d"), 
+    "id" : NumberInt(12), 
+    "name" : "审计室", 
+    "parentid" : NumberInt(2), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db37e"), 
+    "id" : NumberInt(13), 
+    "name" : "业务发展部", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999990), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db37f"), 
+    "id" : NumberInt(130), 
+    "name" : "嘉PMC部", 
+    "parentid" : NumberInt(24), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db380"), 
+    "id" : NumberInt(131), 
+    "name" : "香港财务部", 
+    "parentid" : NumberInt(25), 
+    "order" : NumberInt(1999999993), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db381"), 
+    "id" : NumberInt(14), 
+    "name" : "财务中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999986), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db382"), 
+    "id" : NumberInt(141), 
+    "name" : "电器工程质量检验组", 
+    "parentid" : NumberInt(35), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db383"), 
+    "id" : NumberInt(142), 
+    "name" : "电器来料检验组", 
+    "parentid" : NumberInt(35), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db384"), 
+    "id" : NumberInt(143), 
+    "name" : "家电开发组", 
+    "parentid" : NumberInt(41), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db385"), 
+    "id" : NumberInt(148), 
+    "name" : "工艺一科", 
+    "parentid" : NumberInt(201), 
+    "order" : NumberInt(1999999995), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db386"), 
+    "id" : NumberInt(149), 
+    "name" : "模具车间", 
+    "parentid" : NumberInt(148), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db387"), 
+    "id" : NumberInt(15), 
+    "name" : "品检中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999984), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db388"), 
+    "id" : NumberInt(150), 
+    "name" : "物控科", 
+    "parentid" : NumberInt(202), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db389"), 
+    "id" : NumberInt(151), 
+    "name" : "计划科", 
+    "parentid" : NumberInt(202), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db38a"), 
+    "id" : NumberInt(158), 
+    "name" : "冲压复底二车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(1999999991), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db38b"), 
+    "id" : NumberInt(159), 
+    "name" : "冲压复底一车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db38c"), 
+    "id" : NumberInt(16), 
+    "name" : "技术中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999983), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db38d"), 
+    "id" : NumberInt(161), 
+    "name" : "装配砂光一车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(1999999984), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db38e"), 
+    "id" : NumberInt(185), 
+    "name" : "香港跟单组", 
+    "parentid" : NumberInt(25), 
+    "order" : NumberInt(1999999991), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db38f"), 
+    "id" : NumberInt(2), 
+    "name" : "总裁办", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db390"), 
+    "id" : NumberInt(22), 
+    "name" : "电器公司", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999961), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db391"), 
+    "id" : NumberInt(24), 
+    "name" : "嘉事泰公司", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999962), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db392"), 
+    "id" : NumberInt(25), 
+    "name" : "香港环球", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999954), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db393"), 
+    "id" : NumberInt(26), 
+    "name" : "万富公司", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999951), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db394"), 
+    "id" : NumberInt(29), 
+    "name" : "研究所", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999980), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db395"), 
+    "id" : NumberInt(3), 
+    "name" : "企管中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999993), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db396"), 
+    "id" : NumberInt(30), 
+    "name" : "会计部", 
+    "parentid" : NumberInt(14), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db397"), 
+    "id" : NumberInt(31), 
+    "name" : "成本部", 
+    "parentid" : NumberInt(14), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db398"), 
+    "id" : NumberInt(32), 
+    "name" : "品检办公室", 
+    "parentid" : NumberInt(15), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db399"), 
+    "id" : NumberInt(33), 
+    "name" : "厨具品质部", 
+    "parentid" : NumberInt(15), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db39a"), 
+    "id" : NumberInt(34), 
+    "name" : "检测中心", 
+    "parentid" : NumberInt(15), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db39b"), 
+    "id" : NumberInt(35), 
+    "name" : "家电品质部", 
+    "parentid" : NumberInt(15), 
+    "order" : NumberInt(1999999992), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db39c"), 
+    "id" : NumberInt(36), 
+    "name" : "工程质量检验组", 
+    "parentid" : NumberInt(33), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db39d"), 
+    "id" : NumberInt(37), 
+    "name" : "来料检验组", 
+    "parentid" : NumberInt(33), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db39e"), 
+    "id" : NumberInt(39), 
+    "name" : "技术管理部", 
+    "parentid" : NumberInt(16), 
+    "order" : NumberInt(1999999992), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db39f"), 
+    "id" : NumberInt(4), 
+    "name" : "办公室", 
+    "parentid" : NumberInt(2), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3a0"), 
+    "id" : NumberInt(40), 
+    "name" : "标准组", 
+    "parentid" : NumberInt(39), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3a1"), 
+    "id" : NumberInt(41), 
+    "name" : "产品研发部", 
+    "parentid" : NumberInt(16), 
+    "order" : NumberInt(1999999988), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3a2"), 
+    "id" : NumberInt(42), 
+    "name" : "产品策划组", 
+    "parentid" : NumberInt(41), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3a3"), 
+    "id" : NumberInt(43), 
+    "name" : "工业设计组", 
+    "parentid" : NumberInt(41), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3a4"), 
+    "id" : NumberInt(5), 
+    "name" : "秘书室", 
+    "parentid" : NumberInt(2), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3a5"), 
+    "id" : NumberInt(69), 
+    "name" : "嘉办公室", 
+    "parentid" : NumberInt(24), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3a6"), 
+    "id" : NumberInt(73), 
+    "name" : "香港业务员", 
+    "parentid" : NumberInt(25), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3a7"), 
+    "id" : NumberInt(75), 
+    "name" : "电器办公室", 
+    "parentid" : NumberInt(22), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3a8"), 
+    "id" : NumberInt(76), 
+    "name" : "电器工程部", 
+    "parentid" : NumberInt(22), 
+    "order" : NumberInt(1999999986), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3a9"), 
+    "id" : NumberInt(79), 
+    "name" : "电器生产部", 
+    "parentid" : NumberInt(22), 
+    "order" : NumberInt(1999999981), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3aa"), 
+    "id" : NumberInt(8), 
+    "name" : "体系运营部", 
+    "parentid" : NumberInt(3), 
+    "order" : NumberInt(1999999989), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3ab"), 
+    "id" : NumberInt(80), 
+    "name" : "电器PMC部", 
+    "parentid" : NumberInt(22), 
+    "order" : NumberInt(1999999983), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3ac"), 
+    "id" : NumberInt(85), 
+    "name" : "人力资源中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999991), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3ad"), 
+    "id" : NumberInt(187), 
+    "name" : "软件开发组", 
+    "parentid" : NumberInt(11), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3ae"), 
+    "id" : NumberInt(189), 
+    "name" : "信息综合组", 
+    "parentid" : NumberInt(11), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3af"), 
+    "id" : NumberInt(190), 
+    "name" : "总裁室", 
+    "parentid" : NumberInt(2), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3b0"), 
+    "id" : NumberInt(191), 
+    "name" : "人力资源部", 
+    "parentid" : NumberInt(85), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3b1"), 
+    "id" : NumberInt(192), 
+    "name" : "成品检验组", 
+    "parentid" : NumberInt(33), 
+    "order" : NumberInt(1999999995), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3b2"), 
+    "id" : NumberInt(193), 
+    "name" : "电器成品检验组", 
+    "parentid" : NumberInt(35), 
+    "order" : NumberInt(1999999995), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3b3"), 
+    "id" : NumberInt(194), 
+    "name" : "电器检测室", 
+    "parentid" : NumberInt(35), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3b4"), 
+    "id" : NumberInt(197), 
+    "name" : "厨具中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999966), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3b5"), 
+    "id" : NumberInt(198), 
+    "name" : "钢线生产部", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3b6"), 
+    "id" : NumberInt(199), 
+    "name" : "铝线生产部", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999993), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3b7"), 
+    "id" : NumberInt(200), 
+    "name" : "配件生产部", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999992), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3b8"), 
+    "id" : NumberInt(201), 
+    "name" : "工程部", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999995), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3b9"), 
+    "id" : NumberInt(202), 
+    "name" : "PMC部", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3ba"), 
+    "id" : NumberInt(203), 
+    "name" : "厨具综合办", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3bb"), 
+    "id" : NumberInt(205), 
+    "name" : "装配砂光二车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(1999999985), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3bc"), 
+    "id" : NumberInt(206), 
+    "name" : "铝压延车间", 
+    "parentid" : NumberInt(199), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3bd"), 
+    "id" : NumberInt(207), 
+    "name" : "铝表面车间", 
+    "parentid" : NumberInt(199), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3be"), 
+    "id" : NumberInt(208), 
+    "name" : "铝装配车间", 
+    "parentid" : NumberInt(199), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3bf"), 
+    "id" : NumberInt(209), 
+    "name" : "配件成形车间", 
+    "parentid" : NumberInt(200), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3c0"), 
+    "id" : NumberInt(210), 
+    "name" : "配件抛光车间", 
+    "parentid" : NumberInt(200), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3c1"), 
+    "id" : NumberInt(211), 
+    "name" : "项目一科", 
+    "parentid" : NumberInt(201), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3c2"), 
+    "id" : NumberInt(212), 
+    "name" : "项目二科", 
+    "parentid" : NumberInt(201), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3c3"), 
+    "id" : NumberInt(213), 
+    "name" : "试产车间", 
+    "parentid" : NumberInt(148), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3c4"), 
+    "id" : NumberInt(214), 
+    "name" : "工艺二科", 
+    "parentid" : NumberInt(201), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3c5"), 
+    "id" : NumberInt(215), 
+    "name" : "成品仓", 
+    "parentid" : NumberInt(150), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3c6"), 
+    "id" : NumberInt(216), 
+    "name" : "圆片仓", 
+    "parentid" : NumberInt(150), 
+    "order" : NumberInt(1999999995), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3c7"), 
+    "id" : NumberInt(217), 
+    "name" : "配套仓", 
+    "parentid" : NumberInt(150), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3c8"), 
+    "id" : NumberInt(218), 
+    "name" : "五金仓", 
+    "parentid" : NumberInt(150), 
+    "order" : NumberInt(1999999993), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3c9"), 
+    "id" : NumberInt(219), 
+    "name" : "物控办公室", 
+    "parentid" : NumberInt(150), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3ca"), 
+    "id" : NumberInt(220), 
+    "name" : "行政科", 
+    "parentid" : NumberInt(203), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3cb"), 
+    "id" : NumberInt(221), 
+    "name" : "报价科", 
+    "parentid" : NumberInt(203), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3cc"), 
+    "id" : NumberInt(222), 
+    "name" : "质检科", 
+    "parentid" : NumberInt(203), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3cd"), 
+    "id" : NumberInt(223), 
+    "name" : "设备科", 
+    "parentid" : NumberInt(203), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3ce"), 
+    "id" : NumberInt(224), 
+    "name" : "PC计划组", 
+    "parentid" : NumberInt(80), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3cf"), 
+    "id" : NumberInt(225), 
+    "name" : "MC物控组", 
+    "parentid" : NumberInt(80), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3d0"), 
+    "id" : NumberInt(226), 
+    "name" : "嘉生产部", 
+    "parentid" : NumberInt(24), 
+    "order" : NumberInt(1999999989), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3d1"), 
+    "id" : NumberInt(227), 
+    "name" : "厨具办公室", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3d2"), 
+    "id" : NumberInt(228), 
+    "name" : "包装设计组", 
+    "parentid" : NumberInt(201), 
+    "order" : NumberInt(1999999993), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3d3"), 
+    "id" : NumberInt(229), 
+    "name" : "企业文化部", 
+    "parentid" : NumberInt(85), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3d4"), 
+    "id" : NumberInt(230), 
+    "name" : "自动化装备部", 
+    "parentid" : NumberInt(29), 
+    "order" : NumberInt(1999999992), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3d5"), 
+    "id" : NumberInt(231), 
+    "name" : "设备管理组", 
+    "parentid" : NumberInt(230), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3d6"), 
+    "id" : NumberInt(232), 
+    "name" : "开发技术组", 
+    "parentid" : NumberInt(230), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3d7"), 
+    "id" : NumberInt(233), 
+    "name" : "市场部", 
+    "parentid" : NumberInt(13), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3d8"), 
+    "id" : NumberInt(234), 
+    "name" : "家电品质部", 
+    "parentid" : NumberInt(33), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3d9"), 
+    "id" : NumberInt(235), 
+    "name" : "广州业务部", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999955), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3da"), 
+    "id" : NumberInt(236), 
+    "name" : "广州业务员", 
+    "parentid" : NumberInt(235), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3db"), 
+    "id" : NumberInt(237), 
+    "name" : "广州跟单", 
+    "parentid" : NumberInt(235), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3dc"), 
+    "id" : NumberInt(238), 
+    "name" : "电器质检科", 
+    "parentid" : NumberInt(22), 
+    "order" : NumberInt(1999999980), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3dd"), 
+    "id" : NumberInt(242), 
+    "name" : "嘉玻盖车间", 
+    "parentid" : NumberInt(226), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3de"), 
+    "id" : NumberInt(243), 
+    "name" : "嘉铝板车间", 
+    "parentid" : NumberInt(226), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3df"), 
+    "id" : NumberInt(244), 
+    "name" : "大件抛光一车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(1999999987), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3e0"), 
+    "id" : NumberInt(245), 
+    "name" : "大件抛光二车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(1999999986), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3e1"), 
+    "id" : NumberInt(439), 
+    "name" : "电器MC物控组", 
+    "parentid" : NumberInt(80), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3e2"), 
+    "id" : NumberInt(438), 
+    "name" : "财务中心", 
+    "parentid" : NumberInt(437), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3e3"), 
+    "id" : NumberInt(437), 
+    "name" : "职能部门", 
+    "parentid" : NumberInt(379), 
+    "order" : NumberInt(99996000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3e4"), 
+    "id" : NumberInt(436), 
+    "name" : "审计监察部", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(99892000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3e5"), 
+    "id" : NumberInt(435), 
+    "name" : "OEM项目一组", 
+    "parentid" : NumberInt(362), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3e6"), 
+    "id" : NumberInt(434), 
+    "name" : "欧德罗销售部", 
+    "parentid" : NumberInt(433), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3e7"), 
+    "id" : NumberInt(433), 
+    "name" : "销售中心", 
+    "parentid" : NumberInt(379), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3e8"), 
+    "id" : NumberInt(432), 
+    "name" : "电商事业部", 
+    "parentid" : NumberInt(379), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3e9"), 
+    "id" : NumberInt(431), 
+    "name" : "供应链中心", 
+    "parentid" : NumberInt(380), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3ea"), 
+    "id" : NumberInt(430), 
+    "name" : "铝线计划组", 
+    "parentid" : NumberInt(396), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3eb"), 
+    "id" : NumberInt(429), 
+    "name" : "铝线报价组", 
+    "parentid" : NumberInt(396), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3ec"), 
+    "id" : NumberInt(428), 
+    "name" : "铝智造质检科", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(99994000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3ed"), 
+    "id" : NumberInt(427), 
+    "name" : "自动化科", 
+    "parentid" : NumberInt(420), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3ee"), 
+    "id" : NumberInt(426), 
+    "name" : "物控办公室", 
+    "parentid" : NumberInt(359), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3ef"), 
+    "id" : NumberInt(425), 
+    "name" : "设备管理科", 
+    "parentid" : NumberInt(420), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3f0"), 
+    "id" : NumberInt(424), 
+    "name" : "厨具行政科", 
+    "parentid" : NumberInt(203), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3f1"), 
+    "id" : NumberInt(423), 
+    "name" : "铝项目一组", 
+    "parentid" : NumberInt(376), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3f2"), 
+    "id" : NumberInt(422), 
+    "name" : "铝智造办公室", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(99995000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3f3"), 
+    "id" : NumberInt(421), 
+    "name" : "铝智造线成型段", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(99996000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3f4"), 
+    "id" : NumberInt(420), 
+    "name" : "设备部", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3f5"), 
+    "id" : NumberInt(419), 
+    "name" : "数据组", 
+    "parentid" : NumberInt(356), 
+    "order" : NumberInt(99995000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3f6"), 
+    "id" : NumberInt(418), 
+    "name" : "铝智造PMC科", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3f7"), 
+    "id" : NumberInt(417), 
+    "name" : "包装组", 
+    "parentid" : NumberInt(356), 
+    "order" : NumberInt(99996000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3f8"), 
+    "id" : NumberInt(416), 
+    "name" : "厨具策划组", 
+    "parentid" : NumberInt(410), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3f9"), 
+    "id" : NumberInt(415), 
+    "name" : "项目1组", 
+    "parentid" : NumberInt(407), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3fa"), 
+    "id" : NumberInt(414), 
+    "name" : "技术管理组", 
+    "parentid" : NumberInt(385), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3fb"), 
+    "id" : NumberInt(413), 
+    "name" : "OEM项目二组", 
+    "parentid" : NumberInt(362), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3fc"), 
+    "id" : NumberInt(412), 
+    "name" : "智能家居品管", 
+    "parentid" : NumberInt(379), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3fd"), 
+    "id" : NumberInt(411), 
+    "name" : "电器策划组", 
+    "parentid" : NumberInt(410), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3fe"), 
+    "id" : NumberInt(410), 
+    "name" : "产品策划部", 
+    "parentid" : NumberInt(16), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db3ff"), 
+    "id" : NumberInt(409), 
+    "name" : "项目2组", 
+    "parentid" : NumberInt(407), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db400"), 
+    "id" : NumberInt(408), 
+    "name" : "电控设计组", 
+    "parentid" : NumberInt(407), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db401"), 
+    "id" : NumberInt(407), 
+    "name" : "家电研发部", 
+    "parentid" : NumberInt(16), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db402"), 
+    "id" : NumberInt(406), 
+    "name" : "项目1组", 
+    "parentid" : NumberInt(400), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db403"), 
+    "id" : NumberInt(405), 
+    "name" : "综合组", 
+    "parentid" : NumberInt(362), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db404"), 
+    "id" : NumberInt(404), 
+    "name" : "人资开发科", 
+    "parentid" : NumberInt(191), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db405"), 
+    "id" : NumberInt(403), 
+    "name" : "电器工程组", 
+    "parentid" : NumberInt(79), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db406"), 
+    "id" : NumberInt(402), 
+    "name" : "铝线配套仓", 
+    "parentid" : NumberInt(396), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db407"), 
+    "id" : NumberInt(401), 
+    "name" : "项目2组", 
+    "parentid" : NumberInt(400), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db408"), 
+    "id" : NumberInt(400), 
+    "name" : "工业设计组", 
+    "parentid" : NumberInt(399), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db409"), 
+    "id" : NumberInt(399), 
+    "name" : "工业设计部", 
+    "parentid" : NumberInt(16), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db40a"), 
+    "id" : NumberInt(398), 
+    "name" : "人资保障科", 
+    "parentid" : NumberInt(191), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db40b"), 
+    "id" : NumberInt(397), 
+    "name" : "成品仓", 
+    "parentid" : NumberInt(359), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db40c"), 
+    "id" : NumberInt(396), 
+    "name" : "铝线PMC科", 
+    "parentid" : NumberInt(199), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db40d"), 
+    "id" : NumberInt(395), 
+    "name" : "综合组", 
+    "parentid" : NumberInt(391), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db40e"), 
+    "id" : NumberInt(394), 
+    "name" : "铝智造线装配段", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db40f"), 
+    "id" : NumberInt(393), 
+    "name" : "基建工程组", 
+    "parentid" : NumberInt(86), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db410"), 
+    "id" : NumberInt(392), 
+    "name" : "项目组", 
+    "parentid" : NumberInt(391), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db411"), 
+    "id" : NumberInt(391), 
+    "name" : "顺德设计部", 
+    "parentid" : NumberInt(16), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db412"), 
+    "id" : NumberInt(390), 
+    "name" : "精铸钢项目组", 
+    "parentid" : NumberInt(29), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db413"), 
+    "id" : NumberInt(389), 
+    "name" : "铝线质检科", 
+    "parentid" : NumberInt(199), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db414"), 
+    "id" : NumberInt(388), 
+    "name" : "铝智造工程组", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db415"), 
+    "id" : NumberInt(387), 
+    "name" : "电器PC计划组", 
+    "parentid" : NumberInt(80), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db416"), 
+    "id" : NumberInt(386), 
+    "name" : "标准组", 
+    "parentid" : NumberInt(385), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db417"), 
+    "id" : NumberInt(385), 
+    "name" : "标准化组", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db418"), 
+    "id" : NumberInt(384), 
+    "name" : "抛光大件一车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db419"), 
+    "id" : NumberInt(383), 
+    "name" : "配套仓", 
+    "parentid" : NumberInt(359), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db41a"), 
+    "id" : NumberInt(382), 
+    "name" : "钢项目二组", 
+    "parentid" : NumberInt(374), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db41b"), 
+    "id" : NumberInt(381), 
+    "name" : "产品部", 
+    "parentid" : NumberInt(380), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db41c"), 
+    "id" : NumberInt(380), 
+    "name" : "新零售事业部", 
+    "parentid" : NumberInt(379), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db41d"), 
+    "id" : NumberInt(379), 
+    "name" : "智能家居公司", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(99893000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db41e"), 
+    "id" : NumberInt(378), 
+    "name" : "香港跟单员", 
+    "parentid" : NumberInt(25), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db41f"), 
+    "id" : NumberInt(377), 
+    "name" : "铝项目二组", 
+    "parentid" : NumberInt(376), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db420"), 
+    "id" : NumberInt(376), 
+    "name" : "铝项目科", 
+    "parentid" : NumberInt(356), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db421"), 
+    "id" : NumberInt(375), 
+    "name" : "钢项目一组", 
+    "parentid" : NumberInt(374), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db422"), 
+    "id" : NumberInt(374), 
+    "name" : "钢项目科", 
+    "parentid" : NumberInt(356), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db423"), 
+    "id" : NumberInt(373), 
+    "name" : "嘉玻盖车间", 
+    "parentid" : NumberInt(24), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db424"), 
+    "id" : NumberInt(372), 
+    "name" : "IQC&外检组", 
+    "parentid" : NumberInt(33), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db425"), 
+    "id" : NumberInt(371), 
+    "name" : "项目组", 
+    "parentid" : NumberInt(86), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db426"), 
+    "id" : NumberInt(370), 
+    "name" : "广州跟单员", 
+    "parentid" : NumberInt(235), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db427"), 
+    "id" : NumberInt(369), 
+    "name" : "行政事务组", 
+    "parentid" : NumberInt(86), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db428"), 
+    "id" : NumberInt(368), 
+    "name" : "安保后勤组", 
+    "parentid" : NumberInt(86), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db429"), 
+    "id" : NumberInt(367), 
+    "name" : "硬件网络组", 
+    "parentid" : NumberInt(11), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db42a"), 
+    "id" : NumberInt(366), 
+    "name" : "铝智造线表面处理段", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db42b"), 
+    "id" : NumberInt(365), 
+    "name" : "铝智造线", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db42c"), 
+    "id" : NumberInt(364), 
+    "name" : "工艺科", 
+    "parentid" : NumberInt(356), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db42d"), 
+    "id" : NumberInt(363), 
+    "name" : "技改组", 
+    "parentid" : NumberInt(362), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db42e"), 
+    "id" : NumberInt(362), 
+    "name" : "电器开发科", 
+    "parentid" : NumberInt(22), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db42f"), 
+    "id" : NumberInt(361), 
+    "name" : "钢线质检科", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db430"), 
+    "id" : NumberInt(360), 
+    "name" : "圆片仓", 
+    "parentid" : NumberInt(359), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db431"), 
+    "id" : NumberInt(359), 
+    "name" : "钢线物控科", 
+    "parentid" : NumberInt(354), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db432"), 
+    "id" : NumberInt(358), 
+    "name" : "钢线计划科", 
+    "parentid" : NumberInt(354), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db433"), 
+    "id" : NumberInt(357), 
+    "name" : "模具车间", 
+    "parentid" : NumberInt(356), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db434"), 
+    "id" : NumberInt(356), 
+    "name" : "工程中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db435"), 
+    "id" : NumberInt(355), 
+    "name" : "钢线报价科", 
+    "parentid" : NumberInt(354), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db436"), 
+    "id" : NumberInt(354), 
+    "name" : "钢线PMC科", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db437"), 
+    "id" : NumberInt(353), 
+    "name" : "嘉铝板车间", 
+    "parentid" : NumberInt(24), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("6279b830edb94183601db438"), 
+    "id" : NumberInt(440), 
+    "name" : "云智汇（规划咨询机构）", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(99), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39ceb"), 
+    "id" : NumberInt(1), 
+    "name" : "广东万事泰集团有限公司", 
+    "parentid" : NumberInt(0), 
+    "order" : NumberInt(2000000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39cec"), 
+    "id" : NumberInt(10), 
+    "name" : "采购部", 
+    "parentid" : NumberInt(3), 
+    "order" : NumberInt(1999999984), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39ced"), 
+    "id" : NumberInt(11), 
+    "name" : "信息中心", 
+    "parentid" : NumberInt(3), 
+    "order" : NumberInt(1999999988), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39cee"), 
+    "id" : NumberInt(114), 
+    "name" : "业务部", 
+    "parentid" : NumberInt(13), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39cef"), 
+    "id" : NumberInt(117), 
+    "name" : "新材料研发部", 
+    "parentid" : NumberInt(29), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39cf0"), 
+    "id" : NumberInt(118), 
+    "name" : "智能技术研发部", 
+    "parentid" : NumberInt(29), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39cf1"), 
+    "id" : NumberInt(12), 
+    "name" : "审计室", 
+    "parentid" : NumberInt(2), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39cf2"), 
+    "id" : NumberInt(13), 
+    "name" : "业务发展部", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999990), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39cf3"), 
+    "id" : NumberInt(130), 
+    "name" : "嘉PMC部", 
+    "parentid" : NumberInt(24), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39cf4"), 
+    "id" : NumberInt(131), 
+    "name" : "香港财务部", 
+    "parentid" : NumberInt(25), 
+    "order" : NumberInt(1999999993), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39cf5"), 
+    "id" : NumberInt(14), 
+    "name" : "财务中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999986), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39cf6"), 
+    "id" : NumberInt(141), 
+    "name" : "电器工程质量检验组", 
+    "parentid" : NumberInt(35), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39cf7"), 
+    "id" : NumberInt(142), 
+    "name" : "电器来料检验组", 
+    "parentid" : NumberInt(35), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39cf8"), 
+    "id" : NumberInt(143), 
+    "name" : "家电开发组", 
+    "parentid" : NumberInt(41), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39cf9"), 
+    "id" : NumberInt(148), 
+    "name" : "工艺一科", 
+    "parentid" : NumberInt(201), 
+    "order" : NumberInt(1999999995), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39cfa"), 
+    "id" : NumberInt(149), 
+    "name" : "模具车间", 
+    "parentid" : NumberInt(148), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39cfb"), 
+    "id" : NumberInt(15), 
+    "name" : "品检中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999984), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39cfc"), 
+    "id" : NumberInt(150), 
+    "name" : "物控科", 
+    "parentid" : NumberInt(202), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39cfd"), 
+    "id" : NumberInt(151), 
+    "name" : "计划科", 
+    "parentid" : NumberInt(202), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39cfe"), 
+    "id" : NumberInt(158), 
+    "name" : "冲压复底二车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(1999999991), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39cff"), 
+    "id" : NumberInt(159), 
+    "name" : "冲压复底一车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d00"), 
+    "id" : NumberInt(16), 
+    "name" : "技术中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999983), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d01"), 
+    "id" : NumberInt(161), 
+    "name" : "装配砂光一车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(1999999984), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d02"), 
+    "id" : NumberInt(185), 
+    "name" : "香港跟单组", 
+    "parentid" : NumberInt(25), 
+    "order" : NumberInt(1999999991), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d03"), 
+    "id" : NumberInt(2), 
+    "name" : "总裁办", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d04"), 
+    "id" : NumberInt(22), 
+    "name" : "电器公司", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999961), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d05"), 
+    "id" : NumberInt(24), 
+    "name" : "嘉事泰公司", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999962), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d06"), 
+    "id" : NumberInt(25), 
+    "name" : "香港环球", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999954), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d07"), 
+    "id" : NumberInt(26), 
+    "name" : "万富公司", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999951), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d08"), 
+    "id" : NumberInt(29), 
+    "name" : "研究所", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999980), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d09"), 
+    "id" : NumberInt(3), 
+    "name" : "企管中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999993), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d0a"), 
+    "id" : NumberInt(30), 
+    "name" : "会计部", 
+    "parentid" : NumberInt(14), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d0b"), 
+    "id" : NumberInt(31), 
+    "name" : "成本部", 
+    "parentid" : NumberInt(14), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d0c"), 
+    "id" : NumberInt(32), 
+    "name" : "品检办公室", 
+    "parentid" : NumberInt(15), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d0d"), 
+    "id" : NumberInt(33), 
+    "name" : "厨具品质部", 
+    "parentid" : NumberInt(15), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d0e"), 
+    "id" : NumberInt(34), 
+    "name" : "检测中心", 
+    "parentid" : NumberInt(15), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d0f"), 
+    "id" : NumberInt(35), 
+    "name" : "家电品质部", 
+    "parentid" : NumberInt(15), 
+    "order" : NumberInt(1999999992), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d10"), 
+    "id" : NumberInt(36), 
+    "name" : "工程质量检验组", 
+    "parentid" : NumberInt(33), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d11"), 
+    "id" : NumberInt(37), 
+    "name" : "来料检验组", 
+    "parentid" : NumberInt(33), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d12"), 
+    "id" : NumberInt(39), 
+    "name" : "技术管理部", 
+    "parentid" : NumberInt(16), 
+    "order" : NumberInt(1999999992), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d13"), 
+    "id" : NumberInt(4), 
+    "name" : "办公室", 
+    "parentid" : NumberInt(2), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d14"), 
+    "id" : NumberInt(40), 
+    "name" : "标准组", 
+    "parentid" : NumberInt(39), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d15"), 
+    "id" : NumberInt(41), 
+    "name" : "产品研发部", 
+    "parentid" : NumberInt(16), 
+    "order" : NumberInt(1999999988), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d16"), 
+    "id" : NumberInt(42), 
+    "name" : "产品策划组", 
+    "parentid" : NumberInt(41), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d17"), 
+    "id" : NumberInt(43), 
+    "name" : "工业设计组", 
+    "parentid" : NumberInt(41), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d18"), 
+    "id" : NumberInt(5), 
+    "name" : "秘书室", 
+    "parentid" : NumberInt(2), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d19"), 
+    "id" : NumberInt(69), 
+    "name" : "嘉办公室", 
+    "parentid" : NumberInt(24), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d1a"), 
+    "id" : NumberInt(73), 
+    "name" : "香港业务员", 
+    "parentid" : NumberInt(25), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d1b"), 
+    "id" : NumberInt(75), 
+    "name" : "电器办公室", 
+    "parentid" : NumberInt(22), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d1c"), 
+    "id" : NumberInt(76), 
+    "name" : "电器工程部", 
+    "parentid" : NumberInt(22), 
+    "order" : NumberInt(1999999986), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d1d"), 
+    "id" : NumberInt(79), 
+    "name" : "电器生产部", 
+    "parentid" : NumberInt(22), 
+    "order" : NumberInt(1999999981), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d1e"), 
+    "id" : NumberInt(8), 
+    "name" : "体系运营部", 
+    "parentid" : NumberInt(3), 
+    "order" : NumberInt(1999999989), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d1f"), 
+    "id" : NumberInt(80), 
+    "name" : "电器PMC部", 
+    "parentid" : NumberInt(22), 
+    "order" : NumberInt(1999999983), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d20"), 
+    "id" : NumberInt(85), 
+    "name" : "人力资源中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999991), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d21"), 
+    "id" : NumberInt(86), 
+    "name" : "行政部", 
+    "parentid" : NumberInt(85), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d22"), 
+    "id" : NumberInt(9), 
+    "name" : "进出口部", 
+    "parentid" : NumberInt(13), 
+    "order" : NumberInt(1999999995), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d23"), 
+    "id" : NumberInt(90), 
+    "name" : "技术管理组", 
+    "parentid" : NumberInt(39), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d24"), 
+    "id" : NumberInt(187), 
+    "name" : "软件开发组", 
+    "parentid" : NumberInt(11), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d25"), 
+    "id" : NumberInt(189), 
+    "name" : "信息综合组", 
+    "parentid" : NumberInt(11), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d26"), 
+    "id" : NumberInt(190), 
+    "name" : "总裁室", 
+    "parentid" : NumberInt(2), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d27"), 
+    "id" : NumberInt(191), 
+    "name" : "人力资源部", 
+    "parentid" : NumberInt(85), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d28"), 
+    "id" : NumberInt(192), 
+    "name" : "成品检验组", 
+    "parentid" : NumberInt(33), 
+    "order" : NumberInt(1999999995), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d29"), 
+    "id" : NumberInt(193), 
+    "name" : "电器成品检验组", 
+    "parentid" : NumberInt(35), 
+    "order" : NumberInt(1999999995), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d2a"), 
+    "id" : NumberInt(194), 
+    "name" : "电器检测室", 
+    "parentid" : NumberInt(35), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d2b"), 
+    "id" : NumberInt(199), 
+    "name" : "铝线生产部", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999993), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d2c"), 
+    "id" : NumberInt(200), 
+    "name" : "配件生产部", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999992), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d2d"), 
+    "id" : NumberInt(201), 
+    "name" : "工程部", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999995), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d2e"), 
+    "id" : NumberInt(202), 
+    "name" : "PMC部", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d2f"), 
+    "id" : NumberInt(197), 
+    "name" : "厨具中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999966), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d30"), 
+    "id" : NumberInt(198), 
+    "name" : "钢线生产部", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d31"), 
+    "id" : NumberInt(203), 
+    "name" : "厨具综合办", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d32"), 
+    "id" : NumberInt(205), 
+    "name" : "装配砂光二车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(1999999985), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d33"), 
+    "id" : NumberInt(206), 
+    "name" : "铝压延车间", 
+    "parentid" : NumberInt(199), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d34"), 
+    "id" : NumberInt(207), 
+    "name" : "铝表面车间", 
+    "parentid" : NumberInt(199), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d35"), 
+    "id" : NumberInt(208), 
+    "name" : "铝装配车间", 
+    "parentid" : NumberInt(199), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d36"), 
+    "id" : NumberInt(209), 
+    "name" : "配件成形车间", 
+    "parentid" : NumberInt(200), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d37"), 
+    "id" : NumberInt(210), 
+    "name" : "配件抛光车间", 
+    "parentid" : NumberInt(200), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d38"), 
+    "id" : NumberInt(211), 
+    "name" : "项目一科", 
+    "parentid" : NumberInt(201), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d39"), 
+    "id" : NumberInt(212), 
+    "name" : "项目二科", 
+    "parentid" : NumberInt(201), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d3a"), 
+    "id" : NumberInt(213), 
+    "name" : "试产车间", 
+    "parentid" : NumberInt(148), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d3b"), 
+    "id" : NumberInt(214), 
+    "name" : "工艺二科", 
+    "parentid" : NumberInt(201), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d3c"), 
+    "id" : NumberInt(215), 
+    "name" : "成品仓", 
+    "parentid" : NumberInt(150), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d3d"), 
+    "id" : NumberInt(216), 
+    "name" : "圆片仓", 
+    "parentid" : NumberInt(150), 
+    "order" : NumberInt(1999999995), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d3e"), 
+    "id" : NumberInt(217), 
+    "name" : "配套仓", 
+    "parentid" : NumberInt(150), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d3f"), 
+    "id" : NumberInt(218), 
+    "name" : "五金仓", 
+    "parentid" : NumberInt(150), 
+    "order" : NumberInt(1999999993), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d40"), 
+    "id" : NumberInt(219), 
+    "name" : "物控办公室", 
+    "parentid" : NumberInt(150), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d41"), 
+    "id" : NumberInt(220), 
+    "name" : "行政科", 
+    "parentid" : NumberInt(203), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d42"), 
+    "id" : NumberInt(221), 
+    "name" : "报价科", 
+    "parentid" : NumberInt(203), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d43"), 
+    "id" : NumberInt(222), 
+    "name" : "质检科", 
+    "parentid" : NumberInt(203), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d44"), 
+    "id" : NumberInt(223), 
+    "name" : "设备科", 
+    "parentid" : NumberInt(203), 
+    "order" : NumberInt(1999999996), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d45"), 
+    "id" : NumberInt(224), 
+    "name" : "PC计划组", 
+    "parentid" : NumberInt(80), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d46"), 
+    "id" : NumberInt(225), 
+    "name" : "MC物控组", 
+    "parentid" : NumberInt(80), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d47"), 
+    "id" : NumberInt(226), 
+    "name" : "嘉生产部", 
+    "parentid" : NumberInt(24), 
+    "order" : NumberInt(1999999989), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d48"), 
+    "id" : NumberInt(227), 
+    "name" : "厨具办公室", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d49"), 
+    "id" : NumberInt(228), 
+    "name" : "包装设计组", 
+    "parentid" : NumberInt(201), 
+    "order" : NumberInt(1999999993), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d4a"), 
+    "id" : NumberInt(229), 
+    "name" : "企业文化部", 
+    "parentid" : NumberInt(85), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d4b"), 
+    "id" : NumberInt(230), 
+    "name" : "自动化装备部", 
+    "parentid" : NumberInt(29), 
+    "order" : NumberInt(1999999992), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d4c"), 
+    "id" : NumberInt(231), 
+    "name" : "设备管理组", 
+    "parentid" : NumberInt(230), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d4d"), 
+    "id" : NumberInt(232), 
+    "name" : "开发技术组", 
+    "parentid" : NumberInt(230), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d4e"), 
+    "id" : NumberInt(233), 
+    "name" : "市场部", 
+    "parentid" : NumberInt(13), 
+    "order" : NumberInt(1999999997), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d4f"), 
+    "id" : NumberInt(234), 
+    "name" : "家电品质部", 
+    "parentid" : NumberInt(33), 
+    "order" : NumberInt(1999999994), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d50"), 
+    "id" : NumberInt(235), 
+    "name" : "广州业务部", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(1999999955), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d51"), 
+    "id" : NumberInt(236), 
+    "name" : "广州业务员", 
+    "parentid" : NumberInt(235), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d52"), 
+    "id" : NumberInt(237), 
+    "name" : "广州跟单", 
+    "parentid" : NumberInt(235), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d53"), 
+    "id" : NumberInt(238), 
+    "name" : "电器质检科", 
+    "parentid" : NumberInt(22), 
+    "order" : NumberInt(1999999980), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d54"), 
+    "id" : NumberInt(242), 
+    "name" : "嘉玻盖车间", 
+    "parentid" : NumberInt(226), 
+    "order" : NumberInt(1999999999), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d55"), 
+    "id" : NumberInt(243), 
+    "name" : "嘉铝板车间", 
+    "parentid" : NumberInt(226), 
+    "order" : NumberInt(1999999998), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d56"), 
+    "id" : NumberInt(244), 
+    "name" : "大件抛光一车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(1999999987), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d57"), 
+    "id" : NumberInt(245), 
+    "name" : "大件抛光二车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(1999999986), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d58"), 
+    "id" : NumberInt(439), 
+    "name" : "电器MC物控组", 
+    "parentid" : NumberInt(80), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d59"), 
+    "id" : NumberInt(438), 
+    "name" : "财务中心", 
+    "parentid" : NumberInt(437), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d5a"), 
+    "id" : NumberInt(437), 
+    "name" : "职能部门", 
+    "parentid" : NumberInt(379), 
+    "order" : NumberInt(99996000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d5b"), 
+    "id" : NumberInt(436), 
+    "name" : "审计监察部", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(99892000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d5c"), 
+    "id" : NumberInt(435), 
+    "name" : "OEM项目一组", 
+    "parentid" : NumberInt(362), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d5d"), 
+    "id" : NumberInt(434), 
+    "name" : "欧德罗销售部", 
+    "parentid" : NumberInt(433), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d5e"), 
+    "id" : NumberInt(433), 
+    "name" : "销售中心", 
+    "parentid" : NumberInt(379), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d5f"), 
+    "id" : NumberInt(432), 
+    "name" : "电商事业部", 
+    "parentid" : NumberInt(379), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d60"), 
+    "id" : NumberInt(431), 
+    "name" : "供应链中心", 
+    "parentid" : NumberInt(380), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d61"), 
+    "id" : NumberInt(430), 
+    "name" : "铝线计划组", 
+    "parentid" : NumberInt(396), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d62"), 
+    "id" : NumberInt(429), 
+    "name" : "铝线报价组", 
+    "parentid" : NumberInt(396), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d63"), 
+    "id" : NumberInt(428), 
+    "name" : "铝智造质检科", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(99994000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d64"), 
+    "id" : NumberInt(427), 
+    "name" : "自动化科", 
+    "parentid" : NumberInt(420), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d65"), 
+    "id" : NumberInt(426), 
+    "name" : "物控办公室", 
+    "parentid" : NumberInt(359), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d66"), 
+    "id" : NumberInt(425), 
+    "name" : "设备管理科", 
+    "parentid" : NumberInt(420), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d67"), 
+    "id" : NumberInt(424), 
+    "name" : "厨具行政科", 
+    "parentid" : NumberInt(203), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d68"), 
+    "id" : NumberInt(423), 
+    "name" : "铝项目一组", 
+    "parentid" : NumberInt(376), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d69"), 
+    "id" : NumberInt(422), 
+    "name" : "铝智造办公室", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(99995000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d6a"), 
+    "id" : NumberInt(421), 
+    "name" : "铝智造线成型段", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(99996000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d6b"), 
+    "id" : NumberInt(420), 
+    "name" : "设备部", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d6c"), 
+    "id" : NumberInt(419), 
+    "name" : "数据组", 
+    "parentid" : NumberInt(356), 
+    "order" : NumberInt(99995000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d6d"), 
+    "id" : NumberInt(418), 
+    "name" : "铝智造PMC科", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d6e"), 
+    "id" : NumberInt(417), 
+    "name" : "包装组", 
+    "parentid" : NumberInt(356), 
+    "order" : NumberInt(99996000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d6f"), 
+    "id" : NumberInt(416), 
+    "name" : "厨具策划组", 
+    "parentid" : NumberInt(410), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d70"), 
+    "id" : NumberInt(415), 
+    "name" : "项目1组", 
+    "parentid" : NumberInt(407), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d71"), 
+    "id" : NumberInt(414), 
+    "name" : "技术管理组", 
+    "parentid" : NumberInt(385), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d72"), 
+    "id" : NumberInt(413), 
+    "name" : "OEM项目二组", 
+    "parentid" : NumberInt(362), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d73"), 
+    "id" : NumberInt(412), 
+    "name" : "智能家居品管", 
+    "parentid" : NumberInt(379), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d74"), 
+    "id" : NumberInt(411), 
+    "name" : "电器策划组", 
+    "parentid" : NumberInt(410), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d75"), 
+    "id" : NumberInt(410), 
+    "name" : "产品策划部", 
+    "parentid" : NumberInt(16), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d76"), 
+    "id" : NumberInt(409), 
+    "name" : "项目2组", 
+    "parentid" : NumberInt(407), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d77"), 
+    "id" : NumberInt(408), 
+    "name" : "电控设计组", 
+    "parentid" : NumberInt(407), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d78"), 
+    "id" : NumberInt(407), 
+    "name" : "家电研发部", 
+    "parentid" : NumberInt(16), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d79"), 
+    "id" : NumberInt(406), 
+    "name" : "项目1组", 
+    "parentid" : NumberInt(400), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d7a"), 
+    "id" : NumberInt(405), 
+    "name" : "综合组", 
+    "parentid" : NumberInt(362), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d7b"), 
+    "id" : NumberInt(404), 
+    "name" : "人资开发科", 
+    "parentid" : NumberInt(191), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d7c"), 
+    "id" : NumberInt(403), 
+    "name" : "电器工程组", 
+    "parentid" : NumberInt(79), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d7d"), 
+    "id" : NumberInt(402), 
+    "name" : "铝线配套仓", 
+    "parentid" : NumberInt(396), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d7e"), 
+    "id" : NumberInt(401), 
+    "name" : "项目2组", 
+    "parentid" : NumberInt(400), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d7f"), 
+    "id" : NumberInt(400), 
+    "name" : "工业设计组", 
+    "parentid" : NumberInt(399), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d80"), 
+    "id" : NumberInt(399), 
+    "name" : "工业设计部", 
+    "parentid" : NumberInt(16), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d81"), 
+    "id" : NumberInt(398), 
+    "name" : "人资保障科", 
+    "parentid" : NumberInt(191), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d82"), 
+    "id" : NumberInt(397), 
+    "name" : "成品仓", 
+    "parentid" : NumberInt(359), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d83"), 
+    "id" : NumberInt(396), 
+    "name" : "铝线PMC科", 
+    "parentid" : NumberInt(199), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d84"), 
+    "id" : NumberInt(395), 
+    "name" : "综合组", 
+    "parentid" : NumberInt(391), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d85"), 
+    "id" : NumberInt(394), 
+    "name" : "铝智造线装配段", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d86"), 
+    "id" : NumberInt(393), 
+    "name" : "基建工程组", 
+    "parentid" : NumberInt(86), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d87"), 
+    "id" : NumberInt(392), 
+    "name" : "项目组", 
+    "parentid" : NumberInt(391), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d88"), 
+    "id" : NumberInt(391), 
+    "name" : "顺德设计部", 
+    "parentid" : NumberInt(16), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d89"), 
+    "id" : NumberInt(390), 
+    "name" : "精铸钢项目组", 
+    "parentid" : NumberInt(29), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d8a"), 
+    "id" : NumberInt(389), 
+    "name" : "铝线质检科", 
+    "parentid" : NumberInt(199), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d8b"), 
+    "id" : NumberInt(388), 
+    "name" : "铝智造工程组", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d8c"), 
+    "id" : NumberInt(387), 
+    "name" : "电器PC计划组", 
+    "parentid" : NumberInt(80), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d8d"), 
+    "id" : NumberInt(386), 
+    "name" : "标准组", 
+    "parentid" : NumberInt(385), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d8e"), 
+    "id" : NumberInt(385), 
+    "name" : "标准化组", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d8f"), 
+    "id" : NumberInt(384), 
+    "name" : "抛光大件一车间", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d90"), 
+    "id" : NumberInt(383), 
+    "name" : "配套仓", 
+    "parentid" : NumberInt(359), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d91"), 
+    "id" : NumberInt(382), 
+    "name" : "钢项目二组", 
+    "parentid" : NumberInt(374), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d92"), 
+    "id" : NumberInt(381), 
+    "name" : "产品部", 
+    "parentid" : NumberInt(380), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d93"), 
+    "id" : NumberInt(380), 
+    "name" : "新零售事业部", 
+    "parentid" : NumberInt(379), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d94"), 
+    "id" : NumberInt(379), 
+    "name" : "智能家居公司", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(99893000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d95"), 
+    "id" : NumberInt(378), 
+    "name" : "香港跟单员", 
+    "parentid" : NumberInt(25), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d96"), 
+    "id" : NumberInt(377), 
+    "name" : "铝项目二组", 
+    "parentid" : NumberInt(376), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d97"), 
+    "id" : NumberInt(376), 
+    "name" : "铝项目科", 
+    "parentid" : NumberInt(356), 
+    "order" : NumberInt(99997000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d98"), 
+    "id" : NumberInt(375), 
+    "name" : "钢项目一组", 
+    "parentid" : NumberInt(374), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d99"), 
+    "id" : NumberInt(374), 
+    "name" : "钢项目科", 
+    "parentid" : NumberInt(356), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d9a"), 
+    "id" : NumberInt(373), 
+    "name" : "嘉玻盖车间", 
+    "parentid" : NumberInt(24), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d9b"), 
+    "id" : NumberInt(372), 
+    "name" : "IQC&外检组", 
+    "parentid" : NumberInt(33), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d9c"), 
+    "id" : NumberInt(371), 
+    "name" : "项目组", 
+    "parentid" : NumberInt(86), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d9d"), 
+    "id" : NumberInt(370), 
+    "name" : "广州跟单员", 
+    "parentid" : NumberInt(235), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d9e"), 
+    "id" : NumberInt(369), 
+    "name" : "行政事务组", 
+    "parentid" : NumberInt(86), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39d9f"), 
+    "id" : NumberInt(368), 
+    "name" : "安保后勤组", 
+    "parentid" : NumberInt(86), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39da0"), 
+    "id" : NumberInt(367), 
+    "name" : "硬件网络组", 
+    "parentid" : NumberInt(11), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39da1"), 
+    "id" : NumberInt(366), 
+    "name" : "铝智造线表面处理段", 
+    "parentid" : NumberInt(365), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39da2"), 
+    "id" : NumberInt(365), 
+    "name" : "铝智造线", 
+    "parentid" : NumberInt(197), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39da3"), 
+    "id" : NumberInt(364), 
+    "name" : "工艺科", 
+    "parentid" : NumberInt(356), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39da4"), 
+    "id" : NumberInt(363), 
+    "name" : "技改组", 
+    "parentid" : NumberInt(362), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39da5"), 
+    "id" : NumberInt(362), 
+    "name" : "电器开发科", 
+    "parentid" : NumberInt(22), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39da6"), 
+    "id" : NumberInt(361), 
+    "name" : "钢线质检科", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39da7"), 
+    "id" : NumberInt(360), 
+    "name" : "圆片仓", 
+    "parentid" : NumberInt(359), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39da8"), 
+    "id" : NumberInt(359), 
+    "name" : "钢线物控科", 
+    "parentid" : NumberInt(354), 
+    "order" : NumberInt(99998000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39da9"), 
+    "id" : NumberInt(358), 
+    "name" : "钢线计划科", 
+    "parentid" : NumberInt(354), 
+    "order" : NumberInt(99999000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39daa"), 
+    "id" : NumberInt(357), 
+    "name" : "模具车间", 
+    "parentid" : NumberInt(356), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39dab"), 
+    "id" : NumberInt(356), 
+    "name" : "工程中心", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39dac"), 
+    "id" : NumberInt(355), 
+    "name" : "钢线报价科", 
+    "parentid" : NumberInt(354), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39dad"), 
+    "id" : NumberInt(354), 
+    "name" : "钢线PMC科", 
+    "parentid" : NumberInt(198), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39dae"), 
+    "id" : NumberInt(353), 
+    "name" : "嘉铝板车间", 
+    "parentid" : NumberInt(24), 
+    "order" : NumberInt(100000000), 
+    "department_leader" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("627a0c843c606733e2b39daf"), 
+    "id" : NumberInt(440), 
+    "name" : "云智汇（规划咨询机构）", 
+    "parentid" : NumberInt(1), 
+    "order" : NumberInt(99), 
+    "department_leader" : [
+
+    ]
+}

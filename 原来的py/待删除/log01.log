@@ -1,0 +1,5 @@
+aiiw562021-11-16 08:33:41,208 - mylogging.py[line:21] - INFO: this is a logger info message
+aiiw562021-11-16 08:33:41,208 - mylogging.py[line:22] - WARNING: this is a logger warning message
+aiiw562021-11-16 08:33:41,208 - mylogging.py[line:23] - ERROR: this is a logger error message
+aiiw562021-11-16 08:33:41,208 - mylogging.py[line:24] - CRITICAL: this is a logger critical message
+aiiw562021-11-16 08:33:41,209 - mylogging.py[line:54] - ERROR: Failed to open file

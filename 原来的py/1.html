@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container" style="height: 200px; overflow-y: scroll;">
+        <div id="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Nulla vestibulum orci vitae ligula tristique, eget tincidunt nisl lobortis.</p>
+            <p>Aliquam sollicitudin velit sed ipsum tincidunt sodales.</p>
+            <p>Donec vel ex at turpis vestibulum consequat.</p>
+            <p>Nam quis augue vel libero hendrerit tincidunt vitae non dolor.</p>
+            <p>Praesent ut odio vel ante vehicula congue.</p>
+        </div>
+    </div>
+
+    <button onclick="scrollToElement()">Scroll to Element</button>
+    <script>
+        function scrollToElement() {
+            var element = document.getElementById("content");
+            element.scrollIntoView({
+                behavior: "smooth",
+                block: "end",
+                inline: "nearest"
+            });
+        }
+    </script>
+</body>
+
+</html>

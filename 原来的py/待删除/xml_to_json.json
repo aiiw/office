@@ -1,0 +1,59 @@
+{
+     "zabbix_export": {
+          "date": "2017-10-27T08:30:54Z",
+          "groups": {
+               "aaaa": "111222",
+               "group": {
+                    "name": "JX-SERVER"
+               }
+          },
+          "hosts": {
+               "host": {
+                    "applications": null,
+                    "description": null,
+                    "discovery_rules": null,
+                    "groups": {
+                         "group": {
+                              "name": "JX-SERVER"
+                         }
+                    },
+                    "host": "GYSERVER",
+                    "httptests": null,
+                    "interfaces": {
+                         "interface": {
+                              "bulk": "1",
+                              "default": "1",
+                              "dns": null,
+                              "interface_ref": "if1",
+                              "ip": "172.17.200.116",
+                              "port": "10050",
+                              "type": "1",
+                              "useip": "1"
+                         }
+                    },
+                    "inventory": null,
+                    "ipmi_authtype": "-1",
+                    "ipmi_password": null,
+                    "ipmi_privilege": "2",
+                    "ipmi_username": null,
+                    "items": null,
+                    "macros": null,
+                    "name": "GYSERVER",
+                    "proxy": null,
+                    "status": "0",
+                    "templates": {
+                         "template": {
+                              "name": "Template OS Windows"
+                         }
+                    },
+                    "tls_accept": "1",
+                    "tls_connect": "1",
+                    "tls_issuer": null,
+                    "tls_psk": null,
+                    "tls_psk_identity": null,
+                    "tls_subject": null
+               }
+          },
+          "version": "3.2"
+     }
+}

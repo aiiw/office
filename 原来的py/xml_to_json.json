@@ -1,0 +1,48 @@
+{
+     "data": {
+          "country": [
+               {
+                    "@name": "Liechtenstein",
+                    "gdppc": "141100",
+                    "neighbor": [
+                         {
+                              "@direction": "E",
+                              "@name": "Austria"
+                         },
+                         {
+                              "@direction": "W",
+                              "@name": "Switzerland"
+                         }
+                    ],
+                    "rank": "1",
+                    "year": "2008"
+               },
+               {
+                    "@name": "Singapore",
+                    "gdppc": "59900",
+                    "neighbor": {
+                         "@direction": "N",
+                         "@name": "Malaysia"
+                    },
+                    "rank": "4",
+                    "year": "2011"
+               },
+               {
+                    "@name": "Panama",
+                    "gdppc": "13600",
+                    "neighbor": [
+                         {
+                              "@direction": "W",
+                              "@name": "Costa Rica"
+                         },
+                         {
+                              "@direction": "E",
+                              "@name": "Colombia"
+                         }
+                    ],
+                    "rank": "68",
+                    "year": "2011"
+               }
+          ]
+     }
+}
