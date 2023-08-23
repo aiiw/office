@@ -13,7 +13,7 @@
 下面是一些示例代码：
 
 ```javascript
-javascript复制代码
+
 
 const obj = {
   name: 'Alice',
