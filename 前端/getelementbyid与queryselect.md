@@ -31,7 +31,9 @@ x[0].style.backgroundColor = "red";
 2
 3
 由于querySelector是按css规范来实现的，所以它传入的字符串中第一个字符不能是数字。
-前三种getxxxByxxx获取的是动态集合，而querySelector获取的是静态集合。
+
+## 前三种getxxxByxxx获取的是动态集合，而querySelector获取的是静态集合。
+
 简单的说就是，动态就是选出的元素会随文档改变，静态的不会，取出来之后就和文档的改变无关了。
 
 getElementById性能更好，而querySelector按照CSS选择器规范，当在多级查找时，更为方便。

@@ -51,7 +51,9 @@ li:nth-child(3) {
 如果我们想要选择列表中的第 3 个元素（即第 3 个 `<li>` 元素），那么我们可以使用 `nth-of-type` 选择器来实现：
 
 ```html
-css复制代码li:nth-of-type(3) {
+css复制代码
+
+li:nth-of-type(3) {
   color: red;
 }
 ```
