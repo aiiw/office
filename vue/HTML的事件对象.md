@@ -3,13 +3,16 @@
 这是因为在使用内联事件处理函数时，浏览器会自动将事件对象作为参数传递给相应的函数。例如，在 `<button>` 元素上定义了一个点击事件处理函数：
 
 ```
-htmlCopy Code<button onclick="handleClick(event)">Click me</button>
+htmlCopy Code
+<button onclick="handleClick(event)">Click me</button>
 ```
 
 当按钮被点击时，浏览器会自动将事件对象作为参数传递给 `handleClick` 函数：
 
 ```
-javascriptCopy Codefunction handleClick(event) {
+javascriptCopy Code
+
+function handleClick(event) {
   console.log("Button clicked!");
   console.log("Event object:", event);
 }
@@ -22,7 +25,9 @@ javascriptCopy Codefunction handleClick(event) {
 举个例子，假设我们通过 JavaScript 添加了一个点击事件监听器：
 
 ```
-javascriptCopy Codeconst button = document.getElementById('myButton');
+javascriptCopy Code
+
+const button = document.getElementById('myButton');
 button.addEventListener('click', function(event) {
   console.log("Button clicked!");
   console.log("Event object:", event);
