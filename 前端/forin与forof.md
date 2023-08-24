@@ -1,6 +1,6 @@
 ```
 1.循环数组
-
+共同:建议使用for in 都是读取出索引(对象key)
 区别一：for in 和 for of 都可以循环数组，for in 输出的是数组的index下标，而for of 输出的是数组的每一项的值。
 
 const arr = [1,2,3,4]
