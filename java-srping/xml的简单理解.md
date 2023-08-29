@@ -48,5 +48,42 @@ xml
 
 
 
+https://blog.csdn.net/freelk/article/details/80869439
 
+一、xml schema 定义 （对应xsd文件）
 
+XML Schema是定义 XML文档的合法构建模块，即定义xml文档中可以出现哪些元素、属性、元素之间的关系、顺序、元素的数量、元素或属性的类型和值的范围等等，是对xml文档的一种约束方式。
+
+不过xsd(XML Schema Definition，即XML Schema定义)文档本身也是使用XML语言来写的。所以它也具有xmlns的属性。
+
+## xmlns：引用schema(targetnamesapce) （引用别的规划，我的理解）是默认命名空间。如果不加前缀AAA)，即为默认命名空间，指定使用该命名空间的元素及子元素只要不加其他前缀，就都是默认命名空间的元素。
+
+二、targetNamespace
+
+为本xsd文档 定义 namespace,另外（当默认命名空间xmlns和targetNamespace指定的命名空间一致时，在默认命名空间下使用的元素(如：type="booksType")是属于targetNamespace命名空间下的）
+
+三、xsi:schemaLocation
+其语法是：schemaLocation=“{namespaceURI}   {xsd名称}”
+
+在xml文档中，经常看到 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"这样的命名空间，那它有什么作用呢？  :xsi指的是别名
+
+“http://www.w3.org/2001/XMLSchema-instance”是一个固定值，这个URI指向一个xsd文档，该xsd的targetNamespace的值就是这个URI。同时在xsd中定义了四个属性，其中有一个属性的名称为：schemaLocation，这个属性在xml文档中也经常用到，如上面的例子中
+
+非常抱歉之前的回答存在错误。你是正确的，`xsi:schemaLocation` 属性实际上是属于 `http://www.w3.org/2001/XMLSchema-instance` 命名空间下的 `schemaLocation` 属性。声明 `xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"` 可以让我们使用 `xsi` 前缀来引用该命名空间中的属性。
+
+`xsi:schemaLocation` 属性的作用是指定命名空间和相应的 XSD 文件的位置。它告诉解析器在验证 XML 文档时应该使用哪个 XSD 文件来检查文档的结构和数据类型。通常，该属性的值由两部分组成：命名空间URI和对应的 XSD 文件的位置。
+
+例如，在以下示例中：
+
+```
+xmlCopy Code<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.example.com/ns1 schema1.xsd">
+  <!-- XML 内容 -->
+</root>
+```
+
+`xsi:schemaLocation` 的属性值 `"http://www.example.com/ns1 schema1.xsd"` 表示命名空间 `http://www.example.com/ns1` 对应的 XSD 文件位于 `schema1.xsd`。
+
+因此，通过使用 `xsi:schemaLocation` 属性，我们可以告知 XML 解析器在解析和验证 XML 文档时使用哪个 XSD 文件来确保文档的正确性和符合预期的结构约束。
+
+再次为之前的错误回答向您道歉，并感谢您的指正。如果还有其他问题，请随时提问。
