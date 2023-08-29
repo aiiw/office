@@ -1,3 +1,5 @@
+https://blog.csdn.net/u010160778/article/details/59483208
+
 xmlns：是默认命名空间。如果不加前缀(namespace-prefix)，即为默认命名空间，指定使用该命名空间的元素及子元素只要不加其他前缀，就都是默认命名空间的元素。
 
 
