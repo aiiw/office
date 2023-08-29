@@ -2,8 +2,10 @@
 
 在没有Spring的自动管理时，我们需要手动创建和初始化Bean对象。对于Java应用程序，传统方法通常是将Bean类实例化并设置其属性，然后将其注册到IoC容器中。以下是一个简单的Java示例，说明如何手动创建一个Bean：
 
-```
-Copy Codepublic class MyBean {
+```java
+public 
+    
+    class MyBean {
     private String name;
     
     public MyBean(String name) {
@@ -41,10 +43,10 @@ MyBean myBean = (MyBean) container.getBean("myBean");
 
 以下是一个使用 Spring 框架进行 Bean 管理的示例代码：
 
-首先，我们需要在配置文件中定义所需的 Bean，例如：
+### 首先，我们需要在配置文件中定义所需的 Bean，例如：
 
-```
-Copy Code
+```java
+
 
 <bean id="myBean" class="com.example.MyBean">
     <property name="name" value="myBean"/>
@@ -55,8 +57,8 @@ Copy Code
 
 然后，我们可以在应用程序中使用 Spring 的 `ApplicationContext` 来获取 `myBean` 实例：
 
-```
-Copy Code// 创建 ApplicationContext
+```java
+// 创建 ApplicationContext
 ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
 // 获取 myBean 实例
@@ -71,8 +73,8 @@ MyBean myBean = (MyBean) context.getBean("myBean");
 
 是的，最新的 Spring 版本已经支持基于注解的方式来配置 Bean。以下是一个示例：
 
-```
-Copy Code@Component
+```java
+@Component
 public class MyBean {
     private String name = "myBean";
 
@@ -92,8 +94,8 @@ public class MyBean {
 
 以下是使用基于注解的方式来访问 `MyBean` 的示例：
 
-```
-Copy Code@Autowired
+```java
+@Autowired
 private MyBean myBean;
 
 public void doSomething() {

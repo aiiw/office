@@ -6,8 +6,8 @@
 
 以下是使用可选链操作符的示例：
 
-```
-javascriptCopy Codeconst person = {
+```js
+const person = {
   name: 'Alice',
   age: 25,
   address: {

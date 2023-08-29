@@ -9,8 +9,10 @@
 
 下面是一个简单的JavaBean示例：
 
-```
-Copy Codepublic class Person implements Serializable {
+```java
+Copy Code
+
+public class Person implements Serializable {
 
     private String name;
     private int age;
