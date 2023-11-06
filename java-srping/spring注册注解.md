@@ -23,15 +23,15 @@
 
 | 注解                     | 说明                                                         |
 | ------------------------ | ------------------------------------------------------------ |
-| `@RestController`        | 带有该注解的类会被 Spring Boot 解析为 RESTful Web 服务，可以通过 HTTP 请求访问。 |
+| `@RestController`        | 带有该注解的类会被 Spring Boot 解析为 RESTful Web 服务，可以通过 HTTP 请求访问。可以返回字符串json |
 | `@RequestMapping`        | 处理请求地址映射的注解，可以设置 URL 映射路径、HTTP 请求方法等属性。 |
 | `@GetMapping`            | 用于处理 HTTP GET 请求的注解。                               |
 | `@PostMapping`           | 用于处理 HTTP POST 请求的注解。                              |
 | `@PutMapping`            | 用于处理 HTTP PUT 请求的注解。                               |
 | `@DeleteMapping`         | 用于处理 HTTP DELETE 请求的注解。                            |
 | `@RequestBody`           | 用于获取 HTTP 请求正文中的参数值。                           |
-| `@RequestParam`          | 用于获取 URL 中的参数值。                                    |
-| `@PathVariable`          | 用于获取 URL 中的变量值。                                    |
+| `@RequestParam`          | 用于获取 URL 中的参数值。/aaaa?a=b                           |
+| `@PathVariable`          | 用于获取 URL 中的变量值。/{a}                                |
 | `@Autowired`             | 自动装配 Bean 对象，相当于 XML 配置文件中的 `<bean>` 标签。  |
 | `@Component`             | 将当前类标识为一个组件，交由 Spring 管理。                   |
 | `@Repository`            | 将 DAO 层对象标识为一个 Spring Bean 组件。                   |
