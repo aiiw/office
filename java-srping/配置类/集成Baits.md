@@ -48,7 +48,8 @@ spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
 Account.java:
 
 ```java
-javaCopy Codepublic class Account {
+javaCopy Code
+    public class Account {
     // 省略属性和方法
 }
 ```
@@ -56,7 +57,8 @@ javaCopy Codepublic class Account {
 AccountMapper.java:
 
 ```java
-javaCopy Code@Mapper
+javaCopy Code
+ @Mapper
 public interface AccountMapper {
     @Select("SELECT * FROM account WHERE id = #{id}")
     Account selectAccountById(Long id);
@@ -83,7 +85,8 @@ public class YourApplication {
 现在你可以在服务类或控制器中直接注入 Mapper 接口来操作数据库了：
 
 ```java
-javaCopy Code@Service
+javaCopy Code
+   @Service
 public class AccountService {
     @Autowired
     private AccountMapper accountMapper;
