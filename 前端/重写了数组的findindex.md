@@ -1,13 +1,13 @@
 ```
-*var* ages = [3, 10, 18, 20];
+var ages = [3, 10, 18, 20];
 
-ages.myindexfind1 = *function* (*fn*) {
+ages.myindexfind1 = function (fn) {
 
-  *var* a = []
+  var a = []
 
-  ages.forEach(*item* *=>* {
+  ages.forEach(item => {
 
-​    a.push(fn(*item*))
+​    a.push(fn(item))
 
   })
 
@@ -15,9 +15,9 @@ ages.myindexfind1 = *function* (*fn*) {
 
 }
 
-*var* q = ages.myindexfind1((*age*) *=>* {
+var q = ages.myindexfind1((age) => {
 
-  return *age* >= 9;
+  return age >= 9;
 
 })
 
