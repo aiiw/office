@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>使用百度账号登录开发者应用</title>
+</head>
+
+<body>
+    <h1>使用百度账号登录开发者应用</h1>
+    <button onclick="login()">登录123</button>
+    <script src="https://passport.baidu.com/passApi/js/uni_login_wrapper.js"></script>
+    <script>
+        // 设置 API Key 和回调地址
+        var api_key = 'MqTM8icss9Th4pZEdMDmDPeRPti90tzK';
+        var redirect_uri = 'http://192.168.0.7:8080/two';
+
+        // 第1步：检查用户是否已经登录百度账号
+        function checkLogin() {
+            return new Promise(function (resolve, reject) {
+                BaiduPassport.getLoginStatus({
+                    onSuccess: function (status) {
+                        if (status.isLogin) {
+                            // 如果用户已经登录，则直接跳过第2步，并返回 Access Token
+                            alert("这里打断一下")
+                            resolve(status.accessToken);
+                        } else {
+                            // 如果用户未登录，则执行第2步和后续流程
+                            reject();
+                        }
+                    },
+                    onFailure: function () {
+                        // 检查登录状态失败，需要执行第2步和后续流程
+                        alert("未登录状态,这里打断一下");
+                        reject();
+                    }
+                });
+            });
+        }
+
+        // 第2步：构建授权页面 URL
+        function buildAuthUrl() {
+            var auth_url = 'https://openapi.baidu.com/oauth/2.0/authorize' +
+                '?response_type=code' +
+                '&client_id=' + api_key +
+                '&redirect_uri=' + encodeURIComponent(redirect_uri);
+            return auth_url;
+        }
+
+        // 第3步：打开授权页面进行登录
+        function openAuthPage() {
+            var auth_url = buildAuthUrl();
+            console.log(auth_url);
+            // window.location.href = auth_url;
+        }
+
+        // 第4步：通过授权码 Code 换取 Access Token
+        function getAccessToken(code) {
+            return new Promise(function (resolve, reject) {
+                var token_url = 'https://openapi.baidu.com/oauth/2.0/token';
+                var params = {
+                    'grant_type': 'authorization_code',
+                    'code': code,
+                    'client_id': api_key,
+                    'redirect_uri': redirect_uri,
+                };
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', token_url);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            try {
+                                var data = JSON.parse(xhr.responseText);
+                                var access_token = data.access_token;
+                                resolve(access_token);
+                            } catch (err) {
+                                reject(err);
+                            }
+                        } else {
+                            reject(new Error('获取 Access Token 失败'));
+                        }
+                    }
+                };
+                xhr.send(Object.keys(params).map(function (key) {
+                    return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]);
+                }).join('&'));
+            });
+        }
+
+        // 点击按钮时开始登录流程
+        function login() {
+            checkLogin()
+                .then(function (access_token) {
+                    // 如果用户已经登录，则直接使用 Access Token 进行后续操作
+                    console.log('用户已经登录，Access Token：', access_token);
+                })
+                .catch(function () {
+                    // 如果用户未登录，则打开授权页面进行登录
+                    openAuthPage();
+                });
+        }
+
+        // 在回调页面中调用该函数以换取 Access Token
+        function exchangeCodeForAccessToken(code) {
+            getAccessToken(code)
+                .then(function (access_token) {
+                    console.log('获取 Access Token 成功：', access_token);
+                })
+                .catch(function (err) {
+                    console.error('获取 Access Token 失败：', err);
+                });
+        }
+    </script>
+</body>
+
+</html>

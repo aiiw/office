@@ -1,24 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<script type="importmap">
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+      }
+    }
+  </script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<div id="app">{{ message }}</div>
 
-<body>
-    'WLS41-23031400287',
-    'WLS41-23031500012',
-    'WLS41-23031400289',
-    'WLS41-23031500006',
-    'WLS41-23031500083',
-    'WLS41-23031500113',
-    'WLS41-23031500122',
-    'WLS41-23031500125',
-    'WLS41-23031500128',
-    'WLS41-23031500131',
-</body>
-
-</html>
+<script type="module">
+    import { createApp } from 'vue'
+  
+    createApp({
+      data() {
+        return {
+          message: 'Hello Vue!'
+        }
+      }
+    }).mount('#app')
+  </script>

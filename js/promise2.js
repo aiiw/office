@@ -25,7 +25,7 @@ function id3() {
         })
     })
 }
-// id3()
+id3()
 // <button onclick="id3()">id3第三个promise例子</button>
 // <div>输出:第一次,以及"这个是第一个then 传出去的",通过then 返回 一个 promise对象</div>
 function id4() {
@@ -65,7 +65,7 @@ async function id5() {
 
     let p1 = await bb1("bb1")
     let p2 = await bb2("bb2")
-    console.log(p1)
+    console.log('id5', p1)
     console.log(p2)
 }
 

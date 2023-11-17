@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- 如下大概描述了:1 参数是函数不能使用函数().这样会直接执行的.2 this 指定调来它的对象元素,如果是剪头函数则指向上一级对象. -->
 
 <head>
     <meta charset="UTF-8">
@@ -50,11 +51,11 @@
                 console.log("我是在返回的函数中end..");
             }
         }
-        const btn2 = document.querySelector("#btn")
-        btn2.addEventListener("click", d(a, 8000)) //其实好理解,这个参数是只接收函数,上面在编译是已经执行为a() 返回 为null,
+        const btn = document.querySelector("#btn")
+        btn.addEventListener("click", d(a, 8000)) //其实好理解,这个参数是只接收函数,上面在编译是已经执行为a() 返回 为null,
 
-        const btn3 = document.querySelector("#btn1")
-        btn3.addEventListener("click", a) // 为这个btn3,绑定了a,所以a 的this,就是btn3
+        const btn1 = document.querySelector("#btn1")
+        btn1.addEventListener("click", a) // 为这个btn3,绑定了a,所以a 的this,就是btn3
     </script>
 </body>
 

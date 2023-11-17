@@ -35,18 +35,16 @@
     myradios.forEach((myradio) => {
         console.log(myradio);
 
-        myradio.addEventListener('change', function () {
+        myradio.addEventListener('change', function (event) {
             if (myradio.checked) {
                 console.log(myradio.value);
+                console.log("a:", myradio, "event:", `${event.target.value}`);
             }
+
+
         })
 
-
-
     })
-
-
-
 
     var checkboxes = document.querySelectorAll('[type="checkbox"]');
     var resultDiv = document.getElementById('result');

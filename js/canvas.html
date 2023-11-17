@@ -1,0 +1,20 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Example</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="200" height="100"></canvas>
+    <script>
+        // 获取 canvas 元素及其上下文
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        // 设置文本样式
+        ctx.font = "30px Arial";
+        ctx.fillStyle = "black";
+
+        // 在 canvas 上绘制文本
+        ctx.fillText("我是一段文本", 10, 50);
+    </script>
+</body>

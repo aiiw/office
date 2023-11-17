@@ -32,12 +32,12 @@ list = []
 for (let i = 0; i < 5; i++) {
     console.log(i.toString());
 
-    list.push({
+    list.push({ //python  的 list.append
         id: i,
         name: "11608"
     })
 }
-console.log(list)
+console.log("list", list)
 
 const a = {
     "name": "zhangxiao",
@@ -60,10 +60,10 @@ let jsonData = {
     status: "OK",
     data: [123, 456]
 };
-let {
+let { //这个是解构
     id,
 
-    data: number
+    data: number //这里的:是别名的意思
 } = jsonData;
 
 

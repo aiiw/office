@@ -22,6 +22,7 @@
             console.log('Hook Function Executed!');
         }
         // 在表单上注册事件监听器，并在回调函数中使用钩子函数作为回调函数
+        //另外,针对这个情况,回调函数的第一个参数是event对象
         myForm.addEventListener('submit', function (event) {
             hookFunction(event);
         });

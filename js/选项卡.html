@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <div id="tabs">
+        <ul>
+            <li><a href="http://www.baidu.com">选项卡 1</a></li>
+            <li><a href="http://2222">选项卡 2</a></li>
+            <li><a href="http://3333333">选项卡 3</a></li>
+        </ul>
+    </div>
+
+    <script>
+        // 添加事件监听器，当选项卡切换时触发 selectedTab.sync 函数
+        var tabs = document.querySelectorAll("#tabs a");
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].addEventListener("click", function (event) {
+                event.preventDefault(); // 阻止默认行为
+                var selectedTab = this.parentElement; //取到li
+                console.log(selectedTab.textContent); //li的内容.
+            });
+        }
+    </script>
+    </script>
+</body>
+
+</html>

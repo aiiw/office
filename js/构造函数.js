@@ -5,20 +5,21 @@ function Person(name, height) {
     this.name = name;
     this.height = height;
     this.bark = function (fs) {
-        return fs
+        console.log("hello");
 
     }
 }
 
 
-var boy = new Person('Keith', 180);
-boy
+var boy = new Person('Keith', '1800');
+
 boy.__proto__
 console.log(boy); //Person {name: 'Keith', height: 180, bark: ƒ}
 console.log(boy.constructor); //f Person(){}  //整个构造函数原型
-console.log(boy.bark(8)); //8
+console.log(boy.bark('1')); //8
 console.log(boy.name); //'Keith'
 console.log(boy.height); //180
+console.log("=========================================");
 
 function Cat1(name) {
     this.name = name;
@@ -28,7 +29,7 @@ var cat3 = new Cat1("kk");
 console.log(cat3); //后打印  Cat1 {name: 'kk'} 指向原型链，再赋值
 
 //如下是实例化一个构造函数的过程
-function Person(name, age) {
+function Person1(name, age) {
     this.name = name;
     this.age = age;
     this.eating = function () {
@@ -36,7 +37,7 @@ function Person(name, age) {
     }
 }
 
-const p1 = new Person('zs', 12);
+const p1 = new Person1('zs', 12);
 
 //----------------------------------------------------------------------------
 /*实际JS引擎帮助我们实现的操作*/

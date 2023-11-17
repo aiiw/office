@@ -1,10 +1,10 @@
 const obj = {
     name: "aiiw",
     sex: "s",
-    data: function () {
+    fun: function () {
         console.log(obj);
     },
     aaa() {}
 }
 
-obj.data(obj)
+obj.fun()

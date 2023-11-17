@@ -1,12 +1,39 @@
+//测试settimeout 
+function longRunningCallback() {
+    console.log("开始执行长时间运行的回调函数");
+    // 模拟长时间运行的操作
+    const endTime = Date.now() + 1 * 1 * 1000; // 60分钟后的时间戳
+    while (Date.now() < endTime) {
+        // 空循环，模拟长时间运行的操作
+    }
+    console.log("长时间运行的回调函数执行结束");
+    return ("这个是异步返回的数据")
+}
+
+
+
+function getsyndata() {
+    setTimeout(() => {
+        return longRunningCallback()
+    }, 6000);
+}
+
+
+synjg = getsyndata()
+console.log("hell", synjg);
+
+
+
+
 // 一 同步的获取数据
-// let target = "hell wrold"
+let target = "hell wrold"
 
-// function getdata() {
-//     return target
-// }
+function getdata() {
+    return target
+}
 
-// const rz = getdata()
-// console.log(rz)
+const rz = getdata()
+console.log(rz)
 
 //二 异步的获取数据,,由于一般的getdata 是异步,所以仿真下这个环境测试下
 

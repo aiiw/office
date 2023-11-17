@@ -1,121 +1,51 @@
-# token_url = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid={}&corpsecret={}".format(appid,sceret) # 创建获取token的url
-import xlrd
-book=xlrd.open_workbook('excel/工单.xlsx') #打开Excel
-sheet=book.sheet_by_name('Sheet1') #根据编号获取sheet页
-#sheet=book.sheet_by_name('sheet1') #也可以根据sheet页名字获取sheet页
-#、第一步将excel表读取到二维表---->list2
-nrows=sheet.nrows
-list1=[]
-list2=[]
+import os
 
-tp={}
-for i in range(1,nrows):
-	# print(sheet.row_values(i))#第一行内容
-	list1=[(str(sheet.row_values(j)[0]),str(sheet.row_values(j)[1]),str(sheet.row_values(j)[2]),str(sheet.row_values(j)[3])) for j in range(1,nrows)]
-
-  for item in list1:
-	sql='''insert into sfabuc_t (SFABUCENT, SFABUCSITE, SFABUCDOCNO, SFABUC001, SFABUC002, SFABUCDOCDT)
- values (100, 'W', '{}', to_date('{}', 'yyyy-mm-dd'), to_date('{}', 'yyyy-mm-dd'), to_date('{}', 'yyyy-mm-dd'));
-'''.format(item[0],item[1],item[2],item[3])
-	print(sql)
+from pathlib import Path
+import xlrd #读取数据
 
 
 
-
-
-
+class walk():
+	"""docstring for wark"""
+	path=''
+	def __init__(self, path):
+		self.path = path
+	def getfiles(self):
+		print("path %s"%(self.path))
+		list=[]
+		if os.path.exists(self.path):
+			for root,dir,file in os.walk(self.path):
+				for name in dir:
+					# str=str+os.path.join(root, name)+'\n'
+					continue
+				for name in file:
+					# str=str+os.path.join(root.replace("//","\\"), name)+'\n'
+					list.append(os.path.join(root.replace("//","\\"), name))
+		return list
 
 
 
 
+if __name__ == '__main__':
+	a=walk(r'C:\Users\11608\Desktop\public')
+	files=a.getfiles()
+	n=0
+	for file in files:
+		n=n+1
+		extension = Path(file).suffix
+		# if extension=='xlsx':
+		# 	try:
+		# 		workbook = openpyxl.load_workbook(file)
 
-
-
-
-
-# list2=["update  t set t.CardNumber='%s' from T_HR_PunchRecord t where t.CardNumber='%s'"%(str(sheet.row_values(m)[1])[0:5],str(sheet.row_values(m)[0])[0:5]) for m in range(1,nrows)]
-# for l2 in list2:
-# 	print(l2)
-# li=','.join("'%s'"%(str(sheet.row_values(item)[0])[0:5]) for item in range(1,nrows)) #(item)这里加不加()都一样
-# print(type(li))
-# psql="select * from T_HR_PunchRecord t where t.CardNumber in ({})".format(li) #format(放)的是str,这里的str已经是一个最终的结果，已经拼接好了的
-
-# print(psql)
-
-
-# print(li)
-# sys.path.append("..")
-# print(list1)
-# # print(sys.getdefaultencoding())
-# # print(locale.getdefaultlocale())
-# import pymssql
-# #sql服务器名，这里(127.0.0.1)是本地数据库IP
-# serverName = '192.168.0.180'
-# #登陆用户名和密码
-# userName = 'sa'
-# passWord = '$u2930123WJ'
-# #建立连接并获取cursor
-# conn = pymssql.connect(serverName , userName , passWord, "KQA")
-# cursor = conn.cursor()
-# # try:
-# # 	print("aa1")
-# # 	sql="update emp0315 set id=(%s) where id=(%s)"
-# # 	cursor.executemany(sql,list1)
-# # 	conn.commit()
-# # 	print("aa2")
-# # except:
-# # 	print("aiiw")
-# # 	conn.rollback()
-
-# # print(list2)
-# list3=['10766','11608']
-
-# sql = "select id from emp0315 where id in ({}) ".format(
-#             ','.join(["'%s'" % item for item in list3]))
-# lstr=','.join(["--'%s'--" % item for item in list3])
-# print(lstr)
-
-# cur=conn.cursor()
-
-# cur.execute(sql)
-# rs=cur.fetchall()
-# print(rs)
-# conn.close()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# # 快速写
-# import xlwings as xw
-# app=xw.App(visible=False,add_book=False)
-# list4=[]
-# book=app.books.add()
-# sheet=book.sheets['sheet1']
-# sheet.range('a1').value=list4
-# book.save('excel02\\77.xlsx')
-# book.close()
-# app.quit()
-		
-# print(sheet.cell(0,0).value) #获取到指定单元格的内容
-# print(sheet.cell(0,1).value) #获取到指定单元格的内容
-
-# print(sheet.row_values(0))  #获取到整行的内容
-# print(sheet.col_values(0))   #获取到整列的内容
-
-# for i in range(sheet.nrows):  #循环获取每行的内容
-#     print(sheet.row_values(i))
+		# 		workbook.close()
+		# 	except Exception as e:
+		# 		print("发生了错误:", e)
+		# print(file)
+		if (extension=='.xlsx' or extension=='.xls') and "~$" not in file:
+			workbook = xlrd.open_workbook(file)
+			#获取表单
+#获取表单
+			worksheet = workbook.sheet_by_index(0)
+			c1 = worksheet.col_values(1)
+			for c in c1:
+				print(c)

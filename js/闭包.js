@@ -17,6 +17,7 @@ let txt = obj()
 console.log(txt)
 
 //如上的例子不够清晰，主要闭包主要是防止不使用太多全局变量
+//不使用闭包的方式
 let num = 0
 
 function myfun() {
@@ -30,6 +31,7 @@ for (let x = 0; x < 10; x++) {
 
 }
 
+//使用闭包的写法
 function myfun1() {
     let a = 0
 

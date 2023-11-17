@@ -67,7 +67,7 @@ function callobj2(obj1) {
 callobj1({
     a: '1234',
     b: (() => {
-        console.log("abc") //注意这里不会输出abc,因为在函数定义的时候给覆盖了,所以建议一般在调用函数的时候再实现参数函数.
+        console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabc") //注意这里不会输出aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabc,因为在函数定义的时候给覆盖了,所以建议一般在调用函数的时候再实现参数函数.
     })
 })
 
