@@ -35,8 +35,7 @@ app.mount('#app');
 1. 在组件中使用 `useStore` hook 获取 `store` 实例，并通过 `store.state.count` 访问 `count` 变量；
 
 ```javascript
-Copy Code
- <template>
+<template>
   <div>Current count: {{ count }}</div>
   <button @click="increment">Increment</button>
 </template>
