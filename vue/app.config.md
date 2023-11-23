@@ -13,7 +13,7 @@
 ### 这些属性中，`globalProperties` 可以用于将你自己的属性或方法添加到每个组件实例上。例如：
 
 ```vue
-javascriptCopy Code
+
 
 const app = createApp(App)
 
