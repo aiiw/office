@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let fun = ''
+
+        function c() {
+
+            var a = true;
+            var url = '';
+
+            //这里只能使用闭包了
+            return function c1() {
+                const i = document.querySelector('#ii');
+                const url1 = 'http://www.kaster.cn:7089/oc/logo.png';
+                const url2 =
+                    'https://img.alicdn.com/imgextra/i2/O1CN01a69z6z1hJklCkBqOU_!!6000000004257-2-tps-174-106.png';
+                a = !a;
+                url = a ? url1 : url2;
+                i.setAttribute('src', url)
+            }
+
+            // c1()
+        }
+
+        window.onload = function a() {
+            fun = c()
+        }
+    </script>
+</head>
+
+<body>
+    <img src="http://www.kaster.cn:7089/oc/logo.png" id="ii" />
+    <button onclick="fun()">切换背景</button>
+</body>
+
+</html>

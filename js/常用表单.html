@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 表单示例</title>
+</head>
+
+<body>
+    <h2>用户注册</h2>
+
+    <form action="/submit-form" method="POST">
+        <label for="name">姓名:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">邮箱:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">密码:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="gender">性别:</label>
+        <select id="gender" name="gender">
+            <option value="male">男</option>
+            <option value="female">女</option>
+            <option value="other">其他</option>
+        </select><br><br>
+
+        <label>兴趣爱好:</label><br>
+        <input type="checkbox" id="hobby1" name="hobby" value="reading">
+        <label for="hobby1">阅读</label><br>
+        <input type="checkbox" id="hobby2" name="hobby" value="music">
+        <label for="hobby2">音乐</label><br>
+        <input type="checkbox" id="hobby3" name="hobby" value="sports">
+        <label for="hobby3">运动</label><br><br>
+
+        <label>工作:</label><br>
+        <input type="radio" id="job1" name="job" value="developer" checked>
+        <label for="job1">开发人员</label><br>
+        <input type="radio" id="job2" name="job" value="designer">
+        <label for="job2">设计师</label><br>
+        <input type="radio" id="job3" name="job" value="manager">
+        <label for="job3">经理</label><br><br>
+
+
+
+        <label for="ee">仿真输入:</label>
+        <input type="text" id="ee" name="ee" required value="原始值"><br><br>
+
+        <label for="vv">仿真输出:</label>
+        <input type="text" id="vv" name="vv" required value="原始值"><br><br>
+
+
+
+
+        <input type="submit" value="提交">
+    </form>
+    <script defer>
+        const ee = document.querySelector('#ee')
+        console.log(ee.value);
+
+        const vv = document.querySelector('#vv')
+
+        ee.addEventListener('input', () => {
+            console.log("a");
+
+            vv.value = ee.value;
+
+        })
+    </script>
+</body>
+
+</html>

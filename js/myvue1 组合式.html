@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{ abc }}
+        </br>
+        {{ url }}
+        </br>
+        {{text}}
+        </br>
+        <img :src="url">
+        <input v-model="url" type="text"><label name="url">请输入 URL 地址</label>
+        <input v-model="text" placeholder="Type here"><label name="text">请输入文本</label>
+        </br>
+        </br>==================================这个是动态关联到选择到的值====================================</br>
+        <label name="text">请选择复选项A</label><input v-model="mycheck" placeholder="mycheckA" type="checkbox" value="Jack1">
+        <label name="text">请选择复选项B</label><input v-model="mycheck" placeholder="mycheckB" type="checkbox" value="Jack2">
+        <label name="text">请选择复选项C</label><input v-model="mycheck" placeholder="mycheckC" type="checkbox" value="Jack3">
+        <label name="text">请选择复选项D</label><input v-model="mycheck" placeholder="mycheckD" type="checkbox" value="Jack4">
+        {{mycheck}}
+        </br>==============================================这个是动态关联到哪个选项勾选了======================</br>
+        <label name="text">请选择复选项A</label><input v-model="mycheck1" placeholder="mycheckA" type="checkbox"
+            value="Jack1">
+        <label name="text">请选择复选项B</label><input v-model="mycheck2" placeholder="mycheckB" type="checkbox"
+            value="Jack2">
+        <label name="text">请选择复选项C</label><input v-model="mycheck3" placeholder="mycheckC" type="checkbox"
+            value="Jack3">
+        <label name="text">请选择复选项D</label><input v-model="mycheck4" placeholder="mycheckD" type="checkbox"
+            value="Jack4">
+
+        {{mycheck1}}{{mycheck2}}{{mycheck3}}{{mycheck4}}
+
+
+        </br>==============================picked===========================================</br>
+        {{picked}}
+
+        <input type="radio" id="one" value="One" v-model="picked" />
+        <label for="one">One</label>
+
+        <input type="radio" id="one" value="Two" v-model="picked" />
+        <label for="two">Two</label>
+        </br>==============================如下这个是错误的用法,一般单选,目的是关联到选择的值===========================================</br>
+        <input type="radio" id="t3" v-model="picked" />
+        <label for="one">333</label>
+
+        <input type="radio" id="t4" v-model="picked" />
+        <label for="two">444</label>
+        </br>==============================单select===========================================</br>
+        {{selected}}
+        <select v-model="selected">
+            <option disabled value="">Please select one</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        </br>============================== 多select===========================================</br>
+        {{selectedm}}
+        <select v-model="selectedm" multiple>
+            <option disabled value="">Please select one</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+
+        <p id="t1" ref="mt1">1212121212121</p>
+    </div>
+
+
+    <script>
+        t1 = document.querySelector('#t1')
+
+        t1.addEventListener('click', () => {
+            alert("aaaa")
+        })
+
+
+
+
+
+
+        const app = Vue.createApp({
+            setup() {
+                // 声明变量和函数
+                const abc = Vue.ref("aaa");
+                const url = Vue.ref("url123");
+                const text = Vue.ref("");
+                const mycheck = Vue.ref([]);
+                const mycheck1 = Vue.ref();
+                const mycheck2 = Vue.ref();
+                const mycheck3 = Vue.ref();
+                const mycheck4 = Vue.ref();
+                const picked = Vue.ref('One');
+                const selected = Vue.ref('');
+                const selectedm = Vue.ref([]);
+
+                return {
+                    abc,
+                    url,
+                    text,
+                    mycheck,
+                    mycheck1,
+                    mycheck2,
+                    mycheck3,
+                    mycheck4,
+                    picked,
+                    selected,
+                    selectedm,
+                };
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+
+</html>

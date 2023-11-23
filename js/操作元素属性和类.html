@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head title="测试">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .r {
+            color: rgb(255, 8, 0);
+        }
+
+        .b {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="h" class="h">这个是测试的颜色</h1>
+    <button onclick="co()">切换蓝色</button>
+    <button onclick="t1()">定时器</button>
+    <button onclick="t2()"> 关闭定时器</button>
+    <button onclick="p1()">设定普通元素的值</button>
+    <p id="p1">
+
+    </p>
+
+    <script defer>
+        const obj1 = document.getElementById('h'); //一定要加const 才有这个对象的提示符号
+        obj1.addEventListener('click', (e) => {
+            const head = document.querySelector('head')
+            console.log(head);
+            const obj2 = document.querySelector('#h')
+            head.setAttribute('title', '这是新的标题'); // 设置 title 属性
+            e.target.setAttribute('class', 'r')
+            console.log(typeof (e.target.classList));
+            console.log(e.target);
+        })
+
+
+        function co() {
+
+            const obj3 = document.querySelector('#h');
+            obj3.classList.toggle('b')
+            console.log('test', obj3);
+        }
+
+        var timer1
+
+        function t1() {
+            const t1 = document.querySelector('#h');
+            timer1 = setInterval(co, 1000);
+
+
+        }
+
+        function t2() {
+
+            if (timer1) {
+                console.log("存在");
+                clearInterval(timer1);
+            }
+
+        }
+
+        function p1() {
+            const p1 = document.getElementById('p1');
+            p1.textContent = "todo"
+            alert("test")
+        }
+    </script>
+</body>
+
+</html>
