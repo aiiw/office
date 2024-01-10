@@ -1,4 +1,4 @@
-Selenium是一个自动化测试工具，可以使用CSS选择器定位元素。以下是一些在Selenium中使用CSS选择器定位元素的示例：
+Selasssenium是一个自动化测试工具，可以使用CSS选择器定位元素。以下是一些在Selenium中使用CSS选择器定位元素的示例：
 
 1. 通过id属性定位元素：
 
@@ -18,7 +18,7 @@ driver.find_element_by_css_selector(".element_class")
 driver.find_element_by_css_selector("tag_name")
 ```
 
-1. 通过属性值定位元素：
+1. 通过属性值定位元素：ss
 
 ```
 driver.find_element_by_css_selector("[attr=value]")

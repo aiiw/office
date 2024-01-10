@@ -52,7 +52,7 @@ console.log(slicedArray); // [3, 4]
 //7. `splice()`: 删除、替换或插入元素
 // splice(start, deleteCount, item1, item2, ...) 接受三个或更多参数。
 // start表示操作开始的索引位置，
-// deleteCount表示要删除的元素数量。
+// deleteCount表示要删除的元素数量。如果后面没有,则就是删除的个数
 // 后面的参数item1, item2, ...指定要插入到数组中的新元素。
 
 
@@ -91,7 +91,7 @@ console.log(lastIndex); // 3
 
 const numbers11 = [1, 2, 3, 4, 5];
 const evenNumbers = numbers11.filter(number => number % 2 === 0);
-console.log(evenNumbers); // [2, 4]
+console.log(numbers11, evenNumbers); // [2, 4]
 
 
 //12. `map()`: 对每个元素执行函数并返回新数组
@@ -156,11 +156,16 @@ const cart = ['apple', 'banana', 'pear'];
 console.log(cart.at(1));
 
 
-//10 
+//19 findindex 返回指定条件的第一个index
 
 const num = [1, 8, 3, 4, 5, 6, 7]
 console.log(num.findIndex((a) => a > 5));
 
+// 第二个例子
+var ages1 = [3, 10, 18, 20];
+console.log(ages1.findIndex((age) => {
+    return age >= 1
+}));
 
 
 // // 一个函数，用于返回给定数组的最后一个元素

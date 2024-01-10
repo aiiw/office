@@ -46,8 +46,9 @@ console.log(q);
 
 
 // 如上等价
-console.log(ages.findIndex((age) => {
-    return age >= 19
+var ages1 = [3, 10, 18, 20];
+console.log(ages1.findIndex((age) => {
+    return age >= 1
 }));
 
 

@@ -2,9 +2,10 @@
 function longRunningCallback() {
     console.log("开始执行长时间运行的回调函数");
     // 模拟长时间运行的操作
-    const endTime = Date.now() + 1 * 1 * 1000; // 60分钟后的时间戳
+    const endTime = Date.now() + 5 * 1 * 1000; // 60分钟后的时间戳
     while (Date.now() < endTime) {
         // 空循环，模拟长时间运行的操作
+        console.log(Date.now());
     }
     console.log("长时间运行的回调函数执行结束");
     return ("这个是异步返回的数据")
@@ -67,7 +68,7 @@ console.log(rz)
 // console.log(b)
 
 //第二种方法这个是使用 Promise
-let target1 = "hell wrold1"
+let target1 = "hell wrold23"
 
 function getdata2() {
     return new Promise((resolve) => {

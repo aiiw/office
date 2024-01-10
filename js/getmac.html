@@ -1,0 +1,2890 @@
+create or replace package body pkg_plm as
+  -------------------------------------------------------------------------------
+  --????????
+  -------------------------------------------------------------------------------
+  --err_ok constant number := 0; --ok
+  --v_nl   constant varchar2(2) := chr(13) || chr(10); --????
+
+  -------------------------------------------------------------------------------
+  --
+  --  ??????????????????????.??
+  --
+  -------------------------------------------------------------------------------
+
+  -------------------------------------------------------------------------------
+  --1 ???????????????? , 19 ??????????????
+  --add by ?????? 2022/01/26
+  -------------------------------------------------------------------------------
+  procedure p_pj_itemchild_root is
+  
+    cursor c_itemchild is
+      select end1.id, end2.id ch_id
+        from item_0@toplm         end1,
+             bomview_0@toplm      bv,
+             bomstructure_0@toplm bs,
+             item_0@toplm         end2
+       where end2.masterfk = bs.end2$master
+         and bv.guid = bs.viewfk
+         and end1.guid = bv.end1
+         and end1.latestrevision like '%m%'
+         and end2.latestrevision like '%m%'
+         and lower(bv.name) = 'pbom'
+         and end1.id like '19%'
+         and not exists (select 1
+                from plm_itemchildlist il
+               where end1.id = il.rootitem
+                 and end2.id = il.childitem);
+  
+  begin
+  
+    ---delete from plm_itemchildlist;
+  
+    for c1 in c_itemchild loop
+
+      pkg_plm.p_pj_itemchild_loop(c1.id, c1.ch_id);
+    
+    end loop;
+  
+  end;
+
+  -------------------------------------------------------------------------------
+  --2 ????????????????????,??????????????????
+  --add by ?????? 2022/01/25
+  -------------------------------------------------------------------------------
+  procedure p_pj_itemchild_loop(p_rootID varchar2, ---?????? ????????
+                                p_currID varchar2 ---????????
+                                ) is
+  
+    cursor c_itemchild(p_curr1id varchar2) is
+      select end1.id, end2.id ch_id
+        from item_0@toplm         end1,
+             bomview_0@toplm      bv,
+             bomstructure_0@toplm bs,
+             item_0@toplm         end2
+       where end2.masterfk = bs.end2$master
+         and bv.guid = bs.viewfk
+         and end1.guid = bv.end1
+         and end1.latestrevision like '%m%'
+         and end2.latestrevision like '%m%'
+         and lower(bv.name) = 'pbom'
+         and end1.id = p_curr1id;
+  
+    sqlwhere varchar2(4000);
+    v_count  number;
+    v_count2 number;
+  begin
+  
+    select count(*)
+      into v_count
+      from plm_itemchildlist
+     where ltrim(rtrim(rootitem)) = ltrim(rtrim(p_rootid))
+       and ltrim(rtrim(childitem)) = ltrim(rtrim(p_currid));
+  
+    if v_count <= 0 then
+      ---????????????????
+      insert into plm_itemchildlist
+        (rootitem, childitem)
+      values
+        (p_rootid, p_currid);
+      commit;  
+    end if;
+  
+    for c1 in c_itemchild(p_currid) loop
+    
+      select count(*)
+        into v_count2
+        from plm_itemchildlist
+       where ltrim(rtrim(rootitem)) = ltrim(rtrim(p_rootid))
+         and ltrim(rtrim(childitem)) = ltrim(rtrim(c1.ch_id));
+    
+      if v_count2 <= 0 then
+        ---????????????
+        insert into plm_itemchildlist
+          (rootitem, childitem)
+        values
+          (p_rootid, c1.ch_id);
+        commit;
+      end if;
+    
+      pkg_plm.p_pj_itemchild_loop(p_rootid, c1.ch_id);
+    
+    end loop;
+  
+  end;
+  
+  -------------------------------------------------------------------------------
+  --3 ????????????????????,??????????????????
+  --add by ?????? 2022/02/09
+  -------------------------------------------------------------------------------
+  
+  procedure p_getitemchild is
+  begin
+  
+    delete from plm_itemchildlist;
+    
+    insert into plm_itemchildlist
+      (childitem,cnt,updatetime)
+      select ch_id, cnt ,sysdate from v_plm_itemchildcount;
+  
+  end;
+  
+  -------------------------------------------------------------------------------
+  --4 ??????????????????????????????
+  --add by ?????? 2022/02/23
+  -------------------------------------------------------------------------------
+  procedure p_insertplm_pj_ywbb_01 is
+  begin
+  
+    delete from plm_pj_ywbb_01;
+    
+    insert into plm_pj_ywbb_01
+      (ywybm ,ywycpjl,pjid,pjname,pjtype,pjplanstarttime,pjplanfinishtime,
+       pjstarttime,pjfinishtime,xdcnt,updatetime,executor,qzxm )
+      select
+      distinct
+      cd4.description ywybm, --??????????????
+      cd3.description ywycpjl, --??????/????????
+      pj.id,
+      pj.name ,
+      null,
+      pj.planstarttime proplanstarttime, ---????????????????
+      pj.planfinishtime proplanfinishtime, ---????????????????
+      trunc(actualstarttime)  projectstarttime, ---????????????
+      trunc(actualfinishtime) projectfinishtime, ---????????????
+      ( select  count(im.id)  
+               from xmdc_t@tot100 a inner join  item_0@toplm im on im.id = a.xmdc001
+                                    inner join  xmda_t@tot100 b on a.xmdcdocno =b.xmdadocno
+               where 1=1 and b.xmdastus not in ('X','N')
+               and im.F_000136 = pj.guid
+               and rownum = 1
+      ) xdcnt,
+      sysdate,
+      pj.executor,
+      cd5.description
+      from pmproject_0@toplm pj
+      inner join pmproject_1@toplm pt1 on pj.guid = pt1.foundationfk
+      inner join cf_00037@toplm cf37 on  pt1.f_000133 = cf37.foundationfk
+      left join ma_code_detail@toplm  cd3 on cf37.f_000015 = cd3.guid
+      left join ma_code_detail@toplm  cd4 on cf37.f_000017 = cd4.guid
+      left join ma_code_detail@toplm cd on pj.executestatus = cd.guid
+      left join ma_code_detail@toplm cd5 on cf37.F_000011 =  cd5.guid
+      where 1=1
+      and cd.description  in ('运行中', '已完成')
+      and (cd4.description is not null  or cd3.description is not null );
+  
+   
+  
+  end; 
+  
+  
+  
+  --5 ??????????????????????????????????group by ??????
+  --add by ?????? 2022/10/09
+  -------------------------------------------------------------------------------
+  procedure p_insertt100_pmda is
+  i integer;
+  vdate date;
+  begin
+    ---??????????12??????????
+  i:=0;
+  while i<=12 loop
+    vdate:=add_months(sysdate,-1*i);
+    dbms_output.put_line(to_char(vdate,'yyyy-mm'));
+    
+    delete from t100_pmda where ym = to_char(vdate,'yyyy-mm');
+    insert into t100_pmda(ym,pmdacnfdt,pmdb004,imname,specification,tzt,tz,gyt,gy,bzt, bz )
+    select 
+    to_char(pmdacnfdt,'yyyy-mm'),
+    pmdacnfdt,
+    pmdb004,
+    imname,
+    specification,
+    tzt,
+    tz,
+    gyt,
+    gy,
+    bzt,
+    bz  
+    from v_t100_pmda 
+    where to_char(pmdacnfdt,'yyyy-mm') = to_char(vdate,'yyyy-mm');
+    
+    i:=i+1;
+  end loop;
+  
+  end; 
+  
+  
+  --6 ??????????????????????????????
+  -- 1??????????=PLM????????????-???????? ????????-????????50%????
+  -- ????????=PLM????????????-???????? ????????+????????50%????+ ????????????
+  --add by ?????? 2023/02/07
+  --??????12????????
+  -------------------------------------------------------------------------------
+  procedure p_insertplm_pj_dept_ydgrdf is
+ i integer;
+  im integer;
+  vym varchar(50);
+  v_bdfz decimal(18,2);
+  Sqlstr  VARCHAR2(4000);
+  begin 
+  
+
+
+  if extract(month from sysdate) = 1  then 
+    i := 1;
+  else
+    i := extract(month from sysdate) - 1 ;
+  end if;
+  
+  im:=extract(month from sysdate);
+
+      ---????????2????????
+    while i<=im loop
+      if i<10 then
+
+         vym:= extract(year from sysdate) || '-0'||i;
+
+      else
+
+         vym:= extract(year from sysdate) || '-'||i ;
+      end if;
+      dbms_output.put_line('-------------' || vym ||'---------------------');
+      
+    
+     Sqlstr := ' delete from  plm_pj_dept_ydgrdf_test where  dept = ''??????????????'' and ym = ''' || vym || ''' ';
+     execute immediate Sqlstr ; 
+     
+    
+    /*
+    ???????????? =????????????????+????????50%????
+    ????????????/??=????????????*350
+    1??????????=PLM????????????-???????? ????????-????????50%????
+    ????????=PLM????????????-???????? ????????- ????????50%????+ ????????????
+    ????????/??=????????*350
+    */
+    
+    insert into plm_pj_dept_ydgrdf_test(createtime, dept,ym ,empno,empname,ljjy ,ljje ) 
+    
+    select 
+    to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+    '??????????????',
+    vym as ym ,
+    case when tt.gh1 is null then b.empno  else  tt.gh1 end gh1,
+    case when tt.jggcs1 is null then b.empname  else  tt.jggcs1 end jggcs1, 
+    
+     round(nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end 
+     + nvl(b.LJJY,0),8)      
+     
+     ,
+    round((nvl(sum(tt.jgfz1),0)  - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end
+     + nvl(b.LJJY,0)),8) * nvl(tt.fzm,350)
+    from (
+    select 
+    t.gh1,
+    t.jggcs1,
+    t.jgfz1,
+    p.bdfz, --17
+    p.fzm  --350
+    from v_plm_pj_xmfzhz2_dq t inner join v_plm_pj_xmfzhz2_dq_param p on  t.dept = p.dept and t.ghx = p.empnox and to_char(t.ybftime1,'yyyy-mm') = p.ym
+    where 1=1
+    and t.ybjg1='????'
+    and t.dept = '??????????????'
+    and t.name not like '%????%'
+     AND to_char(t.ybftime1,'yyyy-mm') = vym
+    union all 
+    select 
+    t.gh2,
+    t.jggcs2,
+    t.jgfz2,
+    p.bdfz,
+    p.fzm
+    from v_plm_pj_xmfzhz2_dq t  inner join v_plm_pj_xmfzhz2_dq_param p on  t.dept = p.dept and t.ghx = p.empnox and to_char(t.ybftime2,'yyyy-mm') = p.ym
+    where 1=1
+    and t.ybjg2='????'
+    and t.dept = '??????????????'
+    and t.name not like '%????%'
+    AND to_char(t.ybftime2,'yyyy-mm') = vym
+     -------0 ??-------
+     union all 
+     select 
+     t.empno ,
+     t.empname,
+     0 as jggcs,
+      p.bdfz,
+      p.fzm
+     from v_plm_pj_xmfzhz2_dq_fzero t inner join v_plm_pj_xmfzhz2_dq_param p on  t.dept = p.dept and t.empnox = p.empnox and t.ym = p.ym
+     where  t.dept = '??????????????'
+     AND t.ym = vym
+     
+    ) tt full join ( select a.empno,a.empname, p.bdfz, p.fzm, sum(LJJY) LJJY  from plm_pj_dept_ydgrdf_test a 
+                     left join v_plm_pj_xmfzhz2_dq_param p on  a.dept = p.dept and a.empno = p.empno and a.ym = p.ym where a.dept = '??????????????'
+                     and a.ym = to_char(add_months(to_date(vym,'YYYY-MM'),-1),'YYYY-MM') and substr(a.ym,1,4) =  substr(vym,1,4) 
+                     group by a.empno,a.empname ,p.bdfz, p.fzm ) b on tt.gh1 = b.empno and tt.jggcs1 = b.empname 
+    group by  tt.gh1, tt.jggcs1 ,b.empno, b.empname ,b.LJJY ,tt.bdfz,tt.fzm , b.bdfz,b.fzm ; 
+ 
+    
+    commit;
+    
+    -------------------------------
+    -------------------------------
+
+     Sqlstr := ' delete from  plm_pj_dept_ydgrdf_test where  dept = ''????????'' and ym = ''' || vym || ''' ';
+     execute immediate Sqlstr ; 
+    
+    /*
+    ???????????? =????????????????+????????50%????
+    ????????????/??=????????????*350
+    1??????????=PLM????????????-???????? ????????-????????50%????
+    ????????=PLM????????????-???????? ????????- ????????50%????+ ????????????
+    ????????/??=????????*350
+    */
+    insert into plm_pj_dept_ydgrdf_test(createtime, dept,ym ,empno,empname,ljjy ,ljje ) 
+    
+    select 
+    to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+    '????????',
+    vym as ym ,
+    case when tt.gh1 is null then b.empno  else  tt.gh1 end gh1,
+    case when tt.jggcs1 is null then b.empname  else  tt.jggcs1 end jggcs1, 
+     round(nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end 
+     + nvl(b.LJJY,0),8)      
+     ,
+    round((nvl(sum(tt.jgfz1),0)  - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end
+     + nvl(b.LJJY,0)),8)* nvl(tt.fzm,350) 
+    from (
+    select 
+    t.gh1,
+    t.jggcs1,
+    t.jgfz1,
+    p.bdfz, --17
+    p.fzm  --350
+    from v_plm_pj_xmfzhz2_dq t inner join v_plm_pj_xmfzhz2_dq_param p on  t.ghx = p.empnox and to_char(t.ybftime1,'yyyy-mm') = p.ym
+    where 1=1
+    and t.ybjg1='????'
+    and t.dept like '%????????%'
+    and p.dept ='????????'
+    and t.name not like '%????%'
+     AND to_char(t.ybftime1,'yyyy-mm') = vym
+    union all 
+    select 
+    t.gh2,
+    t.jggcs2,
+    t.jgfz2,
+    p.bdfz,
+    p.fzm
+    from v_plm_pj_xmfzhz2_dq t  inner join v_plm_pj_xmfzhz2_dq_param p on  t.ghx = p.empnox and to_char(t.ybftime2,'yyyy-mm') = p.ym
+    where 1=1
+    and t.ybjg2='????'
+    and t.dept like '%????????%'
+    and p.dept ='????????'
+    and t.name not like '%????%'
+     AND to_char(t.ybftime2,'yyyy-mm') = vym
+     -------0 ??-------
+     union all 
+     select 
+     t.empno ,
+     t.empname,
+     0 as jggcs,
+      p.bdfz,
+      p.fzm
+     from v_plm_pj_xmfzhz2_dq_fzero t inner join v_plm_pj_xmfzhz2_dq_param p on  t.empnox = p.empnox and t.ym = p.ym
+     where  t.dept like '%????????%'
+     and p.dept ='????????'
+     AND t.ym = vym
+     
+    ) tt full join ( select a.empno,a.empname, p.bdfz, p.fzm, sum(LJJY) LJJY  from plm_pj_dept_ydgrdf_test a 
+                     left join v_plm_pj_xmfzhz2_dq_param p on  a.dept = p.dept and a.empno = p.empno and a.ym = p.ym where a.dept like '%????????%'
+                     and a.ym = to_char(add_months(to_date(vym,'YYYY-MM'),-1),'YYYY-MM') and substr(a.ym,1,4) =  substr(vym,1,4) 
+                     group by a.empno,a.empname ,p.bdfz, p.fzm ) b on tt.gh1 = b.empno and tt.jggcs1 = b.empname 
+    group by  tt.gh1, tt.jggcs1 ,b.empno, b.empname ,b.LJJY ,tt.bdfz,tt.fzm , b.bdfz,b.fzm ; 
+ 
+    commit;
+    
+    -------------------------------
+    ---????????  ??????
+    -------------------------------
+    
+    
+     Sqlstr := ' delete from  plm_pj_dept_ydgrdf_test where  dept = ''????????'' and ym = ''' || vym || ''' ';
+     execute immediate Sqlstr ; 
+
+    insert into plm_pj_dept_ydgrdf_test(createtime, dept,ym ,empno,empname,ljjy ,ljje ) 
+    
+    select 
+    to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+    '????????',
+    vym as ym ,
+    case when tt.gh1 is null then b.empno  else  tt.gh1 end gh1,
+    case when tt.xm1 is null then b.empname  else  tt.xm1 end jggcs1, 
+    case when case when tt.gh1 is null then b.empno  else  tt.gh1 end in (select f.gh from  v_plm_pj_grfz_fzpj_tb f where f.ym = vym ) then 
+         round(sum(nvl(tt.jgfz1,0))/2 + nvl(b.LJJY,0),8) 
+      else
+         round(nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end 
+         + nvl(b.LJJY,0) ,8) 
+     end  ,
+     
+    case when case when tt.gh1 is null then b.empno  else  tt.gh1 end in (select f.gh from  v_plm_pj_grfz_fzpj_tb f where f.ym = vym ) then 
+         round(sum(nvl(tt.jgfz1,0))/2 + nvl(b.LJJY,0),8) * nvl(tt.fzm,450)
+      else
+       round(nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end 
+       + nvl(b.LJJY,0) ,8) * nvl(tt.fzm,450)
+    end
+    
+    from (
+
+       
+      select scym as ym, t.gh1  , t.xm1 , p.bdfz, p.fzm, t.scfz as jgfz1
+      from 
+      (select * from  v_plm_pj_grfz where  scym = vym ) t inner join 
+      ( select distinct ym,empnox,bdfz,fzm from  v_plm_pj_grfz_param  where  ym = vym 
+      ) p on t.ghx = p.empnox 
+       
+       
+      union all 
+      select t.ybym ,  t.gh1, t.xm1 , p.bdfz,p.fzm, t.ybfz 
+      from 
+      (select * from  v_plm_pj_grfz t where  t.ybym = vym ) t inner join 
+      ( select distinct ym,empnox,bdfz,fzm from  v_plm_pj_grfz_param p where  p.ym = vym 
+      ) p on t.ghx = p.empnox 
+       
+      
+         union all 
+         select t.ym, t.empno , t.empname,  p.bdfz , p.fzm ,  null
+         from v_plm_pj_grfz_fzero t inner join v_plm_pj_grfz_param p on  t.empnox = p.empnox and  t.ym = p.ym
+         where  t.dept = '????????'
+          AND t.ym =  vym 
+      
+     
+    ) tt full join ( select a.empno,a.empname, p.bdfz, p.fzm, sum(LJJY) LJJY  from plm_pj_dept_ydgrdf_test a 
+                     left join v_plm_pj_grfz_param p on  a.dept = p.dept and a.empno = p.empno and a.ym = p.ym where a.dept = '????????'
+                     and a.ym = to_char(add_months(to_date(vym,'YYYY-MM'),-1),'YYYY-MM') and substr(a.ym,1,4) =  substr(vym,1,4) 
+                     group by a.empno,a.empname ,p.bdfz, p.fzm ) b on tt.gh1 = b.empno 
+    group by  tt.gh1, tt.xm1 ,b.empno, b.empname ,b.LJJY ,tt.bdfz,tt.fzm , b.bdfz,b.fzm ;
+    
+     commit;
+    -------------------------------
+    ---????????  ??????
+    -------------------------------
+
+/*
+    delete from  plm_pj_dept_ydgrdf_test where  dept = '????????-????' and  ym = vym ; 
+
+    insert into plm_pj_dept_ydgrdf_test(createtime, dept,ym ,empno,empname,ljjy ,ljje ) 
+    
+    with vdd_zg as(
+    select 
+    tt.ym ,
+    tt.gh,
+    tt.xm,
+
+    round(case when (sum(nvl(tt.jgfz1,0)) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (sum(nvl(tt.jgfz1,0)) - nvl(tt.bdfz,0) ) * 0.5  end,2)  ccbf,
+    round(case when (sum(nvl(tt.jgfz1,0)) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (sum(nvl(tt.jgfz1,0)) - nvl(tt.bdfz,0) ) * 0.5  end,2)  ccye
+
+    from (
+
+          select scym as ym, t.gh1 as gh , t.xm1 as xm , p.bdfz, p.fzm, t.scfz as jgfz1 
+          from 
+          (select * from  v_plm_pj_grfz where  1=1
+             AND scym = vym
+          ) t inner join 
+          ( select distinct ym,empnox,bdfz,fzm from  v_plm_pj_grfz_param  where 1=1
+             AND ym = vym
+            and empno not in (select gh from  v_plm_pj_grfz_zg_param_tb )
+           ) p on t.ghx = p.empnox  
+          union all 
+          select t.ybym ,  t.gh1, t.xm1 , p.bdfz,p.fzm, t.ybfz 
+          from 
+          (select * from  v_plm_pj_grfz t where  1=1
+            AND ybym = vym
+           ) t inner join 
+          ( select distinct ym,empnox,bdfz,fzm from  v_plm_pj_grfz_param p where 1=1
+             AND ym = vym
+            and empno not in (select gh from  v_plm_pj_grfz_zg_param_tb )
+          ) p on t.ghx = p.empnox 
+
+
+    ) tt
+    group by  tt.ym,tt.gh, tt.xm,bdfz, fzm
+    ),
+
+     vdd_zg2 as(
+    select 
+    c.gh2,c.xm2,
+          ( select distinct bdfz from  v_plm_pj_grfz_param p where 1=1
+              and ym = vym 
+               and p.empno = c.gh2) bd ,
+          ( select distinct fzm from  v_plm_pj_grfz_param p where 1=1
+              and ym = vym 
+            and p.empno = c.gh2) fzm ,
+    count(c.gh2) cnt,
+    round(sum(ccbf)/(count(c.gh2)*2)*1.8,2) ccbf,
+    round(sum(ccye)/(count(c.gh2)*2)*1.8,2) ccye
+    from (
+    select
+     vym ym, 
+    case when a.gh is null then b.gh  else  a.gh end gh1,
+    case when a.xm is null then b.xm  else  a.xm end xm1,
+    b.gh2 gh2,
+    b.xm2 xm2,
+    case when a.ccbf is null then 0 else a.ccbf end ccbf,
+    case when a.ccye is null then 0 else a.ccye end ccye
+    from vdd_zg a left join ( select * from v_plm_pj_grfz_zg_yg_tb where ym=vym) b on a.gh = b.gh
+    ) c
+    where  c.gh2 is not null
+    group by c.gh2,c.xm2
+    )
+
+
+    select 
+    to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+    '????????-????',
+    vym as ym ,
+    case when tt.gh2 is null then b.empno  else  tt.gh2 end gh1,
+    case when tt.xm2 is null then b.empname  else  tt.xm2 end jggcs1, 
+    nvl(ccbf,0)  + nvl(b.LJJY,0),
+    (nvl(ccye,0)  + nvl(b.LJJY,0)) * nvl(tt.fzm,450) 
+
+    from vdd_zg2 tt full join ( select a.empno,a.empname, p.bdfz, p.fzm, sum(LJJY) LJJY  from plm_pj_dept_ydgrdf_test a 
+                         left join v_plm_pj_grfz_param p on  a.dept = p.dept and a.empno = p.empno and a.ym = p.ym where a.dept = '????????-????'
+                         and a.ym = to_char(add_months(to_date(vym,'YYYY-MM'),-1),'YYYY-MM') and substr(a.ym,1,4) =  substr(vym,1,4) 
+                         and a.empno in (select gh from  v_plm_pj_grfz_zg_param_tb )
+                         group by a.empno,a.empname ,p.bdfz, p.fzm ) b on tt.gh2 = b.empno;
+
+
+    
+    commit;
+  */
+      i:=i+1;
+    end loop;
+  end;
+  
+  -- 7 ?????????????????????????????? ????????????
+  -- 1??????????=PLM????????????-???????? ????????-????????50%????
+  -- ????????=PLM????????????-???????? ????????+????????50%????+ ????????????
+  --add by ?????? 2023/02/18
+  --???? 20230308 ????????2????????
+  procedure p_insertplm_pj_dept_ydgrdf_test is
+  i integer;
+  im integer;
+  vym varchar(50);
+  v_bdfz decimal(18,2);
+  Sqlstr  VARCHAR2(4000);
+  begin 
+  
+
+
+  if extract(month from sysdate) = 1  then 
+    i := 1;
+  else
+    i := extract(month from sysdate) - 1 ;
+  end if;
+  
+  im:=extract(month from sysdate);
+
+      ---????????2????????
+    while i<=im loop
+      if i<10 then
+
+         vym:= extract(year from sysdate) || '-0'||i;
+
+      else
+
+         vym:= extract(year from sysdate) || '-'||i ;
+      end if;
+      dbms_output.put_line('-------------' || vym ||'---------------------');
+      
+      
+    -------------------------------
+    ---????????  ??????
+    -------------------------------
+    
+    
+     Sqlstr := ' delete from  plm_pj_dept_ydgrdf_test where  dept = ''????????'' and ym = ''' || vym || ''' ';
+     execute immediate Sqlstr ; 
+
+    insert into plm_pj_dept_ydgrdf_test(createtime, dept,ym ,empno,empname,ljjy ,ljje ) 
+    
+    select 
+    to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+    '????????',
+    vym as ym ,
+    case when tt.gh1 is null then b.empno  else  tt.gh1 end gh1,
+    case when tt.xm1 is null then b.empname  else  tt.xm1 end jggcs1, 
+    case when case when tt.gh1 is null then b.empno  else  tt.gh1 end in (select f.gh from  v_plm_pj_grfz_fzpj_tb f where f.ym = vym ) then 
+         round(sum(nvl(tt.jgfz1,0))/2 + nvl(b.LJJY,0),8) 
+      else
+         round(nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end 
+         + nvl(b.LJJY,0) ,8) 
+     end  ,
+     
+    case when case when tt.gh1 is null then b.empno  else  tt.gh1 end in (select f.gh from  v_plm_pj_grfz_fzpj_tb f where f.ym = vym ) then 
+         round(sum(nvl(tt.jgfz1,0))/2 + nvl(b.LJJY,0),8) * nvl(tt.fzm,450)
+      else
+       round(nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end 
+       + nvl(b.LJJY,0) ,8) * nvl(tt.fzm,450)
+    end
+    
+    from (
+
+       
+      select scym as ym, t.gh1  , t.xm1 , p.bdfz, p.fzm, t.scfz as jgfz1
+      from 
+      (select * from  v_plm_pj_grfz where  scym = vym ) t inner join 
+      ( select distinct ym,empnox,bdfz,fzm from  v_plm_pj_grfz_param  where  ym = vym 
+        --and empno not in (select gh from  v_plm_pj_grfz_zg_param_tb )
+      ) p on t.ghx = p.empnox 
+       
+       
+      union all 
+      select t.ybym ,  t.gh1, t.xm1 , p.bdfz,p.fzm, t.ybfz 
+      from 
+      (select * from  v_plm_pj_grfz t where  t.ybym = vym ) t inner join 
+      ( select distinct ym,empnox,bdfz,fzm from  v_plm_pj_grfz_param p where  p.ym = vym 
+       --and empno not in (select gh from  v_plm_pj_grfz_zg_param_tb )
+      ) p on t.ghx = p.empnox 
+       
+      
+         union all 
+         select t.ym, t.empno , t.empname,  p.bdfz , p.fzm ,  null
+         from v_plm_pj_grfz_fzero t inner join v_plm_pj_grfz_param p on  t.empnox = p.empnox and  t.ym = p.ym
+         where  t.dept = '????????'
+          AND t.ym =  vym 
+      
+     
+    ) tt full join ( select a.empno,a.empname, p.bdfz, p.fzm, sum(LJJY) LJJY  from plm_pj_dept_ydgrdf_test a 
+                     left join v_plm_pj_grfz_param p on  a.dept = p.dept and a.empno = p.empno and a.ym = p.ym where a.dept = '????????'
+                     and a.ym = to_char(add_months(to_date(vym,'YYYY-MM'),-1),'YYYY-MM') and substr(a.ym,1,4) =  substr(vym,1,4) 
+                     --and a.empno not in (select gh from  v_plm_pj_grfz_zg_param_tb )
+                     group by a.empno,a.empname ,p.bdfz, p.fzm ) b on tt.gh1 = b.empno 
+    group by  tt.gh1, tt.xm1 ,b.empno, b.empname ,b.LJJY ,tt.bdfz,tt.fzm , b.bdfz,b.fzm ;
+    
+     commit;
+     
+      i:=i+1;
+    end loop;
+  end;
+  
+  
+  
+-- 7.1 ?????????????????????????????? ??????????????????????
+  -- 1??????????=PLM????????????-???????? ????????-????????50%????
+  -- ????????=PLM????????????-????????????????+????????50%????+ ????????????
+  --add by ?????? 2023/04/28
+  --???? 20230308 ????????2????????
+  procedure p_insertplm_pj_dept_ydgrdf_test2 is
+  i integer;
+  im integer;
+  vym varchar(50);
+  v_bdfz decimal(18,2);
+  Sqlstr  VARCHAR2(4000);
+  begin 
+  
+
+  if extract(month from sysdate) = 1  then 
+    i := 1;
+  else
+    i := extract(month from sysdate) - 1 ;
+  end if;
+  
+  im:=extract(month from sysdate);
+
+      ---????????2????????
+    while i<=im loop
+      if i<10 then
+
+         vym:= extract(year from sysdate) || '-0'||i;
+
+      else
+
+         vym:= extract(year from sysdate) || '-'||i ;
+      end if;
+      dbms_output.put_line('-------------' || vym ||'---------------------');
+      
+    
+     Sqlstr := ' delete from  plm_pj_dept_ydgrdf_test2 where  dept = ''??????????????'' and ym = ''' || vym || ''' ';
+     execute immediate Sqlstr ; 
+    
+    
+    /*
+    ???????????? =????????????????+????????50%????
+    ????????????/??=????????????*350
+    1??????????=PLM????????????-???????? ????????-????????50%????
+    ????????=PLM????????????-???????? ????????- ????????50%????+ ????????????
+    ????????/??=????????*350
+    */
+    
+    insert into plm_pj_dept_ydgrdf_test2(createtime, dept,ym ,empno,empname,ljjy ,ljje,ljjy_sy ) 
+    
+    select 
+    to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+    '??????????????',
+    vym as ym ,
+    case when tt.gh1 is null then b.empno  else  tt.gh1 end gh1,
+    case when tt.jggcs1 is null then b.empname  else  tt.jggcs1 end jggcs1, 
+    
+    
+    case when nvl(b.LJJY,0) <  0 and (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) > 0 and (nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) )  <= 0 then nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) 
+         when nvl(b.LJJY,0) <  0 and (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) > 0 and (nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) )  > 0  then (nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) ) * 0.5 
+    else 
+    
+       round(nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end 
+       + nvl(b.LJJY,0),8)  
+    
+    end,
+    
+   ( case when nvl(b.LJJY,0) <  0 and (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) > 0 and (nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) )  <= 0 then round(nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)),8)
+          when nvl(b.LJJY,0) <  0 and (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) > 0 and (nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) )  > 0  then round((nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) ) * 0.5,8) 
+    else 
+    
+       round(nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end 
+       + nvl(b.LJJY,0),8)  
+    
+    end ) * nvl(tt.fzm,350) , 
+    
+    nvl(b.LJJY,0)
+    
+    from (
+    select 
+    t.gh1,
+    t.jggcs1,
+    t.jgfz1,
+    p.bdfz, --17
+    p.fzm  --350
+    from v_plm_pj_xmfzhz2_dq t inner join v_plm_pj_xmfzhz2_dq_param p on  t.dept = p.dept and t.ghx = p.empnox and to_char(t.ybftime1,'yyyy-mm') = p.ym
+    where 1=1
+    and t.ybjg1='????'
+    and t.dept = '??????????????'
+    and t.name not like '%????%'
+     AND to_char(t.ybftime1,'yyyy-mm') = vym
+    union all 
+    select 
+    t.gh2,
+    t.jggcs2,
+    t.jgfz2,
+    p.bdfz,
+    p.fzm
+    from v_plm_pj_xmfzhz2_dq t  inner join v_plm_pj_xmfzhz2_dq_param p on  t.dept = p.dept and t.ghx = p.empnox and to_char(t.ybftime2,'yyyy-mm') = p.ym
+    where 1=1
+    and t.ybjg2='????'
+    and t.dept = '??????????????'
+    and t.name not like '%????%'
+    AND to_char(t.ybftime2,'yyyy-mm') = vym
+     -------0 ??-------
+     union all 
+     select 
+     t.empno ,
+     t.empname,
+     0 as jggcs,
+      p.bdfz,
+      p.fzm
+     from v_plm_pj_xmfzhz2_dq_fzero t inner join v_plm_pj_xmfzhz2_dq_param p on  t.dept = p.dept and t.empnox = p.empnox and t.ym = p.ym
+     where  t.dept = '??????????????'
+     AND t.ym = vym
+     
+    ) tt full join ( select a.empno,a.empname, p.bdfz, p.fzm, sum(LJJY) LJJY  from plm_pj_dept_ydgrdf_test2 a 
+                     left join v_plm_pj_xmfzhz2_dq_param p on  a.dept = p.dept and a.empno = p.empno and a.ym = p.ym where a.dept = '??????????????'
+                     and a.ym = to_char(add_months(to_date(vym,'YYYY-MM'),-1),'YYYY-MM') and substr(a.ym,1,4) =  substr(vym,1,4) 
+                     group by a.empno,a.empname ,p.bdfz, p.fzm ) b on tt.gh1 = b.empno and tt.jggcs1 = b.empname 
+    group by  tt.gh1, tt.jggcs1 ,b.empno, b.empname ,b.LJJY ,tt.bdfz,tt.fzm , b.bdfz,b.fzm ; 
+ 
+    
+    commit;
+    
+    -------------------------------
+    -------------------------------
+    
+    
+     Sqlstr := ' delete from  plm_pj_dept_ydgrdf_test2 where  dept = ''????????'' and ym = ''' || vym || ''' ';
+     execute immediate Sqlstr ; 
+   
+    
+    /*
+    ???????????? =????????????????+????????50%????
+    ????????????/??=????????????*350
+    1??????????=PLM????????????-???????? ????????-????????50%????
+    ????????=PLM????????????-???????? ????????- ????????50%????+ ????????????
+    ????????/??=????????*350
+    */
+    insert into plm_pj_dept_ydgrdf_test2(createtime, dept,ym ,empno,empname,ljjy ,ljje ,ljjy_sy ) 
+    
+    select 
+    to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+    '????????',
+    vym as ym ,
+    case when tt.gh1 is null then b.empno  else  tt.gh1 end gh1,
+    case when tt.jggcs1 is null then b.empname  else  tt.jggcs1 end jggcs1, 
+    
+    
+    case when nvl(b.LJJY,0) <  0 and (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) > 0 and (nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) )  <= 0 then round(nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)),8)
+         when nvl(b.LJJY,0) <  0 and (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) > 0 and (nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) )  > 0  then round((nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) ) * 0.5,8) 
+    else 
+    
+       round(nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end 
+       + nvl(b.LJJY,0),8)  
+    
+    end,
+    
+    
+   ( case when nvl(b.LJJY,0) <  0 and (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) > 0 and (nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) )  <= 0 then round(nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)),8)
+         when nvl(b.LJJY,0) <  0 and (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) > 0 and (nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) )  > 0  then round((nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) ) * 0.5,8) 
+    else 
+    
+       round(nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end 
+       + nvl(b.LJJY,0),8)  
+    
+    end ) * nvl(tt.fzm,350) , 
+    nvl(b.LJJY,0)
+     
+    from (
+    select 
+    t.gh1,
+    t.jggcs1,
+    t.jgfz1,
+    p.bdfz, --17
+    p.fzm  --350
+    from v_plm_pj_xmfzhz2_dq t inner join v_plm_pj_xmfzhz2_dq_param p on  t.ghx = p.empnox and to_char(t.ybftime1,'yyyy-mm') = p.ym
+    where 1=1
+    and t.ybjg1='????'
+    and t.dept like '%????????%'
+    and p.dept ='????????'
+    and t.name not like '%????%'
+     AND to_char(t.ybftime1,'yyyy-mm') = vym
+    union all 
+    select 
+    t.gh2,
+    t.jggcs2,
+    t.jgfz2,
+    p.bdfz,
+    p.fzm
+    from v_plm_pj_xmfzhz2_dq t  inner join v_plm_pj_xmfzhz2_dq_param p on  t.ghx = p.empnox and to_char(t.ybftime2,'yyyy-mm') = p.ym
+    where 1=1
+    and t.ybjg2='????'
+    and t.dept like '%????????%'
+    and p.dept ='????????'
+    and t.name not like '%????%'
+     AND to_char(t.ybftime2,'yyyy-mm') = vym
+     -------0 ??-------
+     union all 
+     select 
+     t.empno ,
+     t.empname,
+     0 as jggcs,
+      p.bdfz,
+      p.fzm
+     from v_plm_pj_xmfzhz2_dq_fzero t inner join v_plm_pj_xmfzhz2_dq_param p on  t.empnox = p.empnox and t.ym = p.ym
+     where  t.dept like '%????????%'
+     and p.dept ='????????'
+     AND t.ym = vym
+     
+    ) tt full join ( select a.empno,a.empname, p.bdfz, p.fzm, sum(LJJY) LJJY  from plm_pj_dept_ydgrdf_test2 a 
+                     left join v_plm_pj_xmfzhz2_dq_param p on  a.dept = p.dept and a.empno = p.empno and a.ym = p.ym where a.dept like '%????????%'
+                     and a.ym = to_char(add_months(to_date(vym,'YYYY-MM'),-1),'YYYY-MM') and substr(a.ym,1,4) =  substr(vym,1,4) 
+                     group by a.empno,a.empname ,p.bdfz, p.fzm ) b on tt.gh1 = b.empno and tt.jggcs1 = b.empname 
+    group by  tt.gh1, tt.jggcs1 ,b.empno, b.empname ,b.LJJY ,tt.bdfz,tt.fzm , b.bdfz,b.fzm ; 
+ 
+    commit;
+     
+      i:=i+1;
+    end loop;
+  end;
+  
+
+  
+  
+  --8 ????????????????????????????
+  --add by ?????? 2023/03/16
+  -------------------------------------------------------------------------------
+  procedure p_insertplm_pj_dept_df_temp_list_D is  
+  i integer;
+  im integer;
+  vym varchar(50);
+  Sqlstr  VARCHAR2(4000);
+  begin 
+  
+ 
+  if extract(month from sysdate) = 1  then 
+    i := 1;
+  else
+    i := extract(month from sysdate) - 1 ;
+  end if;
+
+  --i := 1;
+  
+  im:=extract(month from sysdate);
+
+      ---????????2????????
+    while i<=im loop
+      if i<10 then
+
+         vym:= extract(year from sysdate) || '-0'||i;
+
+      else
+
+         vym:= extract(year from sysdate) || '-'||i ;
+      end if;
+      dbms_output.put_line('-------------' || vym ||'---------------------');
+      
+
+     
+     Sqlstr := ' delete from  PLM_PJ_df_temp_list where  dept = ''??????????????'' and ym = ''' || vym || ''' ';
+     execute immediate Sqlstr ; 
+     
+     
+
+     insert into PLM_PJ_df_temp_list ( DEPT , YM , gh , xm , jgfz1 , bdfz , fzm  , CREATETIME )
+     
+     with vplm_pj_xmfzhz2_dq_param as(
+      select * from v_plm_pj_xmfzhz2_dq_param 
+      where 1=1
+      and dept = '??????????????'
+       AND ym = vym
+      )
+     
+      select 
+      t.dept,
+      to_char(t.ybftime1,'yyyy-mm') ym ,
+      t.gh1,
+      t.jggcs1,
+      t.jgfz1,
+          p.bdfz, --17
+          p.fzm,  --350
+          to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
+          from v_plm_pj_xmfzhz2_dq t inner join vplm_pj_xmfzhz2_dq_param p on  t.ghx = p.empnox
+          where 1=1
+          and t.ybjg1='????'
+          and t.dept = '??????????????'
+          and t.name not like '%????%'
+          --and t.gh1 is not null
+        AND to_char(t.ybftime1,'yyyy-mm') = vym
+      union all 
+      select 
+      t.dept,
+      to_char(t.ybftime2,'yyyy-mm') ym ,
+      t.gh2,
+      t.jggcs2,
+      t.jgfz2,
+          p.bdfz,
+          p.fzm,
+          to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
+          from v_plm_pj_xmfzhz2_dq t  inner join vplm_pj_xmfzhz2_dq_param p on  t.ghx = p.empnox
+          where 1=1
+          and t.ybjg2='????'
+          and t.dept = '??????????????'
+          and t.name not like '%????%'
+          --and t.gh2 is not null
+       AND to_char(t.ybftime2,'yyyy-mm') = vym
+
+           union all 
+           select 
+           t.dept,
+           t.ym,
+           t.empno ,
+           t.empname,
+           0 as jggcs,
+            p.bdfz,
+            p.fzm,
+            to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
+           from v_plm_pj_xmfzhz2_dq_fzero t inner join vplm_pj_xmfzhz2_dq_param p on  t.empnox = p.empnox and  t.ym = p.ym
+           where  t.dept = '??????????????'
+       AND t.ym = vym;
+       
+       commit;
+       
+     i:=i+1;
+      
+    end loop;  
+
+  end;
+  
+  
+  --9 ????????????????????????????
+  --add by ?????? 2023/03/16
+  -------------------------------------------------------------------------------
+  procedure p_insertplm_pj_dept_df_temp_list_J is  
+  i integer;
+  im integer;
+  vym varchar(50);
+  Sqlstr  VARCHAR2(4000);
+  begin 
+  
+
+  if extract(month from sysdate) = 1  then 
+    i := 1;
+  else
+    i := extract(month from sysdate) - 1 ;
+  end if;
+
+--  i := 1;
+  
+  im:=extract(month from sysdate);
+
+      ---????????2????????
+    while i<=im loop
+      if i<10 then
+
+         vym:= extract(year from sysdate) || '-0'||i;
+
+      else
+
+         vym:= extract(year from sysdate) || '-'||i ;
+      end if;
+      dbms_output.put_line('-------------' || vym ||'---------------------');
+      
+     
+     Sqlstr := ' delete from  PLM_PJ_df_temp_list where  dept = ''????????'' and ym = ''' || vym || ''' ';
+     execute immediate Sqlstr ; 
+  
+
+     insert into PLM_PJ_df_temp_list ( DEPT , YM , gh , xm , jgfz1 , bdfz , fzm  ,CREATETIME )
+     
+      select 
+      '????????',
+      to_char(t.ybftime1,'yyyy-mm') ym ,
+      t.gh1,
+      t.jggcs1,
+      t.jgfz1,
+          p.bdfz, --17
+          p.fzm,  --350
+          to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
+          from v_plm_pj_xmfzhz2_dq t inner join v_plm_pj_xmfzhz2_dq_param p on  t.ghx = p.empnox and to_char(t.ybftime1,'yyyy-mm') = p.ym
+          where 1=1
+          and t.ybjg1='????'
+          and t.dept like '%????????%'
+          and p.dept ='????????'
+          and t.name not like '%????%'
+        AND to_char(t.ybftime1,'yyyy-mm') = vym
+      union all 
+      select 
+      '????????',
+      to_char(t.ybftime2,'yyyy-mm') ym ,
+      t.gh2,
+      t.jggcs2,
+      t.jgfz2,
+          p.bdfz,
+          p.fzm,
+          to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
+          from v_plm_pj_xmfzhz2_dq t  inner join v_plm_pj_xmfzhz2_dq_param p on  t.ghx = p.empnox and to_char(t.ybftime2,'yyyy-mm') = p.ym
+          where 1=1
+          and t.ybjg2='????'
+          and t.dept like '%????????%'
+          and p.dept ='????????'
+          and t.name not like '%????%'
+       AND to_char(t.ybftime2,'yyyy-mm') = vym
+
+           union all 
+           select 
+           '????????',
+           t.ym,
+           t.empno ,
+           t.empname,
+           0 as jggcs,
+            p.bdfz,
+            p.fzm,
+            to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
+           from v_plm_pj_xmfzhz2_dq_fzero t inner join v_plm_pj_xmfzhz2_dq_param p on   t.empnox = p.empnox and t.ym = p.ym
+           where  t.dept like  '%????????%'
+           and p.dept ='????????'
+       AND t.ym = vym;
+       
+       commit;
+       
+     i:=i+1;
+       
+      
+    end loop;  
+
+  end;
+  
+ --9 ????????????????????????????
+  --add by ?????? 2023/03/16
+  -------------------------------------------------------------------------------
+  procedure p_insertplm_pj_dept_df_temp_list_G is  
+  i integer;
+  im integer;
+  vym varchar(50);
+  Sqlstr  VARCHAR2(4000);
+  begin 
+
+ 
+  if extract(month from sysdate) = 1  then 
+    i := 1;
+  else
+    i := extract(month from sysdate) - 1 ;
+  end if;
+
+--  i := 1;
+  
+  
+  im:=extract(month from sysdate);
+
+      ---????????2????????
+    while i<=im loop
+      if i<10 then
+
+         vym:= extract(year from sysdate) || '-0'||i;
+
+      else
+
+         vym:= extract(year from sysdate) || '-'||i ;
+      end if;
+      dbms_output.put_line('-------------' || vym ||'---------------------');
+      
+     
+     Sqlstr := ' delete from  PLM_PJ_df_temp_list where  dept = ''????????'' and ym = ''' || vym || ''' ';
+     execute immediate Sqlstr ; 
+
+
+     insert into PLM_PJ_df_temp_list ( DEPT , YM , gh , xm , bdfz , fzm  , jgfz1 ,CREATETIME)
+     
+      select '????????' , scym as ym, t.gh1 as gh , t.xm1 as xm , p.bdfz, p.fzm, t.scfz as jgfz1 ,to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
+      from 
+      (select * from  v_plm_pj_grfz where  1=1
+         AND scym = vym
+      ) t inner join 
+      ( select distinct ym,empnox,bdfz,fzm from  v_plm_pj_grfz_param  where 1=1
+         AND ym = vym
+        and empno not in (select gh from  v_plm_pj_grfz_zg_param_tb )
+       ) p on t.ghx = p.empnox  
+      union all 
+      select '????????' , t.ybym ,  t.gh1, t.xm1 , p.bdfz,p.fzm, t.ybfz ,to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
+      from 
+      (select * from  v_plm_pj_grfz t where  1=1
+        AND ybym = vym
+       ) t inner join 
+      ( select distinct ym,empnox,bdfz,fzm from  v_plm_pj_grfz_param p where 1=1
+         AND ym = vym
+        and empno not in (select gh from  v_plm_pj_grfz_zg_param_tb )
+      ) p on t.ghx = p.empnox 
+     union all 
+     select t.dept, t.ym, t.empno , t.empname,  p.bdfz , p.fzm ,  null ,to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
+     from v_plm_pj_grfz_fzero t inner join v_plm_pj_grfz_param p on  t.empnox = p.empnox and  t.ym = p.ym
+     where  t.dept = '????????'
+      AND t.ym = vym;
+
+       commit;
+       
+     i:=i+1; 
+      
+    end loop;  
+
+  end;
+  
+  
+ --11 ???????????????????? insert_plm_pj_grfz_tb
+  --add by ?????? 2023/03/17
+  -------------------------------------------------------------------------------
+  procedure p_insert_plm_pj_grfz_tb is  
+  i integer;
+
+  begin 
+      --grfz
+      --????????
+      delete from  t_plm_pj_grfz_fzpj_tb; 
+      insert into t_plm_pj_grfz_fzpj_tb (gh,xm,ym,foundationfk,cf37guid,CREATETIME)
+      select gh,xm,ym,foundationfk,cf37guid,to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') from v_plm_pj_grfz_fzpj_tb;
+      commit;
+      --????????
+      delete from  t_plm_pj_grfz_param_tb; 
+      insert into t_plm_pj_grfz_param_tb (gh,BDFZ,ym,foundationfk,cf37guid,CREATETIME)
+      select gh,BDFZ,ym,foundationfk,cf37guid,to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') from v_plm_pj_grfz_param_tb; 
+      commit;
+      --??????
+      delete from  t_plm_pj_grfz_fzero_tb;
+      insert into t_plm_pj_grfz_fzero_tb (gh,xm,ym,foundationfk,cf37guid,CREATETIME)
+      select gh,xm,ym,foundationfk,cf37guid,to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') from v_plm_pj_grfz_fzero_tb
+      commit;  
+      --????????
+      delete from  T_plm_pj_grfzfpb_vybfz; 
+      insert into T_plm_pj_grfzfpb_vybfz (YM,xm,fz,foundationfk,cf37guid,CREATETIME)
+      select YM,xm,dh,foundationfk,cf37guid,to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') from v_plm_pj_grfzfpb_vybfz;
+      commit;
+      --??????????????????????
+      delete from  T_plm_pj_grfzfpb; 
+      insert into T_plm_pj_grfzfpb (ym,xm,fz,foundationfk,cf37guid,CREATETIME)
+      select ym,xm,fz,foundationfk,cf37guid,to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') from v_plm_pj_grfzfpb;
+      commit;
+      
+  end;
+  
+  
+ --12 ???????????????????? insert_plm_pj_xmfzhz_tb
+  --add by ?????? 2023/03/17
+  -------------------------------------------------------------------------------
+  procedure p_insert_plm_pj_xmfzhz_tb is  
+  i integer;
+
+  begin 
+      --xmfzhz
+      delete from  t_plm_pj_xmfzhz_ps; 
+      insert into t_plm_pj_xmfzhz_ps (CPFL,XKFCP,NYCD,dddd,CPLX,JTJS,JFZL,foundationfk,GUID,CREATETIME)
+      select CPFL,XKFCP,NYCD,dddd,CPLX,JTJS,JFZL,foundationfk,GUID,to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') from v_plm_pj_xmfzhz_ps;
+      commit;
+      
+      delete from  t_plm_pj_xmfzhz_sc; 
+      insert into t_plm_pj_xmfzhz_sc (XKFCP,scjg,gsfa,CLASSIFICATIONITEMGUID,foundationfk,cf37guid,CREATETIME)
+      select XKFCP,scjg,gsfa,CLASSIFICATIONITEMGUID,foundationfk,cf37guid,to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') from v_plm_pj_xmfzhz_sc;
+      commit;
+      
+  end;
+  
+  
+ --13 ???????????????????? insert_plm_pj_xmfzhz2_DQ_tb
+  --add by ?????? 2023/03/17
+  -------------------------------------------------------------------------------
+  procedure p_insert_plm_pj_xmfzhz2_DQ_tb is  
+  i integer;
+
+  begin 
+      --xmfzhz2_DQ
+      
+      delete from  t_plm_pj_xmfzhz2_dq_param_tb; 
+      insert into t_plm_pj_xmfzhz2_dq_param_tb (gh,FZ,ym,foundationfk,cf37guid,CREATETIME)
+      select gh,FZ,ym,foundationfk,cf37guid,to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') from v_plm_pj_xmfzhz2_dq_param_tb;
+      commit;
+      
+      delete from  T_plm_pj_xmfzhz2_js_param_tb; 
+      insert into T_plm_pj_xmfzhz2_js_param_tb (gh,FZ,ym,foundationfk,cf37guid,CREATETIME)
+      select gh,FZ,ym,foundationfk,cf37guid,to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') from v_plm_pj_xmfzhz2_js_param_tb;
+      commit;
+      
+      
+      delete from  t_plm_pj_xmfzhz2_dq_fzero_tb; 
+      insert into t_plm_pj_xmfzhz2_dq_fzero_tb (gh,xm,ym,foundationfk,cf37guid,CREATETIME)
+      select gh,xm,ym,foundationfk,cf37guid,to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') from v_plm_pj_xmfzhz2_dq_fzero_tb;
+      commit;
+      
+      delete from  t_plm_pj_xmfzhz2_dq_ps; 
+      insert into t_plm_pj_xmfzhz2_dq_ps (
+      jflx,
+      pdzf ,
+      jggcs ,
+      jgfz ,
+      dzgcs ,
+      dzfz ,
+      foundationfk,cf37guid,CREATETIME)
+      select 
+      jflx,
+      pdzf ,
+      jggcs ,
+      jgfz ,
+      dzgcs ,
+      dzfz ,
+      foundationfk,cf37guid,
+      to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') from v_plm_pj_xmfzhz2_dq_ps;
+      commit;
+      
+  end;
+  
+  
+ --14 ???????????????????? t_plm_pj_xmfzhz3_tb
+  --add by ?????? 2023/03/17
+  -------------------------------------------------------------------------------
+  procedure p_insert_plm_pj_xmfzhz3_tb is  
+  i integer;
+
+  begin 
+      --xmfzhz3
+      
+      delete from  T_plm_pj_xmfzhz3_bz_ps; 
+      insert into T_plm_pj_xmfzhz3_bz_ps (cpxx,cplx,FZ,foundationfk,guid,CREATETIME)
+      select cpxx,cplx,FZ,foundationfk,guid,to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') from v_plm_pj_xmfzhz3_bz_ps ;
+      commit;
+      
+      delete from  T_plm_pj_xmfzhz3_bz_sc; 
+      insert into T_plm_pj_xmfzhz3_bz_sc (cp,lcpd,gsfa,foundationfk,cf37guid,CREATETIME)
+      select cp,lcpd,gsfa,foundationfk,cf37guid,to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') from v_plm_pj_xmfzhz3_bz_sc ;
+      commit;
+
+  end;
+  
+  
+ --15 ???????????????????? t_plm_pj_xmfzhz2_dq
+  --add by ?????? 2023/03/17
+  -------------------------------------------------------------------------------
+  procedure p_insert_plm_pj_xmfzhz2_dq is  
+  i integer;
+  im integer;
+  vym varchar(50);
+  Sqlstr  VARCHAR2(4000);
+  begin 
+  
+
+  if extract(month from sysdate) = 1  then 
+    i := 1;
+  else
+    i := extract(month from sysdate) - 1 ;
+  end if;
+
+ -- i := 1;
+  
+  im:=extract(month from sysdate);
+
+      ---????????2????????
+    while i<=im loop
+      if i<10 then
+
+         vym:= extract(year from sysdate) || '-0'||i;
+
+      else
+
+         vym:= extract(year from sysdate) || '-'||i ;
+      end if;
+      dbms_output.put_line('-------------' || vym ||'---------------------');
+      
+     ---??????????????
+     delete from  t_plm_pj_xmfzhz2_dq where  dept = '??????????????' and  (ym2 = vym  or ym = vym); 
+     
+      Sqlstr := ' delete from  t_plm_pj_xmfzhz2_dq where  dept =  ''??????????????'' and (ym2 = ''' || vym || '''  or ym = ''' || vym || ''')';
+      execute immediate Sqlstr ; 
+     
+  
+      insert into t_plm_pj_xmfzhz2_dq (
+                  createtime2,
+                  ym2	,
+                  ym	,
+                  dept	,
+                  jflx	,
+                  id	,
+                  name	,
+                  pjmanger	,
+                  pdzf	,
+                  gh	,
+                  jggcs	,
+                  jgfz	,
+                  ybjg1	,
+                  pntime1	,
+                  ybftime1	,
+                  diff1	,
+                  sjzf1	,
+                  gh1	,
+                  jggcs1	,
+                  jgfz1	,
+                  ybjg2	,
+                  pntime2	,
+                  ybftime2	,
+                  diff2	,
+                  sjzf2	,
+                  gh2	,
+                  jggcs2	,
+                  jgfz2	,
+                  pjguid	,
+                  createtime	,
+                  ghx	)
+                  
+                 select 
+                  to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+                  case when (ybftime1 is null) and (ybftime2 is null) then null 
+                     else  vym end as ym2 ,
+                  ym	,
+                  dept	,
+                  jflx	,
+                  id	,
+                  name	,
+                  pjmanger	,
+                  pdzf	,
+                  gh	,
+                  jggcs	,
+                  jgfz	,
+                  ybjg1	,
+                  pntime1	,
+                  ybftime1	,
+                  diff1	,
+                  sjzf1	,
+                  gh1	,
+                  jggcs1	,
+                  jgfz1	,
+                  ybjg2	,
+                  pntime2	,
+                  ybftime2	,
+                  diff2	,
+                  sjzf2	,
+                  gh2	,
+                  jggcs2	,
+                  jgfz2	,
+                  pjguid	,
+                  createtime	,
+                  ghx
+                  from v_plm_pj_xmfzhz2_dq t
+                  where 1=1
+                  and t.dept = '??????????????'
+                  and t.name not like '%????%'
+                  and ( to_char(ybftime1 , 'yyyy-mm')  = vym or to_char(ybftime2 , 'yyyy-mm')  = vym 
+                  or t.ym = vym );
+    
+    
+     commit;
+           
+     --------????????
+           
+      Sqlstr := ' delete from  t_plm_pj_xmfzhz2_dq where  dept in ( ''??????????????'',''????????????????'',''??????????????'') and (ym2 = ''' || vym || '''  or ym = ''' || vym || ''')';
+      execute immediate Sqlstr ;  
+  
+      insert into t_plm_pj_xmfzhz2_dq (
+                  createtime2,
+                  ym2	,
+                  ym	,
+                  dept	,
+                  jflx	,
+                  id	,
+                  name	,
+                  pjmanger	,
+                  pdzf	,
+                  gh	,
+                  jggcs	,
+                  jgfz	,
+                  ybjg1	,
+                  pntime1	,
+                  ybftime1	,
+                  diff1	,
+                  sjzf1	,
+                  gh1	,
+                  jggcs1	,
+                  jgfz1	,
+                  ybjg2	,
+                  pntime2	,
+                  ybftime2	,
+                  diff2	,
+                  sjzf2	,
+                  gh2	,
+                  jggcs2	,
+                  jgfz2	,
+                  pjguid	,
+                  createtime	,
+                  ghx	)
+                  
+                 select 
+                  to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+                  case when (ybftime1 is null) and (ybftime2 is null) then null 
+                     else  vym end as ym2 ,
+                  ym	,
+                  dept	,
+                  jflx	,
+                  id	,
+                  name	,
+                  pjmanger	,
+                  pdzf	,
+                  gh	,
+                  jggcs	,
+                  jgfz	,
+                  ybjg1	,
+                  pntime1	,
+                  ybftime1	,
+                  diff1	,
+                  sjzf1	,
+                  gh1	,
+                  jggcs1	,
+                  jgfz1	,
+                  ybjg2	,
+                  pntime2	,
+                  ybftime2	,
+                  diff2	,
+                  sjzf2	,
+                  gh2	,
+                  jggcs2	,
+                  jgfz2	,
+                  pjguid	,
+                  createtime	,
+                  ghx
+                  from v_plm_pj_xmfzhz2_dq t 
+                  where 1=1
+                  and t.dept in ( '??????????????','????????????????','??????????????')
+                  and ( to_char(ybftime1 , 'yyyy-mm')  = vym or to_char(ybftime2 , 'yyyy-mm')  = vym 
+                       or t.ym = vym );
+           
+         commit;  
+  
+         ----------------------  
+         i:=i+1;
+    
+        end loop;          
+  
+  end;
+  
+  --16 ???????????????????? t_plm_pj_xmfzhz
+  --add by ?????? 2023/03/17
+  -------------------------------------------------------------------------------
+  procedure p_insert_plm_pj_xmfzhz is  
+  i integer;
+  im integer;
+  itmp integer;
+  vym varchar(50);
+  Sqlstr  VARCHAR2(4000);
+  begin 
+  
+  itmp := extract(month from sysdate);
+  
+  if itmp = 1  then 
+    i := 1;
+  else
+    if  itmp - 5 < 0 then 
+        i:= 1;
+    else
+        i:= itmp - 5;
+    end if;
+  end if;
+  
+  im:=extract(month from sysdate);
+
+      ---????????????
+    while i<=im loop
+      if i<10 then
+
+         vym:= extract(year from sysdate) || '-0'||i;
+
+      else
+
+         vym:= extract(year from sysdate) || '-'||i ;
+      end if;
+      dbms_output.put_line('-------------' || vym ||'---------------------');
+      
+
+     -----????????
+     Sqlstr := ' delete from  t_plm_pj_xmfzhz where  ym2 = ''' || vym || ''' or ym = ''' || vym || ''' ';
+     execute immediate Sqlstr ; 
+     
+      insert into t_plm_pj_xmfzhz (
+                  createtime2,
+                  ym2,
+                  id	,
+                  name	,
+                  pjid	,
+                  fpid	,
+                  pjmanger	,
+                  dept	,
+                  f_000007	,
+                  ywy	,
+                  f_000010	,
+                  xkfcp	,
+                  nycd2	,
+                  cplx	,
+                  jfzl	,
+                  jtjs	,
+                  cpfz	,
+                  sjdf	,
+                  ggybdf	,
+                  ggscdf	,
+                  sjdf_all	,
+                  ybjg	,
+                  ybdf	,
+                  scjg1	,
+                  scdf1	,
+                  scjg2	,
+                  scdf2	,
+                  scjg3	,
+                  scdf3	,
+                  ybftime	,
+                  scftime1	,
+                  scftime2	,
+                  scftime3	,
+                  ym	,
+                  createtime	,
+                  ownerproject	,
+                  scdf	,
+                  xmdf	
+                          )
+                  
+
+             with vsm as(
+              select id, sum(t.scdf1)+sum(t.scdf2)+sum(t.scdf3) as scdf,
+               sum(t.scdf1)+sum(t.scdf2)+sum(t.scdf3)+sum(t.ggybdf) as xmdf
+              from v_plm_pj_xmfzhz t
+              where 1=1
+              and ( to_char(ybftime , 'yyyy-mm')  = vym or to_char(scftime1 , 'yyyy-mm')  = vym or to_char(scftime2 , 'yyyy-mm')  = vym or to_char(scftime3 , 'yyyy-mm')  = vym 
+                   or ym = vym ) 
+              group by id
+              )
+                          
+                  
+                 select 
+                  to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+                  case when (ybftime is null) and (scftime1 is null) and (scftime2 is null) then null 
+                     else  vym end as ym2 ,
+                  t.id	,
+                  name	,
+                  pjid	,
+                  fpid	,
+                  pjmanger	,
+                  dept	,
+                  f_000007	,
+                  ywy	,
+                  f_000010	,
+                  xkfcp	,
+                  nycd2	,
+                  cplx	,
+                  jfzl	,
+                  jtjs	,
+                  cpfz	,
+                  sjdf	,
+                  ggybdf	,
+                  ggscdf	,
+                  sjdf_all	,
+                  ybjg	,
+                  ybdf	,
+                  scjg1	,
+                  scdf1	,
+                  scjg2	,
+                  scdf2	,
+                  scjg3	,
+                  scdf3	,
+                  ybftime	,
+                  scftime1	,
+                  scftime2	,
+                  scftime3	,
+                  ym	,
+                  createtime	,
+                  ownerproject	,
+                  b.scdf, 
+                  b.xmdf  
+                  from  v_plm_pj_xmfzhz t left join vsm b on t.id = b.id
+                where 1=1 
+                and ( to_char(ybftime , 'yyyy-mm')  = vym or to_char(scftime1 , 'yyyy-mm')  = vym or to_char(scftime2 , 'yyyy-mm')  = vym or to_char(scftime3 , 'yyyy-mm')  = vym 
+                     or ym = vym ); 
+
+         commit;
+         
+         ----------------------  
+         i:=i+1;
+    
+        end loop;  
+  end;
+  
+  
+  --16.1 ???????????????????? p_insert_plm_pj_xmfzhz3_bz
+  --add by ?????? 2023/07/14
+ ------------------------------------------------------------------------------- 
+ procedure p_insert_plm_pj_xmfzhz3_bz is  
+  i integer;
+  im integer;
+  itmp integer;
+  vym varchar(50);
+  Sqlstr  VARCHAR2(4000);
+  begin 
+  
+  itmp := extract(month from sysdate);
+  
+  if itmp = 1  then 
+    i := 1;
+  else
+    if  itmp - 5 < 0 then 
+        i:= 1;
+    else
+        i:= itmp - 5;
+    end if;
+  end if;
+  
+  im:=extract(month from sysdate);
+
+      ---????????????
+    while i<=im loop
+      if i<10 then
+
+         vym:= extract(year from sysdate) || '-0'||i;
+
+      else
+
+         vym:= extract(year from sysdate) || '-'||i ;
+      end if;
+      dbms_output.put_line('-------------' || vym ||'---------------------');
+      
+     -----????????--????
+  
+     Sqlstr := ' delete from  t_plm_pj_xmfzhz3_bz where  ym2 = ''' || vym || ''' or ym = ''' || vym || ''' ';
+     execute immediate Sqlstr ; 
+  
+      insert into t_plm_pj_xmfzhz3_bz (
+                  createtime ,
+                  ym,
+                  ym2 ,
+                  id	,
+                  name	,
+                  pjmanger	,
+                  sjdf_all	,
+                  ybsjfz	,
+                  cpxx	,
+                  cplx	,
+                  bzlbfl	,
+                  fz	,
+                  ybdf	,
+                  ybjg	,
+                  pntime	,
+                  ybftime	,
+                  lc1fz	,
+                  lcpd1	,
+                  scpntime1	,
+                  scftime1	,
+                  lc2fz	,
+                  lcpd2	,
+                  scpntime2	,
+                  scftime2	,
+                  ybym	,
+                  sc1ym	,
+                  sc2ym	,
+                  pjguid	,
+                  ownerproject	,
+                  dd	,
+                  lcsjfz	,
+                  xmsjdf	
+                    )
+                  
+                 select 
+                  to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+                  vym as ym ,
+                  case when (ybftime is null) and (scftime1 is null) and (scftime2 is null) then null 
+                     else  vym end as ym2 ,
+                  id	,
+                  name	,
+                  pjmanger	,
+                  sjdf_all	,
+                  ybsjfz	,
+                  cpxx	,
+                  cplx	,
+                  bzlbfl	,
+                  fz	,
+                  ybdf	,
+                  ybjg	,
+                  pntime	,
+                  ybftime	,
+                  lc1fz	,
+                  lcpd1	,
+                  scpntime1	,
+                  scftime1	,
+                  lc2fz	,
+                  lcpd2	,
+                  scpntime2	,
+                  scftime2	,
+                  ybym	,
+                  sc1ym	,
+                  sc2ym	,
+                  pjguid	,
+                  ownerproject	,
+                  dd	,
+                  (select sum(z.lc1fz)+sum(z.lc2fz) from v_plm_pj_xmfzhz3_bz z where z.id = t.id) as lcsjfz,
+                  coalesce((select sum(z.lc1fz)+sum(z.lc2fz) from v_plm_pj_xmfzhz3_bz z where z.id = t.id),0) + nvl(ybsjfz,0) as xmsjdf
+                  from  v_plm_pj_xmfzhz3_bz t
+                  where 1=1
+                  and ( to_char(t.ybftime , 'yyyy-mm')  = vym or to_char(t.scftime1 , 'yyyy-mm')  = vym or to_char(t.scftime2 , 'yyyy-mm')  = vym 
+                        or ym = vym
+                      );     
+    
+             commit;
+         
+   
+         
+         ----------------------  
+         i:=i+1;
+    
+        end loop;  
+  end;
+  
+  --17 ???????????????????? t_plm_pj_grfz
+  --add by ?????? 2023/03/17
+  -------------------------------------------------------------------------------
+  procedure p_insert_plm_pj_grfz is  
+  i integer;
+  im integer;
+  vym varchar(50);
+  Sqlstr  VARCHAR2(4000);
+  begin 
+  
+
+  if extract(month from sysdate) = 1  then 
+    i := 1;
+  else
+    i := extract(month from sysdate) - 1 ;
+  end if;
+
+--  i := 1;
+  
+  im:=extract(month from sysdate);
+
+      ---????????2????????
+    while i<=im loop
+      if i<10 then
+
+         vym:= extract(year from sysdate) || '-0'||i;
+
+      else
+
+         vym:= extract(year from sysdate) || '-'||i ;
+      end if;
+      dbms_output.put_line('-------------' || vym ||'---------------------');
+      
+     ---??????????????
+     
+      Sqlstr := ' delete from  t_plm_pj_grfz_yb where  ym2 = ''' || vym || '''';
+     
+      execute immediate Sqlstr ;
+  
+      insert into t_plm_pj_grfz_yb (
+                  createtime2,
+                  ym2	,
+                  gh	,
+                  xm2	,
+                  id	,
+                  name	,
+                  xm	,
+                  scfz	,
+                  ybfz	,
+                  afz	,
+                  scactualfinishtime	,
+                  ybactualfinishtime	,
+                  scym	,
+                  ybym	,
+                  createtime	,
+                  gh1	,
+                  xm1	,
+                  ghx	,
+                  xmx	,
+                  foundationfk	,
+                  pjguid
+                  )
+                  
+                 select 
+                 to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+                  vym as ym2 ,
+                 substr(t.xm,1,5) gh,
+                 substr(t.xm,7,12) xm2, 
+                  id	,
+                  name	,
+                  xm	,
+                  scfz	,
+                  ybfz	,
+                  afz	,
+                  scactualfinishtime	,
+                  ybactualfinishtime	,
+                  scym	,
+                  ybym	,
+                  createtime	,
+                  gh1	,
+                  xm1	,
+                  ghx	,
+                  xmx	,
+                  foundationfk	,
+                  pjguid 
+                  from v_plm_pj_grfz t
+                  where 1=1
+                  and substr(t.xm,7,12) is not null
+                  AND t.ybym = vym ; 
+    
+    
+     commit;
+           
+     --------????????
+     
+      Sqlstr := ' delete from  t_plm_pj_grfz_sc where  ym2 = ''' || vym || '''';
+     
+      execute immediate Sqlstr ;
+  
+      insert into t_plm_pj_grfz_sc (
+                  createtime2,
+                  ym2	,
+                  gh	,
+                  xm2	,
+                  id	,
+                  name	,
+                  xm	,
+                  scfz	,
+                  ybfz	,
+                  afz	,
+                  scactualfinishtime	,
+                  ybactualfinishtime	,
+                  scym	,
+                  ybym	,
+                  createtime	,
+                  gh1	,
+                  xm1	,
+                  ghx	,
+                  xmx	,
+                  foundationfk	,
+                  pjguid
+                  )
+                  
+                 select 
+                  to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+                  vym as ym2 ,
+                 substr(t.xm,1,5) gh,
+                 substr(t.xm,7,12) xm2, 
+                  id	,
+                  name	,
+                  xm	,
+                  scfz	,
+                  ybfz	,
+                  afz	,
+                  scactualfinishtime	,
+                  ybactualfinishtime	,
+                  scym	,
+                  ybym	,
+                  createtime	,
+                  gh1	,
+                  xm1	,
+                  ghx	,
+                  xmx	,
+                  foundationfk	,
+                  pjguid
+                  from v_plm_pj_grfz t
+                  where 1=1
+                  and substr(t.xm,7,12) is not null
+                  AND t.scym = vym ; 
+    
+         
+         commit;  
+  
+         ----------------------  
+         i:=i+1;
+    
+        end loop;          
+
+  end;
+  --18 ????????????????????????
+  --add by ?????? 2023/04/17
+  procedure p_insert_plm_pj_xmfzhz_id is  
+  i integer;
+  im integer;
+  vym varchar(50);
+
+  begin 
+  
+     delete from  t_plm_pj_xmfzhz where id in ('__','NP19230100') ;  
+  
+     insert into t_plm_pj_xmfzhz (
+                  createtime2,
+                  ym2,
+                  id	,
+                  name	,
+                  pjid	,
+                  fpid	,
+                  pjmanger	,
+                  dept	,
+                  f_000007	,
+                  ywy	,
+                  f_000010	,
+                  xkfcp	,
+                  nycd2	,
+                  cplx	,
+                  jfzl	,
+                  jtjs	,
+                  cpfz	,
+                  sjdf	,
+                  ggybdf	,
+                  ggscdf	,
+                  sjdf_all	,
+                  ybjg	,
+                  ybdf	,
+                  scjg1	,
+                  scdf1	,
+                  scjg2	,
+                  scdf2	,
+                  scjg3	,
+                  scdf3	,
+                  ybftime	,
+                  scftime1	,
+                  scftime2	,
+                  scftime3	,
+                  ym	,
+                  createtime	,
+                  ownerproject	,
+                  scdf	,
+                  xmdf	
+                          )
+                  
+          with  vsm as(
+              select id, sum(t.scdf1)+sum(t.scdf2)+sum(t.scdf3) as scdf,
+               sum(t.scdf1)+sum(t.scdf2)+sum(t.scdf3)+sum(t.ggybdf) as xmdf
+               from  v_plm_pj_xmfzhz t 
+              where 1=1
+              and id in ('__','NP19230100')
+              group by id
+              )
+                          
+                  
+                 select 
+                  to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+                  case when (ybftime is null) and (scftime1 is null) and (scftime2 is null) then null 
+                     else ym end as ym2 ,
+                  t.id  ,
+                  name  ,
+                  pjid  ,
+                  fpid  ,
+                  pjmanger  ,
+                  dept  ,
+                  f_000007  ,
+                  ywy  ,
+                  f_000010  ,
+                  xkfcp  ,
+                  nycd2  ,
+                  cplx  ,
+                  jfzl  ,
+                  jtjs  ,
+                  cpfz  ,
+                  sjdf  ,
+                  ggybdf  ,
+                  ggscdf  ,
+                  sjdf_all  ,
+                  ybjg  ,
+                  ybdf  ,
+                  scjg1  ,
+                  scdf1  ,
+                  scjg2  ,
+                  scdf2  ,
+                  scjg3  ,
+                  scdf3  ,
+                  ybftime  ,
+                  scftime1  ,
+                  scftime2  ,
+                  scftime3  ,
+                  ym  ,
+                  createtime  ,
+                  ownerproject  ,
+                  b.scdf, 
+                  b.xmdf  
+                  from  v_plm_pj_xmfzhz t left join vsm b on t.id = b.id
+                where 1=1 
+                and t.id in ('__','NP19230100');
+
+         commit;
+
+  
+  end;
+  
+  
+ procedure p_insert_plm_pj_xmfzhz3_bz_id is  
+  i integer;
+  im integer;
+  itmp integer;
+  vym varchar(50);
+  Sqlstr  VARCHAR2(4000);
+  begin 
+  
+
+      
+     -----????????--????
+  
+     Sqlstr := ' delete from  t_plm_pj_xmfzhz3_bz where id in (''__'',''AD79230064'')' ;  
+     execute immediate Sqlstr ; 
+  
+      insert into t_plm_pj_xmfzhz3_bz (
+                  createtime ,
+                  ym,
+                  ym2 ,
+                  id	,
+                  name	,
+                  pjmanger	,
+                  sjdf_all	,
+                  ybsjfz	,
+                  cpxx	,
+                  cplx	,
+                  bzlbfl	,
+                  fz	,
+                  ybdf	,
+                  ybjg	,
+                  pntime	,
+                  ybftime	,
+                  lc1fz	,
+                  lcpd1	,
+                  scpntime1	,
+                  scftime1	,
+                  lc2fz	,
+                  lcpd2	,
+                  scpntime2	,
+                  scftime2	,
+                  ybym	,
+                  sc1ym	,
+                  sc2ym	,
+                  pjguid	,
+                  ownerproject	,
+                  dd	,
+                  lcsjfz	,
+                  xmsjdf	
+                    )
+                  
+                 select 
+                  to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+                  vym as ym ,
+                  case when (ybftime is null) and (scftime1 is null) and (scftime2 is null) then null 
+                     else  vym end as ym2 ,
+                  id	,
+                  name	,
+                  pjmanger	,
+                  sjdf_all	,
+                  ybsjfz	,
+                  cpxx	,
+                  cplx	,
+                  bzlbfl	,
+                  fz	,
+                  ybdf	,
+                  ybjg	,
+                  pntime	,
+                  ybftime	,
+                  lc1fz	,
+                  lcpd1	,
+                  scpntime1	,
+                  scftime1	,
+                  lc2fz	,
+                  lcpd2	,
+                  scpntime2	,
+                  scftime2	,
+                  ybym	,
+                  sc1ym	,
+                  sc2ym	,
+                  pjguid	,
+                  ownerproject	,
+                  dd	,
+                  (select sum(z.lc1fz)+sum(z.lc2fz) from v_plm_pj_xmfzhz3_bz z where z.id = t.id) as lcsjfz,
+                  coalesce((select sum(z.lc1fz)+sum(z.lc2fz) from v_plm_pj_xmfzhz3_bz z where z.id = t.id),0) + nvl(ybsjfz,0) as xmsjdf
+                  from  v_plm_pj_xmfzhz3_bz t
+                  where 1=1
+                  and id in ('__','AD79230064');    
+    
+             commit;
+         
+
+  end;
+  
+  
+  
+  procedure p_insertplm_pj_dept_ydgrdf_test_ID is
+  i integer;
+  im integer;
+  vym varchar(50);
+  v_bdfz decimal(18,2);
+
+  begin 
+  
+
+/*
+  if extract(month from sysdate) = 1  then 
+    i := 1;
+  else
+    i := extract(month from sysdate) - 1 ;
+  end if;
+*/  
+  i := 1;
+
+  im:=extract(month from sysdate);
+
+      ---????????2????????
+    while i<=im loop
+      if i<10 then
+
+         vym:= extract(year from sysdate) || '-0'||i;
+
+      else
+
+         vym:= extract(year from sysdate) || '-'||i ;
+      end if;
+      dbms_output.put_line('-------------' || vym ||'---------------------');
+      
+    
+  /*  
+    
+      
+    delete from  plm_pj_dept_ydgrdf_test where  dept = '??????????????' and  ym = vym ; 
+    
+    insert into plm_pj_dept_ydgrdf_test(createtime, dept,ym ,empno,empname,ljjy ,ljje ) 
+    
+    select 
+    to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+    '??????????????',
+    vym as ym ,
+    case when tt.gh1 is null then b.empno  else  tt.gh1 end gh1,
+    case when tt.jggcs1 is null then b.empname  else  tt.jggcs1 end jggcs1, 
+     round(nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end 
+     + nvl(b.LJJY,0),8)      
+     ,
+    round((nvl(sum(tt.jgfz1),0)  - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end
+     + nvl(b.LJJY,0)),8) * nvl(tt.fzm,350)
+    from (
+    select 
+    t.gh1,
+    t.jggcs1,
+    t.jgfz1,
+    p.bdfz, --17
+    p.fzm  --350
+    from v_plm_pj_xmfzhz2_dq t inner join v_plm_pj_xmfzhz2_dq_param p on  t.dept = p.dept and t.ghx = p.empnox and to_char(t.ybftime1,'yyyy-mm') = p.ym
+    where 1=1
+    and t.ybjg1='????'
+    and t.dept = '??????????????'
+    and t.name not like '%????%'
+     AND to_char(t.ybftime1,'yyyy-mm') = vym
+    union all 
+    select 
+    t.gh2,
+    t.jggcs2,
+    t.jgfz2,
+    p.bdfz,
+    p.fzm
+    from v_plm_pj_xmfzhz2_dq t  inner join v_plm_pj_xmfzhz2_dq_param p on  t.dept = p.dept and t.ghx = p.empnox and to_char(t.ybftime2,'yyyy-mm') = p.ym
+    where 1=1
+    and t.ybjg2='????'
+    and t.dept = '??????????????'
+    and t.name not like '%????%'
+    AND to_char(t.ybftime2,'yyyy-mm') = vym
+     -------0 ??-------
+     union all 
+     select 
+     t.empno ,
+     t.empname,
+     0 as jggcs,
+      p.bdfz,
+      p.fzm
+     from v_plm_pj_xmfzhz2_dq_fzero t inner join v_plm_pj_xmfzhz2_dq_param p on  t.dept = p.dept and t.empnox = p.empnox and t.ym = p.ym
+     where  t.dept = '??????????????'
+     AND t.ym = vym
+     
+    ) tt full join ( select a.empno,a.empname, p.bdfz, p.fzm, sum(LJJY) LJJY  from plm_pj_dept_ydgrdf_test a 
+                     left join v_plm_pj_xmfzhz2_dq_param p on  a.dept = p.dept and a.empno = p.empno and a.ym = p.ym where a.dept = '??????????????'
+                     and a.ym = to_char(add_months(to_date(vym,'YYYY-MM'),-1),'YYYY-MM') and substr(a.ym,1,4) =  substr(vym,1,4) 
+                     group by a.empno,a.empname ,p.bdfz, p.fzm ) b on tt.gh1 = b.empno and tt.jggcs1 = b.empname 
+    group by  tt.gh1, tt.jggcs1 ,b.empno, b.empname ,b.LJJY ,tt.bdfz,tt.fzm , b.bdfz,b.fzm ; 
+ 
+    
+    commit;
+   */ 
+    -------------------------------
+    -------------------------------
+ /*   
+   
+    delete from  plm_pj_dept_ydgrdf_test where  dept = '????????' and  ym = vym ; 
+    
+    insert into plm_pj_dept_ydgrdf_test(createtime, dept,ym ,empno,empname,ljjy ,ljje ) 
+    
+    select 
+    to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+    '????????',
+    vym as ym ,
+    case when tt.gh1 is null then b.empno  else  tt.gh1 end gh1,
+    case when tt.jggcs1 is null then b.empname  else  tt.jggcs1 end jggcs1, 
+     round(nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end 
+     + nvl(b.LJJY,0),8)      
+     ,
+    round((nvl(sum(tt.jgfz1),0)  - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end
+     + nvl(b.LJJY,0)),8)* nvl(tt.fzm,350) 
+    from (
+    select 
+    t.gh1,
+    t.jggcs1,
+    t.jgfz1,
+    p.bdfz, --17
+    p.fzm  --350
+    from v_plm_pj_xmfzhz2_dq t inner join v_plm_pj_xmfzhz2_dq_param p on  t.ghx = p.empnox and to_char(t.ybftime1,'yyyy-mm') = p.ym
+    where 1=1
+    and t.ybjg1='????'
+    and t.dept like '%????????%'
+    and p.dept ='????????'
+    and t.name not like '%????%'
+     AND to_char(t.ybftime1,'yyyy-mm') = vym
+    union all 
+    select 
+    t.gh2,
+    t.jggcs2,
+    t.jgfz2,
+    p.bdfz,
+    p.fzm
+    from v_plm_pj_xmfzhz2_dq t  inner join v_plm_pj_xmfzhz2_dq_param p on  t.ghx = p.empnox and to_char(t.ybftime2,'yyyy-mm') = p.ym
+    where 1=1
+    and t.ybjg2='????'
+    and t.dept like '%????????%'
+    and p.dept ='????????'
+    and t.name not like '%????%'
+     AND to_char(t.ybftime2,'yyyy-mm') = vym
+     -------0 ??-------
+     union all 
+     select 
+     t.empno ,
+     t.empname,
+     0 as jggcs,
+      p.bdfz,
+      p.fzm
+     from v_plm_pj_xmfzhz2_dq_fzero t inner join v_plm_pj_xmfzhz2_dq_param p on  t.empnox = p.empnox and t.ym = p.ym
+     where  t.dept like '%????????%'
+     and p.dept ='????????'
+     AND t.ym = vym
+     
+    ) tt full join ( select a.empno,a.empname, p.bdfz, p.fzm, sum(LJJY) LJJY  from plm_pj_dept_ydgrdf_test a 
+                     left join v_plm_pj_xmfzhz2_dq_param p on  a.dept = p.dept and a.empno = p.empno and a.ym = p.ym where a.dept like '%????????%'
+                     and a.ym = to_char(add_months(to_date(vym,'YYYY-MM'),-1),'YYYY-MM') and substr(a.ym,1,4) =  substr(vym,1,4) 
+                     group by a.empno,a.empname ,p.bdfz, p.fzm ) b on tt.gh1 = b.empno and tt.jggcs1 = b.empname 
+    group by  tt.gh1, tt.jggcs1 ,b.empno, b.empname ,b.LJJY ,tt.bdfz,tt.fzm , b.bdfz,b.fzm ; 
+ 
+    commit;
+*/
+    -------------------------------
+    ---????????  ??????
+    -------------------------------
+ 
+    delete from  plm_pj_dept_ydgrdf_test where  dept = '????????' and  ym = vym ; 
+
+    insert into plm_pj_dept_ydgrdf_test(createtime, dept,ym ,empno,empname,ljjy ,ljje ) 
+    
+    select 
+    to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+    '????????',
+    vym as ym ,
+    case when tt.gh1 is null then b.empno  else  tt.gh1 end gh1,
+    case when tt.xm1 is null then b.empname  else  tt.xm1 end jggcs1, 
+    case when case when tt.gh1 is null then b.empno  else  tt.gh1 end in (select f.gh from  v_plm_pj_grfz_fzpj_tb f where f.ym = vym ) then 
+         round(sum(nvl(tt.jgfz1,0))/2 + nvl(b.LJJY,0),8) 
+      else
+         round(nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end 
+         + nvl(b.LJJY,0) ,8) 
+     end  ,
+     
+    case when case when tt.gh1 is null then b.empno  else  tt.gh1 end in (select f.gh from  v_plm_pj_grfz_fzpj_tb f where f.ym = vym ) then 
+         round(sum(nvl(tt.jgfz1,0))/2 + nvl(b.LJJY,0),8) * nvl(tt.fzm,450)
+      else
+       round(nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end 
+       + nvl(b.LJJY,0) ,8) * nvl(tt.fzm,450)
+    end
+    
+    from (
+
+       
+      select scym as ym, t.gh1  , t.xm1 , p.bdfz, p.fzm, t.scfz as jgfz1
+      from 
+      (select * from  v_plm_pj_grfz where  scym = vym ) t inner join 
+      ( select distinct ym,empnox,bdfz,fzm from  v_plm_pj_grfz_param  where  ym = vym 
+        --and empno not in (select gh from  v_plm_pj_grfz_zg_param_tb )
+      ) p on t.ghx = p.empnox 
+       
+       
+      union all 
+      select t.ybym ,  t.gh1, t.xm1 , p.bdfz,p.fzm, t.ybfz 
+      from 
+      (select * from  v_plm_pj_grfz t where  t.ybym = vym ) t inner join 
+      ( select distinct ym,empnox,bdfz,fzm from  v_plm_pj_grfz_param p where  p.ym = vym 
+       --and empno not in (select gh from  v_plm_pj_grfz_zg_param_tb )
+      ) p on t.ghx = p.empnox 
+       
+      
+         union all 
+         select t.ym, t.empno , t.empname,  p.bdfz , p.fzm ,  null
+         from v_plm_pj_grfz_fzero t inner join v_plm_pj_grfz_param p on  t.empnox = p.empnox and  t.ym = p.ym
+         where  t.dept = '????????'
+          AND t.ym =  vym 
+      
+     
+    ) tt full join ( select a.empno,a.empname, p.bdfz, p.fzm, sum(LJJY) LJJY  from plm_pj_dept_ydgrdf_test a 
+                     left join v_plm_pj_grfz_param p on  a.dept = p.dept and a.empno = p.empno and a.ym = p.ym where a.dept = '????????'
+                     and a.ym = to_char(add_months(to_date(vym,'YYYY-MM'),-1),'YYYY-MM') and substr(a.ym,1,4) =  substr(vym,1,4) 
+                     --and a.empno not in (select gh from  v_plm_pj_grfz_zg_param_tb )
+                     group by a.empno,a.empname ,p.bdfz, p.fzm ) b on tt.gh1 = b.empno 
+    group by  tt.gh1, tt.xm1 ,b.empno, b.empname ,b.LJJY ,tt.bdfz,tt.fzm , b.bdfz,b.fzm ;
+    
+     commit;
+
+      i:=i+1;
+    end loop;
+  end;
+  
+  
+  
+   --20 ????????
+  --add by ?????? 2023/05/30
+  -------------------------------------------------------------------------------
+  procedure p_insertplm_pj_dept_ydgrdf_test2_history  is 
+  begin
+  
+  insert into PLM_PJ_DEPT_YDGRDF_TEST2_History
+  (
+    DEPT       ,
+    YM         ,
+    EMPNO      ,
+    EMPNAME    ,
+    LJJY       ,
+    LJJE       ,
+    CREATETIME ,
+    LJJY_SY    ,
+    History_CREATETIME
+  )
+  
+  select 
+    DEPT       ,
+    YM         ,
+    EMPNO      ,
+    EMPNAME    ,
+    LJJY       ,
+    LJJE       ,
+    CREATETIME ,
+    LJJY_SY    ,
+    to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')  from plm_pj_dept_ydgrdf_test2 ;
+   
+     commit;
+  
+  end;
+  
+  
+   --21 ?????????? p_insert_plm_pj_xmfzhz2_jscj
+  --add by ?????? 2023/08/22
+  -------------------------------------------------------------------------------
+  procedure p_insert_plm_pj_xmfzhz2_jscj  is 
+  i integer;
+  im integer;
+  itmp integer;
+  vym varchar(50);
+  Sqlstr  VARCHAR2(4000);
+  begin 
+  
+  itmp := extract(month from sysdate);
+  
+  if itmp = 1  then 
+    i := 1;
+  else
+    if  itmp - 5 < 0 then 
+        i:= 1;
+    else
+        i:= itmp - 5;
+    end if;
+  end if;
+  
+  im:=extract(month from sysdate);
+
+      ---????????????
+    while i<=im loop
+      if i<10 then
+
+         vym:= extract(year from sysdate) || '-0'||i;
+
+      else
+
+         vym:= extract(year from sysdate) || '-'||i ;
+      end if;
+      dbms_output.put_line('-------------' || vym ||'---------------------');
+      
+  
+     Sqlstr := ' delete from  t_plm_pj_xmfzhz2_jscj where  ym2 = ''' || vym || ''' or ym = ''' || vym || ''' ';
+     execute immediate Sqlstr ; 
+  
+     insert into t_plm_pj_xmfzhz2_jscj (
+                    ym2  ,
+                    ym  ,
+                    dept  ,
+                    xmdj  ,
+                    id  ,
+                    name  ,
+                    pjmanger  ,
+                    xmfz  ,
+                    jgjf  ,
+                    jgfz  ,
+                    gh_jg  ,
+                    xm_jg  ,
+                    jgjg  ,
+                    pnt_jg  ,
+                    ybft_jg  ,
+                    diff_jg  ,
+                    pdfz_jg  ,
+                    sjzf_jg  ,
+                    ybjf  ,
+                    ybfz  ,
+                    gh_yb  ,
+                    xm_yb  ,
+                    ybjg  ,
+                    pnt_yb  ,
+                    ybft_yb  ,
+                    diff_yb  ,
+                    pdfz_yb  ,
+                    sjzf_yb  ,
+                    tgjf  ,
+                    tgfz  ,
+                    gh_tg  ,
+                    xm_tg  ,
+                    tgjg  ,
+                    pnt_tg  ,
+                    ybft_tg  ,
+                    diff_tg  ,
+                    pdfz_tg  ,
+                    sjzf_tg  ,
+                    sjjf  ,
+                    sjfz  ,
+                    gh_sj  ,
+                    xm_sj  ,
+                    sjjg  ,
+                    pnt_sj  ,
+                    ybft_sj  ,
+                    diff_sj	,
+                    pdfz_sj	,
+                    sjzf_sj	,
+                    pjguid	,
+                    createtime	,
+                    ghx1	,
+                    createtime2	
+                   )
+                  
+                 select 
+                  case when (ybft_jg is null) and (ybft_yb is null) and (ybft_tg is null) and (ybft_sj is null) then null 
+                     else  vym end as ym2 ,
+                  vym as ym ,
+                  dept  ,
+                  xmdj  ,
+                  id  ,
+                  name  ,
+                  pjmanger  ,
+                  xmfz  ,
+                  jgjf  ,
+                  jgfz  ,
+                  gh_jg  ,
+                  xm_jg  ,
+                  jgjg  ,
+                  pnt_jg  ,
+                  ybft_jg  ,
+                  diff_jg  ,
+                  pdfz_jg  ,
+                  sjzf_jg  ,
+                  ybjf  ,
+                  ybfz  ,
+                  gh_yb  ,
+                  xm_yb  ,
+                  ybjg  ,
+                  pnt_yb  ,
+                  ybft_yb  ,
+                  diff_yb  ,
+                  pdfz_yb  ,
+                  sjzf_yb  ,
+                  tgjf  ,
+                  tgfz  ,
+                  gh_tg  ,
+                  xm_tg  ,
+                  tgjg  ,
+                  pnt_tg  ,
+                  ybft_tg  ,
+                  diff_tg  ,
+                  pdfz_tg  ,
+                  sjzf_tg  ,
+                  sjjf  ,
+                  sjfz  ,
+                  gh_sj  ,
+                  xm_sj  ,
+                  sjjg  ,
+                  pnt_sj  ,
+                  ybft_sj  ,
+                  diff_sj	,
+                  pdfz_sj	,
+                  sjzf_sj	,
+                  pjguid	,
+                  createtime	,
+                  ghx1	,
+                  to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')	
+                  from  v_plm_pj_xmfzhz2_jscj t
+                  where 1=1
+                  and ( to_char(t.ybft_jg , 'yyyy-mm')  = vym or to_char(t.ybft_yb , 'yyyy-mm')  = vym or to_char(t.ybft_tg , 'yyyy-mm')  = vym
+                        or to_char(t.ybft_sj , 'yyyy-mm')  = vym or ym = vym
+                      );        
+    
+             commit;
+         
+   
+         
+         ----------------------  
+         i:=i+1;
+    
+        end loop;  
+
+  
+  end;
+  
+  
+  
+  --22 ????????????????????????????
+  --add by ?????? 2023/08/23
+  -------------------------------------------------------------------------------
+  procedure p_insertplm_pj_dept_df_temp_list_jscj  is 
+  i integer;
+  im integer;
+  vym varchar(50);
+  Sqlstr  VARCHAR2(4000);
+  begin 
+  
+
+  if extract(month from sysdate) = 1  then 
+    i := 1;
+  else
+    i := extract(month from sysdate) - 1 ;
+  end if;
+
+--  i := 1;
+  
+  im:=extract(month from sysdate);
+
+      ---????????2????????
+    while i<=im loop
+      if i<10 then
+
+         vym:= extract(year from sysdate) || '-0'||i;
+
+      else
+
+         vym:= extract(year from sysdate) || '-'||i ;
+      end if;
+      dbms_output.put_line('-------------' || vym ||'---------------------');
+      
+     
+     Sqlstr := ' delete from  plm_pj_df_temp_list_jscj where  dept = ''??????????????'' and ym = ''' || vym || ''' ';
+     execute immediate Sqlstr ; 
+  
+
+     insert into plm_pj_df_temp_list_jscj ( DEPT , YM , gh , xm , jgfz1 , bdfz , fzm  ,CREATETIME )
+     
+      select 
+      '??????????????',
+      to_char(t.ybft_jg,'yyyy-mm') ym ,
+      t.gh_jg,
+      t.xm_jg,
+      t.sjzf_jg,
+          p.bdfz, --17
+          p.fzm,  --350
+          to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
+          from v_plm_pj_xmfzhz2_jscj t inner join v_plm_pj_xmfzhz2_dq_param p on  t.ghxjg = p.empnox and to_char(t.ybft_jg,'yyyy-mm') = p.ym
+          where 1=1
+          and t.jgjg='????'
+          and t.dept like '%??????????????%'
+          and p.dept ='??????????????'
+          and t.name not like '%????%'
+        AND to_char(t.ybft_jg,'yyyy-mm') = vym
+      union all 
+      select 
+      '??????????????',
+      to_char(t.ybft_yb,'yyyy-mm') ym ,
+      t.gh_yb,
+      t.xm_yb,
+      t.sjzf_yb,
+          p.bdfz,
+          p.fzm,
+          to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
+          from v_plm_pj_xmfzhz2_jscj t  inner join v_plm_pj_xmfzhz2_dq_param p on  t.ghxyb = p.empnox and to_char(t.ybft_yb,'yyyy-mm') = p.ym
+          where 1=1
+          and t.ybjg='????'
+          and t.dept like '%??????????????%'
+          and p.dept ='??????????????'
+          and t.name not like '%????%'
+       AND to_char(t.ybft_yb,'yyyy-mm') = vym
+
+      union all 
+      select 
+      '??????????????',
+      to_char(t.ybft_tg,'yyyy-mm') ym ,
+      t.gh_tg,
+      t.xm_tg,
+      t.sjzf_tg,
+          p.bdfz,
+          p.fzm,
+          to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
+          from v_plm_pj_xmfzhz2_jscj t  inner join v_plm_pj_xmfzhz2_dq_param p on  t.ghxtg = p.empnox and to_char(t.ybft_tg,'yyyy-mm') = p.ym
+          where 1=1
+          and t.tgjg='????'
+          and t.dept like '%??????????????%'
+          and p.dept ='??????????????'
+          and t.name not like '%????%'
+       AND to_char(t.ybft_tg,'yyyy-mm') = vym
+       
+      union all 
+      select 
+      '??????????????',
+      to_char(t.ybft_sj,'yyyy-mm') ym ,
+      t.gh_sj,
+      t.xm_sj,
+      t.sjzf_sj,
+          p.bdfz,
+          p.fzm,
+          to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
+          from v_plm_pj_xmfzhz2_jscj t  inner join v_plm_pj_xmfzhz2_dq_param p on  t.ghxsj = p.empnox and to_char(t.ybft_sj,'yyyy-mm') = p.ym
+          where 1=1
+          and t.sjjg='????'
+          and t.dept like '%??????????????%'
+          and p.dept ='??????????????'
+          and t.name not like '%????%'
+       AND to_char(t.ybft_sj,'yyyy-mm') = vym 
+       
+        union all 
+        select 
+        t.dept,
+        t.ym,
+        t.empno ,
+        t.empname,
+        '0' as jggcs,
+         p.bdfz,
+         p.fzm,
+         to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
+        from v_plm_pj_xmfzhz2_dq_fzero t inner join v_plm_pj_xmfzhz2_dq_param p on  t.empnox = p.empnox and  t.ym = p.ym
+        where  t.dept = '??????????????'
+       AND t.ym = vym;
+       
+       
+       commit;
+       
+     i:=i+1;
+       
+      
+    end loop;  
+  
+  end;
+  
+  
+  --23 ?????????????????????????????? ??????????????????????
+  --add by ?????? 2023/04/28
+  -------------------------------------------------------------------------------
+  procedure p_insertplm_pj_dept_ydgrdf_jscj is 
+  i integer;
+  im integer;
+  vym varchar(50);
+  v_bdfz decimal(18,2);
+  Sqlstr  VARCHAR2(4000);
+  begin 
+  
+
+  if extract(month from sysdate) = 1  then 
+    i := 1;
+  else
+    i := extract(month from sysdate) - 1 ;
+  end if;
+  
+  im:=extract(month from sysdate);
+
+      ---????????2????????
+    while i<=im loop
+      if i<10 then
+
+         vym:= extract(year from sysdate) || '-0'||i;
+
+      else
+
+         vym:= extract(year from sysdate) || '-'||i ;
+      end if;
+      dbms_output.put_line('-------------' || vym ||'---------------------');
+      
+    
+     Sqlstr := ' delete from  plm_pj_dept_ydgrdf_jscj where  dept = ''??????????????'' and ym = ''' || vym || ''' ';
+     execute immediate Sqlstr ; 
+
+    
+    /*
+    ???????????? =????????????????+????????50%????
+    ????????????/??=????????????*350
+    1??????????=PLM????????????-???????? ????????-????????50%????
+    ????????=PLM????????????-???????? ????????- ????????50%????+ ????????????
+    ????????/??=????????*350
+    */
+    insert into plm_pj_dept_ydgrdf_jscj(createtime, dept,ym ,empno,empname,ljjy ,ljje ,ljjy_sy ) 
+    
+    select 
+    to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+    '??????????????',
+    vym as ym ,
+    case when tt.gh1 is null then b.empno  else  tt.gh1 end gh1,
+    case when tt.jggcs1 is null then b.empname  else  tt.jggcs1 end jggcs1, 
+    
+    
+    case when nvl(b.LJJY,0) <  0 and (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) > 0 and (nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) )  <= 0 then round(nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)),8)
+         when nvl(b.LJJY,0) <  0 and (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) > 0 and (nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) )  > 0  then round((nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) ) * 0.5,8) 
+    else 
+    
+       round(nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end 
+       + nvl(b.LJJY,0),8)  
+    
+    end,
+    
+    
+   ( case when nvl(b.LJJY,0) <  0 and (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) > 0 and (nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) )  <= 0 then round(nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)),8)
+         when nvl(b.LJJY,0) <  0 and (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) > 0 and (nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) )  > 0  then round((nvl(b.LJJY,0) + (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0)) ) * 0.5,8) 
+    else 
+    
+       round(nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) - case when (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5 < 0 then 0 else (nvl(sum(tt.jgfz1),0) - nvl(tt.bdfz,0) ) * 0.5  end 
+       + nvl(b.LJJY,0),8)  
+    
+    end ) * nvl(tt.fzm,350) , 
+    nvl(b.LJJY,0)
+     
+    from (
+    select 
+    t.gh_jg as gh1,
+    t.xm_jg as jggcs1,
+    to_number(t.sjzf_jg) as jgfz1,
+    p.bdfz, --17
+    p.fzm  --350
+    from v_plm_pj_xmfzhz2_jscj t inner join v_plm_pj_xmfzhz2_dq_param p on  t.ghxjg = p.empnox and to_char(t.ybft_jg,'yyyy-mm') = p.ym
+    where 1=1
+    and t.jgjg='????'
+    and t.dept like '%??????????????%'
+    and p.dept ='??????????????'
+    and t.name not like '%????%'
+     AND to_char(t.ybft_jg,'yyyy-mm') = vym
+
+    union all 
+    select   
+    t.gh_yb ,
+    t.xm_yb ,
+    to_number(t.sjzf_yb) ,
+    p.bdfz, --17
+    p.fzm  --350
+    from v_plm_pj_xmfzhz2_jscj t inner join v_plm_pj_xmfzhz2_dq_param p on  t.ghxyb = p.empnox and to_char(t.ybft_yb,'yyyy-mm') = p.ym
+    where 1=1
+    and t.ybjg='????'
+    and t.dept like '%??????????????%'
+    and p.dept ='??????????????'
+    and t.name not like '%????%'
+     AND to_char(t.ybft_yb,'yyyy-mm') = vym
+     
+    union all 
+    select   
+    t.gh_tg ,
+    t.xm_tg ,
+    to_number(t.sjzf_tg) ,
+    p.bdfz, --17
+    p.fzm  --350
+    from v_plm_pj_xmfzhz2_jscj t inner join v_plm_pj_xmfzhz2_dq_param p on  t.ghxtg = p.empnox and to_char(t.ybft_tg,'yyyy-mm') = p.ym
+    where 1=1
+    and t.tgjg='????'
+    and t.dept like '%??????????????%'
+    and p.dept ='??????????????'
+    and t.name not like '%????%'
+     AND to_char(t.ybft_tg,'yyyy-mm') = vym
+     
+    union all 
+    select   
+    t.gh_sj ,
+    t.xm_sj ,
+    to_number(t.sjzf_sj) ,
+    p.bdfz, --17
+    p.fzm  --350
+    from v_plm_pj_xmfzhz2_jscj t inner join v_plm_pj_xmfzhz2_dq_param p on  t.ghxsj = p.empnox and to_char(t.ybft_sj,'yyyy-mm') = p.ym
+    where 1=1
+    and t.sjjg='????'
+    and t.dept like '%??????????????%'
+    and p.dept ='??????????????'
+    and t.name not like '%????%'
+     AND to_char(t.ybft_sj,'yyyy-mm') = vym
+
+     -------0 ??-------
+     union all 
+     select 
+     t.empno ,
+     t.empname,
+     0 as jggcs,
+      p.bdfz,
+      p.fzm
+     from v_plm_pj_xmfzhz2_dq_fzero t inner join v_plm_pj_xmfzhz2_dq_param p on  t.empnox = p.empnox and t.ym = p.ym
+     where  t.dept like '%??????????????%'
+     and p.dept ='??????????????'
+     AND t.ym = vym
+     
+    ) tt full join ( select a.empno,a.empname, p.bdfz, p.fzm, sum(LJJY) LJJY  from plm_pj_dept_ydgrdf_jscj a 
+                     left join v_plm_pj_xmfzhz2_dq_param p on  a.dept = p.dept and a.empno = p.empno and a.ym = p.ym where a.dept like '%??????????????%'
+                     and a.ym = to_char(add_months(to_date(vym,'YYYY-MM'),-1),'YYYY-MM') and substr(a.ym,1,4) =  substr(vym,1,4) 
+                     group by a.empno,a.empname ,p.bdfz, p.fzm ) b on tt.gh1 = b.empno and tt.jggcs1 = b.empname 
+    group by  tt.gh1, tt.jggcs1 ,b.empno, b.empname ,b.LJJY ,tt.bdfz,tt.fzm , b.bdfz,b.fzm ; 
+ 
+    commit;
+     
+      i:=i+1;
+    end loop;
+  
+  end; 
+  
+  
+  --9999999 ????
+  -------------------------------------------------------------------------------
+  procedure p_test is  
+  i integer;
+  begin 
+    select 1 into i from dual;
+  end;
+  
+end pkg_plm;

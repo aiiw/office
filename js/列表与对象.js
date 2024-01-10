@@ -14,7 +14,11 @@ var objset = {
 
 
 objset.sex = "男"
-
+console.log("==================================");
 for (obj in objset) {
+    console.log(obj)
+}
+console.log("==================================");
+for (obj of objset) {
     console.log(obj)
 }

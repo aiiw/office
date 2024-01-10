@@ -16,7 +16,7 @@
 
 4. ###### 将123.model文件内容拷贝到 mywx/model
 
-5. ###### 生成模型关系文件
+5. ###### 生成模型关系文件d
 
    ```
    $ python manage.py makemigrations mywx  # 让 Django 知道我们在我们的模型有一些变更
