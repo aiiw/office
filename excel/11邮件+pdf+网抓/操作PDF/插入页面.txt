@@ -1,0 +1,12 @@
+Sub 插入页面()
+    Dim PD As Acrobat.AcroPDDoc, Doc As Acrobat.AcroAVDoc, result As Boolean
+    Dim xyj As Acrobat.AcroPDDoc
+    Set PD = GetObject("", "AcroExch.PDDoc")
+    PD.Open "C:\temp\三国演义.pdf"
+    Set xyj = GetObject("", "AcroExch.PDDoc")
+    xyj.Open "C:\temp\西游记.pdf"
+    result = PD.InsertPages(nInsertPageAfter:=3, iPDDocSource:=xyj, lStartPage:=0, lNumPages:=xyj.GetNumPages, lInsertFlags:=True)
+    Set Doc = PD.OpenAVDoc("")
+    Doc.Close bNoSave:=False
+End Sub
+

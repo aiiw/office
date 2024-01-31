@@ -1,0 +1,30 @@
+Private Sub Label1_Click()
+With Me.Label1
+.Caption = "http://www.baidu.com"
+Shell "explorer.exe " & .Caption
+End With
+End Sub
+
+'用Label的Click事件
+Private Sub Label1_Click()
+    CreateObject("wscript.shell").Run "http://club.excelhome.net/thread-1271106-1-1.html"
+End Sub
+
+
+'加上超链接效果
+Private Sub Label1_Click()
+    Shell "explorer.exe http://www.exceljy.com/"
+End Sub
+
+'=========================================================================================
+Private Sub Label1_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal y As Single)
+    Me.Label1.ForeColor = &HFF0000
+    Me.Label1.Font.Underline = True
+End Sub
+
+
+Private Sub UserForm_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal y As Single)
+    Me.Label1.ForeColor = &HFF&
+    Me.Label1.Font.Underline = False
+End Sub
+

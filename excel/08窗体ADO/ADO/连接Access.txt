@@ -1,0 +1,28 @@
+
+'前期绑定："Microsoft ActiveX Data Objects 6.1 Library"和"Microsoft ActiveX Data Objects Recordset 2.8 Library"，找最高版本
+Dim cnn As New ADODB.Connection
+Dim rs As New ADODB.Recordset
+'后期绑定：
+Set cnn = CreateObject("adodb.Connection")
+Set rst = CreateObject("ADODB.Recordset")
+Sub Test1()
+    Dim cns As String, sql As String
+    Dim c As Integer
+    cns ="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\MyDB.accdb;Persist Security Info=False;"
+    sql ="Select 学号 From 考试成绩"
+    cnn.ConnectionString = cns
+    cnn.Open
+    If cnn.State = adStateOpen Then
+        rs.Open sql, cnn, 1, 3'adUseClient,adSchemaTables,是对象的内定的常量，只有前期绑定才可以使用，后期绑定要使用数字常量。常量值可以在access的帮助里找到。
+        ActiveSheet.UsedRange.ClearContents
+        For c = 1 To rs.Fields.Count
+            ActiveSheet.Cells(1, c) = rs.Fields(c - 1).Name
+        Next c
+        ActiveSheet.Range("A2").CopyFromRecordset rs
+        rs.Close
+        cnn.Close
+        Set rs = Nothing
+        Set cnn = Nothing
+    End If
+End Sub
+

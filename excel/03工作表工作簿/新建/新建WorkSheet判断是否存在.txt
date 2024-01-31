@@ -1,0 +1,14 @@
+Sub AddWorksheetAfterLast()
+ On Error Resume Next
+ Worksheets.Add(After:=Worksheets(Worksheets.Count)).Name = "¹¤×÷±í2"
+ End Sub
+
+Private Function SheetExists(sname) As Boolean
+'   Returns TRUE if sheet exists in the active workbook
+    Dim x As Object
+    On Error Resume Next
+    Set x = ActiveWorkbook.Sheets(sname)
+    If Err = 0 Then SheetExists = True _
+        Else SheetExists = False
+End Function
+ 

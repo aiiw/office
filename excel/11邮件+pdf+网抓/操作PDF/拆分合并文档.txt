@@ -1,0 +1,33 @@
+Sub 拆分文档()
+    Dim PD As Acrobat.AcroPDDoc, Doc As Acrobat.AcroPDDoc, result As Boolean
+    Dim i As Integer
+    Set PD = GetObject("", "AcroExch.PDDoc")
+    PD.Open szFullPath:="C:\temp\三国演义.pdf"
+    For i = 1 To PD.GetNumPages Step 2
+        Set Doc = New AcroPDDoc
+        Doc.Create
+        result = Doc.InsertPages(nInsertPageAfter:=-1, iPDDocSource:=PD, lStartPage:=i - 1, lNumPages:=2, lInsertFlags:=0)
+        Doc.Save nType:=Acrobat.PDSaveFlags.PDSaveFull, sFullPath:="C:\temp\" & i & (i + 1) & ".pdf"
+        Doc.Close
+    Next i
+    PD.Close
+End Sub
+
+Sub 合并文档()
+    Dim PD As Acrobat.AcroPDDoc, Doc As Acrobat.AcroPDDoc, result As Boolean
+    Dim Files As Variant
+    Dim i As Integer
+    Set Doc = New AcroPDDoc
+    Doc.Create
+    Files = Array("C:\Private\1.pdf", "C:\Private\5.pdf", "C:\Private\8.pdf")
+    For i = 0 To UBound(Files)
+        Set PD = GetObject("", "AcroExch.PDDoc")
+        PD.Open szFullPath:=Files(i)
+        result = Doc.InsertPages(nInsertPageAfter:=Doc.GetNumPages - 1, iPDDocSource:=PD, lStartPage:=0, lNumPages:=PD.GetNumPages, lInsertFlags:=0)
+        PD.Close
+    Next i
+    Doc.Save nType:=Acrobat.PDSaveFlags.PDSaveFull, sFullPath:="C:\Private\Doc.pdf"
+    Doc.Close
+End Sub
+
+

@@ -1,0 +1,18 @@
+'前期绑定
+'需要添加引用Microsoft Internet Controls
+Sub Test1()
+    Dim IE As SHDocVw.InternetExplorer
+    Set IE = New SHDocVw.InternetExplorer
+    With IE
+        .Silent = True
+        .Visible = True
+        .Navigate "https://www.baidu.com/"
+        MsgBox "下面将自动退出浏览器"
+        .Quit
+    End With
+End Sub
+'后期绑定
+
+
+
+

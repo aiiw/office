@@ -1,0 +1,27 @@
+Sub 查找并选中所有0值()
+    Dim i As Integer, rng As Range, TargetRng As Range, FirstAdd As String
+    Set rng = Cells.Find(0, , , xlWhole)
+    If rng Is Nothing Then
+        MsgBox "不存在0值", vbOKOnly
+    Else
+        FirstAdd = rng.Address
+        Do
+            i = i + 1
+            Set rng = Cells.FindNext(rng)
+            If i = 1 Then Set TargetRng = rng Else Set TargetRng = Union(TargetRng, rng)
+            If rng.Address = FirstAdd Then TargetRng.Select: Exit Sub
+        Loop
+    End If
+End Sub
+
+'本示例在第一个工作表的单元格区域 A1:A500 中查找包含值 2 的所有单元格，并将这些单元格的值更改为 5。
+With Worksheets(1).Range("a1:a500")
+    Set c = .Find(2, lookin:=xlValues)
+    If Not c Is Nothing Then
+        firstAddress = c.Address
+        Do
+            c.Value = 5
+            Set c = .FindNext(c)
+        Loop While Not c Is Nothing And c.Address <> firstAddress
+    End If
+End With

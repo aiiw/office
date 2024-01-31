@@ -1,0 +1,59 @@
+
+Option Explicit
+Public Function WebTime()
+    Dim obj, OBJStatus, url, GetText, i
+    Dim Retrieval
+    url = "http://www.163.com"
+    WebTime = ""
+    '判断网络是否连接
+    If url <> "" Then
+        Set Retrieval = GetObject("winmgmts:\\.\root\cimv2")
+        Set obj = Retrieval.ExecQuery("Select * From Win32_PingStatus Where Address = '" & Mid(url, 8) & "'")
+        For Each OBJStatus In obj
+            If IsNull(OBJStatus.StatusCode) Or OBJStatus.StatusCode <> 0 Then
+                MsgBox "网络未连接！"
+                Exit Function
+            Else
+                Exit For    '已连接则继续
+            End If
+        Next
+    End If
+
+    '通过下载网页头信息获取网络时间
+    Set Retrieval = CreateObject("Microsoft.XMLHTTP")
+    With Retrieval
+        .Open "Get", url, False, "", ""
+        .setRequestHeader "If-Modified-Since", "0"
+        .setRequestHeader "Cache-Control", "no-cache"
+        .setRequestHeader "Connection", "close"
+        .Send
+        If .Readystate <> 4 Then Exit Function
+        GetText = .getAllResponseHeaders()
+        i = InStr(1, GetText, "date:", vbTextCompare)
+        If i > 0 Then    '网页下载成功
+            i = InStr(i, GetText, ",", vbTextCompare)
+            GetText = Trim(Mid(GetText, i + 1))
+            i = InStr(1, GetText, " GMT", vbTextCompare)
+            GetText = Left(GetText, i - 1)
+            WebTime = CDate(GetText) + #8:00:00 AM#
+        End If
+    End With
+    Set Retrieval = Nothing
+    Set OBJStatus = Nothing
+    Set obj = Nothing
+End Function
+
+Public Sub test()
+    MsgBox WebTime
+End Sub
+
+
+'方法2
+Private Function getWebDatetime() As String
+    Dim XmlHttp As Object
+    Set XmlHttp = CreateObject("Microsoft.XMLHTTP")
+    XmlHttp.Open "POST", "http://www.baidu.com", False
+    XmlHttp.send
+    getWebDatetime = CDate(1 / 3 + CDbl(CDate(Mid$(XmlHttp.getResponseHeader("Date"), 5, 21))))
+    Set XmlHttp = Nothing
+End Function

@@ -1,0 +1,23 @@
+cns ="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\MyDB.xlsx;Extended Properties='Excel 12.0 Xml;HDR=YES;IMEX=1';"
+sql ="Select 学号 From [Address$]"
+
+'将代码所在的Excel（2016版）作为一个外部数据源建立链接，代码如下
+'VBA代码Application.Version可以获取计算机的Excel版本号，因此以下代码兼顾了03及各高级版本Excel的情况：
+
+Sub Mycnn3()
+    Dim cnn As Object
+    Dim strPath As String
+    Dim str_cnn As String
+    Set cnn = CreateObject("adodb.connection")
+    strPath = ThisWorkbook.FullName
+    If Application.Version < 12 Then
+        str_cnn = "Provider=Microsoft.jet.OLEDB.4.0;Extended Properties=Excel 8.0;Data Source=" & strPath
+    Else
+        str_cnn = "Provider=Microsoft.ACE.OLEDB.12.0;Extended Properties=Excel 12.0;Data Source=" & strPath
+    End If
+    cnn.Open str_cnn
+    cnn.Close
+    Set cnn = Nothing
+End sub
+
+

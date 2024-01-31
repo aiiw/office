@@ -1,0 +1,20 @@
+Sub 选中光标所在段落()
+With Selection
+    .Expand 4
+    .MoveEnd , -1
+End With
+'Selection.End = Selection.End - 1
+End Sub
+
+Sub 选中光标所在段落，表格的话，只选中一行()
+    With Selection
+        If .MoveStartUntil(vbCr, wdBackward) Then
+            .MoveStartUntil vbCr, wdBackward
+            .MoveEndUntil vbCr
+        Else
+            .Expand 4: .End = .End - 1
+        End If
+    End With
+End Sub
+
+

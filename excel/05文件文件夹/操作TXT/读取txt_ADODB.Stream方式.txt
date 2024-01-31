@@ -1,0 +1,16 @@
+'需要添加引用Microsoft ActiveX Data Objects 2.8 Library
+Sub Test5()
+    Dim st As ADODB.Stream
+    Set st = New ADODB.Stream
+    With st
+        .Type = adTypeText
+        .Mode = adModeReadWrite
+        .Charset = "UTF-8"
+        .Open
+        .LoadFromFile "C:\temp\a.txt"
+        .Position = 0
+        Debug.Print .ReadText '打印全部内容
+        .Close
+    End With
+End Sub
+

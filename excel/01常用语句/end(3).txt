@@ -1,0 +1,2 @@
+    Set sht = wb.ActiveSheet
+    lastrow = sht.Cells(sht.Rows.Count, 4).End(3).Row

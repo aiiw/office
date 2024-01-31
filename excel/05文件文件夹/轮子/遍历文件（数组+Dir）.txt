@@ -1,0 +1,53 @@
+Dim arr(), i  '声明公共变量，供两个过程调用
+Sub 提取文件清单()
+  Dim fd As Object, PathStr As String
+  Set fd = Application.FileDialog(msoFileDialogFolderPicker)  '打开选择文件的对话框
+  With fd  '如果选择了目录则提取目录的路径，否则退出程序
+    If .Show = -1 Then PathStr = .SelectedItems(1) Else Exit Sub
+  End With
+  If Right(PathStr, 1) <> "\" Then PathStr = PathStr & "\"  '如果路径右边没有"\"则追加一个
+  Cells.Clear  '清除所有单元格的数据
+  Application.ScreenUpdating = False  '并闭屏幕更新
+  i = 0
+  Call 查找(PathStr)  '执行查找程序
+  '如果找到有文件，则所数组的值导入到单元格中。数组中包括所有找到的文件
+  [a1:c1] = Array("路径", "文件名", "大小（MB）")
+  If i > 0 Then [a2].Resize(i, 3) = WorksheetFunction.Transpose(arr)
+  [a1:c1].EntireColumn.AutoFit  '按字符自动调整宽度
+  [c:c].NumberFormat = "0.00" '保留两位小数
+  Application.ScreenUpdating = True  '恢复屏幕更新
+End Sub
+Public Sub 查找(ByVal 路径 As String)  '查找文件的过程
+  Dim Dirs() As String, Dir_Count As Long, File_Name As String, File_Name_2 As String, j
+  If Right(路径, 1) <> "\" Then 路径 = 路径 & "\" '如果路径最后一位非\则追加一个\
+  File_Name = Dir(路径 & "*.*", vbDirectory)  '获取文件文录名称
+  Do While Len(File_Name) <> 0  '只要文件目录名存在（目录字符长度大于字）就循环下去
+    If Left$(File_Name, 1) <> "." Then  '如果左边第一字符为"."
+      File_Name_2 = 路径 & File_Name  '获取子目录
+      If (GetAttr(File_Name_2) And vbDirectory) = vbDirectory Then  '如果是文件夹
+        Dir_Count = Dir_Count + 1  '计算子目录数量
+        ReDim Preserve Dirs(1 To Dir_Count) As String  '重新声明数组的储存空间
+        Dirs(Dir_Count) = File_Name_2  '将子目录名称写入数组Dirs中
+      Else  '如果不是文件夹目录
+        i = i + 1  '累加变量，该变量等于文件数量
+        ReDim Preserve arr(1 To 3, 1 To i)  '重新声明数组的储存空间
+        arr(1, i) = 路径  '将文件路径写入数组
+        arr(2, i) = File_Name  '将文件名写入数组
+        arr(3, i) = FileLen(路径 & File_Name) / 1024 / 1024  '将文件大小写入数组
+      End If
+    End If
+    File_Name = Dir()  '查找下一个文件
+  Loop
+  For j = 1 To Dir_Count  '遍历数组Dirs，即将子目录进行查找
+    查找 Dirs(j)  '调用自身再执行文件查找
+  Next j
+End Sub
+
+Sub 文件链接()
+  For j = 2 To Cells(Rows.Count, 2).End(xlUp).Row
+    ActiveSheet.Hyperlinks.Add Cells(j, 2), Cells(j, 1) & Cells(j, 2)
+  Next j
+End Sub
+
+
+

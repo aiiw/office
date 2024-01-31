@@ -1,0 +1,11 @@
+Sub 读取txt()
+    strr = Dir(ThisWorkbook.Path & "\" & "*.txt")  '取出第一个文件
+    Do While strr <> ""  '当取出来的文件名不是空的时候，才运行循环体内部的代码
+        Workbooks.OpenText Filename:=ThisWorkbook.Path & "\" & strr  '打开文本文件
+          录制的宏代码
+        ActiveWorkbook.SaveAs ThisWorkbook.Path & "\" & Left(strr, Len(strr) - 4) & ".xlsx", xlWorkbookDefault'保存文件
+        ActiveWorkbook.Close
+    strr = Dir  '再使用一次Dir函数，取出下一个txt文件名，直到取出的文件名为空的时候，结束循环  
+    Loop
+End Sub
+

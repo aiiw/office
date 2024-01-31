@@ -1,0 +1,382 @@
+'Option Explicit
+''''本模块包含的函数为''2019-6-14 21:06' EXCEL880.COM'
+' 1-一维数组排序 ArraySort
+' 2-二维数组排序 ArraySortIndex
+' 3-排名函数     RankAdvanced 整组排名
+' 4-排名函数     单个在组内排名
+' 感谢香川群子原作
+Enum EnumSortType '排序方式枚举
+    SortASC = -1       '升序 空值会排最前
+    SortSheetASC = 1 '升序 和工作表排序方式一致 空行排最后
+    SortDESC = 2      '降序
+End Enum
+Enum EnumRankType '排名方式枚举
+    RankTypeCN = 0 '中式
+    RankTypeUSA = 1 '美式
+End Enum
+'一维数组自定义排序
+Function RecSort(arr, Optional z& = 0, Optional c& = 0)
+   '参数-1：arr 对一维数组arr中的内容进行A-Z排序
+   '参数-2：z   可以指定z=1 去重复、z=0 不去重复 默认z=0不去重复
+   '参数-3：c   可以指定对数值内容的排序模式
+   '        默认c=0 保持原数据格式(文本、数值分开排序,先数值后文本) 如: 1、3、12、"1"、"12"、"2"、"21"、"3" 
+   '              c=1 一律按数值排序如 1、2、3、21、33
+   '             c=-1 一律按文本排序如 "1"、"2"、"21"、"3"、"33"
+
+    Dim i&, j&, k&, l&, n&, u&, t
+    l = LBound(arr): n = l: u = UBound(arr)
+    ReDim trr(l To u) '定义存放排序结果的数组trr
+    
+    For i = l To u '遍历检查
+        t = arr(i): If IsNumeric(t) Then If c = 1 Then t = Val(t) Else If c = -1 Then t = CStr(t)
+        '如为数值 则根据c参数转换　c=1 转为数值　=0 保持原来格式　=-1 转为文本数值
+        For j = l To n '遍历检查已有数据
+            If z Then If trr(j) = t Then n = n - 1: Exit For 'z=1 去重复/=0 重复可
+            If trr(j) > t Then
+                For k = n To j + 1 Step -1 '倒序交換位置空出新位置
+                    trr(k) = trr(k - 1)
+                Next
+                trr(k) = t '空出位置插入新值t
+                Exit For
+            End If
+        Next
+        If j > n Then trr(j - 1) = t '最后位置插入新值t
+        n = n + 1
+    Next
+    If z Then ReDim Preserve trr(l To n - 1) '去重复时重新定义数组trr大小
+    RecSort = trr '输出排序后的一维数组结果
+End Function
+
+'一维数组自定义排序
+Function sortarr(arr, z)
+ 
+    If z = 1 Then
+    
+    For x = 1 To UBound(arr) - 1
+        For y = x + 1 To UBound(arr) '只和当前数字下面的数进行比较
+            If arr(x) > arr(y) Then  '如果它大于它下面某一个数字。/目前是升序排列，换成<就是降序排列
+                temp = arr(x)
+                arr(x) = arr(y)
+                arr(y) = temp
+            End If
+        Next y
+    Next x
+ElseIf z = -1 Then
+
+    For x = 1 To UBound(arr) - 1
+        For y = x + 1 To UBound(arr) '只和当前数字下面的数进行比较
+            If arr(x) < arr(y) Then  '如果它大于它下面某一个数字。/目前是升序排列，换成<就是降序排列
+                temp = arr(x)
+                arr(x) = arr(y)
+                arr(y) = temp
+            End If
+        Next y
+    Next x
+
+End If
+
+End Function
+
+
+
+
+
+
+
+Function ArraySortOne(arrx, Optional order As EnumSortType = 1) '一维数组排序，最常用
+    '一维数组排序 直接传入数组,在数组内部直接调用快速排序完成
+    'arrx--原始数组
+    'order--排序方式 返回排序完成的数组
+    '这里排序方式 只选SortASC和SortDESC 分别为升序和降序
+    Dim arr
+    arr = arrx '不破坏原数组 复制一个
+    QuickSort arr, LBound(arr), UBound(arr)
+    If order = 2 Then '倒序
+        Dim brr, k, i
+        brr = arr
+        k = LBound(arr)
+        For i = UBound(arr) To LBound(arr) Step -1
+            arr(k) = brr(i)
+            k = k + 1
+        Next
+    End If
+    ArraySortOne = arr
+End Function
+Function ArraySortTwo(arr, key1, Optional sort1 As EnumSortType = 1, _
+    Optional key2, Optional sort2 As EnumSortType = 1, _
+    Optional key3, Optional sort3 As EnumSortType = 1, _
+    Optional key4, Optional sort4 As EnumSortType = 1, _
+    Optional key5, Optional sort5 As EnumSortType = 1, _
+    Optional key6, Optional sort6 As EnumSortType = 1)
+    '给最多6列排序方式 方便调用 一般来说 不会那么多 要更多可以自己 加参数
+    '二维数组排序 返回所有列结果
+    'arr--源数组
+    'key1 sort1  排序列,排序方式 后面依次类推
+    'ArraySortTwo arr, 1, SortDESC, 2, SortDESC
+    '这里特别注意 如果要让空值在升序的时候排在最后 和我们使用表格排序表现一致
+    '需要使用参数 SortSheetASC
+    Dim h&, n&, brrIndex, arrx
+    ReDim sr(11) '排序参数数组
+    sr(0) = key1: sr(1) = sort1
+    sr(2) = key2: sr(3) = sort2
+    sr(4) = key3: sr(5) = sort3
+    sr(6) = key4: sr(7) = sort4
+    sr(8) = key5: sr(9) = sort5
+    sr(10) = key6: sr(11) = sort6
+    If IsMissing(key2) Then
+        n = 1
+    ElseIf IsMissing(key3) Then
+        n = 3
+    ElseIf IsMissing(key4) Then
+        n = 5
+    ElseIf IsMissing(key5) Then
+        n = 7
+    ElseIf IsMissing(key6) Then
+        n = 9
+    End If
+    ReDim Preserve sr(n) '构建排序参数
+    h = 0 '为避免调用混淆,这里h默认都为0值
+    arrx = arr '复制数组 不破坏原数组
+    brrIndex = ArraySortIndex(arrx, h, sr) '得到排序后数组序号
+    ArraySortTwo = ArrayChongZu(arrx, brrIndex, h) '或返回按排序后Index顺序引用返回的排序结果数组br
+End Function
+Function ArraySortIndex(ar, h&, ParamArray sr())
+    'by kagawa 2015/12/4-12/7 主要参考借鉴了Zamyi大侠的二维数组多key排序算法
+    '本函数 对二维数组排序后 返回index
+    '第1参数ar：为待排序二维数组
+    '第2参数h：为不参与排序的标题行的行数
+    '第3参数sr：为按权重优先顺序key、Sort值交替排列的一维数组、或以逗号分隔直接写入Key、Sort值。
+    Dim br, y, sr2, i&, i2&, i3&, i4&, j&, j2&, k&, l&, u&, s&, t
+    l = LBound(ar) + h: u = UBound(ar) '获取数组起始、结束位置
+    ReDim x&(l To u), z(l To u + 1) As Boolean '定义存放Index序号的数组x、标记段落结束位置的数组z
+    For i = l To u
+        x(i) = i 'Index赋值为数组行序号、这以后排序就只需改变这个Index位置、原始数组无需改变
+    Next
+    z(u + 1) = True '标记最后结束位置
+    If UBound(sr) = 0 Then sr2 = sr(0) Else sr2 = sr '判断第3参数是数组、还是多Key、Sort值序列
+    j = sr2(0): If sr2(1) Mod 2 Then Call QuickSort1(ar, x, j, l, u) Else Call QuickSort2(ar, x, j, l, u)
+    '按key1先进行QuickSort排序
+    If sr2(1) = 1 Then Call AZE(ar, x, j, l, u) '如果Sort值=1则需要调用AZE过程、把空值移动到最后
+    For k = 2 To UBound(sr2) Step 2 '接着循环继续key2以后的排序
+        '        br = ArrayChongZu(ar, x, h): [k1].Resize(UBound(br) - LBound(br) + 1, UBound(br, 2) - LBound(br, 2) + 1) = br
+        j2 = sr2(k): s = sr2(k + 1) '读取排序key的列序号j2 和Sort值s
+        i = l: t = ar(x(i), j): i2 = i 'Do循环检查是否前key相同【注意，仅仅前key相同部分需要继续排序】
+        Do
+            Do
+                i2 = i2 + 1: If z(i2) Then Exit Do Else If ar(x(i2), j) <> t Then z(i2) = True: Exit Do
+                '递增检查如果到了前前key的结束位置、或前key不同则停止退出Do循环
+            Loop
+            If i2 - i > 1 Then '如果间隔>1 则本key需要排序处理【注意排序区间是小范围i,i2-1】
+                If s Mod 2 Then Call QuickSort1(ar, x, j2, i, i2 - 1) Else Call QuickSort2(ar, x, j2, i, i2 - 1)
+                If s = 1 Then Call AZE(ar, x, j2, i, i2 - 1) '如果Sort值=1则需要调用AZE过程、把空值移动到最后
+            End If
+            If i2 > u Then Exit Do Else i = i2: t = ar(x(i), j) '循环到最后时退出、否则继续从i2重新开始Do循环
+        Loop
+        j = j2 '更新前key列位置j
+    Next
+    '全部排序循环结束后、为保证最后的排序稳定性、检查最后的key值相同时必须按Index值排序。
+    i = l: t = ar(x(i), j): i2 = i
+    Do
+        Do
+            i2 = i2 + 1: If z(i2) Then Exit Do Else If ar(x(i2), j) <> t Then Exit Do '检查方法相同
+        Loop
+        If i2 - i > 1 Then Call QuickSort(x, i, i2 - 1) '如果间隔>1 则Index值需要排序处理
+        If i2 > u Then Exit Do Else i = i2: t = ar(x(i), j) '循环到最后时退出、否则继续
+    Loop
+    ArraySortIndex = x '多key稳定排序处理结束、返回排序结果的Index数组x
+End Function
+Private Function ArrayChongZu(ar, nr, h&)
+    'Output Result Array 按排序后nr数组顺序、引用原数组对应Index值各列返回数组排序结果
+    'ar--源数组
+    'br--新序号
+    'h---标题行数
+    Dim br, i&, i2&, j2&, l&, l2&, u&, u2&
+    l = LBound(ar) + h: u = UBound(ar)
+    l2 = LBound(ar, 2): u2 = UBound(ar, 2)
+    br = ar
+    For i = l To u
+        i2 = nr(i) '引用原数组对应Index值
+        For j2 = l2 To u2
+            br(i, j2) = ar(i2, j2) '按排序结果引用原数组对应值返回
+        Next
+    Next
+    ArrayChongZu = br
+End Function
+Private Function QuickSort(x, l&, u&) 'A-Z QuickSort '最后稳定排序时对相同key的Index值升序排序
+    'x=要排序的数组
+    'l 开始排序的下标
+    'u 结束排序的下标
+    Dim i&, j&, n, r
+    i = l: j = u: r = x((l + u) \ 2)
+    While i < j
+        While x(i) < r: i = i + 1: Wend 'A-Z
+            While x(j) > r: j = j - 1: Wend 'A-Z
+                If i <= j Then: n = x(i): x(i) = x(j): x(j) = n: i = i + 1: j = j - 1
+            Wend
+            If l < j Then Call QuickSort(x, l, j)
+            If i < u Then Call QuickSort(x, i, u)
+End Function
+Private Function QuickSort1(ar, x, j2&, l&, u&) 'A-Z QuickSort 按原数组j2列对应内容进行升序排序
+    Dim i&, j&, n, r
+    i = l: j = u: r = ar(x((l + u) \ 2), j2)
+    While i < j
+        While ar(x(i), j2) < r And i < u: i = i + 1: Wend   'A-Z
+            While ar(x(j), j2) > r And j > l: j = j - 1: Wend   'A-Z
+                If i <= j Then n = x(i): x(i) = x(j): x(j) = n: i = i + 1: j = j - 1
+            Wend
+            If l < j Then Call QuickSort1(ar, x, j2, l, j)
+            If i < u Then Call QuickSort1(ar, x, j2, i, u)
+End Function
+Private Function QuickSort2(ar, x, j2&, l&, u&) 'Z-A QuickSort 按原数组j2列对应内容进行降序排序
+    Dim i&, j&, n, r
+    i = l: j = u: r = ar(x((l + u) \ 2), j2)
+    While i < j
+        While ar(x(i), j2) > r And i < u: i = i + 1: Wend 'Z-A
+            While ar(x(j), j2) < r And j > l: j = j - 1: Wend 'Z-A
+                If i <= j Then n = x(i): x(i) = x(j): x(j) = n: i = i + 1: j = j - 1
+            Wend
+            If l < j Then Call QuickSort2(ar, x, j2, l, j)
+            If i < u Then Call QuickSort2(ar, x, j2, i, u)
+End Function
+Private Function AZE(ar, x, j, l&, u&) 'Sort值=1时、把排序完成后的空值移动到最后
+    Dim i&, i2&, y
+    For i = l To u
+        If ar(x(i), j) <> "" Then '检查直到非空位置时停止
+            y = x '复制Index数组x到y
+            For i2 = l To i - 1
+                x(u - i + i2 + 1) = y(i2) '前面的空值对应Index值移动到最后
+            Next
+            For i2 = i To u
+                x(i2 - i + l) = y(i2) '后面的非空值对应Index值移动到前面
+            Next
+            Exit For
+        End If
+    Next
+End Function
+Function RankAdvanced(arr_rng, ncol, rankType As EnumRankType)
+    '对arr数组(2维)排序 对数组的ncol列作为关键字进行排序
+    '返回一个 n行一列的数组
+    '排名方式 0-中式,1-美式
+    Dim brr, i, crr, arr, drr, j
+    arr = arr_rng
+    brr = ArraySortIndex(arr, 0, ncol, 2)
+    ReDim crr(1 To UBound(arr), 1 To 1)
+    ReDim drr(1 To UBound(arr), 1 To 1)
+    crr(1, 1) = 1
+    If rankType = 1 Then '美式
+        For i = 2 To UBound(brr)
+            If brr(i, ncol) = brr(i - 1, ncol) Then
+                crr(i, 1) = crr(i - 1, 1)
+            Else
+                crr(i, 1) = i
+            End If
+        Next
+    Else '中式
+        For i = 2 To UBound(brr)
+            If brr(i, ncol) = brr(i - 1, ncol) Then
+                crr(i, 1) = crr(i - 1, 1)
+            Else
+                crr(i, 1) = crr(i - 1, 1) + 1
+            End If
+        Next
+    End If
+    '名次按原位置摆放
+    For i = 1 To UBound(arr)
+        For j = 1 To UBound(brr)
+            If arr(i, ncol) = brr(j, ncol) Then
+                drr(i, 1) = crr(j, 1)
+                Exit For
+            End If
+        Next
+    Next
+    RankAdvanced = drr
+End Function
+Function RankMoni(target, rng_arr, rankType As EnumRankType)
+    '仿照系统排名函数 返回 target在rngarr数列中的名次
+    '返回一个 n行一列的数组
+    '排名方式 0-中式,1-美式
+    Dim brr, i, crr, arr, ncol
+    arr = rng_arr
+    brr = ArraySortIndex(arr, 0, 1, 2)
+    ReDim crr(1 To UBound(arr), 1 To 1)
+    crr(1, 1) = 1
+    ncol = 1
+    If target = brr(1, ncol) Then
+        RankMoni = 1
+        Exit Function
+    End If
+    '不是第一名
+    If rankType = 1 Then '美式
+        For i = 2 To UBound(brr)
+            If brr(i, ncol) = brr(i - 1, ncol) Then
+                crr(i, 1) = crr(i - 1, 1)
+            Else
+                crr(i, 1) = i
+            End If
+            If target = brr(i, ncol) Then
+                RankMoni = crr(i, 1)
+                Exit Function
+            End If
+        Next
+    Else '中式
+        For i = 2 To UBound(brr)
+            If brr(i, ncol) = brr(i - 1, ncol) Then
+                crr(i, 1) = crr(i - 1, 1)
+            Else
+                crr(i, 1) = crr(i - 1, 1) + 1
+            End If
+            If target = brr(i, ncol) Then
+                RankMoni = crr(i, 1)
+                Exit Function
+            End If
+        Next
+    End If
+    RankMoni = crr
+End Function
+Sub test1() '【二维数组多key稳定排序】的应用示例
+    Dim ar, br, nr, sr, h&, i&, j&, m&, n&, r&, tms#
+    m = 20000: n = 8
+    ReDim a(1 To m, 1 To n)
+    For i = 1 To m
+        a(i, 1) = i
+        For j = 2 To n
+            r = Int(Rnd * 10): If r Then a(i, j) = r
+        Next
+        a(i, 8) = i
+    Next
+    ar = a '以上生成m行n列的VBA内存二维数组
+    '    ar = [k1].CurrentRegion.Value '也可直接读取工作表区域得到二维数组
+    sr = Array(3, -1, 5, 2, 7, 1) '按权重优先顺序key、Sort值交替排列的一维数组。key为列序号、Sort值：1升序、2降序
+    '    sr = Array(3, -1, 5, 2, 7, -1)'Sort值=-1时，升序并且空值会在最前面。(Sort=1时按工作表排序方法空值排在最后)
+    'Sort值=2时、降序而空值自然会在最后。
+    tms = Timer
+    nr = ArraySortIndex(ar, 0, sr) '第1参数为待排序二维数组、第2参数为不参与排序的标题行的行数
+    '第3参数为按权重优先顺序key、Sort值交替排列的一维数组。
+    Debug.Print "Sort1: " & Format(Timer - tms, "0.00s ") & "Sort"
+    '    nr = ArraySortIndex(ar, 0, 3, 1, 5, 2, 7, 1) '也可这样写入参数。从第3个参数开始交替写入key、Sort值。推荐第1种写法。
+    '    Exit Sub
+    '    下面是返回排序后数组结果?并输出到工作表的代码
+    br = ArrayChongZu(ar, nr, 0): [K2].Resize(UBound(br) - LBound(br) + 1, UBound(br, 2) - LBound(br, 2) + 1) = br
+End Sub
+Sub test2() '【二维数组多key稳定排序】的应用示例
+    Dim ar, br, nr, sr, h&, i&, j&, m&, n&, r&, tms#
+    Dim a()
+    m = 20000: n = 8
+    ReDim a(1 To m, 1 To n)
+    For i = 1 To m
+        a(i, 1) = i
+        For j = 2 To n
+            r = Int(Rnd * 10): If r Then a(i, j) = r
+        Next
+        a(i, 8) = i
+    Next
+    ar = a '以上生成m行n列的VBA内存二维数组
+    crr = ArraySortTwo(ar, key1:=1, sort1:=SortASC, key2:=2, sort2:=SortASC) '二维数组排序
+    ReDim a(1 To m)
+    For i = 1 To m
+        a(i, 1) = Rnd
+    Next
+    ar = a
+    crr = ArraySortOne(ar, 1) '二维数组排序
+End Sub
+

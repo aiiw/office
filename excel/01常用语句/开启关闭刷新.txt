@@ -1,0 +1,10 @@
+﻿    Application.DisplayAlerts = False
+    Application.ScreenUpdating = False
+    Application.AskToUpdateLinks = False
+    Application.Calculation = xlManual
+
+    Application.DisplayAlerts = true
+    Application.ScreenUpdating = true
+    Application.AskToUpdateLinks =true
+    Application.Calculation = xlAutomatic
+ 

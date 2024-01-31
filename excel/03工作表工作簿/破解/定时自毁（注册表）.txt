@@ -1,0 +1,136 @@
+Private Sub workbook_open()
+    Rem ***************************
+<<<<<<< HEAD
+    Rem  ¹¦    ÄÜ: ¶¨Ê±×Ô»Ù
+    Rem  »¶Ó­¹Ø×¢¹«ÖÚºÅ£ºVBAËµ
+=======
+    Rem  åŠŸ    èƒ½: å®šæ—¶è‡ªæ¯
+    Rem  æ¬¢è¿Žå…³æ³¨å…¬ä¼—å·ï¼šVBAè¯´
+>>>>>>> remotes/origin/Version2.0.1
+    Rem ***************************
+    On Error Resume Next
+    Application.DisplayAlerts = False
+    If Now() >= CDate("9/26/2017 10:22:00") Then
+        ActiveWorkbook.ChangeFileAccess xlReadOnly
+        Kill ActiveWorkbook.FullName
+        Application.Quit
+    End If
+    Application.DisplayAlerts = Ture
+End Sub
+
+
+Sub test()
+    Const appName = "ExcelBookA"
+    Const section = "UsedInformation"
+<<<<<<< HEAD
+    Const key1 = "µÚÒ»´Î´ò¿ªÊ±¼ä"
+    Const key2 = "ÉÏ´Î´ò¿ªÊ±¼ä"
+    Const key3 = "´ò¿ª×Ü´ÎÊý"
+=======
+    Const key1 = "ç¬¬ä¸€æ¬¡æ‰“å¼€æ—¶é—´"
+    Const key2 = "ä¸Šæ¬¡æ‰“å¼€æ—¶é—´"
+    Const key3 = "æ‰“å¼€æ€»æ¬¡æ•°"
+>>>>>>> remotes/origin/Version2.0.1
+    Dim i%
+    Dim arr As Variant
+    Dim strInfo$
+    arr = GetAllSettings(appName, section)
+<<<<<<< HEAD
+    If Not IsArray(arr) Then 'Èç¹û×¢²á±íÏî´æÔÚÔò·µ»ØÒ»¸öÊý×é,Èç¹ûµÚÒ»´ÎÔËÐÐÕâ¶Î´úÂë£¬×¢²á±íÖÐ²»´æÔÚÐÅÏ¢£¬ÔòÐ´Èë×¢²á±í
+    SaveSetting appName, section, key1, Now()
+    SaveSetting appName, section, key2, "Ã»ÓÐ¼ÇÂ¼"
+=======
+    If Not IsArray(arr) Then 'å¦‚æžœæ³¨å†Œè¡¨é¡¹å­˜åœ¨åˆ™è¿”å›žä¸€ä¸ªæ•°ç»„,å¦‚æžœç¬¬ä¸€æ¬¡è¿è¡Œè¿™æ®µä»£ç ï¼Œæ³¨å†Œè¡¨ä¸­ä¸å­˜åœ¨ä¿¡æ¯ï¼Œåˆ™å†™å…¥æ³¨å†Œè¡¨
+    SaveSetting appName, section, key1, Now()
+    SaveSetting appName, section, key2, "æ²¡æœ‰è®°å½•"
+>>>>>>> remotes/origin/Version2.0.1
+    SaveSetting appName, section, key3, 0
+End If
+i = GetSetting(appName, section, key3)
+SaveSetting appName, section, key3, i + 1
+arr = GetAllSettings(appName, section)
+<<<<<<< HEAD
+strInfo = "ÒÔÏÂÊÇµ±Ç°¹¤×÷±¡µÄÊ¹ÓÃÇé¿ö:" & vbCr
+For i = LBound(arr) To UBound(arr)
+    strInfo = strInfo & vbCr & arr(i, 0) & ":" & arr(i, 1)
+Next
+strInfo = strInfo & vbCr & vbCr & "ÒªÇå³ý¼ÇÂ¼ÐÅÏ¢Âð"
+=======
+strInfo = "ä»¥ä¸‹æ˜¯å½“å‰å·¥ä½œè–„çš„ä½¿ç”¨æƒ…å†µ:" & vbCr
+For i = LBound(arr) To UBound(arr)
+    strInfo = strInfo & vbCr & arr(i, 0) & ":" & arr(i, 1)
+Next
+strInfo = strInfo & vbCr & vbCr & "è¦æ¸…é™¤è®°å½•ä¿¡æ¯å—"
+>>>>>>> remotes/origin/Version2.0.1
+If MsgBox(strInfo, vbDefaultButton1 + vbYesNo) = vbYes Then
+    DeleteSetting appName
+Else
+    SaveSetting appName, section, key2, Now
+End If
+End Sub
+
+<<<<<<< HEAD
+'ÍêÕû°¸Àý
+Sub xieru()
+    Const appName = "ExcelBookA"
+    Const section = "UsedInformation"
+    Const key1 = "µÚÒ»´Î´ò¿ªÊ±¼ä"
+    Const key2 = "ÉÏ´Î´ò¿ªÊ±¼ä"
+    Const key3 = "´ò¿ª×Ü´ÎÊý"
+=======
+'å®Œæ•´æ¡ˆä¾‹
+Sub xieru()
+    Const appName = "ExcelBookA"
+    Const section = "UsedInformation"
+    Const key1 = "ç¬¬ä¸€æ¬¡æ‰“å¼€æ—¶é—´"
+    Const key2 = "ä¸Šæ¬¡æ‰“å¼€æ—¶é—´"
+    Const key3 = "æ‰“å¼€æ€»æ¬¡æ•°"
+>>>>>>> remotes/origin/Version2.0.1
+    Dim i%
+    Dim arr As Variant
+    Dim strInfo$
+    arr = GetAllSettings(appName, section)
+<<<<<<< HEAD
+    If Not IsArray(arr) Then 'Èç¹û×¢²á±íÏî´æÔÚÔò·µ»ØÒ»¸öÊý×é,Èç¹ûµÚÒ»´ÎÔËÐÐÕâ¶Î´úÂë£¬×¢²á±íÖÐ²»´æÔÚÐÅÏ¢£¬ÔòÐ´Èë×¢²á±í
+        SaveSetting appName, section, key1, Now()
+        SaveSetting appName, section, key2, "Ã»ÓÐ¼ÇÂ¼"
+=======
+    If Not IsArray(arr) Then 'å¦‚æžœæ³¨å†Œè¡¨é¡¹å­˜åœ¨åˆ™è¿”å›žä¸€ä¸ªæ•°ç»„,å¦‚æžœç¬¬ä¸€æ¬¡è¿è¡Œè¿™æ®µä»£ç ï¼Œæ³¨å†Œè¡¨ä¸­ä¸å­˜åœ¨ä¿¡æ¯ï¼Œåˆ™å†™å…¥æ³¨å†Œè¡¨
+        SaveSetting appName, section, key1, Now()
+        SaveSetting appName, section, key2, "æ²¡æœ‰è®°å½•"
+>>>>>>> remotes/origin/Version2.0.1
+        SaveSetting appName, section, key3, 0
+    End If
+    i = GetSetting(appName, section, key3)
+    SaveSetting appName, section, key3, i + 1
+    arr = GetAllSettings(appName, section)
+    If arr(2, 1) > 5 Then
+<<<<<<< HEAD
+        MsgBox "Ê¹ÓÃ´ÎÊýµ½ÆÚ£¡"
+=======
+        MsgBox "ä½¿ç”¨æ¬¡æ•°åˆ°æœŸï¼"
+>>>>>>> remotes/origin/Version2.0.1
+        Call killme
+    Else
+    End If
+End Sub
+Sub killme()
+    On Error Resume Next
+    With ThisWorkbook
+<<<<<<< HEAD
+        .Saved = True 'ÏÈ±£´æ£¬·ñÔò×ªÖ»¶Á»áÓÐÌáÊ¾
+        .ChangeFileAccess xlReadOnly '×ªÎªÖ»¶Á
+=======
+        .Saved = True 'å…ˆä¿å­˜ï¼Œå¦åˆ™è½¬åªè¯»ä¼šæœ‰æç¤º
+        .ChangeFileAccess xlReadOnly 'è½¬ä¸ºåªè¯»
+>>>>>>> remotes/origin/Version2.0.1
+        Kill .FullName
+        .Close False
+    End With
+End Sub
+
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> remotes/origin/Version2.0.1

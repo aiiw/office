@@ -1,0 +1,12 @@
+Private Declare Function GetWindowLong Lib "user32" Alias "GetWindowLongA" (ByVal hwnd As Long, ByVal nIndex As Long) As Long
+Private Declare Function SetWindowLong Lib "user32" Alias "SetWindowLongA" (ByVal hwnd As Long, ByVal nIndex As Long, ByVal dwNewLong As Long) As Long
+Private Declare Function FindWindow Lib "user32" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
+Private Declare Function SetLayeredWindowAttributes Lib "user32" (ByVal hwnd As Long, ByVal crKey As Long, ByVal bAlpha As Byte, ByVal dwFlags As Long) As Long
+Private Sub UserForm_Initialize()
+  Me.BackColor = &HFFFFFF
+  hwnd = FindWindow(vbNullString, Me.Caption)
+  SetWindowLong hwnd, -20, GetWindowLong(hwnd, -20) Or &H80000
+  SetLayeredWindowAttributes hwnd, RGB(255, 255, 255), 200, 1
+End Sub
+
+

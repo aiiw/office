@@ -1,0 +1,8 @@
+Private Declare Function GetWindowLong Lib "user32" Alias "GetWindowLongA" (ByVal hWnd As Long, ByVal nIndex As Long) As Long
+Private Declare Function FindWindow Lib "user32" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
+Private Declare Function SetWindowLong Lib "user32" Alias "SetWindowLongA" (ByVal hWnd As Long, ByVal nIndex As Long, ByVal dwNewLong As Long) As Long
+Private Sub UserForm_Initialize()
+  SetWindowLong FindWindow("ThunderDFrame", Me.Caption), -16, GetWindowLong(FindWindow("ThunderDFrame", Me.Caption), -16) Or &H40000 Or &H20000 Or &H10000
+End Sub
+
+

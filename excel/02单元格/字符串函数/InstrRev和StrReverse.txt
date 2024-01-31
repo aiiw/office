@@ -1,0 +1,7 @@
+※InstrRev和StrReverse
+'InstrRev改变的只是查找顺序，位置不会改变。
+
+'实现真正的显示某个字符串从后往前数的位置
+a = 3.45
+i = InStrRev(StrReverse(a), ".")
+MsgBox i

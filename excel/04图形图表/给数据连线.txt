@@ -1,0 +1,38 @@
+Sub 数据连线()
+    Dim myrng As Range
+    Dim arr() As Long
+    Dim n As Integer
+    Set myrng = Range("A1:C15")
+    n = 0
+    For Each sp In ActiveSheet.Shapes
+        If sp.Type = 1 Then sp.Delete
+    Next sp
+    For Each Rng In myrng
+        If Rng.Value <> "" Then
+            Rng.Interior.ColorIndex = 6
+            n = n + 1
+            ReDim Preserve arr(1 To 2, 1 To n) As Long
+            arr(1, n) = Rng.Left + Rng.Width / 2
+            arr(2, n) = Rng.Top + Rng.Height / 2
+        Else
+            Rng.Interior.ColorIndex = xlNone
+        End If
+    Next Rng
+    For i = 1 To n - 1
+        ActiveSheet.Shapes.AddConnector msoConnectorStraight, arr(1, i), arr(2, i), arr(1, i + 1), arr(2, i + 1)
+    Next i
+    Set myrng = Nothing
+End Sub
+Sub 删除直线()
+    For Each sp In ActiveSheet.Shapes
+        If sp.Type = 1 Then sp.Delete
+    Next sp
+    Set myrng = Range("A1:C15")
+    For Each Rng In myrng
+        If Rng.Value <> "" Then
+            Rng.Interior.ColorIndex = xlNone
+        Else
+        End If
+    Next Rng
+End Sub
+

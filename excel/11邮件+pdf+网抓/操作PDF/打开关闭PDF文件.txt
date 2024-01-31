@@ -1,0 +1,40 @@
+Sub 遍历打开的PDF文件()
+    Dim App As Acrobat.AcroApp
+    Dim Doc As Acrobat.AcroAVDoc
+    Dim i As Integer
+    Set App = GetObject("", "AcroExch.App")
+    For i = 0 To App.GetNumAVDocs - 1
+        Set Doc = App.GetAVDoc(i)
+        With Doc
+            .BringToFront
+            Debug.Print "标题：", .GetTitle
+        End With
+    Next i
+End Sub
+
+Sub 打开PDF文件()
+    Dim App As Acrobat.AcroApp
+    Dim Doc As Acrobat.AcroAVDoc, result As Boolean
+    Set App = GetObject("", "AcroExch.App")
+    App.Show
+    Set Doc = GetObject("", "AcroExch.AVDoc")
+    With Doc
+        result = .Open("C:\temp\temp.pdf", "")
+        If result Or Doc.IsValid Then
+            MsgBox "成功打开！", vbInformation
+        End If
+        .BringToFront
+        .Maximize True
+    End With
+End Sub
+
+Sub 关闭PDF文件()
+    Dim App As Acrobat.AcroApp
+    Dim Doc As Acrobat.AcroAVDoc
+    Set App = GetObject("", "AcroExch.App")
+    App.Show
+    Set Doc = App.GetActiveDoc
+    Doc.Close bNoSave:=True
+    App.CloseAllDocs
+End Sub
+

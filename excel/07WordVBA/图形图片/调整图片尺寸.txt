@@ -1,0 +1,70 @@
+VBA操作WORD（五）批量调整图片大小、居中设置
+需求：经常阅读网上的研报（没钱买排版漂亮的高质量研报），有些需要保存的复制下来到word里，图片很大都超出word的边界了，也没有居中，手工一张张调整不现实，上百页的研报，几十张图片。
+
+解决方案：利用VBA宏批量解决。
+
+第一种方法经过测试，只是前面部分有些，后面部分无效。
+
+ 
+
+复制代码
+Sub setpicsize() '设置图片尺寸
+
+'第一种方法，经测试，文档前面部分图片有效，后面部分无效
+    'Dim n '图片个数
+    'On Error Resume Next '忽略错误
+    'For n = 1 To ActiveDocument.InlineShapes.Count 'InlineShapes 类型 图片
+    'ActiveDocument.InlineShapes(n).Height = 198.45 '设置图片高度为 7cm
+    'ActiveDocument.InlineShapes(n).Width = 455 '单位是像素，设置图片宽度 16cm
+    'Next n
+End Sub
+复制代码
+ 
+
+ 第二种方法，经测试，对整篇文档图片有效：
+
+复制代码
+Sub 设置图片格式()
+    '1.如果图片行间距设置为固定值，那么无论图片设置什么格式，图片嵌入文字会重叠，只显示部分图片。
+    '2.如果图片超出边界才进行处理，设置全文图片大小不超过某个规格，超过则等比例缩小
+    Dim picMaxWidth, picMaxHeight, picWith, picHeight As Long
+    '纸张宽减去左右边距，不用再乘以28.35，已经是像素
+    picMaxWidth = (ActiveDocument.PageSetup.PageWidth - ActiveDocument.PageSetup.LeftMargin - ActiveDocument.PageSetup.RightMargin)
+    picMaxHeight = (ActiveDocument.PageSetup.PageHeight - ActiveDocument.PageSetup.TopMargin - ActiveDocument.PageSetup.BottomMargin)
+    Dim oILS As InlineShape
+    For Each oILS In ActiveDocument.InlineShapes 'Selection.InlineShapes
+        If oILS.Type = wdInlineShapePicture Then
+        oILS.Select
+            oILS.LockAspectRatio = msoTrue '锁定纵横比，防止默认没有锁定修改了图片变形；不锁定纵横比是msoFalse
+            Selection.Range.ShapeRange.LockAspectRatio = msoTrue
+            'MsgBox("图片宽度" & oILS.Width) '测试，提示图片大小以便判断单位'此处单位是像素。
+            picWidth = oILS.Width
+            picHeight = oILS.Height
+            If oILS.Width > picMaxWidth Then
+                'Word中的尺寸单位默认是cm（厘米），而1cm等于28.35px（像素），由于代码中换算设置的单位是px（像素）。
+                '所以就用尺寸高度或宽度值乘像素值。即为：7*28.35=198.45；宽度换算方法与此相同。
+                oILS.Width = Abs(picMaxWidth) '此处单位是厘米。如果Word设置页边距为适中，则中间内容宽17.08CM
+                '注意：如果此处不设置图片高度，即使锁定纵横比，图片纵横比也会改变，不知道为什么？
+                oILS.Height = oILS.Width * picHeight / picWidth 'CentimetersToPoints(7)
+            End If
+            '可能超过宽度调节后，高度还是超出了
+            If oILS.Height > picMaxHeight Then
+                oILS.Height = Abs(picMaxHeight)
+                oILS.Width = oILS.Height * picWidth / picHeight
+            End If
+
+            'oILS.Range.Select
+            'Selection.ClearFormatting
+            'Selection.Range.Paragraphs.Alignment = wdAlignParagraphCenter
+            With oILS
+                .Range.ParagraphFormat.Reset
+                '.Range.ParagraphFormat.LineSpacingRule = wdLineSpaceSingle '单倍行距
+                .Range.ParagraphFormat.Alignment = wdAlignParagraphCenter '居中
+            End With
+        End If
+    Next
+End Sub
+
+上述代码注意两点，一是即使设置了锁定纵横比，如果只设置了宽度或者高度其一，图片依然没有等比例缩小，所以高度和宽度都要设置才行。
+
+二是宽度缩小后，高度仍可能超出页面，所以还需要对高度再检查和缩小一次。

@@ -1,0 +1,230 @@
+一_压缩文件
+'Shell函数
+  'Shell执行一个可执行文件.返回一个 Variant (Double)，如果成功的话，代表这个程序的任务 ID，若不成功，则会返回 0。
+  '语法
+   'Shell("可执行程序的路径 文件名或命令行",窗口的显示方式)
+
+  Sub 用绘图程序打开图片()
+  Dim mysh
+     mysh = Shell("mspaint.exe " & ThisWorkbook.path & "\pic.jpg", vbMaximizedFocus)
+  End Sub
+  
+  'WinRar命令的命令行表示方法
+  
+   ' WinRar程序路径  命令 开关1 开关2 开关3..开关N  压缩包路径 压缩的文件路径
+      '命令是指要进行怎么样的操作，如A是压缩，X是解压缩
+      '开关是具体操作时的细节，如压缩是是否把原文件删除，是否添加密码等
+      
+Sub RarFile()   '压缩单个文件
+  Dim Rarexe As String
+  Dim myRAR As String
+  Dim Myfile As String
+  Dim FileString As String
+  Dim Result As Long
+    Rarexe = "C:\program files\winrar\winrar.exe" 'rar程序路径
+    myRAR = ThisWorkbook.path & "\A.rar"  '压缩后的文件名
+    Myfile = ThisWorkbook.path & "\B*.xls"     ' 指定要压缩的文件
+    FileString = Rarexe & " A " & myRAR & " " & Myfile 'rar程序的A命令压缩文件的字符串
+    Result = Shell(FileString, vbHide) '执行压缩
+End Sub
+'如果文件名使用通配符,可以对同类的文件进行和压缩,
+'如果只有路径没有文件名,则会把这个文件夹进行压缩
+Sub RarFile2()   '多个文件压在一起
+  Dim Rarexe As String
+  Dim myRAR As String
+  Dim Myfile As String
+  Dim FileString As String
+  Dim Result As Long
+    Rarexe = "C:\program files\winrar\winrar.exe" 'rar程序路径
+    myRAR = ThisWorkbook.path & "\B.rar"  '压缩后的文件名
+   ' Myfile = ThisWorkbook.path & "\B\*.xls"     ' 指定要压缩的文件类型
+    Myfile = ThisWorkbook.path & "\B\"     ' 指定要压缩的文件夹路径
+    FileString = Rarexe & " A " & myRAR & " " & Myfile 'rar程序的A命令压缩文件的字符串
+    Result = Shell(FileString, vbHide) '执行压缩
+End Sub
+
+
+二_压缩文件的路径
+'-ep压缩时忽略路径,如果没有则会带上
+'-ep1压缩时忽略基准路径
+Sub RarFile2()   '多个文件压在一起
+  Dim Rarexe As String
+  Dim myRAR As String
+  Dim Myfile As String
+  Dim FileString As String
+  Dim Result As Long
+    Rarexe = "C:\program files\winrar\winrar.exe" 'rar程序路径
+    myRAR = ThisWorkbook.path & "\B.rar"  '压缩后的文件名
+    Myfile = ThisWorkbook.path & "\B"     ' 指定要压缩的文件
+    FileString = Rarexe & " A -ep1 " & myRAR & " " & Myfile 'rar程序的A命令压缩文件的字符串
+    Result = Shell(FileString, vbHide) '执行压缩
+End Sub
+
+
+三_添加压缩密码
+'-p+密码 加密码后可以看到文件列表
+'-hp+密码 加密码后无法看到文件列表
+
+Sub RarFile9()   '多个文件压在一起,并添加密码,可以看到文件列表
+  Dim Rarexe As String
+  Dim myRAR As String
+  Dim Myfile As String
+  Dim FileString As String
+  Dim Result As Long
+    Rarexe = "C:\program files\winrar\winrar.exe" 'rar程序路径
+    myRAR = ThisWorkbook.path & "\B.rar"  '压缩后的文件名
+    Myfile = ThisWorkbook.path & "\B\"     ' 指定要压缩的文件
+    FileString = Rarexe & " A -p123 " & myRAR & " " & Myfile
+    Result = Shell(FileString, vbHide) '执行压缩
+End Sub
+
+Sub RarFile10()   '多个文件压在一起,并添加密码,看不到文件列表
+  Dim Rarexe As String
+  Dim myRAR As String
+  Dim Myfile As String
+  Dim FileString As String
+  Dim Result As Long
+    Rarexe = "C:\program files\winrar\winrar.exe" 'rar程序路径
+    myRAR = ThisWorkbook.path & "\B.rar"  '压缩后的文件名
+    Myfile = ThisWorkbook.path & "\B\"     ' 指定要压缩的文件
+    FileString = Rarexe & " A -hp123 " & myRAR & " " & Myfile
+    Result = Shell(FileString, vbHide) '执行压缩
+End Sub
+
+
+四_压缩后删除源文件
+'df压缩后删除原文件
+'dr压缩后删除原文件到回收站
+
+Sub RarFile2()   '多个文件压在一起,删除原文件
+  Dim Rarexe As String
+  Dim myRAR As String
+  Dim Myfile As String
+  Dim FileString As String
+  Dim Result As Long
+    Rarexe = "C:\program files\winrar\winrar.exe" 'rar程序路径
+    myRAR = ThisWorkbook.path & "\B\B.rar"  '压缩后的文件名
+    Myfile = ThisWorkbook.path & "\B\*.xls"     ' 指定要压缩的文件
+    FileString = Rarexe & " A -df -p123 -ep " & myRAR & " " & Myfile 'rar程序的A命令压缩文件的字符串
+    Result = Shell(FileString, vbHide) '执行压缩
+End Sub
+
+Sub RarFile3()   '多个文件压在一起，删除原文件到回收站
+  Dim Rarexe As String
+  Dim myRAR As String
+  Dim Myfile As String
+  Dim FileString As String
+  Dim Result As Long
+    Rarexe = "C:\program files\winrar\winrar.exe" 'rar程序路径
+    myRAR = ThisWorkbook.path & "\B\B.rar"  '压缩后的文件名
+    Myfile = ThisWorkbook.path & "\B\*.xls"     ' 指定要压缩的文件
+    FileString = Rarexe & " A -dr -p123 -ep " & myRAR & " " & Myfile 'rar程序的A命令压缩文件的字符串
+    Result = Shell(FileString, vbHide) '执行压缩
+End Sub
+
+
+五_压缩时排除
+Sub RarFile2()   '多个文件压在一起,排除某个文件
+  Dim Rarexe As String
+  Dim myRAR As String
+  Dim Myfile As String
+  Dim FileString As String
+  Dim Result As Long
+    Rarexe = "C:\program files\winrar\winrar.exe" 'rar程序路径
+    myRAR = ThisWorkbook.path & "\B.rar"  '压缩后的文件名
+    Myfile = ThisWorkbook.path & "\B\*.xls"     ' 指定要压缩的文件
+    FileString = Rarexe & " A -x" & ThisWorkbook.path & "\B\dr.xls -x" & ThisWorkbook.path & "\B\1.xls -ep " & myRAR & " " & Myfile 'rar程序的A命令压缩文件的字符串
+    Result = Shell(FileString, vbHide) '执行压缩
+
+End Sub
+
+
+六_文件批量单独压缩
+'借助dir和do循环，压缩指定文件夹中的所有文件
+Sub RarFile4()   '每个文件单独压缩
+  Dim Rarexe As String
+  Dim myRAR As String
+  Dim Myfile As String
+  Dim FileString As String
+  Dim Result As Long
+  Dim p As String, f As String
+   p = ThisWorkbook.path & "\B\"
+   Rarexe = "C:\program files\winrar\winrar.exe" 'rar程序路径
+   f = Dir(p & "*.xls")
+  Do While f <> ""
+    f = Split(f, ".")(0)
+    Myfile = ThisWorkbook.path & "\B\" & f & ".xls"   ' 指定要压缩的文件
+    myRAR = ThisWorkbook.path & "\B\" & f & ".rar" '压缩后的文件名
+    
+    FileString = Rarexe & " A -ep " & myRAR & " " & Myfile 'rar程序的A命令压缩文件的字符串
+    Result = Shell(FileString, vbHide) '执行压缩
+   f = Dir
+  Loop
+End Sub
+
+
+七_从压缩包中删除指定文件
+'D可以删除指定的文件
+'WinRAR d 文件夹 可以带通配符的文件名或同类文件
+
+Sub RarFile3()   '
+  Dim Rarexe As String
+  Dim myRAR As String
+  Dim Myfile As String
+  Dim FileString As String
+  Dim Result As Long
+    Rarexe = "C:\program files\winrar\winrar.exe" 'rar程序路径
+    myRAR = ThisWorkbook.path & "\B\B.rar"  '在删除的压缩包名称
+    Myfile = ThisWorkbook.path & "\B\说明.txt"     ' 指定要删除的文件
+    FileString = Rarexe & " D " & myRAR & " " & "说明.txt" 'rar程序的A命令压缩文件的字符串
+    Result = Shell(FileString, vbHide) '执行程序
+End Sub
+
+
+八_解压缩
+Sub RarFile2()   '解压缩
+  Dim Rarexe As String
+  Dim myRAR As String
+  Dim Mypath As String
+  Dim FileString As String
+  Dim Result As Long
+    Rarexe = "C:\program files\winrar\winrar.exe" 'rar程序路径
+    myRAR = ThisWorkbook.path & "\B\B.rar"  '压缩后的文件名
+    Mypath = ThisWorkbook.path & "\B\"     ' 指定要压缩的文件
+    FileString = Rarexe & " x -ep -hp123 " & myRAR & " " & Mypath 'rar程序的A命令压缩文件的字符串
+    Result = Shell(FileString, vbHide) '执行压缩
+End Sub
+'x 表示解压缩
+'-ep解压到当前文件夹下
+'-hp123 解压含密码的压缩包
+
+
+指定类型或文件解压
+Sub RarFile3()   '指定类型解压
+  Dim Rarexe As String
+  Dim myRAR As String
+  Dim Myfile As String
+  Dim FileString As String
+  Dim Result As Long
+    Rarexe = "C:\program files\winrar\winrar.exe" 'rar程序路径
+    myRAR = ThisWorkbook.path & "\B\B.rar"  '压缩包文件名
+    Myfile = ThisWorkbook.path & "\B\说明.txt"     ' 指定要解压缩的文件
+    FileString = Rarexe & " e " & myRAR & " " & "说明.txt" 'rar程序的A命令压缩文件的字符串
+    Result = Shell(FileString, vbHide) '执行压缩
+End Sub
+'在当前文件夹，从全部的 RAR 压缩文件解压所有的 *.doc 文件到当前文件夹
+'
+'WinRAR e * .RAR * .doc
+
+
+获得rar的安装路径
+Function GetSetupPath(AppName As String)
+    Dim WSH As Object
+    Set WSH = CreateObject("Wscript.Shell")
+    GetSetupPath = WSH.RegRead("HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\App Paths\" & AppName & "\Path")
+    Set WSH = Nothing
+End Function
+Sub 测试()
+Debug.Print GetSetupPath("Winrar.exe")
+End Sub
+

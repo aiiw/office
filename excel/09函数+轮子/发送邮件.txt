@@ -1,0 +1,15 @@
+Sub SendMail()
+    Set myOlApp = CreateObject("Outlook.Application")
+    Set objMail = myOlApp.CreateItem(olMailItem)
+    With objMail
+        .To = "2199648674@qq.com"
+        .Subject = "邮件主题"
+        .Body = "邮件正文内容" '//正文具体内容
+        .cc = "vbatoday@163.com" '//邮件抄送人
+        '.BodyFormat = olFormatHTML  '//设置邮件格式 是否html 格式的
+        .Attachments.Add "C:\Users\Administrator\Desktop\派送单.xlsx" '//添加附件
+        .Send
+    End With
+End Sub
+
+

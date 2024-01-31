@@ -1,0 +1,22 @@
+Sub DoThis()
+
+    Selection.Find.ClearFormatting
+    With Selection.Find
+        .Text = "案件的由来和调查经过"
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute
+    a = Selection.End
+    Selection.Find.ClearFormatting
+    With Selection.Find
+        .Text = "当事人的基本情况"
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute
+    b = Selection.Start
+    Selection.Start = a + 1
+    Selection.End = b
+    Selection.Copy
+End Sub
+
+

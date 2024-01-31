@@ -1,0 +1,18 @@
+Sub 更改PDF页面旋转角度()
+    Dim App As Acrobat.AcroApp
+    Dim Doc As Acrobat.AcroAVDoc
+    Dim APV As Acrobat.AcroAVPageView
+    Dim PDPage As Acrobat.AcroPDPage
+    Set App = GetObject("", "AcroExch.App")
+    App.Show
+    Set Doc = App.GetActiveDoc
+    Set APV = Doc.GetAVPageView
+    APV.GoTo 4
+    Set PDPage = APV.GetPage
+    With PDPage
+        Debug.Print "当前页码：", .GetNumber
+        Debug.Print "当前页面旋转角度：", .GetRotate
+        .SetRotate 180
+    End With
+End Sub
+

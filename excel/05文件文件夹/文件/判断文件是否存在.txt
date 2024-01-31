@@ -1,0 +1,49 @@
+'方法1. 用VBA自带的dir()判断，代码如下：
+
+'在 Microsoft Windows 中， Dir 支持多字符 (*)和单字符 (?) 的通配符来指定多重文件
+
+
+Function IsFileExists(ByVal strFileName As String) As Boolean
+    If Dir(strFileName) <> Empty Then
+        IsFileExists = True
+    Else
+        IsFileExists = False
+    End If
+End Function
+
+Sub Run()
+    If IsFileExists("D:\vba\abc.txt") = True Then
+        ' 文件存在时的处理
+        MsgBox "文件存在！"
+    Else
+        ' 文件不存在时的处理
+        MsgBox "文件不存在！"
+    End If
+End Sub
+
+'方法2. 用Windows的文件系统函数进行判断，代码如下：
+
+
+Function IsFileExists(ByVal strFileName As String) As Boolean
+    Dim objFileSystem As Object
+    
+    Set objFileSystem = CreateObject("Scripting.FileSystemObject")
+    If objFileSystem.fileExists(strFileName) = True Then
+        IsFileExists = True
+    Else
+        IsFileExists = False
+    End If
+End Function
+
+Sub Run()
+    If IsFileExists("D:\vba\abc.txt") = True Then
+        ' 文件存在时的处理
+        MsgBox "文件存在！"
+    Else
+        ' 文件不存在时的处理
+        MsgBox "文件不存在！"
+    End If
+End Sub
+
+
+

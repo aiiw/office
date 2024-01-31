@@ -1,0 +1,26 @@
+'需要添加引用Microsoft Scripting Runtime
+'Set fs = CreateObject("scripting.filesystemobject") '后期引用
+Sub Test3()
+    Dim FSO As New FileSystemObject
+    Dim txt As TextStream
+    Set txt = FSO.OpenTextFile("D:\a.txt", ForReading, True)
+    Debug.Print txt.ReadAll
+    txt.Close
+    Set txt = Nothing
+End Sub
+Sub mydata() '读取文本
+    Set fs = CreateObject("scripting.filesystemobject") '后期引用
+    Set tx = fs.OpenTextFile(ThisWorkbook.Path & "\实例.txt")
+    '以只读方式打开文本文件
+    s = Split(tx.readall, vbCrLf) '将列分开，变为数组
+    tx.Close '关闭txt
+    ReDim ar(0 To UBound(s), 1 To 2)  '定义ar动态数组
+    For i = 0 To UBound(s)
+        ar(i, 1) = Split(s(i), "----")(0)  '将每行数据按----分割开写入数组ar
+        ar(i, 2) = Split(s(i), "----")(1)  '将每行数据按----分割开写入数组ar
+    Next
+    Cells.Clear '清除已有数据
+    [a1].Resize(UBound(ar), 2) = ar '将br数据写入excel
+End Sub
+
+

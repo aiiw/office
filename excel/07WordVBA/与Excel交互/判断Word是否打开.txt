@@ -1,0 +1,18 @@
+Sub word2excel()
+    On Error Resume Next
+    pth = Application.GetOpenFilename("文件(*.*),*.*", , "请选择文件", , 0)
+    Set docapp = GetObject(, "word.Application")
+    If Err Then
+        Err.Clear
+        Set docapp = CreateObject("word.Application") '新建word对象，打开具体文件
+    Else
+        For Each doc In docapp.documents
+            If doc.FullName = pth Then '利用已打开的word对象，获取数据
+                ThisWorkbook.ActiveSheet.Cells(1, 1) = doc.tables(1).Range.Cells(10)
+            Else
+            End If
+        Next
+    End If
+    docapp.Quit
+End Sub
+

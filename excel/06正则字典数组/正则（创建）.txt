@@ -1,0 +1,15 @@
+'前期绑定需要添加引用Microsoft VBScript Regular Expressions 5.5
+Sub Test1()
+    With CreateObject("vbscript.regexp")
+        .Pattern = "\d{6,}"
+        .Global = True
+        .IgnoreCase = True
+        .MultiLine = False
+        For Each mat In .Execute(strText)
+            n = n + 1
+            ReDim Preserve arr(1 To n)
+            arr(n) = mat '正则取出符合条件的页码合集
+        Next mat
+    End With
+End Sub
+

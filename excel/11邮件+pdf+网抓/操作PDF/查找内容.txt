@@ -1,0 +1,13 @@
+Sub ≤È’“ƒ⁄»›()
+    Dim App As Acrobat.AcroApp
+    Dim Doc As Acrobat.AcroAVDoc
+    Dim result As Boolean, i As Integer
+    Set App = GetObject("", "AcroExch.App")
+    App.Show
+    Set Doc = App.GetActiveDoc
+    For i = 1 To 10
+        result = Doc.FindText(szText:="Python", bCaseSensitive:=True, bWholeWordsOnly:=False, bReset:=False)
+        If result = False Then Exit For
+    Next i
+End Sub
+

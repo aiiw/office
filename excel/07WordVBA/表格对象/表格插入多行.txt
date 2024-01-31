@@ -1,0 +1,13 @@
+Sub 表格最后插入2行()
+   Dim myTable As Table
+    Set myTable = ActiveDocument.Tables(1)
+    myTable.Rows.Last.Select
+    Selection.InsertRowsBelow 2
+End Sub
+
+Sub 有合并单元格的表格插入2行()
+   Dim myTable As Table
+    Set myTable = ActiveDocument.Tables(1)
+    myTable.Cell(2, 3).Range.Select
+    Selection.InsertRowsBelow 2
+End Sub

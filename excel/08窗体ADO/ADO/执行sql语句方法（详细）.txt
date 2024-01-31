@@ -1,0 +1,144 @@
+'通常我们使用ADO的Execute语句或Recordset对象执行SQL语句，有以下几种方法。
+'
+'
+'
+' (一)Execute方法一:
+Sub DoSql_Execute1()
+    Dim cnn As Object, rst As Object
+    Dim Mypath As String, Str_cnn As String, Sql As String
+    Dim i As Long
+    Set cnn = CreateObject("adodb.connection")
+    Mypath = ThisWorkbook.FullName
+    If Application.Version Then
+        Str_cnn = "Provider=Microsoft.jet.OLEDB.4.0;Extended Properties=Excel 8.0;Data"
+        Source = " & Mypath"
+    Else
+        Str_cnn = "Provider=Microsoft.ACE.OLEDB.12.0;Extended Properties=Excel 12.0;Data"
+        Source = " & Mypath"
+    End If
+    cnn.Open Str_cnn
+    '以上是第二步，建立链接
+    '
+    Sql = "SELECT 姓名,成绩 FROM [Sheet1$] WHERE 成绩>=80"
+    'Sql语句，查询Sheet1表成绩大于80……姓名和成绩的记录
+    Set rst = cnn.Execute(Sql)
+    'cnn.Execute()执行SQL语句，始终得到一个新的记录集rst
+    '以上是第三步，编写并使用SQL语句
+    '
+    [d:e].ClearContents
+    '清空[d:e]区域的值
+    For i = 0 To rst.Fields.Count - 1
+        '利用fields属性获取所有字段名，fields包含了当前记录有关的所有字段,fields.count得到字段的数量
+        '由于Fields.Count下标为0，又从0开始遍历，因此总数-1
+        Cells(1, i + 4) = rst.Fields(i).Name
+    Next
+    Range("d2").CopyFromRecordset rst
+    '使用单元格对象的CopyFromRecordset方法将rst内容复制到D2单元格为左上角的单元格区域
+    '以上是第四步，将SQL查询结果和字段名写入表格指定区域
+    cnn.Close
+    '关闭链接
+    Set cnn = Nothing
+    '释放内存
+End Sub
+
+' (一)Execute方法二:
+Sub DoSql_Execute2()
+    Dim Mypath As String, Str_cnn As String, Sql As String
+    Dim i As Long
+    Set cnn = CreateObject("adodb.connection")
+    '以上是第一步，后期绑定ADO
+    '
+    Mypath = ThisWorkbook.FullName
+    If Application.Version Then
+        Str_cnn = "Provider=Microsoft.jet.OLEDB.4.0;Extended Properties=Excel 8.0;Data"
+        Source = " & Mypath"
+    Else
+        Str_cnn = "Provider=Microsoft.ACE.OLEDB.12.0;Extended Properties=Excel 12.0;Data"
+        Source = " & Mypath"
+    End If
+    cnn.Open Str_cnn
+    '以上是第二步，建立链接
+    '
+    Sql = "SELECT 姓名,成绩 FROM [Sheet1$] WHERE 成绩>=80"
+    'Sql语句，查询Sheet1表成绩大于80……姓名和成绩的记录
+    [d:e].ClearContents
+    '清空[d:e]区域内容
+    Range("d2").CopyFromRecordsetcnn.Execute (Sql)
+    'Execute语句先执行SQL语句
+    '使用单元格对象的CopyFromRecordset方法将SQL查询到的内容复制到D2单元格为左上角 的单元格区域
+    '此法代码简洁，但未能获取标题栏信息
+    '以上是第三步，执行SQL语句并将数据读入表格指定区域
+    '
+    cnn.Close
+    '关闭链接
+    Set cnn = Nothing
+    '释放内存
+End Sub
+'（三）Recordset方法:
+'
+Sub DoSql_Recordset()
+    Dim cnn As Object, rst As Object
+    Dim Mypath As String, Str_cnn As String, Sql As String
+    Dim i As Long
+    Set cnn = CreateObject("adodb.connection")
+    Mypath = ThisWorkbook.FullName
+    If Application.Version Then
+        Str_cnn = "Provider=Microsoft.jet.OLEDB.4.0;Extended Properties=Excel 8.0;Data"
+        Source = " & Mypath"
+    Else
+        Str_cnn = "Provider=Microsoft.ACE.OLEDB.12.0;Extended Properties=Excel 12.0;Data"
+        Source = " & Mypath"
+    End If
+    cnn.Open Str_cnn
+    '以上是第二步，建立链接
+    '
+    Sql = "SELECT 姓名,成绩 FROM [Sheet1$] WHERE 成绩>=80"
+    'Sql语句，查询Sheet1表成绩大于80……姓名和成绩的记录
+    rst.Open Sql, cnn, 1, 3
+    'rst执行SQL语句，并将查询结果放入记录集
+    '以上是第三步，编写并执行SQL
+    '
+    [d:e].ClearContents
+    '清空[d:e]区域的值
+    For i = 0 To rst.Fields.Count - 1
+        '利用fields属性获取所有字段名，fields包含了当前记录有关的所有字段,fields.count得到字段的数量
+        '由于Fields.Count下标为0，又从0开始遍历，因此总数-1
+        Cells(1, i + 4) = rst.Fields(i).Name
+    Next
+    Range("d2").CopyFromRecordset rst
+    '使用单元格对象的CopyFromRecordset方法将rst内容复制到D2单元格为左上角的单元格区
+    域
+    '以上是第四步，将SQL查询结果和字段名称写入表格指定区域
+    rst.Close
+    '关闭记录集rst
+    cnn.Close
+    '关闭链接
+    Set rst = Nothing
+    Set cnn = Nothing
+    '释放内存
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

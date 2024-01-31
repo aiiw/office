@@ -1,0 +1,4 @@
+p1.Range.Find.HitHighlight findtext:=date1, highlightColor:=wdColorGold
+
+Activedocument.Content.find.HitHighlight findtext:="ÖÐ»ª",highlightColor:=wdColorGold
+

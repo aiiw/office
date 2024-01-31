@@ -1,0 +1,4 @@
+※高级筛选
+Sub 筛选不重复值()
+Range("数据源!b5:b244").AdvancedFilter Action:=xlFilterCopy, copytorange:=Range("提成细化表【打印③】!R30"), unique:=True
+End Sub

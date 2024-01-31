@@ -1,0 +1,10 @@
+Public App As Acrobat.AcroApp
+Sub Test1()
+    Set App = CreateObject("AcroExch.App")
+    With App
+        .Show
+        .Hide
+        Shell "taskkill /f /im acrobat.exe", vbHide
+    End With
+End Sub
+

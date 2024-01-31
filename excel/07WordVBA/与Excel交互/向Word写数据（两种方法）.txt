@@ -1,0 +1,35 @@
+    '运行中的对象Set WordApp = GetObject(, "Word.Application")
+    '创建新对象Set WordApp = CreateObject("Word.Application")
+Sub 方法1()
+    Set doc = CreateObject("word.application")
+    doc.Visible = True
+    Set wd = doc.documents.Add
+    rrow = ThisWorkbook.Worksheets(1).Range("a65536").End(3).Row
+    For i = 2 To rrow
+        wd.Paragraphs.Add
+        wd.Paragraphs(i).Range.Text = ThisWorkbook.Worksheets(1).Cells(i, 3).Value
+        ' Selection.Range.ListFormat.ListString'光标当前所在段落
+    Next
+    wd.SaveAs ThisWorkbook.Path & "\例子.docx"
+End Sub
+
+Sub 方法2()
+    Set doc = CreateObject("word.application")
+    doc.Visible = True
+    Set wd = doc.documents.Add
+    rrow = ThisWorkbook.Worksheets(1).Range("a65536").End(3).Row
+    For i = 2 To rrow
+       With doc.Selection
+           .TypeText ThisWorkbook.Worksheets(1).Cells(i, 3).Value
+           .TypeParagraph
+        End With
+    Next
+    wd.SaveAs ThisWorkbook.Path & "\例子.docx"
+End Sub
+
+Sub 方法3()
+'复制粘贴
+End Sub
+
+
+

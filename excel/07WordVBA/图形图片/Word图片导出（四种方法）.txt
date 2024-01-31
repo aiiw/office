@@ -1,0 +1,212 @@
+'方法一
+Sub doc另存为HTML()
+    Dim WordDOC As Object
+    Dim Path, Name As String
+    Set WordDOC = documents.Open("C:\Brildo\Test.docx")
+    Path = WordDOC.Path
+    Name = WordDOC.Name
+    activedocument.SaveAs2 FileName:=Path & "\" & Split(Name, ".")(0), FileFormat:=wdFormatHTML
+    activedocument.Close (0)
+End Sub
+
+'方法二：通过Windows API访问粘贴板中的图片数据
+'基本思路是在doc中找到需要保存的图片，复制到粘贴板后，调用API从粘贴板中抓出数据并另存为
+Private Declare Function GdiplusStartup Lib "GDIPlus" (token As Long, inputbuf As GdiplusStartupInput, ByVal outputbuf As Long) As Long
+Private Declare Function GdiplusShutdown Lib "GDIPlus" (ByVal token As Long) As Long
+Private Declare Function GdipCreateBitmapFromHBITMAP Lib "GDIPlus" (ByVal hbm As Long, ByVal hpal As Long, Bitmap As Long) As Long
+Private Declare Function GdipDisposeImage Lib "GDIPlus" (ByVal Image As Long) As Long
+Private Declare Function GdipSaveImageToFile Lib "GDIPlus" (ByVal Image As Long, ByVal FileName As Long, clsidEncoder As GUID, encoderParams As Any) As Long
+Private Declare Function CLSIDFromString Lib "ole32" (ByVal str As Long, id As GUID) As Long
+Private Declare Function IsClipboardFormatAvailable Lib "user32" (ByVal wFormat As Integer) As Long
+Private Declare Function GetClipboardData Lib "user32" (ByVal wFormat As Integer) As Long
+Private Declare Function OpenClipboard Lib "user32" (ByVal hwnd As Long) As Long
+Private Declare Function CloseClipboard Lib "user32" () As Long
+Private Type GUID
+    Data1 As Long
+    Data2 As Integer
+    Data3 As Integer
+    Data4(0 To 7) As Byte
+End Type
+Private Type GdiplusStartupInput
+    GdiplusVersion As Long
+    DebugEventCallback As Long
+    SuppressBackgroundThread As Long
+    SuppresexternalCodecs As Long
+End Type
+Private Type EncoderParameter
+    GUID As GUID
+    NumberOfValues As Long
+    type As Long
+    Value As Long
+End Type
+Private Type EncoderParameters
+    Count As Long
+    Parameter As EncoderParameter
+End Type
+
+Const CF_BITMAP = 2
+Sub 通过API访问粘贴板并另存图片数据()
+    Dim tSI As GdiplusStartupInput
+    Dim lRes As Long
+    Dim lGDIP As Long
+    Dim lBitmap As Long
+    Dim hBitmap As Long
+    Dim FileName As String
+    Dim inSh As InlineShape, N As Long
+    N = 0
+    Documents.Open ("C:\Brildo\Test.docx")
+    For Each inSh In ActiveDocument.InlineShapes
+        '如果是shape，此处改为activedocument.Shapes，当然inSh的声明也要改
+        N = N + 1
+        FileName = ThisDocument.Path & "" & Format(N, "000.jpg")
+        inSh.Range.CopyAsPicture
+        '如果为shape，CopyAsPicture方法无效，可能因为shape本身就是pic，
+        '所以对于shape直接select，再copy，即以图片形式装入了粘贴板，
+        '后续操作相同。
+        OpenClipboard 0&
+        hBitmap = GetClipboardData(CF_BITMAP)
+    CloseClipboard
+    tSI.GdiplusVersion = 1
+    lRes = GdiplusStartup(lGDIP, tSI, 0)
+    If lRes = 0 Then
+        lRes = GdipCreateBitmapFromHBITMAP(hBitmap, 0, lBitmap)
+        If lRes = 0 Then
+            Dim tJpgEncoder As GUID
+            Dim tParams As EncoderParameters
+            CLSIDFromString StrPtr("{557CF401-1A04-11D3-9A73-0000F81EF32E}"), tJpgEncoder
+            tParams.Count = 1
+            With tParams.Parameter
+                CLSIDFromString StrPtr("{1D5BE4B5-FA4A-452D-9CDD-5DB35105E7EB}"), .GUID
+                .NumberOfValues = 1
+                .type = 4
+                .Value = VarPtr(100)
+            End With
+            lRes = GdipSaveImageToFile(lBitmap, StrPtr(FileName), tJpgEncoder, tParams)
+            GdipDisposeImage lBitmap
+        End If
+        GdiplusShutdown lGDIP
+    End If
+Next inSh
+End Sub
+
+'方法三：借组EnhMetaFileBits属性
+Sub 利用ADODB读入并另存图片()
+    Set ImageStream = CreateObject("ADODB.Stream")
+    For i = 1 To ActiveDocument.InlineShapes.Count
+        ActiveDocument.InlineShapes(i).Select
+        '若为shape，需要在此select，并将Selection.Range.EnhMetaFileBits
+        '改为Selection.EnhMetaFileBits
+        With ImageStream
+            .type = 1
+            .Open
+            .Write Selection.Range.EnhMetaFileBits
+            .SaveToFile "D:\Brildo" & i & ".jpg"
+            .Close
+        End With
+    Next i
+    Set ImageStream = Nothing
+End Sub
+Sub 借鉴水星()
+    Const adTypeBinary = 1
+    '默认文本数据
+    Const adTypeText = 2
+    '指定保存到文件时不覆盖，只新建
+    Const adSaveCreateNotExist = 1
+    '指定保存到文件时覆盖原文件，没有则新建
+    Const adSaveCreateOverWrite = 2
+    Dim oStream As Object
+    Dim arr() As Byte
+    Set oStream = VBA.CreateObject("adodb.stream")
+    i = 1
+    Dim oDoc As Document
+    Set oDoc = Word.ActiveDocument
+    Dim oSP As Shape
+    Dim sPath As String
+    sPath = oDoc.Path & "\"
+    Dim oInLineSp As InlineShape
+    With oDoc
+        For Each oSP In .Shapes
+            oSP.Select
+            arr = Word.Selection.EnhMetaFileBits
+            With oStream
+                .Open
+                .Type = adTypeBinary
+                .Write arr
+                .SaveToFile sPath & i & ".emf", adSaveCreateOverWrite
+                .Close
+            End With
+            i = i + 1
+        Next
+        For Each oInLineSp In .InlineShapes
+            arr = oInLineSp.Range.EnhMetaFileBits
+            With oStream
+                .Open
+                .Type = adTypeBinary
+                .Write arr
+                .SaveToFile sPath & i & ".emf", adSaveCreateOverWrite
+                .Close
+            End With
+            i = i + 1
+        Next
+    End With
+End Sub
+'方法四
+'通过复制到Excel后，用Excel的ChartObjects对象的相关方法实现输出
+Sub 复制到Excel后输出1()
+    Dim Excel_Shape As Shape
+    Dim i As Integer
+    Dim Word, Myword As Object
+    Set Word = CreateObject("word.application")
+    Set Myword = Word.Documents.Open("C:\Users\Brildo\Desktop\test.doc")
+    Word.Visible = True
+    Application.DisplayAlerts = False '从doc到xls的复制过程可能会报错，故加此句
+    For i = 1 To Myword.Shapes.Count
+        Myword.Shapes(i).Select
+        Word.Selection.Copy
+        ActiveSheet.Cells(i, 1).Activate
+        ActiveSheet.PasteSpecial Format:="图片(增强型图元文件)", Link:=False, DisplayAsIcon:=False
+        Set Excel_Shape = ActiveSheet.Shapes(1) '因为当单个doc中存在图片量过多，均复制到xls中造成数据量过大，
+        '这里采用了复制一个进入xls，再另存图片后，立即删除xls中的图片数据，所以遍历时，index永远是1
+        Excel_Shape.ScaleHeight 1, True, msoScaleFromMiddle'调整图片大小为原始大小，不缩放
+        Excel_Shape.ScaleWidth 1, True, msoScaleFromMiddle
+        Excel_Shape.Copy
+        With ActiveSheet.ChartObjects.Add(0, 0, Excel_Shape.Width, Excel_Shape.Height).Chart
+            .Paste
+            .Export ThisWorkbook.Path & "" & i & ".jpg"
+            .Parent.Delete '删除第二次复制产生的数据
+        End With
+        Excel_Shape.Delete '删除第一次复制产生的数据
+    Next i
+End Sub
+Sub 复制到Excel后输出2()
+    Rem 工具--引用--勾选 Microsoft Excel x.x Object Library..
+    Dim myshape As Object, ExcelApp As New Excel.Application
+    Dim Excel As Workbook, i%, z%
+    Set Excel = ExcelApp.Workbooks.Add
+    For Each myshape In ActiveDocument.InlineShapes
+        If myshape.Type = 3 Then
+            i = i + 1
+            myshape.Select
+            Set myshape = myshape.ConvertToShape
+            Rem 以下代码将图片以原始比例展示
+            With myshape
+                .ScaleHeight 1, True, msoScaleFromMiddle
+                .ScaleWidth 1, True, msoScaleFromMiddle
+            End With
+            Selection.Copy
+            With Excel.ActiveSheet.ChartObjects.Add(0, 0, myshape.Width, myshape.Height).Chart
+                .Paste
+                .Export ActiveDocument.Path & "" & i & ".png"
+                .Parent.Delete
+            End With
+         End If
+    Next
+    Excel.Close False
+    ExcelApp.Quit
+End Sub
+
+
+
+
+
+

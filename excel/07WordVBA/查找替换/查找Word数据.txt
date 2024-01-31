@@ -1,0 +1,22 @@
+Private Sub CommandButton1_Click()
+   Dim p, r, s, t
+    s= "石膏板造型顶"
+   With Selection.Find
+       .ClearFormatting
+       .MatchWholeWord = True
+       .MatchCase = False
+       t = .Execute(FindText:=s)
+   End With
+    p= Selection.Information(wdActiveEndPageNumber)
+    r= Selection.Information(wdFirstCharacterLineNumber)
+   If t Then
+       MsgBox "成功，已找到“" & s & "”" & vbCrLf & _
+           "页码："& p & vbCrLf & "行数：" & r, vbOKOnly, _
+           "成功"
+   Else
+       MsgBox "很遗憾，没有找到“" & s & "”", vbOKOnly, _
+           "遗憾"
+   End If
+End Sub
+
+

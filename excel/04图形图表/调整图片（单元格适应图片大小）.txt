@@ -1,0 +1,31 @@
+Sub 单元格适应图片大小()
+Dim oShp As Shape
+'工作表中图片循环
+For Each oShp In Worksheets("sheet1").Shapes
+    With oShp
+        '以图片左上角单元格为基准确定行高
+        Rows(.TopLeftCell.Row & ":" & .TopLeftCell.Row).RowHeight = .Height
+    End With
+Next oShp
+End Sub
+
+Sub 单元格尺寸适应图片尺寸()
+    Dim i As Integer, ShWidth, NewWidth, ShHeight, MaxWidth
+    Application.ScreenUpdating = False '关闭屏幕刷新
+    With ActiveSheet '引用工作表
+        For i = 1 To .Shapes.Count
+            .Shapes(i).Left = .Shapes(i).TopLeftCell.Left '统一左边距
+            .Shapes(i).Top = .Shapes(i).TopLeftCell.Top '统一上边距
+            .Shapes(i).TopLeftCell.RowHeight = .Shapes(i).Height '统一高度
+            ShWidth = .Shapes(i).Width '记录图片的宽度
+            '将图片的宽度换算成可以用于列宽的宽度（因为两个单位完全不同)
+            '字符，最适合的列宽
+            NewWidth = Round(Round(ShWidth / 0.75 - IIf(ShWidth > 9, 5, 0), 0) / IIf(ShWidth > 9, 8, 13), 2)
+            If MaxWidth < ShWidth Then '如果图片在宽度大于变量maxwidth
+                '以换算后的宽度为标准设置单元格的宽度
+                .Shapes(i).TopLeftCell.ColumnWidth = NewWidth
+                MaxWidth = ShWidth '将图片的宽度赋予变量 maxwidth
+            End If
+        Next i
+    End With
+End Sub

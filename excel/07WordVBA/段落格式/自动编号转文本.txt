@@ -1,0 +1,21 @@
+ActiveDocument.Range.ListFormat.ConvertNumbersToText 
+
+
+Sub 自动编号转文本()
+    If Selection.Type = wdSelectionIP Then
+        ActiveDocument.Content.ListFormat.ConvertNumbersToText
+        ActiveDocument.Content.Find.Execute FindText:="^t", replacewith:=" ", Replace:=wdReplaceAll
+    Else
+        Selection.Range.ListFormat.ConvertNumbersToText
+        Selection.Find.Execute FindText:="^t", replacewith:=" ", Replace:=wdReplaceAll
+    End If
+End Sub
+
+
+
+Sub ListConvertTxt()
+    Dim i As List
+    For Each i In ActiveDocument.Lists
+        i.ConvertNumbersToText
+    Next
+End Sub

@@ -1,0 +1,12 @@
+Sub 获取不同图元中的文字内容()
+    Dim ent As AcadEntity
+    For Each ent In ThisDrawing.ModelSpace
+        Select Case ent.ObjectName
+        Case "AcDbBlockReference"
+            atrr = ent.GetAttributes
+            MsgBox atrr(0).TextString
+        Case "AcDbText"
+            atrr ent.TextString
+        End Select
+    Next
+End Sub

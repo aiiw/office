@@ -1,0 +1,18 @@
+ Function TraFormat(rng)
+ '设置某列的条件格式
+    With rng
+    rng.FormatConditions.AddUniqueValues
+    rng.FormatConditions(Selection.FormatConditions.Count).SetFirstPriority
+    rng.FormatConditions(1).DupeUnique = xlDuplicate
+    With rng.FormatConditions(1).Font
+        .Color = -16383844
+        .TintAndShade = 0
+    End With
+    With rng.FormatConditions(1).Interior
+        .PatternColorIndex = xlAutomatic
+        .Color = 13551615
+        .TintAndShade = 0
+    End With
+    rng.FormatConditions(1).StopIfTrue = False
+    End With
+ End Function

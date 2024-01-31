@@ -1,0 +1,5 @@
+  With Selection
+    .GoTo wdGoToPage, , 2
+    .Bookmarks("\Page").Range.Tables(2).Select
+  End With
+

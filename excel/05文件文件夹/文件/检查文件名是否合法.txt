@@ -1,0 +1,14 @@
+'检查文件名是否合法(@"/|\|<|>|*|?");
+sub_NameValid = True
+If InStr(1, FileName, "@") > 1 Then sub_NameValid = False
+If InStr(1, FileName, "/") > 1 Then sub_NameValid = False
+If InStr(1, FileName, "\") > 1 Then sub_NameValid = False
+If InStr(1, FileName, ">") > 1 Then sub_NameValid = False
+If InStr(1, FileName, "<") > 1 Then sub_NameValid = False
+If InStr(1, FileName, "*") > 1 Then sub_NameValid = False
+If InStr(1, FileName, "?") > 1 Then sub_NameValid = False
+If InStr(1, FileName, Chr(34)) > 1 Then sub_NameValid = False
+If Left(FileName, 1) = "." Then sub_NameValid = False
+If Len(FileName) > 255 Then sub_NameValid = False
+If Len(FileName) < 2 Then sub_NameValid = False
+End Function

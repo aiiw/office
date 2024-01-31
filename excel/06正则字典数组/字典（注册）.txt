@@ -1,0 +1,7 @@
+字典 要引用C:\WINDOWS\system32\scrrun.dll
+看看电脑里有没有这个文件，一般都有，否则可能被反注册了，下载或从其他电脑中复制一个
+如果有运行这个代码注册一下
+Sub 注册字典()
+    Shell "Regsvr32 """ & Environ("windir") & "\system32\scrrun.dll"" /s", vbHide
+End Sub
+

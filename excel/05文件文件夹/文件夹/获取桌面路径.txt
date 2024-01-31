@@ -1,0 +1,5 @@
+Sub 本机桌面路径()
+MsgBox Environ("userprofile") & "\Desktop\"
+End Sub
+
+

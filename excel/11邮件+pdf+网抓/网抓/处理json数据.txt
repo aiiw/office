@@ -1,0 +1,61 @@
+''JSON 用来表示 数组和对象。
+'大括号{}表示对象，中括号[]表示数组。
+'["1","2","3"]   这个就表示一个数组，里面有元素 1、2、3
+'{"a":1,"b":2,"c":3}  表示一个对象，a b c 可以看成对象的属性，1 、2、3 分别为他们的值。属性间用逗号分割，属性和对应值之间用冒号分割。 字符型的值用引号引住，数字型的值可不用引号。
+'[{"a":"一","b":"二"},{"c":"三","d":"四"},{"e":"五","f":"六"}]  表示一个数组中有三个对象，每个对象中还有两个属性。
+'直接写Range
+Sub JsonToRng()    'JSON 直写 Range
+    Dim sJson$, js$
+    sJson = [a1] ' JSON 数据在A1
+    js = "var r,k,row=c=1,d={};for(r in j){row++;for(k in j[r]){if(!d[k]){d[k]=c++;rng(1,d[k])=k;}rng(row,d[k])= j[r][k];}}"
+    js = "j=" & sJson & ";" & js
+   ' With CreateObject("ScriptControl")
+    With CreateObjectx86("MSScriptControl.ScriptControl")
+        .Language = "JScript"
+        .AddObject "rng", Cells(3, "A")  ' A3 是起始单元格，可以改为别的单元格
+        .eval (js)
+    End With
+End Sub
+
+Function CreateObjectx86(Optional sProgID, Optional bClose = False)
+
+    Static oWnd As Object
+    Dim bRunning As Boolean
+
+    #If Win64 Then
+        bRunning = InStr(TypeName(oWnd), "HTMLWindow") > 0
+        If bClose Then
+            If bRunning Then oWnd.Close
+            Exit Function
+        End If
+        If Not bRunning Then
+            Set oWnd = CreateWindow()
+            oWnd.execScript "Function CreateObjectx86(sProgID): Set CreateObjectx86 = CreateObject(sProgID): End Function", "VBScript"
+        End If
+        Set CreateObjectx86 = oWnd.CreateObjectx86(sProgID)
+    #Else
+        Set CreateObjectx86 = CreateObject(sProgID)
+    #End If
+
+End Function
+
+
+
+Function CreateWindow()
+
+    ' source http://forum.script-coding.com/viewtopic.php?pid=75356#p75356
+    Dim sSignature, oShellWnd, oProc
+
+    On Error Resume Next
+    sSignature = Left(CreateObject("Scriptlet.TypeLib").GUID, 38)
+    CreateObject("WScript.Shell").Run "%systemroot%\syswow64\mshta.exe about:""about:<head><script>moveTo(-32000,-32000);document.title='x86Host'</script><hta:application showintaskbar=no /><object id='shell' classid='clsid:8856F961-340A-11D0-A96B-00C04FD705A2'><param name=RegisterAsBrowser value=1></object><script>shell.putproperty('" & sSignature & "',document.parentWindow);</script></head>""", 0, False
+    Do
+        For Each oShellWnd In CreateObject("Shell.Application").Windows
+             Set CreateWindow = oShellWnd.GetProperty(sSignature)
+             If Err.Number = 0 Then Exit Function
+             Err.Clear
+        Next
+    Loop
+
+End Function
+

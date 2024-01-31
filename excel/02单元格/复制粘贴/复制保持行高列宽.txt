@@ -1,0 +1,26 @@
+﻿'方法一
+Sub 既复制内容也复制格式()
+.Range("a2:F" & n).EntireRow.Copy ActiveSheet.[a1] '此处加了个entirerow ,就是整行复制粘贴，这是为了保持行高不变
+.Range("a2:F" & n).Copy  '再复制一次
+ActiveSheet.[a1].PasteSpecial Paste:=xlPasteColumnWidths '这次进行选择性粘贴，只粘贴列宽，以使列宽一致
+End Sub
+
+'方法二
+'批量复制
+    复制列个数 = Worksheets("批量编号设置").[b4].Value
+    复制行个数 = Worksheets("批量编号设置").[b5].Value / Worksheets("批量编号设置").[b4].Value
+'复制格式
+
+'列复制带列宽
+    Worksheets(编号表).Select
+    Worksheets(编号表).Columns(1).Resize(, 复制区宽).Copy
+    Worksheets(编号表).Columns(1 + 复制区宽).Resize(, (复制列个数 - 1) * 复制区宽).Select
+    ActiveSheet.Paste
+
+'行复制带行高
+    Worksheets(编号表).Select
+    Worksheets(编号表).Rows(1).Resize(复制区高).Copy
+    Worksheets(编号表).Rows(1 + 复制区高).Resize((复制行个数 - 1) * 复制区高).Select
+    ActiveSheet.Paste
+    Application.CutCopyMode = False
+range().copy

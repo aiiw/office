@@ -1,0 +1,72 @@
+Sub 改名字()
+    Dim PathSht As String, srr()
+    With Application.FileDialog(msoFileDialogFolderPicker)
+        If .Show Then PathSht = .SelectedItems(1) Else Exit Sub
+    End With
+    PathSht = PathSht & IIf(Right(PathSht, 1) = "\", "", "\")
+    Set obj = CreateObject("Scripting.FileSystemObject")   '定义变量
+    Set fld = obj.GetFolder(PathSht)
+    For Each f In fld.Files
+        mm = mm + 1
+        ReDim Preserve srr(1 To mm)
+        srr(mm) = f.Name
+    Next
+    For nn = 1 To UBound(srr)
+        Name PathSht & srr(nn) As PathSht & LCase(srr(nn))
+    Next
+End Sub
+
+
+Sub 修改文件名()
+    strr = InputBox("输入需要添加的字符串")
+    With Application.FileDialog(msoFileDialogFolderPicker)
+        If .Show = -1 Then fl = .SelectedItems(1) & "\"
+    End With
+    f = Dir(fl & "*.xls*")
+    Do While f <> ""
+        ex = Right(f, Len(f) - InStrRev(f, ".")) '获取后缀
+        oname = Left(f, Len(f) - Len(ex) - 1)
+        nname = oname & strr
+        Name fl & f As fl & nname & "." & ex
+        f = Dir
+    Loop
+    MsgBox "完成"
+End Sub
+
+
+
+
+
+Sub getpath()
+    Range("A2:C9000").ClearContents               '清空A2：C1000列
+    On Error Resume Next
+    Dim shell As Variant
+    Set shell = CreateObject("Shell.Application")
+    Set filePath = shell.BrowseForFolder(&O0, "选择文件夹", &H1 + &H10, "")   '获取文件夹路径地址
+    Set shell = Nothing
+    If filePath Is Nothing Then                 '检测是否获得有效路径，如取消直接跳出程序
+        Exit Sub
+    Else
+        gg = filePath.Items.Item.path
+    End If
+    Set obj = CreateObject("Scripting.FileSystemObject")   '定义变量
+    Set fld = obj.getfolder(gg)                            '获取路径
+    For Each ff In fld.Files                   '遍历文件夹里文件
+        m = m + 1
+        Cells(m + 1, 1) = ff.Name
+        Cells(m + 1, 2) = "-------"
+        Cells(m + 1, 3) = ff.Name
+    Next
+End Sub
+
+Sub renamefile()
+    On Error Resume Next
+    If [a2] = "" Then MsgBox "请点击第一步": Exit Sub
+    For Each ff In fld.Files                 '遍历文件夹里的所有文件
+        m = m + 1
+        ff.Name = Cells(m + 1, 3)              '将实际文件名改成目录中C列的对应文件名
+    Next
+    MsgBox "改名已完成，请检查", vbOKOnly
+End Sub
+
+

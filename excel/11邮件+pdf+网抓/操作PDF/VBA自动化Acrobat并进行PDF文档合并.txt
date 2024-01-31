@@ -1,0 +1,32 @@
+Public Sub NewPDF()
+    Dim ok As Boolean
+    Dim PDFApp As Acrobat.AcroApp
+    Dim pddoc As Acrobat.AcroPDDoc
+    Dim tempPDDoc As Acrobat.AcroPDDoc
+    
+    Set PDFApp = CreateObject("AcroExch.App")
+    Set pddoc = CreateObject("AcroExch.PDDoc")
+    Set tempPDDoc = CreateObject("AcroExch.PDDoc")
+    If Not tempPDDoc.Open("D:\temp\Test.pdf") Then
+        Set tempddoc = Nothing
+        Set pddoc = Nothing
+        Set PDFApp = Nothing
+        MsgBox Err.Number & ": " & Err.Description, vbOKOnly + vbCritical, "系统信息"
+        Exit Sub
+    End If
+    ok = pddoc.Open("d:\temp\vk2.pdf")
+        If ok <> -1 Then
+            ok = pddoc.Create()
+        End If
+        Call pddoc.InsertPages(pddoc.GetNumPages() - 1, tempPDDoc, 0, tempPDDoc.GetNumPages(), False)
+        ok = pddoc.Save(1, "d:\temp\vk2.pdf")
+
+        Call pddoc.Close
+        tempPDDoc.Close
+        PDFApp.Exit
+        Set pddoc = Nothing
+        Set tempPDDoc = Nothing
+        Set PDFApp = Nothing
+End Sub
+
+

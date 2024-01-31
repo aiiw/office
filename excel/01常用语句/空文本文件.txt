@@ -1,0 +1,8 @@
+Subeverysheet1()
+'遍历当前工作簿所有工作表的方法-for each
+    Dim myshet As Worksheet
+    For Each myshet In ThisWorkbook.Sheets   '或者调用工作簿的名字，in workbooks("工作簿名字").sheets
+    MsgBox myshet.Name  ‘依次显示每个sheet的名字或进行其他操作
+    Next
+EndSub
+

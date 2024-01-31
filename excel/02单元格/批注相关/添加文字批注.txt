@@ -1,0 +1,23 @@
+※添加批注
+Sub 添加批注()
+    Set i = Cells(Rows.Count, "d").End(xlUp)
+    For Each Rng In Range(Range("d2"), i)
+        With Rng
+            If .Comment Is Nothing Then
+                .AddComment.Text "美式"
+                .Comment.Visible = True
+            End If
+            .Comment.Visible = False
+        End With
+    Next
+End Sub
+
+Sub 向批注中写入当前日期() '向批注中写入当前日期，你可以根据需求修改要写入的值
+  Dim com As Comment '声明变量
+  Set com = ActiveCell.Comment '将活动单元格的批注赋值给变量com
+  If com Is Nothing Then '如果com仍然未初始化(表示活动单元格没有批注)
+    ActiveCell.AddComment.Text CStr(Date) '向活动单元格中写入批注(内容为今日日期)
+  Else '否则(表示已有批注)
+    com.Text com.Text & Chr(10) & Date '在原有的批注内容之后追加换行符和日期
+  End If
+End Sub

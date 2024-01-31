@@ -1,0 +1,10 @@
+Private Sub UserForm_Initialize()
+Dim arr As Variant
+Dim cell As Range
+arr = Sheets("sheet1").Range("b2:b11")
+Me.ComboBox2.List = arr
+For Each cell In Sheet1.Range("d2:d11")
+    Me.ComboBox4.AddItem cell.Value
+Next
+End Sub
+

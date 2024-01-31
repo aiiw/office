@@ -1,0 +1,13 @@
+'把单元格区域内的数据读到数组中，这个数组都是二维的，不管数据是多行多列，还是多行单列,还是单行多列
+
+'一列的数据，经过transpose函数转换【一次】变为一维数组；一行数据，经过transpose函数转换【两次】变为一维数组；
+
+'一维数组显示在单元格里，就是单行多列的数据
+Sub 数组()
+    arr = Application.Transpose(Application.Transpose(Range("a1:c1"))) '一维数组
+    brr = Application.Transpose(Range("a1:a3")) '一维数组
+    arr = Array(1, 2, 3)
+    Range("a1").Resize(1, 3) = arr
+End Sub
+
+

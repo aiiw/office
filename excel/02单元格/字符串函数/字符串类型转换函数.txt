@@ -1,0 +1,14 @@
+※字符串类型转换函数
+CBool(expression) 转换为Boolean型
+CByte(expression) 转换为Byte型
+CCur(expression) 转换为Currency型
+CDate(expression) 转换为Date型
+CDbl(expression) 转换为Double型
+CDec(expression) 转换为Decemal型
+CInt(expression) 转换为Integer型
+CLng(expression) 转换为Long型
+CSng(expression) 转换为Single型
+CStr(expression) 转换为String型
+CVar(expression) 转换为Variant型
+Val(string) 转换为数据型
+Str(number) 转换为String

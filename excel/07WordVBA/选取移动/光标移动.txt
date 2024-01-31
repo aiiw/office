@@ -1,0 +1,20 @@
+
+Sub 移动光标()
+'【HomeKey/EndKey】
+'HomeKey和EndKey方法用来更改选择，它们分别对应于键盘上的Home键和End键。
+'它们有两个参数：Unit和Extend。Unit是移动所产生的区域，可以是线条（wdLine)、文档 (wdStory)、列(wdColumn)或行（wdRw)的开始（Home)或结尾（End)。
+'Extend 是移动的类 型:wdMove将移动选择的内容，wdExtend将把选择区域从原始的插入点扩展到新的插入点。
+Selection.EndKey unit:=wdStory
+Selection.MoveUp '(上)
+Selection.MoveDown '(下)
+Selection.MoveLeft '(左)
+Selection.MoveRight '(右)
+'每次移动一个光标，上下移动一行.
+End Sub
+'插入新页，以当前页表格作为模板
+wd.Tables(1).Range.Select
+doc.Selection.EndKey Unit:=6
+doc.Selection.InsertBreak Type:=7
+wd.Tables(1).Range.Copy
+doc.Selection.Paste
+

@@ -1,0 +1,40 @@
+
+※不重复的随机数
+
+Sub 不重复的随机数() '范围为1-10000之间，可以自定义
+  Dim arr1&(1 To 10000, 1 To 1), arr2(1 To 10000) As Boolean
+  Dim k As Long, m As Long
+  Randomize
+  m = 0
+  Do While m < 10000
+    k = Int(10000 * Rnd) + 1
+    If Not arr2(k) Then
+       m = m + 1
+       arr1(m, 1) = k
+       arr2(k) = True
+    End If
+  Loop
+  [a1:a10000] = arr1
+End Sub
+
+Public Sub 随机不重复()
+    Rem ****************************************
+    Rem  作    者:VBA说
+    Rem  功    能: 随机从m个数字中抽取n个不重复的数字
+    Rem  欢迎关注我的公众号：VBA说
+    Rem ****************************************
+    m = 100 'm为要从多少个数中抽取
+    n = 10   'n为要抽取多少个不重复的数字
+    ReDim brr(1 To n, 1 To 1)
+    Set d = CreateObject("scripting.dictionary")
+    For i = 1 To m
+        d(i) = ""
+    Next
+    For i = 1 To n
+        arr = d.keys
+        brr(i, 1) = arr(Int(Rnd() * UBound(arr)) + 1)
+        d.Remove (brr(i, 1))
+    Next
+    [a1].Resize(n) = brr
+End Sub
+

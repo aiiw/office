@@ -1,0 +1,24 @@
+Sub 清除所有格式()
+        Options.DefaultHighlightColorIndex = wdNoHighlight
+    Selection.Range.HighlightColorIndex = wdNoHighlight
+    Selection.ClearFormatting
+    With Selection.Font
+        .NameFarEast = "宋体"
+        .NameAscii = "Times New Roman"
+        .Size = 10  '字号
+        .Bold = 0 '加粗为1，不加粗为0
+    End With
+    '取消缩进
+    With Selection.ParagraphFormat
+        .CharacterUnitLeftIndent = 0
+        .CharacterUnitRightIndent = 0
+        .CharacterUnitFirstLineIndent = 0
+        .LeftIndent = CentimetersToPoints(0)
+        .RightIndent = CentimetersToPoints(0)
+        .FirstLineIndent = CentimetersToPoints(0)
+        .Alignment = wdAlignParagraphJustify
+        .LineSpacingRule = wdLineSpaceExactly
+        .LineSpacing = 23 '行间距设定为固定值23
+    End With
+    MsgBox "清除格式完成"
+End Sub

@@ -1,0 +1,7 @@
+Sub test()
+    Dim tbl As Word.Table
+    For Each tbl In Selection.Range.Tables
+        tbl.Range.Cells(tbl.Range.Cells.Count).Select
+        Selection.Move wdCharacter, 2
+    Next
+End Sub

@@ -1,0 +1,26 @@
+Sub 拆分工作簿()
+Dim wb As Workbook
+Application.ScreenUpdating = False
+row3 = Val(InputBox("请输入标题行数：", "温馨提示：", 1))
+    With ThisWorkbook.ActiveSheet
+        .Range("a60000:A65536").Clear
+        row1 = .Cells(Rows.Count, 1).End(3).Row
+        .Range("a2:a" & row1).AdvancedFilter Action:=xlFilterCopy, unique:=True, copytorange:=.Range("a60000")    '筛选出不重复值
+        row2 = .Cells(Rows.Count, 1).End(3).Row
+        arr = Application.Transpose(.Range("a60000:a" & row2))
+        For i = 1 To UBound(arr)
+            Set wb = Workbooks.Add '新建工作簿
+            For ii = 2 To .Range("a60000").End(3).Row
+                If .Cells(ii, 1) = arr(i) Then
+                    .Range("a1:a" & row3).EntireRow.Copy wb.Worksheets(1).Range("a1")
+                    .Cells(ii, 1).EntireRow.Copy wb.Worksheets(1).Range("a" & wb.Worksheets(1).Range("a65536").End(3).Row + 1)
+                Else
+                End If
+            Next
+            wb.SaveAs ThisWorkbook.Path & "\" & arr(i) & ".xlsx" '将新建的工作簿保存在代码工作簿下
+            wb.Close True
+        Next
+    End With
+    Application.ScreenUpdating = True
+End Sub
+ 

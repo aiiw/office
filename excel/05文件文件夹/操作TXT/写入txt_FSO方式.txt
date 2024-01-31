@@ -1,0 +1,25 @@
+Sub Test4()
+    Dim FSO As New FileSystemObject
+    Dim txt As TextStream
+    Set txt = FSO.OpenTextFile("D:\a.txt", ForAppending, True)
+    txt.WriteLine "新行"
+    txt.Close
+    Set txt = Nothing
+End Sub
+
+Sub 新建文本文件并写入值()
+  Dim objFile As Object, FileObj '声明变量
+  With CreateObject("Scripting.FileSystemObject") '引用FSO对象
+    If .FileExists("C:\时间记录.txt") Then '判断有没有此文本文件，文件名“时间记录.txt”和路径可以随意改。如果有...
+      Set FileObj = .GetFile("C:\时间记录.txt")  '那么提取该文件对象
+      Set objFile = FileObj.OpenAsTextStream(8, -2) '打开文件(此打开方式会使新写入的数据总是保存在原数据之后，如果将8改为2则会覆盖原来的数据)
+    Else '否则
+      Set objFile = .CreateTextFile("C:\时间记录.txt") '新建一个文本文本
+    End If
+    objFile.WriteLine '向文件中写入一个换行符
+    objFile.WriteLine "ABC" '向文件中写入ABC
+    objFile.WriteLine Date '向文件中写入当前日期
+    objFile.Close
+  End With
+
+

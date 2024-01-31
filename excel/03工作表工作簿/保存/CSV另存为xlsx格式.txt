@@ -1,0 +1,7 @@
+Sub 打开CSV另存为xlsx格式()
+    Set acsv = Workbooks.Open(ThisWorkbook.Path & "\a.csv")
+    ActiveWorkbook.SaveAs Filename:=ThisWorkbook.Path & "\a.xlsx", FileFormat:=51
+    ActiveWorkbook.Close
+End Sub
+
+

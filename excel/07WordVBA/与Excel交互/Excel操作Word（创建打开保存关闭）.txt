@@ -1,0 +1,42 @@
+'////////Excel操作Word需要注意的地方
+'用后期绑定，不能直接使用Word的参数，要使用参数的值:
+
+'在Word中录制宏
+'Selection.EndKey Unit:=wdStory
+'在Word中测试wdStory参数的值=6
+'MsgBox wdStory
+
+'.Selection.endkey unit:=6
+
+
+
+'后期绑定
+Sub 操作word1()'打开Word写入文字
+    Set doc = CreateObject("word.application") '创建Word对象
+    Set wd = doc.Documents.Add
+    doc.Visible = True
+     strr = 123 '需要导入的字符串
+    .TypeText strr
+    .TypeParagraph
+    wd.SaveAs ThisWorkbook.Path & "\例子.docx"
+    doc.quit   '关闭程序
+End Sub
+
+
+Sub 操作word2()'打开Word遍历段落
+    Set doc = CreateObject("word.application") '创建Word对象
+    Set wd = doc.Documents.Open(ThisWorkbook.Path & "\例子.docx")
+    With wd
+        For i = 1 To wd.Paragraphs.Count
+            '填入代码
+        Next
+    End With
+    wd.Close 0 '关闭文档界面
+'0 不保存关闭
+'-1保存关闭
+'-2关闭前提示（默认）
+    doc.Quit '关闭Word程序窗口
+End Sub
+
+
+

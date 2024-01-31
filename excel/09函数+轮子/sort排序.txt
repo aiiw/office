@@ -1,0 +1,55 @@
+'方法1
+Sub 方法1()
+    i = Cells(Rows.Count, 1).End(3).Row '取得a列最后一个非空行的行号
+    Range("a1").Resize(i, 2).Sort [b1], 1, , , , , , 1 '第一个数据为1，升序排序，为2，降序排序，第二个数据表示标题行数
+End Sub
+'方法2
+Sub 升序()
+i = Cells(Rows.Count, 1).End(3).Row '取得a列最后一个非空行的行号
+    Range("A2:B" & i).Sort Key1:=Range("B2"), Order1:=xlAscending
+End Sub
+Sub 降序()
+i = [a65536].End(xlUp).Row '取得a列最后一个非空行的行号
+    Range("A2:B" & i).Sort Key1:=Range("B2"), Order1:=xlDescending
+End Sub
+
+
+Sub Excel2007新排序对象基本语法()
+    '新版的排序涉及一个对象和一个方法，包含Worksheet.Sort对象与Sort.SortFields.Add方法
+    'Sort.SortFields.Add方法用于添加排序字段，参数Key代表排序键值，SortOn代表排序的类型，赋值为xlSortOnValues表示按值排序，赋值为xlSortOnCellColor表示按背景色排序
+    '参数Order表示排序方式，xlAscending表示升序，改为xlDescending表示降序。
+    'Worksheet.Sort对象有2个方法和4个属性需要设置，其中Sort.SetRange方法用于指定排序区域，Sort.Apply方法表示执行排序，放在最后面。
+    'Sort.Header属性表示标题行是否参与排序，Sort.MatchCase表示是否区分大小写，Sort.Orientation表示排序方向，Sort.SortMethod表示对汉字排序时用拼音还上笔划排序
+    Set rng = Range("a1:d10") '假设变量rng代表的区域表示要排序的区域
+    With ActiveSheet    '引用活动工作表
+        .Sort.SortFields.Clear    '清除SortFields对象，避免上次的设置影响当前排序结果
+        '添加一个排序字段，以第2列为键值按值降序排列
+        .Sort.SortFields.Add Key:=rng.Columns(2), SortOn:=xlSortOnValues, Order:=xlDescending
+        '此处可以继续添加更多的排序字段，允许最多64个条件    With .Sort '设置排序选项
+        With .Sort '设置排序选项
+            .SetRange rng      '用rng区域作为排序对象
+            .Header = xlYes    '标题不参与排序
+            .MatchCase = False '不区分大小写
+            .Orientation = xlTopToBottom '按列排序
+            .SortMethod = xlPinYin '对于文本按拼音顺序排列
+            .Apply             '执行排序
+        End With
+    End With
+End Sub
+Sub Excel2003排序基本语法()
+    'Range.Sort方法之参数说明：
+    'key1代表第一个排序的列的关键字，此处用B1表示以B列作为排序标准，以B1的值作为排序关键字
+    'Order1表示第一字段的排序方式，赋值为xlAscending表示升序，改为xlDescending表示降序。
+    'Header表示是否包含标题，赋值为xlYes表示标题不参与排序，赋值为xlNo表示标题也参数排序
+    'MatchCase表示排序时是否区分大小写，赋值为False表示不区分大小写
+    'Orientation表示排序方向，赋值为xlTopToBottom或者xlSortColumns表示按列排序，赋值为xlSortRows 表示排行排序
+    'SortMethod用于限制对汉字排序时的排序方式，赋值为xlPinYin表示按拼音排序，赋值为xlStroke表示按笔划排序
+    With Range("a1:d10")    '此处是待排序的区域，可随意修改
+        '此句代码表示对A1:D10区域按列排序，以B1的值作为关键字升序排列，标题不参与排序，不区分大小写。如果B列是汉字则按拼音顺序排序
+        .Sort Key1:=Range("B1"), Order1:=xlAscending, Header:=xlYes, MatchCase:=False, Orientation:=xlTopToBottom, SortMethod:=xlPinYin
+    End With
+End Sub
+
+
+
+

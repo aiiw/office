@@ -1,0 +1,7 @@
+Sub Test2()
+    Set App = GetObject("", "AcroExch.App")
+    With App
+        MsgBox "打开的文档数目：" & .GetNumAVDocs
+    End With
+End Sub
+

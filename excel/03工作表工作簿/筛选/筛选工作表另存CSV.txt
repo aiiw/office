@@ -1,0 +1,20 @@
+Sub exporttest()
+    Application.DisplayAlerts = False
+    Set shtt = Worksheets("CherryPick File for Hamilton")
+    shtt.Range("a:l").Columns("a:l").AutoFit
+    If shtt.FilterMode = True Then shtt.ShowAllData
+    shtt.Range("a:l").AutoFilter field:=1, Criteria1:="<>0" ', Operator:=xlFilterValues
+   
+    For Each sht In ThisWorkbook.Worksheets
+        If sht.Name = "副本" Then sht.Delete
+    Next
+    Worksheets.Add(after:=Worksheets(Worksheets.Count)).Name = "副本"
+    Worksheets("CherryPick File for Hamilton").AutoFilter.Range.SpecialCells(12).Copy Worksheets("副本").Range("a1")
+    Worksheets("副本").Copy
+    ActiveWorkbook.SaveAs Filename:=ThisWorkbook.Path & "\1.csv", FileFormat:=xlCSV
+    ActiveWorkbook.Close True
+    Application.DisplayAlerts = True
+End Sub
+   
+
+ 

@@ -1,0 +1,12 @@
+Sub 倒序重排()
+    Dim PD As Acrobat.AcroPDDoc, Doc As Acrobat.AcroAVDoc, result As Boolean
+    Dim count As Integer, i As Integer
+    Set PD = GetObject("", "AcroExch.PDDoc")
+    PD.Open "C:\temp\三国演义.pdf"
+    count = PD.GetNumPages
+    Set Doc = PD.OpenAVDoc("")
+    For i = count - 2 To 0 Step -1
+        result = PD.MovePage(lMoveAfterThisPage:=count - 1, lPageToMove:=i)
+    Next i
+End Sub
+

@@ -1,0 +1,21 @@
+Function GetFileInfo(Fullpath, InfoIndex)
+    '从文件带路径的字符串中拆分，获得文件名
+    Set oFSO = CreateObject("Scripting.FileSystemObject")
+    Select Case InfoIndex
+    Case 1
+        Set oFile = oFSO.Getfile(Fullpath)
+        GetFileInfo = oFile.Name '文件名带后缀
+    Case 2
+        GetFileInfo = oFSO.getbasename(Fullpath) '纯文件名
+    Case 3
+        GetFileInfo = "." & oFSO.GetExtensionName(Fullpath) '文件扩展名
+    End Select
+End Function
+
+Function GetFolderPath(Fullpath)
+'从文件带路径的字符串中拆分，获得文件夹名
+    Set oFSO = CreateObject("Scripting.FileSystemObject")
+    Set oFile = oFSO.GetFile(Fullpath)
+    sFile = oFile.Name
+    GetFolderPath = oFile.ParentFolder.Path & "\"
+End Function

@@ -1,0 +1,28 @@
+Sub demo()
+Dim tb As Table, fd As FileDialog, fn$, arr
+On Error Resume Next
+ActiveDocument.Tables(1).Delete
+Set tb = ActiveDocument.Tables.Add(Selection.Range, 1, 3)
+With tb
+    .Style = "网格型"
+    .Cell(1, 1).Range = "编号"
+    .Cell(1, 2).Range = "姓名"
+    .Cell(1, 3).Range = "扩展名"
+    Set fd = Application.FileDialog(4)
+    fd.Show
+    fn = Dir(fd.SelectedItems(1) & "\*.*")
+    Do
+        arr = Split(Replace(fn, ".", "-"), "-")
+        .Rows.Last.Select
+        Selection.InsertRowsBelow 1
+        With .Rows.Last
+            .Cells(1).Range = arr(0)
+            .Cells(2).Range = arr(1)
+            .Cells(3).Range = arr(2)
+        End With
+        fn = Dir
+    Loop Until fn = ""
+End With
+End Sub
+
+

@@ -1,0 +1,10 @@
+Private Declare Function CreateEllipticRgn Lib "gdi32" (ByVal X1 As Long, ByVal Y1 As Long, ByVal X2 As Long, ByVal Y2 As Long) As Long
+Private Declare Function SetWindowRgn Lib "user32" (ByVal hWnd As Long, ByVal hRgn As Long, ByVal bRedraw As Long) As Long
+Private Declare Function FindWindow Lib "user32" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
+Private Sub UserForm_Initialize()
+ lngNewRgn = SetWindowRgn(FindWindow("ThunderDFrame", Me.Caption), CreateEllipticRgn(10, 30, Me.Width, Me.Height * 1), True)
+End Sub
+Private Sub UserForm_Click() '单击窗体时关闭
+Unload Me
+End Sub
+

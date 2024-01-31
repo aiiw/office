@@ -1,0 +1,23 @@
+Sub 获取和设置PDF窗口位置()
+    Dim App As Acrobat.AcroApp
+    Dim Doc As Acrobat.AcroAVDoc
+    Dim result As Boolean, i As Integer
+    Dim Rect As Acrobat.AcroRect
+    Set App = GetObject("", "AcroExch.App")
+    App.Show
+    Set Doc = App.GetActiveDoc
+    Set Rect = Doc.GetFrame
+    With Rect
+        Debug.Print .Left, .Top, .Right; .bottom
+    End With
+    MsgBox "接下来自动设置Acrobat窗口位置！"
+    With Rect
+        .Left = 200
+        .Top = 220
+        .Right = 1000
+        .bottom = 600
+    End With
+    Doc.SetFrame Rect
+End Sub
+
+

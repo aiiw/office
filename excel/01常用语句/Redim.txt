@@ -1,0 +1,3 @@
+k = k + 1
+ReDim Preserve arr(1 To k)
+arr(k) = d

@@ -1,0 +1,13 @@
+Public Sub ErgodicDim()
+    Dim ent As AcadEntity '对象基类
+        
+    For Each ent In ThisDrawing.ModelSpace '所有对象
+        If TypeOf ent Is AcadText Then '单行文本
+            '访问ent的属性和方法
+        ElseIf TypeOf ent Is AcadMText Then '多行文本
+           
+        ElseIf TypeOf ent Is AcadDimension Then '标注
+          
+        End If
+    Next
+End Sub

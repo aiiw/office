@@ -1,0 +1,19 @@
+Sub 后台获取PDF文件信息()
+    Dim PD As Acrobat.AcroPDDoc, result As Boolean
+    Set PD = GetObject("", "AcroExch.PDDoc")
+    With PD
+        .Open "C:\temp\三国演义.pdf"
+        Debug.Print "文件名：", .GetFileName
+        Debug.Print "总页数", .GetNumPages
+        Debug.Print "Title：", .GetInfo("Title")
+        Debug.Print "Creator：", .GetInfo("Creator")
+        Debug.Print "Keywords：", .GetInfo("Keywords")
+        Debug.Print "Subject：", .GetInfo("Subject")
+        Debug.Print "Author：", .GetInfo("Author")
+        Debug.Print "Created：", .GetInfo("Created")
+        Debug.Print "Modified：", .GetInfo("Modified")
+        Debug.Print "Producer：", .GetInfo("Producer")
+        .Close
+    End With
+End Sub
+

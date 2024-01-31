@@ -1,0 +1,35 @@
+
+
+
+'///////////移动文件夹////////
+     '同样使用name方法，可以达到移动的效果，而且连文件夹的文件一起移动
+    
+    Sub w5()
+      Name ThisWorkbook.path & "\test2" As ThisWorkbook.path & "\2016年报表\test100"
+    End Sub
+
+
+Public Sub 移动文件夹()
+    Dim myFolder As String
+    Dim myNewFilePath As String
+    Dim fso As Scripting.FileSystemObject
+    myFolder = ThisWorkbook.Path & "\myfolder"    '要移动的文件夹
+    myNewFilePath = ThisWorkbook.Path & "\testfile\"    '要移动的位置
+    Set fso = New Scripting.FileSystemObject
+    If fso.FolderExists(myFolder) Then
+        fso.MoveFolder myFolder, myNewFilePath
+        MsgBox "已经将文件夹 " & myFolder & " 移到了文件夹 " & myNewFilePath
+    Else
+        MsgBox "要移动的文件夹不存在"
+    End If
+    Set fso = Nothing
+
+
+'///////////复制文件夹////////
+        Sub CopyFile_fso()
+        Dim fso As Object
+        Set fso = CreateObject("Scripting.FileSystemObject")
+        fso.CopyFolder ThisWorkbook.path & "\测试新建文件夹", ThisWorkbook.path & "\2016年报表\"
+        Set fso = Nothing
+        End Sub
+ 

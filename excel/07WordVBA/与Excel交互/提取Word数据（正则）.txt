@@ -1,0 +1,21 @@
+Sub test()
+Dim wdapp As Word.Application
+Set wdapp = New Word.Application
+wdapp.Documents.Open ThisWorkbook.Path & "\DEMO\9-5.demo.docx"
+With wdapp
+c = .Documents(1).Range
+    Set regx = CreateObject("vbscript.regexp")
+        With regx
+            .Global = True
+            .Pattern = "\d+¡¢\S+¡£"
+            Set Mat = .Execute(c)
+            For Each m In Mat
+                n = n + 1
+                Cells(n, 1) = m.Value
+            Next
+        End With
+End With
+wdapp.Quit
+End Sub
+
+

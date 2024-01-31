@@ -1,0 +1,11 @@
+Private Sub TextBox1_Change()
+   Dim MyPic$
+    MyPic = "F:\ͼƬ\" & TextBox1.Value & ".jpg"
+    If Dir(MyPic) <> "" Then
+        Image1.Picture = LoadPicture(MyPic)
+        Image1.PictureSizeMode = 1
+    Else
+        Image1.Picture = LoadPicture("")
+    End If
+End Sub
+

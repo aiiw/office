@@ -1,0 +1,4 @@
+'横向打印
+ActiveSheet.PageSetup.Orientation = xlLandscape
+'纵向打印
+ActiveSheet.PageSetup.Orientation = xlPortrait

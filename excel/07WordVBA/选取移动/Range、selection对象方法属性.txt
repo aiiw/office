@@ -1,0 +1,26 @@
+Sub test()
+'Range ，该对象代表指定段落中包含的文档部分。
+'文档对象.Range(Start, End) 它的两个参数可忽略
+
+'--------作为方法的设置--------
+MsgBox ActiveDocument.Range(5) '文档下的range
+ActiveDocument.Range(5, 10).Bold = True
+
+'--------range中selection中--------
+MsgBox Selection.Range
+Selection.Range.Bold = True
+
+'--------range在段落中--------
+MsgBox Selection.Paragraphs(1).Range
+Selection.Paragraphs(1).Range.Bold = True
+'.....
+End Sub
+'--------删除第二段至末尾的内容--------
+ActiveDocument.Range(ActiveDocument.Paragraphs(2).Range.Start, ActiveDocument.Range.End).Delete
+  
+'--------光标移至文件尾--------
+
+Selection.Start = ActiveDocument.Content.End
+
+
+

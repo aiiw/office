@@ -1,0 +1,20 @@
+Sub 设置第几页共几页()
+With ActiveDocument.Sections(1).Footers(wdHeaderFooterPrimary)
+       Set rng = .Range
+       rng.Text = "第 "
+       rng.Collapse wdCollapseEnd
+       ActiveDocument.Fields.Add rng, wdFieldPage, "Page"
+       Set rng = .Range
+       rng.Collapse wdCollapseEnd
+       rng.Text = " 页 / 共 "
+       rng.Collapse wdCollapseEnd
+       ActiveDocument.Fields.Add rng, wdFieldNumPages, "Pages"
+       Set rng = .Range
+       rng.Collapse wdCollapseEnd
+       rng.Text = " 页 "
+       .Range.Fields.Update
+       .Range.ParagraphFormat.Alignment = wdAlignParagraphCenter
+   End With
+End Sub
+
+

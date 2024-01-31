@@ -1,0 +1,40 @@
+Sub 插入外部图片()
+    Set Rng = Range("a1")
+    'Range("a1").Select 合并单元格区域插入图片需要加上这两句
+    'Set Rng = Selection
+
+    i = ThisWorkbook.Path & "\" & "图片" & "\1.jpg"
+    Sheet1.Shapes.AddPicture i, True, True, Rng.Left, Rng.Top, Rng.Width, Rng.Height
+End Sub
+'rng是你需要插入图片的单元格。前面需要给rng指定一下是哪个单元格
+
+
+
+'//获取合并单元格的尺寸
+
+'方法一：
+'Range("a1").MergeArea.Height
+'Range("a1").MergeArea.Width
+
+'方法二：
+'Range("a1").Select 合并单元格区域插入图片需要加上这两句
+'Set Rng = Selection
+'Rng.Height
+'Rng.Width
+
+
+
+
+'//自选图形插入图片
+'方法一
+        Set rng = Cells(i + 1, j).Resize(15, 6)
+        With rng
+            ML = .Left
+            MT = .Top
+            MW = .Width
+            MH = .Height
+            ActiveSheet.Shapes.AddShape(msoShapeRectangle, ML, MT, MW, MH).Select
+            Selection.ShapeRange.Fill.UserPicture _
+                ThisWorkbook.Path & "" & nm & ".jpg"
+            Selection.ShapeRange.Line.Visible = msoFalse
+        End With	

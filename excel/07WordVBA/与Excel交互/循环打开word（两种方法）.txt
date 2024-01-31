@@ -1,0 +1,33 @@
+ '1.FileDialog方法
+
+    Set diag1 = Application.FileDialog(msoFileDialogFilePicker)
+    '定义文件选择对话框
+    With diag1
+        .AllowMultiSelect = True '设置文件选择对话框能够选择多个文件
+      .Filters.Clear     '清除文件过滤器
+        .Filters.Add "Word Files", "*.doc*"
+        return1 = .Show '打开文件选择对话框
+                
+        n = .SelectedItems.Count '将选中文件个数保存至变量n
+        If return1 = -1 Then
+            '如选中文件(retun1=-1)则将选中的文件路径保存到filePathArray数组
+            ReDim filePathArray(1 To n)
+            For i = 1 To n
+                filePathArray(i) = .SelectedItems(i)
+            Next
+        Else '如果未选中任何文件则提示
+            MsgBox "未选择任何文件", vbExclamation
+        End If
+    End With
+    
+  '2.Dir方法
+Set doc = CreateObject("word.application")
+    f = Dir(ThisWorkbook.Path & "\*.doc")
+    Do While f <> ""
+        Set wd = doc.Documents.Open(ThisWorkbook.Path & "\" & f)
+        doc.Visible = True
+            '具体操作
+        f = Dir
+        wd.Close False
+    Loop
+

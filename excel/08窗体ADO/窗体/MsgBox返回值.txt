@@ -1,0 +1,4 @@
+cledata = MsgBox("提示！！将清空本表所有数据，点“是”将清空，否则跳过！", vbYesNo, "提示信息")
+If cledata = vbYes Then Sheet7.Range("D2:W" & Rows.Count).Clear
+
+

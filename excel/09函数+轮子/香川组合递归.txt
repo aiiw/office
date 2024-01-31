@@ -1,0 +1,80 @@
+Public sj, jg(), m, n, r
+Sub Ïã´¨×éºÏµÝ¹é()
+    sj = ActiveCell.CurrentRegion: m = UBound(sj): n = UBound(sj, 2): Amn = m ^ n
+    If Amn > 65536 Then Exit Sub Else ReDim jg(Amn, 1 To n + 1): r = 0
+    Call mndg("", 0, 0)
+    ActiveCell.CurrentRegion.Cells(1).offset(m + 3).Resize(r, n + 1) = jg
+End Sub
+Sub mndg(s$, i, t%)
+    If t = n Then
+        p = Split(s, ";")
+        For j = 1 To n
+            jg(r, j) = sj(p(j), j)
+            jg(r, n + 1) = jg(r, n + 1) & ";" & sj(p(j), j)
+        Next
+        jg(r, n + 1) = Mid(jg(r, n + 1), 2): r = r + 1: Exit Sub
+    End If
+    For j = i + 1 To m
+        If sj(j, t + 1) <> "" Then Call mndg(s & ";" & j, 0, t + 1)
+    Next j
+End Sub
+¸´ÖÆ´úSub Ïã´¨×éºÏµÝ¹é()
+    sj = [a1].CurrentRegion: m = UBound(sj): n = UBound(sj, 2): Amn = m ^ n
+    If Amn > 65536 Then Exit Sub Else ReDim jg(Amn, n): r = 0
+    Call mndg("", 0, 0)
+    [a1].offset(, n + 3).CurrentRegion = "": [a1].offset(, n + 1) = Amn: [a1].offset(, n + 3).Resize(Amn, n + 1) = jg
+End Sub
+Sub mndg(s$, i, t%)
+    If t = n Then
+        p = Split(s, ";")
+        For j = 1 To n
+            jg(r, j) = sj(p(j), j)
+            jg(r, 0) = jg(r, 0) & ";" & sj(p(j), j)
+        Next
+        jg(r, 0) = Mid(jg(r, 0), 2): r = r + 1: Exit Sub
+    End If
+    For j = i + 1 To m
+        If sj(j, t + 1) <> "" Then Call mndg(s & ";" & j, 0, t + 1)
+    Next j
+End Sub
+Sub ÅÅÁÐµÝ¹é()
+    m = [a1].End(4).Row: sj = [a1].Resize(m): n = [b1]
+    AP = WorksheetFunction.Permut(m, n): ReDim jg(AP, n): r = 0
+    Call pldg("", 0)
+    [b3] = AP: [d1].CurrentRegion: [d1].Resize(AP, n + 1) = jg
+End Sub
+Sub pldg(s$, t%)
+    If t = n Then
+        p = Split(s, ";")
+        For j = 1 To n
+            jg(r, j) = sj(p(j), 1)
+            jg(r, 0) = jg(r, 0) & ";" & sj(p(j), 1)
+        Next
+        jg(r, 0) = Mid(jg(r, 0), 2): r = r + 1: Exit Sub
+    End If
+    For j = 1 To m
+        If InStr(s & ";", ";" & j & ";") = 0 Then Call pldg(s & ";" & j, t + 1)
+    Next j
+End Sub
+Sub ×éºÏµÝ¹é()
+    m = [a1].End(4).Row: sj = [a1].Resize(m): n = [b1]
+    AC = WorksheetFunction.Combin(m, n): ReDim jg(AC, n): r = 0
+    Call zhdg("", 0, 0)
+    [b3] = AC: [d1].CurrentRegion = "": [d1].Resize(AC, n + 1) = jg
+End Sub
+Sub zhdg(s$, i, t%)
+    If t = n Then
+        p = Split(s, ";")
+        For j = 1 To n
+            jg(r, j) = sj(p(j), 1)
+            jg(r, 0) = jg(r, 0) & ";" & sj(p(j), 1)
+        Next
+        jg(r, 0) = Mid(jg(r, 0), 2): r = r + 1: Exit Sub
+    End If
+    For j = i + 1 To m
+        Call zhdg(s & ";" & j, j, t + 1)
+    Next j
+End Sub
+
+
+

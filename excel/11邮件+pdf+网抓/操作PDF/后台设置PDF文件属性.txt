@@ -1,0 +1,12 @@
+Sub 后台设置PDF文件属性()
+    Dim PD As Acrobat.AcroPDDoc, result As Boolean
+    Set PD = GetObject("", "AcroExch.PDDoc")
+    With PD
+        .Open "C:\temp\三国演义.pdf"
+        .SetInfo "Keywords", "水浒传 西游记"
+        .SetInfo "Author", "刘 行"
+        .Save nType:=Acrobat.PDSaveFlags.PDSaveFull, sFullPath:="C:\temp\三国演义AddProperties.pdf"
+        .Close
+    End With
+End Sub
+

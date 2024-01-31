@@ -1,0 +1,8 @@
+Sub 批量改上标()
+'m2、m3、o2修改
+For Each c In ActiveSheet.UsedRange
+    If c Like "*#" Then
+        c.Characters(c.Characters.Count, 1).Font.Superscript = True    'Subscript是下标
+    End If
+Next c
+End Sub

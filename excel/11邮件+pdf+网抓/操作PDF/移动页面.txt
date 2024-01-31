@@ -1,0 +1,9 @@
+Sub 移动页面()
+    Dim PD As Acrobat.AcroPDDoc, Doc As Acrobat.AcroAVDoc
+    Set PD = GetObject("", "AcroExch.PDDoc")
+    PD.Open "C:\temp\三国演义.pdf"
+    result = PD.MovePage(lMoveAfterThisPage:=5, lPageToMove:=2)
+    Set Doc = PD.OpenAVDoc("")
+    Doc.Close bNoSave:=False
+End Sub
+

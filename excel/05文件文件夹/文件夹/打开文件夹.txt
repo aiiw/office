@@ -1,0 +1,5 @@
+'///////////打开文件夹////////
+   '使用shell函数桌面管理程序打开文件夹
+    Sub w7()
+      Shell "explorer.exe " & ThisWorkbook.path & "\2016年报表", 1
+    End Sub

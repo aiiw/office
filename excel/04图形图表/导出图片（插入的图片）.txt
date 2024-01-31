@@ -1,0 +1,29 @@
+
+<<<<<<< HEAD
+Sub µ¼³öÄ³Ò»ÁÐÍ¼Æ¬()
+=======
+Sub å¯¼å‡ºæŸä¸€åˆ—å›¾ç‰‡()
+>>>>>>> remotes/origin/Version2.0.1
+Dim s As Shape, x As Range
+For Each x In Range("b:b").SpecialCells(2)
+    For Each s In ActiveSheet.Shapes
+        If s.TopLeftCell.Address = x.Offset(-1, -1).Address Then
+            s.CopyPicture
+            With ActiveSheet.ChartObjects.Add(0, 0, s.Width + 5, s.Height + 5).Chart
+<<<<<<< HEAD
+                
+=======
+>>>>>>> remotes/origin/Version2.0.1
+        .Parent.Select
+                .Paste
+                .Export ThisWorkbook.Path & "\" & x & x.Row & ".JPG"
+                .Parent.Delete
+            End With
+        End If
+    Next
+Next
+End Sub
+<<<<<<< HEAD
+=======
+
+>>>>>>> remotes/origin/Version2.0.1

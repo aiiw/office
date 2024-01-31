@@ -1,0 +1,6 @@
+Sub Test2()
+    Open "D:\a.txt" For Output As #1 '如改为For Append，则为追加文件。
+        Print #1, "新内容"
+    Close #1
+End Sub
+

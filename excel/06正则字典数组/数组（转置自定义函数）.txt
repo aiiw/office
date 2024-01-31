@@ -1,0 +1,35 @@
+
+Function Transpose2(arr As Variant)
+    '******转置函数，单列单行数组不会转置为一维的,没有系统255字符的限制******
+    '******CopyRight @ EXCEL880 QQ80871835 百度不到去谷歌*****
+    Dim brr(), i, j, n
+    n = NumberOfArrayDimensions(arr)
+    If n = 1 Then
+        ReDim brr(LBound(arr) To UBound(arr), 1 To 1)
+        For i = LBound(arr) To UBound(arr)
+            brr(i, 1) = arr(i)
+        Next
+    Else
+        ReDim brr(LBound(arr, 2) To UBound(arr, 2), LBound(arr) To UBound(arr))
+        For i = LBound(arr) To UBound(arr)
+            For j = LBound(arr, 2) To UBound(arr, 2)
+                brr(j, i) = arr(i, j)
+            Next
+        Next
+    End If
+    Transpose2 = brr
+End Function
+Public Function NumberOfArrayDimensions(arr As Variant) As Integer
+    '******计算数组维数
+    '******CopyRight @ EXCEL880 QQ80871835 百度不到去谷歌*****
+    Dim Ndx As Integer
+    Dim Res As Integer
+    On Error Resume Next
+    Do
+        Ndx = Ndx + 1
+        Res = UBound(arr, Ndx)
+    Loop Until Err.Number <> 0
+    NumberOfArrayDimensions = Ndx - 1
+End Function
+
+

@@ -1,0 +1,21 @@
+Sub 循环打开工作簿()
+    Application.DisplayAlerts = False
+    Application.ScreenUpdating = False
+    Application.AskToUpdateLinks = False
+    Dim wb As Workbook
+    myname = Dir(ThisWorkbook.Path & "\" & "*.xls*")
+    Do While myname <> ""
+        If myname <> ThisWorkbook.Name Then
+            Set wb = Workbooks.Open(ThisWorkbook.Path & "\" & myname)
+            
+            '########汇总数据的核心操作##########
+            
+            wb.Close False
+        Else
+        End If
+        myname = Dir
+    Loop
+    Application.DisplayAlerts = True
+    Application.ScreenUpdating = True
+    Application.AskToUpdateLinks = True
+End Sub

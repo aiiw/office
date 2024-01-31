@@ -1,0 +1,8 @@
+Sub 活动工具的获取和设置()
+    Set App = GetObject("", "AcroExch.App")
+    With App
+        Debug.Print "当前活动工具是：", .GetActiveTool
+        .SetActiveTool "Hand", True
+    End With
+End Sub
+

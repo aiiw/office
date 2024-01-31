@@ -1,0 +1,43 @@
+Sub SplitEveryFivePagesAsDocuments()
+    Dim oSrcDoc As Document, oNewDoc As Document
+    Dim strSrcName As String, strNewName As String
+    Dim oRange As Range
+    Dim nIndex As Integer, nSubIndex As Integer, nTotalPages As Integer, nBound As Integer
+    Dim fso As Object
+    Const nSteps = 100 ' 修改这里控制每隔几页分割一次
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set oSrcDoc = ActiveDocument
+    Set oRange = oSrcDoc.Content
+    nTotalPages = ActiveDocument.Content.Information(wdNumberOfPagesInDocument)
+    oRange.Collapse wdCollapseStart
+    oRange.Select
+    For nIndex = 1 To nTotalPages Step nSteps
+        Set oNewDoc = Documents.Add
+        If nIndex + nSteps > nTotalPages Then
+            nBound = nTotalPages
+        Else
+            nBound = nIndex + nSteps - 1
+        End If
+        For nSubIndex = nIndex To nBound
+            oSrcDoc.Activate
+            oSrcDoc.Bookmarks("\page").Range.Copy
+            oSrcDoc.Windows(1).Activate
+            Application.Browser.Target = wdBrowsePage
+            Application.Browser.Next
+            oNewDoc.Activate
+            oNewDoc.Windows(1).Selection.Paste
+        Next nSubIndex
+        strSrcName = oSrcDoc.FullName
+        strNewName = fso.BuildPath(fso.GetParentFolderName(strSrcName), _
+        fso.GetBaseName(strSrcName) & "_" & (nIndex \ nSteps + 1) & "." & fso.GetExtensionName(strSrcName))
+        oNewDoc.SaveAs strNewName
+        oNewDoc.Close False
+    Next nIndex
+    Set oNewDoc = Nothing
+    Set oRange = Nothing
+    Set oSrcDoc = Nothing
+    Set fso = Nothing
+    MsgBox "结束！"
+End Sub
+
+

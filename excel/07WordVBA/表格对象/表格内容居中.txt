@@ -1,0 +1,6 @@
+'将表格内容调整为上下，左右居中
+For Each oTable In oDoc.Tables
+oTable.AutoFitBehavior (wdAutoFitWindow) '根据窗口调整内容
+oTable.Range.ParagraphFormat.Alignment = wdAlignParagraphCenter '水平居中
+oTable.Range.Cells.VerticalAlignment = wdCellAlignVerticalCenter '垂直居中
+Next

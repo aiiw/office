@@ -1,0 +1,9 @@
+Function MakeDir(PathG)
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    If fso.FolderExists(PathG) = True Then
+        fso.getfolder(PathG).Delete '//删除文件夹
+        MkDir PathG '//创建文件夹
+    Else
+        MkDir PathG '//创建文件夹
+    End If
+End Function

@@ -1,0 +1,8 @@
+Sub ÷¥––π§æﬂ¿∏√¸¡Ó()
+    Set App = GetObject("", "AcroExch.App")
+    With App
+        .MenuItemExecute "FitPage"
+        .MenuItemExecute "LastPage"
+    End With
+End Sub
+

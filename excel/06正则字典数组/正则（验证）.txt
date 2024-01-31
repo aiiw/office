@@ -1,0 +1,15 @@
+Sub Test2()
+    '验证是否包含特定词汇
+    Dim 帖子内容 As String
+    Dim reg As New VBScript_RegExp_55.RegExp
+    Dim result As Boolean
+    帖子内容 = "我制作了一个秒杀所有Excel操作的工具！"
+    With reg
+        .Pattern = "枪手|秒杀|屌丝"
+        result = .Test(帖子内容)
+        If result Then
+            MsgBox "含有敏感词汇！", vbCritical
+        End If
+    End With
+End Sub
+

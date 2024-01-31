@@ -1,0 +1,68 @@
+Public Type BROWSEINFO
+    hOwner As LongPtr
+    pidlRoot As LongPtr
+    pszDisplayName As String
+    lpszTitle As String
+    ulFlags As LongPtr
+    lpfn As LongPtr
+    lParam As LongPtr
+    iImage As LongPtr
+End Type
+Public Const BIF_RETURNONLYFSDIRS = &H1
+Public Const BIF_DONTGOBELOWDOMAIN = &H2
+Public Const BIF_STATUSTEXT = &H4
+Public Const BIF_RETURNFSANCESTORS = &H8
+Public Const BIF_BROWSEFORCOMPUTER = &H1000
+Public Const BIF_BROWSEFORPRINTER = &H2000
+Public Const BIF_NEWDIALOGSTYLE = &H40
+Declare PtrSafe Function SHGetPathFromIDList Lib "shell32.dll" Alias "SHGetPathFromIDListA" (ByVal pidl As LongPtr, ByVal pszPath As String) As LongPtr
+Declare PtrSafe Function SHBrowseForFolder Lib "shell32.dll" Alias "SHBrowseForFolderA" (lpBrowseInfo As BROWSEINFO) As LongPtr
+'*************
+'系统类型与函数声明结束
+'***************
+'此函数返回确保后面带反斜杠的文件路径
+Public Function EnsurePath(ByVal sPath As String) As String
+    If Right(sPath, 1) <> "\" Then
+        EnsurePath = sPath & "\"
+    Else
+        EnsurePath = sPath
+    End If
+End Function
+'主函数，参数为选择文件夹对话框里的提醒文字
+Public Function GetFolder(ByVal sTitle As String) As String
+    Dim bInf As BROWSEINFO
+    Dim retval As LongPtr
+    Dim PathID As LongPtr
+    Dim RetPath As String
+    Dim offset As Integer
+    bInf.lpszTitle = sTitle
+    bInf.ulFlags = BIF_NEWDIALOGSTYLE
+    PathID = SHBrowseForFolder(bInf)
+    RetPath = Space$(512)
+    retval = SHGetPathFromIDList(ByVal PathID, ByVal RetPath)
+    If retval Then
+        offset = InStr(RetPath, Chr$(O))
+        GetFolder = Left$(RetPath, offset - 1)
+    End If
+End Function
+Public Sub ListFilesFSO(ByVal sPath As String)
+    Dim oFSO As Object
+    Dim oFolder As Object
+    Dim oFile As Object
+    Set oFSO = CreateObject("Scripting.FileSystemObject")
+    Set oFolder = oFSO.GetFolder(sPath)
+    For Each oFile In oFolder.Files
+        Debug.Print oFile.Name
+    Next 'oFile
+    Set oFile = Nothing
+    Set oFolder = Nothing
+    Set oFSO = Nothing
+End Sub
+Sub 获取文件夹路径()
+MsgBox GetFolder("请选择文件夹路径")
+End Sub
+
+Sub 获取文件路径()
+Set exl = CreateObject("excel.application")
+arr = exl.GetOpenFilename("文件(*.xls*),*.*", , "请选择文件", , False)
+End Sub

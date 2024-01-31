@@ -1,0 +1,21 @@
+Sub exceltocad()
+    Dim InsertionPoint(0 To 2) As Double
+    InsertionPoint(0) = 0: InsertionPoint(1) = 0: InsertionPoint(1) = 0
+    Dim Cols As Integer
+    Dim Rows As Integer
+    Set exl = GetObject(, "excel.application")
+    Set rng = exl.activeworkbook.activesheet.range("aw4:bb25")
+    Cols = 6
+    Rows = rng.Rows.Count - 2
+    Dim table As AcadTable
+    Set table = AddBlkTable(InsertionPoint, Cols, Rows)
+    For i = 5 To 25
+        For j = 49 To 54
+            table.SetText i - 5, j - 49, exl.activeworkbook.activesheet.cells(i, j).Value
+            table.SetColumnWidth j - 49, exl.activeworkbook.activesheet.Columns(j).Width / 2
+            If i - 5 > 0 Then
+                table.SetCellAlignment i - 5, j - 49, acMiddleLeft
+            End If
+        Next
+    Next
+End Sub

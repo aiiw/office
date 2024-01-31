@@ -1,0 +1,47 @@
+Sub 合并同类项()
+  On Error GoTo err
+  If TypeName(Selection) <> "Range" Then MsgBox "请选择单元格！", 65, "提示": Exit Sub
+  If Selection.Count = 1 Then Exit Sub '只选择一个单元格时退出程序
+  If Selection.Columns.Count > 1 Then MsgBox "只对单列数据进行操作！", 65, "提示": Exit Sub
+  Application.ScreenUpdating = False    '禁止屏幕更新
+  Application.Calculation = xlManual  '将计算方式改为手动
+  Dim rng As Range, rg As Range, rngs As Range
+  Application.DisplayAlerts = False    '禁止合并单元格时的提示
+  Set rngs = Intersect(ActiveSheet.UsedRange, Selection)   '提取选区与已用数据区域的交集
+  Set rg = rngs(1)
+  For Each rng In rngs.Offset(1, 0).Resize(rngs.Count, 1)  '在选区向下偏移一行的区域中循环
+    If rng <> rng.Offset(-1, 0) Then  '如果对象变量rng与其上一个单元不相等
+      Range(rg, rng.Offset(-1, 0)).Merge  '合并对象变量前面的相同数据区域
+      Set rg = rng  '重新指定对象变量
+    End If
+  Next
+err:
+  Application.Calculation = xlAutomatic    '将计算方式改为自动
+  Application.DisplayAlerts = True    '还原提示
+  Application.ScreenUpdating = True  '还原屏幕更新
+  rngs(1).Select    '选择原选区中第一个单元格
+End Sub
+
+
+
+Sub 合并单元格()
+    For i = sht.Cells(Rows.Count, 2).End(3).Row To 2 Step -1
+        If sht.Cells(i, 2) = Cells(i - 1, 2) Then
+        sht.Range(sht.Cells(i, 2), sht.Cells(i - 1, 2)).Merge
+        Else
+        End If
+    Next
+    Application.DisplayAlerts = True
+    Application.ScreenUpdating = True
+    MsgBox "完成！"
+End Sub
+
+Sub 取消合并单元格()
+Dim b%, rng As Range
+    For Each rng In Selection
+        b = rng.MergeArea.Count
+        rng.UnMerge
+        rng.Resize(b) = rng
+    Next
+End Sub
+sd

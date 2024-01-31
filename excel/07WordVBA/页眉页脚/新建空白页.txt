@@ -1,0 +1,14 @@
+Sub InserNewPage()
+Dim i As Integer, pg As Integer
+pg = InputBox("请输入插入空白页数量", "插入页提示")
+If i >= pg Then Exit Sub
+    For i = 1 To pg
+        Selection.EndKey Unit:=wdStory
+        Selection.InsertBreak Type:=wdPageBreak
+        'Selection.TypeText Text:="New Page"
+    Next
+End Sub
+
+
+
+

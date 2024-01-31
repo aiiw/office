@@ -1,0 +1,76 @@
+'删除空白页方法一
+Sub GetBlankPage()
+    Dim IsDelete As Boolean
+    Dim PageCount As Long
+    Dim rRange As Range
+    Dim iInt As Integer, DelCount As Integer
+    Dim tmpstr As String
+    IsDelete = True
+    PageCount = ThisDocument.BuiltInDocumentProperties(wdPropertyPages)
+    For iInt = 1 To PageCount
+        '超过PageCount退出
+        If iInt > PageCount Then Exit For
+        '取每一页的内容
+        If iInt = PageCount Then
+            Set rRange = ThisDocument.Range( _
+            Start:=ThisDocument.GoTo(wdGoToPage, wdGoToAbsolute, iInt).Start)
+        Else
+            Set rRange = ThisDocument.Range(Start:=ThisDocument.GoTo(wdGoToPage, wdGoToAbsolute, iInt).Start, _
+            End:=ThisDocument.GoTo(wdGoToPage, wdGoToAbsolute, iInt + 1).Start)
+        End If
+        If Replace(rRange.Text, Chr(13), "") = "" Or Replace(rRange.Text, Chr(13), "") = Chr(12) Then
+        tmpstr = tmpstr & "第 " & iInt & " 页是空页" & vbCrLf
+        '删除?
+        If IsDelete Then
+            DelCount = DelCount + 1
+            '删除空白页
+            rRange.Text = Replace(rRange.Text, Chr(13), "")
+            rRange.Text = ""
+            '重算页数
+            PageCount = ThisDocument.BuiltInDocumentProperties(wdPropertyPages)
+            If iInt <> PageCount Then
+                '页删除后，页码变化，重新检查当前页
+                iInt = iInt - 1
+            Else
+                '最后一个空页
+                Set rRange = ThisDocument.Range(Start:=ThisDocument.GoTo(wdGoToPage, wdGoToAbsolute, PageCount - 1).Start, End:=ThisDocument.GoTo(wdGoToPage, wdGoToAbsolute, PageCount + 1).Start)
+                
+                If InStr(1, rRange.Text, Chr(12)) > 0 Then
+                    rRange.Characters(InStr(1, rRange.Text, Chr(12))) = ""
+                Else
+                    '没有分页符,通过选中后删除,最好不这样做，如果判断错误，有误删除的风险
+                    Set rRange = ThisDocument.Range(Start:=ThisDocument.GoTo(wdGoToPage, wdGoToAbsolute, iInt).Start)
+                    rRange.Select
+                    Selection.Delete
+                End If
+                Exit For
+            End If
+        End If
+    End If
+Next
+If 1 = 1 Or Not IsDelete Then
+    If tmpstr = "" Then
+        MsgBox "没有空页", vbInformation + vbOKOnly
+    Else
+        MsgBox tmpstr, vbInformation + vbOKOnly
+    End If
+Else
+    If DelCount > 0 Then MsgBox "删除空页 " & DelCount, vbInformation + vbOKOnly
+End If
+End Sub
+
+'删除空白页方法二
+'删除选中内容
+ Selection.Delete
+'退格（删除最后空白页）
+Selection.TypeBackspace
+
+
+'删除空白页方法三【分节符空白页】
+ With oRng.Find '删除分节符
+            .ClearFormatting
+            .MatchWildcards = False
+            .Text = "^b"
+            .Execute ReplaceWith:="", Replace:=wdReplaceAll
+ End With
+

@@ -1,0 +1,9 @@
+Private Sub UserForm_Initialize()
+    Dim Charts As Chart
+    Dim cName As String
+    Set Charts = Sheets("Sheet2").ChartObjects(1).Chart
+    cName = ThisWorkbook.Path & "\Temp.gif"
+    Charts.Export Filename:=cName, FilterName:="GIF"
+    Image1.Picture = LoadPicture(cName)
+End Sub
+

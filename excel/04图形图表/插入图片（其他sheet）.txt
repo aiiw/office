@@ -1,0 +1,16 @@
+Sub 插入另外一个表格的图片()
+    Dim shp As Shape
+    For Each shp In Sheet1.Shapes
+        k = k + 1
+        shp.Copy
+        Sheet2.Cells(1, 1).Select
+        Sheet2.Paste
+        Set Rng = Sheet2.Cells.Find(shp.Name, , xlValues, xlWhole, xlByColumns, xlNext, True, True)
+        With Selection       '图片是唯一的,设置图片：位置和大小
+            .ShapeRange.Height = Rng.Height
+            .ShapeRange.Width = Rng.Width
+            .ShapeRange.Left = Rng.Left + (Rng.Width - .Width) / 2
+            .ShapeRange.Top = Rng.Top + (Rng.Height - .Height) / 2
+        End With
+    Next
+End Sub

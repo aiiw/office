@@ -1,0 +1,35 @@
+'在vba 用户窗体中可以添加列表框控件ListBox?
+'ListBox列表框控件可以是单选的，也可以是多选的。
+'ListBox列表框控件的MultiSelect属性控制了列表框是单选还是多选，ListStyle属性控制了列表框的样式是提供选项框还是不提供选项框。
+'对于单选列表框，可以通过ListIndex属性返回当前的选中的列表框项目的序号。
+'对多选列表框，要使用Selected属性返回相应索引序号的项目是否选中。
+Private Sub UserForm_Initialize()
+    With UserForm1
+        With .ListBox1
+            .ListStyle = fmListStylePlain
+            '.ListStyle = fmListStyleOption '两种显示方式
+            .MultiSelect = fmMultiSelectMulti
+            .AddItem "你好"
+            .AddItem 2
+            .AddItem 3
+        End With
+    End With
+End Sub
+
+Private Sub UserForm_Click()
+    Dim arr()
+    k = 0
+    With Me.ListBox1
+        For i = 0 To .ListCount - 1
+            If .Selected(i) = True Then
+                ReDim Preserve arr(k)
+                arr(k) = .List(i)
+                k = k + 1
+            End If
+        Next i
+    End With
+    MsgBox "已经选中的项目有" & vbCrLf & Join(arr, vbCrLf)
+End Sub
+
+
+

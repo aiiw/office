@@ -1,0 +1,55 @@
+Function 去除空行1(arr)
+ 
+    Dim i As Integer
+    '//获取非零行行数
+    For i = l To UBound(arr)
+        If IsRowBlank(arr, i) = False Then
+            k = k + 1
+        End If
+    Next
+    ReDim brr(1 To k, 1 To UBound(arr, 2))
+    k = 0
+    For i = l To UBound(arr)
+        If IsRowBlank(arr, i) = False Then
+            k = k + 1
+            For j = 1 To UBound(arr, 2)
+                brr(k, j) = arr(i, j)
+            Next
+        End If
+    Next
+    去除空行1 = brr
+End Function
+Function 去除空行2(arr)
+ 
+    Dim i As Integer
+    '//获取非零行行数
+   
+    For i = LBound(arr) To UBound(arr)
+        If IsRowBlank(arr, i) = False Then
+            k = k + 1
+        End If
+    Next
+    ReDim brr(LBound(arr) To LBound(arr) + k - 1, LBound(arr, 2) To UBound(arr, 2))
+    k = 0
+    For i = LBound(arr) To UBound(arr)
+        If IsRowBlank(arr, i) = False Then
+            k = k + 1
+            For j = LBound(arr) To UBound(arr, 2)
+                brr(LBound(arr) + k - 1, j) = arr(i, j)
+            Next
+        End If
+    Next
+    去除空行2 = brr
+End Function
+
+Function IsRowBlank(arr As Variant, i As Integer) As Boolean
+    '判断数组某一行数据是否为空
+    For j = LBound(arr, 2) To UBound(arr, 2)
+        temp = temp & arr(i, j)
+        If Len(temp) > 0 Then
+            IsRowBlank = False
+            Exit Function
+        End If
+    Next
+    IsRowBlank = True
+End Function

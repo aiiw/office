@@ -1,0 +1,8 @@
+'列数转字母
+Function CNtoW(ByVal num As Long) As String
+    CNtoW = Replace(Cells(1, num).Address(False, False), "1", "")
+End Function
+'字母转列数
+Function CWtoN(ByVal AB As String) As Long
+    CWtoN = Range("a1:" & AB & "1").Cells.Count
+End Function

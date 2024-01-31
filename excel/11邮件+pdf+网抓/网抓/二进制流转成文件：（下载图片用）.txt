@@ -1,0 +1,19 @@
+'方法1:
+Sub ByteToFile(arrByte, strFileName As String)
+    With CreateObject("Adodb.Stream")
+        .Type = 1 'adTypeBinary
+        .Open
+        .Write arrByte
+        .SaveToFile strFileName, 2 'adSaveCreateOverWrite
+        .Close
+    End With
+End Sub
+
+'方法2:
+       b = xmlhttp.responsebody
+       Open ThisWorkbook.Path & "\图片\" & n & ".jpg" For Binary As #1
+       Put #1, , b
+       Close
+
+
+

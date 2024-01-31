@@ -1,0 +1,5 @@
+With  ActiveSheet.PageSetup
+        .Zoom = False
+        .FitToPagesWide = 1
+        .FitToPagesTall = 1
+ End With

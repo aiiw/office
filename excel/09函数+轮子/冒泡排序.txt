@@ -1,0 +1,31 @@
+Sub 冒泡排序演示1()
+    Dim arr, temp, x, y, t
+    arr = Range("a1:a10")
+    For x = 1 To UBound(arr) - 1
+        For y = x + 1 To UBound(arr)'只和当前数字下面的数进行比较
+            If arr(x, 1) > arr(y, 1) Then   '如果它大于它下面某一个数字。/目前是升序排列，换成<就是降序排列
+                temp = arr(x, 1)
+                arr(x, 1) = arr(y, 1)
+                arr(y, 1) = temp
+            End If
+        Next y
+    Next x
+    Range("b1").Resize(x, 1) = arr
+End Sub
+Sub 冒泡排序演示2()
+    Dim arr, i, j, n, tmp
+    n = Cells(Rows.Count, 1).End(3).Row
+    arr = [a1].Resize(n)
+    For i = 2 To n
+        For j = n To i Step -1
+            If arr(j, 1) < arr(j - 1, 1) Then
+                tmp = arr(j, 1)
+                arr(j, 1) = arr(j - 1, 1)
+                arr(j - 1, 1) = tmp
+            End If
+        Next
+    Next
+    [b1].Resize(n) = arr
+End Sub
+
+

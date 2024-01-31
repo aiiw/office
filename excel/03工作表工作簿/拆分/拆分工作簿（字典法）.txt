@@ -1,0 +1,39 @@
+Sub 拆分2()
+    Application.ScreenUpdating = False '关闭屏幕闪动，提速
+    Application.DisplayAlerts = False '关闭窗口提示
+    kk = 2
+    Set dic = CreateObject("scripting.dictionary")
+    With ThisWorkbook.Worksheets("汇总表")
+        cln = InputBox("请输入需要按列拆分的列:" & Chr(10) & "英文列标", "输入列标", "A") 'inputbox提示输入需要拆分的列标
+        cln2 = .Range("a1").End(xlToRight).Column '获取最大列数，为了增加通用性
+        row1 = InputBox("拆分标题行个数:", "输入标题行数", 1)  'inputbox提示输入需要拆分标题行个数
+        Set rng1 = .Range(.Cells(1, 1), .Cells(row1, cln2))
+        If .Range(cln & row1 + 1) = "" Then Exit Sub
+        rrow = .Cells(Rows.Count, cln).End(xlUp).Row
+        
+        arr = WorksheetFunction.Transpose(.Range(cln & row1 + 1 & ":" & cln & rrow))
+        For i = 1 To UBound(arr)  '将A列已有数据写入字典，为了去重复。也可以用高级筛选
+            If Not dic.exists(arr(i)) Then '若字典中不存在该字符串，则写入。
+            dic.Add arr(i), .Range("a" & row1 + i).Resize(1, cln2)
+        Else
+            Set dic.Item(arr(i)) = Union(dic.Item(arr(i)), .Range("a" & row1 + i).Resize(1, cln2))
+        End If
+    Next
+    k = dic.keys
+    l = dic.items
+    For ss = 0 To dic.Count - 1
+        Set wb = Workbooks.Add '新建工作簿
+        With wb.Worksheets(1)
+            rng1.Copy .Range("a1") '把表头的前一行也一同复制到新工作表中
+            l(ss).Copy .Range("a" & row1 + 1)
+        End With
+        wb.SaveAs ThisWorkbook.Path & "\" & k(ss) & ".xlsx" '将新建的工作簿保存在代码工作簿下
+        wb.Close True '关闭工作簿，并保存
+        Set wb = Nothing '释放内存
+    Next
+End With
+Application.ScreenUpdating = True
+Application.DisplayAlerts = True
+MsgBox "完成"
+End Sub
+ 
