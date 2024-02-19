@@ -153,6 +153,30 @@ transform: translateX(-50%);
 如果一个块级元素设置了绝对定位（position: absolute），那么它的大小和位置就不再受到文档流的影响，而是相对于最近的已定位祖先元素（即其父元素中第一个设置了 position 属性并且值不是 static 的元素）进行定位。
 ```
 
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .abc {
+            display: block;
+            position: absolute;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="abc">123</div>
+</body>
+
+</html>
+```
+
 
 
 ### ![image-20230404095943959](C:/Users/11608/AppData/Roaming/Typora/typora-user-images/image-20230404095943959.png) 
