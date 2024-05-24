@@ -5,7 +5,8 @@
 2. **配置 Git**：你可以通过配置 Git 来告诉它如何处理文件名和文件内容的编码。在命令行中执行以下命令来设置 Git 使用 GBK 编码：
 
    ```
-   Copy Codegit config --global core.quotepath false
+   Copy Code
+   git config --global core.quotepath false
    git config --global gui.encoding gbk
    git config --global i18n.commit.encoding gbk
    git config --global i18n.logoutputencoding gbk
