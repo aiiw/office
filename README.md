@@ -9,6 +9,8 @@ git add README.md
 git commit -m "first commit"
 git branch -M main  #本地的别名
 git remote add origin git@github.com:aiiw/mypy.git   #  origin 远程的别名
+git remote rm origin //这个是删除如上远程错误仓库
+git remote add origin git@github.com:aiiw/office.git
 git push -u origin main #上传e
 ```
 
