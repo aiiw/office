@@ -1,0 +1,34 @@
+Sub 公众号VBA说()
+    With frm1.ListBox1
+        '设置列数
+        .ColumnCount = 3
+        For i = 0 To 10
+            '先添加空行
+            .AddItem
+            '然后设置当前行的前3列的数据
+            '行列的编号都是以0开始计算的
+            .List(i, 0) = "a" & i
+            .List(i, 1) = "a" & i
+            .List(i, 2) = "a" & i
+        Next i
+    End With
+    'VBA相关，微信：285538335
+End Sub
+Sub 公众号VBA说1()
+    '生成二维数组
+    Dim arr(10, 2)
+    For i = 0 To UBound(arr)
+        arr(i, 0) = "a" & i
+        arr(i, 1) = "aa" & i
+        arr(i, 2) = "aaa" & i
+    Next i
+    With frm1.ListBox1
+        '获取列数
+        .ColumnCount = UBound(arr, 2) + 1
+        '添加二维数组
+        .List = arr
+    End With
+     'VBA相关，微信：285538335
+End Sub
+
+

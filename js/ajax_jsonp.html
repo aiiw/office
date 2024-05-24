@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        watch: {
+            inputValue() {
+                alert("aaaaa");
+            };
+        };
+        $(document).ready(function () {
+            $("#send").click(function () {
+                alert('您的鼠标移到了 id="p1" 的元素上!');
+                inputValue()
+
+            });
+        });
+    </script>
+    <button id="send">send</button>
+</body>
+<form>
+    申报人: <input type="text" name="data1">
+    需求部门需求明细----指定(实际专属): <input type="text" name="">
+    公司: <input type="text" name="data2"></br>
+    申报日期: <input type="text" name="data3">
+    用途说明: <input type="text" name="data4">
+    图片1: <input type="text" name="data5"></br>
+    图片3: <input type="text" name="data6">
+    图片5: <input type="text" name="data7">
+    图片7: <input type="text" name="data8"></br>
+    科室主管(车间主任): <input type="text" name="data9">
+    科室主管(车间主任)核准日期: <input type="text" name="data10">
+    部门经理: <input type="text" name="data11"></br>
+    部门经理审核日期: <input type="text" name="data12">
+    管理部门负责人: <input type="text" name="data13">
+    管理部门审核日期: <input type="text" name="data14"></br>
+    管理部门备注: <input type="text" name="data15">
+    常务副总裁: <input type="text" name="data16">
+    总裁室审批日期: <input type="text" name="data17"></br>
+    请购员: <input type="text" name="data18">
+    请购单号: <input type="text" name="data19">
+    采购部接收日期: <input type="text" name="data20"></br>
+    日期控件:回复到货日期: <input type="text" name="data21">
+    需求部门需求明细: <input type="text" name="data22">
+    需求部门需求明细----申请名称: <input type="text" name="data23"></br>
+    需求部门需求明细----申请数量: <input type="text" name="data24">
+    需求部门需求明细----需求日期: <input type="text" name="data25">
+    需求部门需求明细----备注(网站链接): <input type="text" name="data26"></br>
+    需求部门需求明细----实际规格(品牌/型号/要求): <input type="text" name="data27">
+    需求部门需求明细----单位(实际): <input type="text" name="data28">
+    需求部门需求明细----备注(实际网站链接): <input type="text" name="data29"></br>
+
+</html>
+1
+2
+3
+4
+5
+6
+7

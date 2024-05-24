@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <script>
+        // $(function () {
+        $(document).ready(function () {
+            $("#send").click(function () {
+                // alert('您的鼠标移到了 id="p1" 的元素上!');
+                $.ajax({
+                    type: "POST",
+                    url: "http://192.168.0.106/api/flow/index.php",
+                    data: {
+                        "form_id": "960",
+                        "to_id": "960",
+                        "form": "iit",
+                        "flow_id": "293",
+                        "flow_name": "非订单物料申报单",
+                        "data1": $("#data1").val(),
+                        "data2": $("#data2").val(),
+                        "data3": $("#data3").val(),
+                        "data4": $("#data4").val(),
+                        "data5": $("#data5").val(),
+                        "data6": $("#data6").val(),
+                        "data7": $("#data7").val(),
+                        "data8": $("#data8").val(),
+                        "data9": $("#data9").val(),
+                        "data10": $("#data10").val(),
+                        "data11": $("#data11").val(),
+                        "data12": $("#data12").val(),
+                        "data13": $("#data13").val(),
+                        "data14": $("#data14").val(),
+                        "data15": $("#data15").val(),
+                        "data16": $("#data16").val(),
+                        "data17": $("#data17").val(),
+                        "data18": $("#data18").val(),
+                        "data19": $("#data19").val(),
+                        "data20": $("#data20").val(),
+                        "data21": $("#data21").val(),
+                        "data22": $("#data22").val(),
+                        "data23": $("#data23").val(),
+                        "data24": $("#data24").val(),
+                        "data25": $("#data25").val(),
+                        "data26": $("#data26").val(),
+                        "data27": $("#data27").val(),
+                        "data28": $("#data28").val(),
+                        "data29": $("#data29").val()
+                    },
+                    dataType: "json",
+                    success: function (data) {
+
+                        alert("aaaa")
+                        // $('#resText').empty(); //清空resText里面的所有内容
+                        // var html = '';
+                        // $.each(data, function (commentIndex, comment) {
+                        //     html += '<div class="comment"><h6>' + comment[
+                        //             'username'] +
+                        //         ':</h6><p class="para"' + comment['content'] +
+                        //         '</p></div>';
+                        // });
+
+                    }
+                });
+            });
+        });
+    </script>
+    <button id="send">send</button>
+</body>
+<form class="" role="form">
+    <div class="form-group" class="col-sm-2 control-label">
+        <span>
+            <label for="name">申报人</label>
+            <input type="text" class="form-control" id="data1" placeholder="使用批量生成">
+            <label for="name">需求部门需求明细----指定(实际专属)</label>
+            <input type="text" class="form-control" id="" placeholder="使用批量生成">
+
+        </span>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="form-group">
+        <label for="name">公司</label>
+        <input type="text" class="form-control" id="data2" placeholder="使用批量生成">
+    </div>
+
+    </br>
+
+    <div class="form-group">
+        <label for="name">申报日期</label>
+        <input type="text" class="form-control" id="data3" placeholder="使用批量生成">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="name">用途说明</label>
+        <input type="text" class="form-control" id="data4" placeholder="使用批量生成">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="name">图片1</label>
+        <input type="text" class="form-control" id="data5" placeholder="使用批量生成">
+    </div>
+
+    </br>
+
+    <div class="form-group">
+        <label for="name">图片3</label>
+        <input type="text" class="form-control" id="data6" placeholder="使用批量生成">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="name">图片5</label>
+        <input type="text" class="form-control" id="data7" placeholder="使用批量生成">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="name">图片7</label>
+        <input type="text" class="form-control" id="data8" placeholder="使用批量生成">
+    </div>
+
+    </br>
+
+    <div class="form-group">
+        <label for="name">科室主管(车间主任)</label>
+        <input type="text" class="form-control" id="data9" placeholder="使用批量生成">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="name">科室主管(车间主任)核准日期</label>
+        <input type="text" class="form-control" id="data10" placeholder="使用批量生成">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="name">部门经理</label>
+        <input type="text" class="form-control" id="data11" placeholder="使用批量生成">
+    </div>
+
+    </br>
+
+    <div class="form-group">
+        <label for="name">部门经理审核日期</label>
+        <input type="text" class="form-control" id="data12" placeholder="使用批量生成">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="name">管理部门负责人</label>
+        <input type="text" class="form-control" id="data13" placeholder="使用批量生成">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="name">管理部门审核日期</label>
+        <input type="text" class="form-control" id="data14" placeholder="使用批量生成">
+    </div>
+
+    </br>
+
+    <div class="form-group">
+        <label for="name">管理部门备注</label>
+        <input type="text" class="form-control" id="data15" placeholder="使用批量生成">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="name">常务副总裁</label>
+        <input type="text" class="form-control" id="data16" placeholder="使用批量生成">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="name">总裁室审批日期</label>
+        <input type="text" class="form-control" id="data17" placeholder="使用批量生成">
+    </div>
+
+    </br>
+
+    <div class="form-group">
+        <label for="name">请购员</label>
+        <input type="text" class="form-control" id="data18" placeholder="使用批量生成">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="name">请购单号</label>
+        <input type="text" class="form-control" id="data19" placeholder="使用批量生成">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="name">采购部接收日期</label>
+        <input type="text" class="form-control" id="data20" placeholder="使用批量生成">
+    </div>
+
+    </br>
+
+    <div class="form-group">
+        <label for="name">日期控件:回复到货日期</label>
+        <input type="text" class="form-control" id="data21" placeholder="使用批量生成">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="name">需求部门需求明细</label>
+        <input type="text" class="form-control" id="data22" placeholder="使用批量生成">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="name">需求部门需求明细----申请名称</label>
+        <input type="text" class="form-control" id="data23" placeholder="使用批量生成">
+    </div>
+
+    </br>
+
+    <div class="form-group">
+        <label for="name">需求部门需求明细----申请数量</label>
+        <input type="text" class="form-control" id="data24" placeholder="使用批量生成">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="name">需求部门需求明细----需求日期</label>
+        <input type="text" class="form-control" id="data25" placeholder="使用批量生成">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="name">需求部门需求明细----备注(网站链接)</label>
+        <input type="text" class="form-control" id="data26" placeholder="使用批量生成">
+    </div>
+
+    </br>
+
+    <div class="form-group">
+        <label for="name">需求部门需求明细----实际规格(品牌/型号/要求)</label>
+        <input type="text" class="form-control" id="data27" placeholder="使用批量生成">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="name">需求部门需求明细----单位(实际)</label>
+        <input type="text" class="form-control" id="data28" placeholder="使用批量生成">
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="name">需求部门需求明细----备注(实际网站链接)</label>
+        <input type="text" class="form-control" id="data29" placeholder="使用批量生成">
+    </div>
+
+</html>

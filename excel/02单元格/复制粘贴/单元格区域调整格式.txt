@@ -1,0 +1,18 @@
+Sub 调整格式(format_rng As Range)
+    '作用：调整格式
+    '常见的居中，自动适应列宽，边框加粗
+    With format_rng
+        .HorizontalAlignment = xlCenter                     '水平居中
+        .VerticalAlignment = xlCenter                       '竖直居中
+        .Borders(xlEdgeTop).LineStyle = xlContinuous
+        .Borders(xlEdgeBottom).LineStyle = xlContinuous
+        .Borders(xlEdgeLeft).LineStyle = xlContinuous
+        .Borders(xlEdgeRight).LineStyle = xlContinuous
+        .Borders(xlInsideVertical).LineStyle = xlContinuous
+        .Borders(xlInsideHorizontal).LineStyle = xlContinuous
+    End With
+    ActiveSheet.Columns.AutoFit
+End Sub
+Sub test()
+    Call 调整格式(Range("a1:b10"))
+End Sub

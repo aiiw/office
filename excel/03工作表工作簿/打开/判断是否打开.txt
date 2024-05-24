@@ -1,0 +1,25 @@
+Function IsWbOpen1(strName As String) As Boolean
+    '如果目标工作簿已打开则返回TRUE，否则返回FALSE
+    Dim i As Long
+    For i = Workbooks.Count To 1 Step -1
+        If Workbooks(i).Name = strName Then
+            Exit For
+        End If
+    Next
+    If i = 0 Then
+        IsWbOpen1 = False
+    Else
+        IsWbOpen1 = True
+    End If
+End Function
+Function IsWbOpen2(strName As String) As Boolean
+    On Error Resume Next
+    Dim wk As Object
+    '如果工作簿没打开，直接赋值会报错，故使用On Error Resume Next
+    Set wk = Workbooks(strName)
+    If Err.Number = 0 Then
+        IsWbOpen2 = True
+    Else
+        IsWbOpen2 = False
+    End If
+End Function

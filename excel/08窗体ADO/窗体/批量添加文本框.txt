@@ -1,0 +1,13 @@
+Private Sub UserForm_Initialize()
+w = Array(30, 50, 80, 50, 50, 80, 80)
+l = Array(18, 48, 98, 178, 228, 278, 358, 438)
+For i = 1 To 10
+  For j = 1 To 7
+    Set TBox = Me.Controls.Add(bstrprogid:="Forms.TextBox.1")
+    TBox.Name = "myTextBox" & i
+    TBox.Left = l(j - 1)
+    TBox.Width = w(j - 1)
+    TBox.Top = (i - 1) * 18 + 180
+  Next
+Next
+End 

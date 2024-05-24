@@ -1,0 +1,14 @@
+Sub 文件粉碎机()
+    Set obj = CreateObject("Scripting.FileSystemObject")
+    pth = Application.GetOpenFilename("文件(*.*),*.*", , "请选择文件", , True)
+    For i = 1 To UBound(pth)
+       n = InStrRev(pth(i), "."): fnm = Left(pth(i), n - 1)
+        Name pth(i) As fnm & ".txt"
+       Open fnm & ".txt" For Output As #1
+       Print #1, ""
+       Close #1
+       Kill fnm & ".txt"
+    Next
+    MsgBox "粉碎完成！"
+End Sub
+

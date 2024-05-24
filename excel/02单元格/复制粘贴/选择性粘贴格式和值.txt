@@ -1,0 +1,6 @@
+¡ùÕ³Ìù¸ñÊ½Õ³ÌùÖµ
+sht.Range("a1:i" & model_sht.Cells(sht.Rows.Count, 1).End(3).Row).Copy
+sht.Range("a1").PasteSpecial Paste:=xlPasteValues
+sht.Range("a1").PasteSpecial Paste:=xlPasteFormats
+sht.Range("a1").PasteSpecial Paste:=xlPasteColumnWidths
+sht.Range("a1").PasteSpecial Paste:=xlPasteFormulas

@@ -1,0 +1,16 @@
+※Characters
+'将单元格字符串中的汉字字体改为宋体
+Public Sub abc()
+    Dim x As Range, i
+    For Each x In Selection
+        For i = 1 To Len(x)
+            If Mid(x, i, 1) Like "[一-龥]" Then
+                x.Characters(i, 1).Font.Size = 10
+                x.Characters(i, 1).Font.Name = "宋体"
+            ElseIf Mid(x, i, 1) Like "[a-z]" Or Mid(x, i, 1) Like "[A-Z]" Then
+                x.Characters(i, 1).Font.Size = 10
+                x.Characters(i, 1).Font.Name = "arial"
+            End If
+        Next
+    Next
+End Sub

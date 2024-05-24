@@ -1,0 +1,11 @@
+
+※一次性插入多行数据
+Sub test()
+    For i = Cells(Rows.Count, "t").End(3).Row To 2 Step -1
+        If Cells(i, "t") > 1 Then
+            Rows(i).Copy
+            Rows(i + 1).Resize(Cells(i, "t") - 1).Insert Shift:=xlDown
+        Else
+        End If
+    Next
+End Sub

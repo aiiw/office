@@ -1,0 +1,72 @@
+Sub test()
+    '//批量插入图片到文档，并在图片下方写图片名字
+    MsgBox "请先选择图片所在的文件夹"
+    Dim picpath As String
+    Dim picname As String
+    Dim pic As InlineShape
+    picpath = getfol
+    If picpath = "" Then Exit Sub                              '如果用户选择了取消，直接退出
+    picname = Dir(picpath & "\*.*")                            'Dir函数结合Do While循环取出所有图片的名字
+    Do While picname <> ""
+        If picname Like "*jpg" Or picname Like "*jpeg" Or picname Like "*png" Then
+            i = i + 1
+            Selection.TypeText "  "
+            Set pic = Selection.InlineShapes.AddPicture(picpath & picname)
+            pic.Width = 198                                    '设置图片的宽度
+            pic.Height = 149                                   '设置图片的高度
+            If i Mod 2 = 0 Then
+                Selection.TypeParagraph
+                 Selection.TypeText "  "
+                Selection.ClearFormatting
+                With Selection.ParagraphFormat
+                    .LeftIndent = CentimetersToPoints(0)
+                    .RightIndent = CentimetersToPoints(0)
+                    .SpaceBefore = 0
+                    .SpaceAfter = 0
+                    .Alignment = wdAlignParagraphLeft
+                    .LineSpacingRule = wdLineSpace1pt5
+                    .FirstLineIndent = CentimetersToPoints(0)
+                    .CharacterUnitLeftIndent = 0
+                    .CharacterUnitRightIndent = 0
+                    .CharacterUnitFirstLineIndent = 0
+                    .LineUnitBefore = 0
+                    .LineUnitAfter = 0
+                End With
+                Selection.TypeParagraph
+                Selection.ClearFormatting
+                With Selection.ParagraphFormat
+                    .LeftIndent = CentimetersToPoints(0)
+                    .RightIndent = CentimetersToPoints(0)
+                    .SpaceBefore = 0
+                    .SpaceAfter = 0
+                    .Alignment = wdAlignParagraphLeft
+                    .LineSpacingRule = wdLineSpace1pt5
+                    .FirstLineIndent = CentimetersToPoints(0)
+                    .CharacterUnitLeftIndent = 0
+                    .CharacterUnitRightIndent = 0
+                    .CharacterUnitFirstLineIndent = 0
+                    .LineUnitBefore = 0
+                    .LineUnitAfter = 0
+                End With
+            Else
+                Selection.TypeText "   "
+            End If
+        End If
+        picname = Dir
+        '获取下一张图片名
+    Loop
+    MsgBox "插入完成！"
+End Sub
+Function getfol()
+    '//弹出对话框，让用户获取文件夹路径
+    Dim PathSht As String
+    With Application.FileDialog(msoFileDialogFolderPicker)
+        If .Show Then
+            PathSht = .SelectedItems(1)
+        Else
+            PathSht = ""
+            Exit Function
+        End If
+    End With
+    getfol = PathSht & IIf(Right(PathSht, 1) = "\", "", "\")
+End Function

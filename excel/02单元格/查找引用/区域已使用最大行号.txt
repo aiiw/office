@@ -1,0 +1,12 @@
+※求区域已使用最大行号
+'方法一
+endrow = Cells.Find("*", Cells(1, 1), xlValues, xlWhole, xlByRows, xlPrevious).Row '计算最后一个工作表的非空行号
+endCol = Cells.Find("*", Cells(1, 1), xlValues, xlWhole, xlByColumns, xlPrevious).Column '计算最后一个工作表的非空列号
+'方法二
+    rrow1 = ActiveSheet.Cells(Rows.Count, "p").End(3).Row
+    rrow2 = ActiveSheet.Cells(Rows.Count, "q").End(3).Row
+    rrow3 = ActiveSheet.Cells(Rows.Count, "r").End(3).Row
+    rrow4 = ActiveSheet.Cells(Rows.Count, "s").End(3).Row
+    rrow5 = ActiveSheet.Cells(Rows.Count, "t").End(3).Row
+    rrow = WorksheetFunction.Max(rrow1, rrow2, rrow3, rrow4, rrow5)
+   

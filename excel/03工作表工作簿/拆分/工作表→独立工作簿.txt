@@ -1,0 +1,44 @@
+Sub 知识点简化()
+Worksheets(Array("sheet1", "sheet2")).Copy
+ActiveWorkbook.SaveAs Filename:=ThisWorkbook.Path & "\2.xlsx"
+End Sub
+
+Sub 工作簿拆分()
+  On Error Resume Next
+  Dim Pathstr As String, i As Long, ActiveWB As String
+  With Application.FileDialog(msoFileDialogFolderPicker)    '创建文件对话框的实例
+    If .Show Then  '如果在对话框中单击了"确定"
+      Pathstr = .SelectedItems(1)  '将选定的路径赋予变量
+    Else
+      Exit Sub  '否则退出程序
+    End If
+  End With
+  Pathstr = Pathstr & IIf(Right(Pathstr, 1) = "\", "", "\")    '如果不是“\”结尾则添加“\”
+  Application.ScreenUpdating = False
+  ActiveWB = ActiveWorkbook.Name    '记录活工作簿名
+  For i = 1 To Sheets.Count    '循环所有工作表
+    Sheets(i).Copy    '复制工作表到新工作簿中（忽略了参数）
+    '将工作簿另存，文件名由工作表名决定。而文件的后缀名则由Excel程序的版本决定
+    ActiveWorkbook.SaveAs Filename:=Pathstr & Workbooks(ActiveWB).Sheets(i).Name & IIf(Application.Version * 1 < 12, ".xls", ".xlsx"), FileFormat:=xlWorkbookDefault, CreateBackup:=False
+    With ActiveSheet.UsedRange    '引用已用区域
+      '查找“=*]*'!”，也就是检查是否存在外部引用
+      Set cell = .Find("=*]*'!", LookIn:=xlFormulas, SearchOrder:=xlByRows, LookAt:=xlPart, MatchCase:=True)
+      If cell Is Nothing Then GoTo line
+      FirstAddress = cell.Address    '记录第一个找到的地址
+      Do
+        cell = cell.Value  '将公式转换成值
+        Set cell = .FindNext(cell)  '查找下一个
+        If cell Is Nothing Then Exit Do  '如果未找进到则退出循环
+        If cell.Address = FirstAddress Then Exit Do  '如果回到第一次找到的单元格则退出循环
+      Loop
+    End With
+line:
+    ActiveWindow.Close  '关闭窗口
+    Workbooks(ActiveWB).Activate  '激活待拆分的工作簿
+  Next i
+  Application.ScreenUpdating = True  '恢复屏幕更新
+  Shell "EXPLORER.EXE " & Pathstr, vbNormalFocus  '打开文件夹
+End Sub
+ 
+
+ 

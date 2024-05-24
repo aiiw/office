@@ -1,0 +1,6 @@
+ Dim i As Style
+    For Each i In ThisDocument.Styles
+        On Error Resume Next
+        i.Delete
+        Err.Clear
+    Next i

@@ -1,0 +1,50 @@
+
+Sub 删除空文件夹()
+    Dim strPath As String
+    
+    strPath = Application.InputBox(prompt:="请输入文件夹名称：", _
+        Title:="输入文件夹名称", Default:=ThisWorkbook.Path, Type:=2)
+
+    If strPath = "Fase" Or strPath = "" Then Exit Sub
+    Call DelEmtyDir(strPath)
+End Sub
+
+Sub DelEmtyDir(ByVal strPath As String)
+
+
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    If strPath = "Fase" Or strPath = "" Then Exit Sub
+    
+    If Right(strPath, 1) <> "\" Then strPath = strPath & "\"
+    strDirName = Dir(strPath, vbDirectory)  '取得子文件夹
+    Do While strDirName <> ""
+        '指定文件夹下有子文件夹
+        If strDirName <> "." And strDirName <> ".." Then    '判断是否为子文件夹
+            If (GetAttr(strPath & strDirName) And vbDirectory) = vbDirectory Then
+                LastDir = strDirName
+                Set fld = fso.GetFolder(strPath & strDirName)
+                If fld.Size = 0 Then    '文件夹大小为0,表示为空
+                   fld.Delete   '删除该文件夹
+                    '取得上级文件夹的名称字符串
+                   strFld = Left(strPath & strDirName, InStrRev(strPath$ & strDirName, "\") - 1)
+                   Call DelEmtyDir(strFld)  '递归调用本过程删除上级文件夹
+                Else    '文件夹不为空
+                  Call DelEmtyDir(strPath & strDirName)
+                    '递归调用本过程删除下级子文件夹
+                End If
+                strDirName = Dir(strPath, vbDirectory)  '处理下一个子文件夹
+                Do Until strDirName = LastDir Or strDirName = ""
+                    strDirName = Dir
+                Loop
+                If strDirName = "" Then Exit Do '若没有子文件夹,退出该过程
+            End If
+        End If
+        strDirName = Dir    '处理下一个子文件夹
+    Loop
+    
+    Set fso = Nothing
+End Sub
+
+
+
+

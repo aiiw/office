@@ -1,0 +1,16 @@
+Sub 添加自定义菜单()
+    On Error Resume Next
+    Dim myBAR As CommandBarButton
+    Application.CommandBars("CELL").Controls("测试").Delete
+    Set myBAR = Application.CommandBars("cell").Controls.Add(before:=1) '添加到最上的位置
+    With myBAR
+        .Caption = "测试"
+        .BeginGroup = True '添加分组线
+        .FaceId = 186 '显示的图标
+        .Style = msoButtonIconAndCaption '图标和文字的显示
+        .OnAction = "test" '指定要运行的宏
+    End With
+End Sub
+Sub test()
+    MsgBox 1
+End Sub

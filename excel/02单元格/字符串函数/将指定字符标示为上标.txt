@@ -1,0 +1,20 @@
+※将指定字符标示为上标
+
+'设置上标要用到Range.Characters属性和Font.Superscript属性，前者表示单独引用单元格中的部分字符，后则者对这部分字符设置上标
+Sub 将指定字符标示为上标()
+    Dim cell As Range, Item As Integer, Mystr As String    '声明变量
+    Mystr = InputBox("请输入要标示为上标的字符")    '让用户指定需要标示为上标的字符
+    If Len(Mystr) = 0 Or Mystr = "False" Then Exit Sub
+    '如果没有输入就结束程序
+    Mystr = Left(Mystr, 1)    '只取左边一位字符
+    Application.ScreenUpdating = False '关闭屏幕更新
+    For Each cell In Range("A1:C10")    '遍历A1:C10区域（根据自己的需求修改）
+        If Len(cell.Value) > 0 Then    '如果不是空白单元格
+            For Item = 1 To Len(cell.Value)    '遍历每一个字符
+                '如果某个字符等于用户指定的字符，那么将它标示为上标
+                If Mid(cell.Value, Item, 1) = Mystr Then cell.Characters(Start:=Item, Length:=1).Font.Superscript = True
+            Next Item
+        End If
+    Next cell
+    Application.ScreenUpdating = True '恢复
+End Sub

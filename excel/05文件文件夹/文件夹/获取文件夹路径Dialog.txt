@@ -1,0 +1,22 @@
+Sub 浏览并获取指定路径名称()
+    Dim PathSht As String
+    With Application.FileDialog(msoFileDialogFolderPicker)
+        If .Show Then PathSht = .SelectedItems(1) Else Exit Sub
+    End With
+    PathSht = PathSht & IIf(Right(PathSht, 1) = "\", "", "\")
+    MsgBox PathSht
+End Sub
+
+Function GetFolPath()
+    With Application.FileDialog(msoFileDialogFolderPicker)
+        If .Show Then
+            PathSht = .SelectedItems(1)
+        Else
+            GetFolPath = ""
+            Exit Function
+        End If
+    End With
+    GetFolPath = PathSht & IIf(Right(PathSht, 1) = "\", "", "\")
+End Function
+
+

@@ -1,0 +1,77 @@
+Sub 添加条目对()
+  With CreateObject("scripting.dictionary") '创建字典对象并引用
+    .Add "及时雨", "宋江" '添加一个条目对，关键字是"及时雨"，条目是"宋江"
+  End With
+End Sub
+
+
+'使用Itemn属性返回关键字对应的条目，或者设置条目，使用Key属性修改关键字名称
+Sub Item属性与Key属性()
+  With CreateObject("scripting.dictionary")  '创建字典对象
+    '添加一个条目对，关键字是“及时雨”，条目是“宋江”
+    .Add "及时雨", "宋江"
+    '使用Item属性获取关键字所对应的条目，验证刚才添加的条目对
+    MsgBox "关键字：及时雨" & Chr(10) & "条   目：" & .Item("及时雨"), vbOKOnly, ".Add ""及时雨"", ""宋江"""
+    '使用Item属性修改关键字所对应的条目
+    .Item("及时雨") = "呼保义"
+    '使用Item属性获取关键字所对应的条目，验证刚才修改后的条目对
+    MsgBox "关键字：及时雨" & Chr(10) & "条   目：" & .Item("及时雨"), vbOKOnly, " .Item(""及时雨"") = ""呼保义"""
+    '利用Key属性修改关键字，Key属性只有设置作用，没有读取作用，即不能通过Key获取关键字的名称
+    .Key("及时雨") = "宋公明"
+    '使用Item属性获取关键字所对应的条目，验证刚才修改后的条目对
+    MsgBox "关键字：宋公明" & Chr(10) & "条   目：" & .Item("宋公明"), vbOKOnly, ".Key(""及时雨"") = ""宋公明"""
+  End With
+End Sub
+
+'使用Item属性添加条目对，和Add方法功能相近，用法不同
+'Add方法只能添加新的关键字与条目，而Item属性既可以新建也可以修改原有关键字所对应的条目
+Sub 利用Item属性创建条目对()
+  With CreateObject("scripting.dictionary")  '创建字典对象
+    .Add "及时雨", "宋江"                   '添加一个条目对，关键字是“及时雨”，条目是“宋江”
+    .Item("呼保义") = "宋江"                '添加一个条目对，关键字是“呼保义”，条目是“宋江”
+    '分别验证关键字“及时雨”和“宋江”及其对应的条目
+    MsgBox "关键字：及时雨" & Chr(10) & "条   目：" & .Item("及时雨")
+    MsgBox "关键字：呼保义" & Chr(10) & "条   目：" & .Item("呼保义")
+  End With
+End Sub
+
+'利用Item属性累加关键字对应的条目，可用此技术对数据分类汇总，实现数据透视表相近的功能
+Sub Item方法创建条目对和累加条目()
+  With CreateObject("scripting.dictionary")  '创建字典对象
+    .Item("一车间") = 80                    '添加一个条目对，关键字是"一车间"，条目是80
+    .Item("二车间") = 90                    '添加一个条目对，关键字是"呼保义"，条目是"宋江"
+    .Item("一车间") = .Item("一车间") + 100 '累加关键字“一车间”的值
+    .Item("二车间") = .Item("二车间") + 120 '累加关键字“二车间”的值
+    '分别验证关键字“一车间”和“二车间”及其对应的条目
+    MsgBox "关键字：一车间" & Chr(10) & "条   目：" & .Item("一车间")
+    MsgBox "关键字：二车间" & Chr(10) & "条   目：" & .Item("二车间")
+  End With
+End Sub
+
+'利用keys方法和Items方法输出所有关键字和所有条目
+Sub Keys与Items方法输入数组()
+  With CreateObject("scripting.dictionary") '创建字典对象
+    .Add "及时雨", "宋江"                   '添加第一个条目对
+    .Add "黑旋风", "李逵"                   '添加第二个条目对
+    .Add "拼命三郞", "石秀"                 '添加第三个条目对
+    .Add "呼保义", "宋江"                   '添加第四个条目对
+    '将4个关键字导出到A1:A4区域中
+    Range("A1:A4") = WorksheetFunction.Transpose(.Keys)
+    '将4个条目导出到B1:B4区域中
+    Range("B1:B4") = WorksheetFunction.Transpose(.Items)
+  End With
+End Sub
+
+'将关键字和条目输出到数组中，再通过数组的索引号获取其中单个元素的值
+Sub 获取索引号为2的关键字与条目()
+  With CreateObject("scripting.dictionary")  '创建字典对象
+    .Add "及时雨", "宋江"                    '添加第一个条目对
+    .Add "黑旋风", "李逵"                    '添加第二个条目对
+    .Add "拼命三郞", "石秀"                  '添加第三个条目对
+    .Add "呼保义", "宋江"                    '添加第四个条目对
+    Dim arr1, arr2                           '声明两个变体量变量
+    arr1 = .Keys                             '将关键字赋予arr1
+    arr2 = .Items                            '将条目赋予arr2
+  End With
+End Sub
+

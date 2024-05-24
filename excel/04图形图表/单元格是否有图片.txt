@@ -1,0 +1,14 @@
+Function HasPic(r As Range, sht As Worksheet) As Boolean
+'//判断单元格内部是否有图片
+    Dim shp As Shape
+    hasPicture = False
+    For Each shp In sht.Shapes
+ 
+        If shp.Type = 11 Then
+            If Abs((shp.Left + shp.Width / 2) - (r.Left + r.Width / 2)) < (shp.Width + r.Width) / 2 And Abs((shp.Top + shp.Height / 2) - (r.Top + r.Height / 2)) < (shp.Height + r.Height) / 2 Then
+                HasPic = True
+                Exit Function
+            End If
+        End If
+    Next
+End Function

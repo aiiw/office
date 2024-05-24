@@ -1,0 +1,54 @@
+2010
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui">
+	<ribbon startFromScratch="false">
+		<tabs>
+			<tab id="Tab1" label="Ribbon XML Editor">
+				<group id="Group1" label="作者：张翰博">
+					<button id="Button1" label="VBA说" imageMso="HappyFace" size="large" onAction="Button1_Click"/>
+				</group>
+			</tab>
+		</tabs>
+	</ribbon>
+</customUI>
+
+2007
+<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui">
+	<ribbon startFromScratch="false">
+		<tabs>
+			<tab id="Tab1" label="Ribbon XML Editor">
+				<group id="Group1" label="作者：张翰博">
+					<button id="Button1" label="VBA说" imageMso="HappyFace" size="large" onAction="Button1_Click"/>
+				</group>
+			</tab>
+		</tabs>
+	</ribbon>
+</customUI>
+
+
+桥梁设计工具箱功能区XML代码
+<customUI  xmlns="http://schemas.microsoft.com/office/2006/01/customui">
+    <ribbon>
+        <tabs>
+            <tab id="Tab1" label="桥梁设计工具箱">
+                <group id="Group1" label="作者：张翰博">
+                    <menu id="Menu1" label="速查工具" showImage="false">
+                        <button id="Button1" imageMso="A" onAction="Button1_Click" label="弯钩长度" />
+                        <menuSeparator id="Separator1" />
+                        <button id="Button2" imageMso="B" onAction="Button2_Click" label="侵蚀性" />
+                        <menuSeparator id="Separator2" />
+                        <button id="Button3" imageMso="C" onAction="Button3_Click" label="影响系数" />
+                    </menu>
+                    <box id="Box1" boxStyle="vertical">
+                        <menu id="Menu2" label="实用工具" showImage="false">
+                            <button id="Button4" imageMso="A" onAction="Button4_Click" label="整理空行" />
+                            <menuSeparator id="Separator3" />
+                            <button id="Button5" imageMso="B" screentip="替换清单中的公式" supertip="粘贴某些公式的时候会带上工作簿路径，该功能用于批量删除公式中无用字符串" label="替换公式" />
+                        </menu>
+                    </box>
+                </group>
+            </tab>
+        </tabs>
+    </ribbon>
+</customUI>
+
+

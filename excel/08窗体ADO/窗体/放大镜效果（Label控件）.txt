@@ -1,0 +1,17 @@
+
+Private Sub Worksheet_SelectionChange(ByVal Target As Range)
+    If Target.Count > 1 Then Exit Sub
+    With Me.Label1
+        If Target = "" Then .Visible = False: Exit Sub
+        .Visible = True
+        .Top = Target.Top
+        .Left = Target.Offset(0, 1).Left
+        .Height = 46
+        .Width = LenB(StrConv(Target.Text, vbFromUnicode)) * 22 + 20
+        .Caption = Target.Text
+        .Font.Size = 42
+        .ForeColor = 255
+    End With
+End Sub
+
+

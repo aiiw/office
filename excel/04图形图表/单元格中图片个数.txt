@@ -1,0 +1,14 @@
+Sub test()
+    For r = 2 To [a65536].End(xlUp).Row
+        t = Range("b" & r).Top
+        h = Range("b" & r).Height
+        c = 0
+        For Each s In ActiveSheet.Shapes
+            If s.Top >= t And s.Top <= t + h Then
+                c = c + 1
+            End If
+        Next
+        Range("c" & r) = c
+    Next r
+End Sub
+

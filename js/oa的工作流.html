@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">确定</button>
+    <script>
+        // const btn = document.querySelector("#btn")
+        // btn.addEventListener("click", function () {
+        //     alert("aaaa")
+        // })
+        var btn = document.querySelector("#btn")
+        btn.addEventListener("click", function () {
+            alert("aaaa")
+        })
+    </script>
+    <script>
+        // const btn = document.querySelector("#btn")
+        // btn.addEventListener("click", function () {
+        //     alert("aaaa")
+        // })
+        var btn = document.querySelector("#btn")
+        btn.addEventListener("click", function () {
+            alert("aaaa")
+        })
+
+
+        jQuery(() => {
+            console.log("工123")
+        })
+
+
+        jQuery(() => {
+            jQuery('#btn').click((e) => {
+                console.log("工123");
+                var sel = jQuery("select");
+
+                sel.each(function (index) {
+                    console.log(this);
+                    console.log(sel[index].value)
+
+                });
+                e.preventDefault();
+            })
+        })
+
+
+        jQuery(() => {
+            console.log("工123")
+        })
+
+
+        jQuery(() => {
+            jQuery('#btn').click((e) => {
+
+                var sel = jQuery("select");
+                var e1 = document.getElementsByClassName('ConcelBigInput')
+                var num = 0
+                sel.each(function (index) {
+                    // console.log(this);
+
+                    sel[index].value = e1[index * 2].value
+
+
+                    //在上add 
+                    console.log(sel[index].value)
+
+                });
+                e.preventDefault();
+            })
+        })
+    </script>
+</body>
+
+</html>

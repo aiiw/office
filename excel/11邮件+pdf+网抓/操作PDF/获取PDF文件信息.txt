@@ -1,0 +1,7 @@
+Sub 获取PDF文件信息()
+    Dim App As Acrobat.AcroApp, Doc As Acrobat.AcroAVDoc, PD As Acrobat.AcroPDDoc
+    Set App = GetObject("", "AcroExch.App")
+    Set PD = App.GetActiveDoc.GetPDDoc
+    Debug.Print PD.GetFileName
+End Sub
+

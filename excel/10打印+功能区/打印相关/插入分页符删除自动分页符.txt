@@ -1,0 +1,28 @@
+Sub 分页符()
+    Dim oWK As Worksheet
+    Set oWK = Sheet1
+    Dim oVPB As VPageBreak
+    With oWK
+        '重设所有分页符
+        .ResetAllPageBreaks
+        For i = 2 To 100 Step 5
+            '每隔5行添加一个水平分页符
+            .HPageBreaks.Add .Range("a" & i)
+        Next i
+          For i = 2 To 100 Step 5
+            '每隔5列添加一个水平分页符
+            .VPageBreaks.Add .Cells(1, i)
+        Next i
+  Excel.ThisWorkbook.Application.Windows(1).View = xlPageBreakPreview
+         For Each oVPB In .VPageBreaks
+                '将所有垂直分页符移除
+                With oVPB
+                    .DragOff xlToRight, 1
+                End With
+            Next
+    End With
+End Sub
+
+
+取消自动分页符：ActiveSheet.DisplayPageBreaks = false 即可。
+取消手动分页符：ActiveSheet.ResetAllPageBreaks

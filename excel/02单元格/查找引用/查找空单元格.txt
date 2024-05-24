@@ -1,0 +1,12 @@
+Sub 查找每行第二个非空单元格()
+    Application.FindFormat.Interior.Color = 65535
+    For i = 5 To 1 Step -1
+        Set Rng = Rows(i).Cells
+        Set cl = Cells.Find(What:="*", After:=Rng.Cells(1, Columns.Count), LookIn:=xlValues, SearchOrder:=xlByRows, SearchDirection:=xlNext)
+        Set cl1 = Cells.Find(What:="*", After:=cl, LookIn:=xlValues, SearchOrder:=xlByRows, SearchDirection:=xlNext)
+        MsgBox cl1.Address
+    Next
+End Sub
+Sub 查找最下一行非空行的行数()
+MsgBox Sheets("表1").Cells.Find("*", , , , , xlPrevious).Row
+End Sub

@@ -1,0 +1,27 @@
+Sub 提取页面文字()
+    Dim App As Acrobat.AcroApp
+    Dim Doc As Acrobat.AcroAVDoc
+    Dim APV As Acrobat.AcroAVPageView
+    Dim PDPage As Acrobat.AcroPDPage
+    Dim AHL As Acrobat.AcroHiliteList
+    Dim PDTS As Acrobat.AcroPDTextSelect
+    Dim i As Long, S As String
+    Set App = GetObject("", "AcroExch.App")
+    App.Show
+    Set Doc = App.GetActiveDoc
+    Set APV = Doc.GetAVPageView
+    APV.GoTo 4
+    Set PDPage = APV.GetPage
+    With PDPage
+        Set AHL = New AcroHiliteList
+        AHL.Add 0, 32767
+        Set PDTS = .CreateWordHilite(AHL)
+        With PDTS
+            For i = 0 To .GetNumText - 1
+                S = S & .GetText(i)
+            Next i
+        End With
+    End With
+    Debug.Print S
+End Sub
+

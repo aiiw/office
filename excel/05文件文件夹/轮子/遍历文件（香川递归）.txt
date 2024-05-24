@@ -1,0 +1,45 @@
+Dim jg(), k&, tms# '因为是递归，所以事先指定存放结果的公用变量数组jg以及计数器k和起始时间tms
+Sub ListFilesFso()
+    sb& = InputBox("Search Type: AllFiles=0/Files=1/Folder=-1/All Folder=-2", "Find Files", 0) '选定返回模式
+    SpFile$ = InputBox("匹配文件名或文件类型", "Find Files", ".xl") '指定匹配要求，留空则匹配全部
+    If SpFile Like ".*" Then SpFile = LCase(SpFile) & "*" '如果指定了文件类型则一律转换为大写字母方便比较
+    With Application.FileDialog(msoFileDialogFolderPicker)
+        If .Show Then myPath$ = .SelectedItems(1) Else Exit Sub
+    End With
+    If Right(myPath, 1) <> "" Then myPath = myPath & ""
+    ReDim jg(65535, 3)
+    jg(0, 0) = "Ext": jg(0, 1) = IIf(sb < 0, IIf(Len(SpFile), "Filename", "No"), "Filename")
+    jg(0, 2) = "Folder": jg(0, 3) = "Path"
+    '定义存放文件名结果的数组jg 、并写入标题
+    tms = Timer: k = 0: Call ListAllFso(myPath, sb, SpFile) '调用递归过程检查指定文件夹及其子文件夹
+    If sb < 0 And Len(SpFile) = 0 Then Application.StatusBar = "Get " & k & " Folders."
+    [a1].CurrentRegion = "": [a1].Resize(k + 1, 4) = jg: [a1].CurrentRegion.AutoFilter Field:=1
+    '输出结果到工作表，并启用筛选模式
+End Sub
+Function ListAllFso(myPath$, Optional sb& = 0, Optional SpFile$ = "") '递归检查子文件夹的过程代码
+    Set fld = CreateObject("Scripting.FileSystemObject").GetFolder(myPath)
+    On Error Resume Next
+    If sb >= 0 Or Len(SpFile) Then '如果模式为0或1、或指定了匹配文件要求，则遍历各个文件
+        For Each f In fld.Files '用FSO方法遍历文件.Files
+            t = False '匹配状态初始化
+            n = InStrRev(f.Name, "."): fnm = Left(f.Name, n - 1): x = LCase(Mid(f.Name, n))
+            If Err.Number Then Err.Clear
+            If SpFile = " " Then 'Space 如果匹配要求为空则匹配全部
+                t = True
+            ElseIf SpFile Like ".*" Then '如果匹配要求为文件类型则
+                If x Like SpFile Then t = True '当文件符合文件类型要求时匹配，否则不匹配
+            Else '否则为需要匹配文件名称中的一部分
+                If InStr(fnm, SpFile) Then t = True '如果匹配则状态为True
+            End If
+            If t Then k = k + 1: jg(k, 0) = x: jg(k, 1) = "'" & fnm: jg(k, 2) = fld.Name: jg(k, 3) = fld.Path
+        Next
+        Application.StatusBar = Format(Timer - tms, "0.0s") & " Get " & k & " Files , Searching in Folder ... " & fld.Path
+    End If
+    For Each fd In fld.SubFolders '然后遍历检查所有子文件夹.SubFolders
+        If sb < 0 And Len(SpFile) = 0 Then k = k + 1: jg(k, 0) = "fld": jg(k, 1) = k: jg(k, 2) = fd.Name: jg(k, 3) = fld.Path
+        If sb Mod 2 = 0 Then Call ListAllFso(fd.Path, sb, SpFile)
+    Next
+End Function
+
+
+

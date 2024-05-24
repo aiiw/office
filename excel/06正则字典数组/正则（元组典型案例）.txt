@@ -1,0 +1,20 @@
+'多个匹配结果
+Set reg = CreateObject("vbscript.regexp")
+reg.Global = True
+reg.IgnoreCase = True
+reg.MultiLine = True
+reg.Pattern = "\d+"
+n = 0
+For Each mat In reg.Execute(strText)
+    n = n + 1
+    ReDim Preserve arr(1 To 3, 1 To n)
+    arr(1, n) = mat.SubMatches(0)
+    arr(2, n) = mat.SubMatches(1) 
+    arr(3, n) = mat.SubMatches(2)
+Next mat
+
+'一个匹配结果
+m1 = reg.Execute(str1)(0).SubMatches(0)
+m2 = reg.Execute(str1)(0).SubMatches(1)
+
+

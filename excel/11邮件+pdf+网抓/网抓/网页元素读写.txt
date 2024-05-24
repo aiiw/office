@@ -1,0 +1,34 @@
+'需要添加引用Microsoft HTML Object Library
+Sub Test2()
+    '自动查询快递信息
+    On Error GoTo Err1:
+    Dim IE As SHDocVw.InternetExplorer
+    Dim textbox As MSHTML.HTMLInputElement
+    Dim button As MSHTML.HTMLAnchorElement
+    Dim table As MSHTML.HTMLTable
+    Set IE = New SHDocVw.InternetExplorer
+    With IE
+        .Silent = True
+        .Visible = True
+        .Navigate "http://www.kuaidi100.com/"
+        While .Busy
+            Delay 1000 '延时
+        Wend
+        Set textbox = .Document.getElementById("postid") '定位快递单号文本框
+        Debug.Print textbox.getAttribute("id")
+        textbox.Value = "3903861640775" '输入一个快递单号
+        Set button = .Document.getElementById("query") '定位查询按钮
+        button.Click '点击查询按钮
+        While table Is Nothing
+            Delay 1000
+            Set table = .Document.getElementsByClassName("result-info").Item(0) '反复定位查询结果表
+        Wend
+        Debug.Print table.innerText
+        .Quit '关闭浏览器
+    End With
+    Exit Sub
+Err1:
+    Debug.Print Err.Description
+    Resume
+End Sub
+

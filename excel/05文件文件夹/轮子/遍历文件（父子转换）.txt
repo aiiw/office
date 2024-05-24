@@ -1,0 +1,40 @@
+Sub 提取文件信息()
+  Dim arr(1 To 10000) As String
+  Dim f, i, k, f2, f3, x
+  Dim arr1(1 To 100000, 1 To 6) As String, q As Integer
+  Dim fso As Object, myfile As Object
+  arr(1) = ThisWorkbook.path & "\"
+  i = 1: k = 1
+  Do While i < UBound(arr)
+    If arr(i) = "" Then Exit Do
+    f = Dir(arr(i), vbDirectory)
+    Do
+      If InStr(f, ".") = 0 And f <> "" Then
+        k = k + 1
+        arr(k) = arr(i) & f & "\"
+      End If
+      f = Dir
+    Loop Until f = ""
+    i = i + 1
+  Loop
+  '*******下面是提取各个文件夹的文件***
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  For x = 1 To UBound(arr)
+      If arr(x) = "" Then Exit For
+       f3 = Dir(arr(x) & "*.*")
+     Do While f3 <> ""
+       q = q + 1
+       arr1(q, 6) = arr(x) & f3
+       Set myfile = fso.GetFile(arr1(q, 6))
+       arr1(q, 1) = f3
+       arr1(q, 2) = myfile.Size
+       arr1(q, 3) = myfile.DateCreated
+       arr1(q, 4) = myfile.DateLastModified
+       arr1(q, 5) = myfile.DateLastAccessed
+       f3 = Dir
+     Loop
+  Next x
+  Range("a2").Resize(1000, 6) = ""
+  Range("a2").Resize(q, 6) = arr1
+End Sub
+

@@ -1,0 +1,19 @@
+Sub 更改PDF文档视图()
+    Dim App As Acrobat.AcroApp
+    Dim Doc As Acrobat.AcroAVDoc
+    Dim APV As Acrobat.AcroAVPageView
+    Set App = GetObject("", "AcroExch.App")
+    App.Show
+    Set Doc = App.GetActiveDoc
+    Set APV = Doc.GetAVPageView
+    With APV
+        Debug.Print "当前页码：", .GetPageNum
+        .GoTo 6
+        Debug.Print "当前缩放比例：", .GetZoom
+        .ZoomTo Acrobat.AVZoomType.AVZoomNoVary, 75 '缩放到75%
+        .ReadPageDown '按下【Page Down】
+        .ReadPageUp '按下【Page Up】
+    End With
+End Sub
+
+

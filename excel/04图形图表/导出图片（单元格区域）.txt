@@ -1,0 +1,55 @@
+'导出为png格式、按位图复制（Rng.CopyPicture xlScreen, xlBitmap）不会失真
+
+Sub 第一种方法()
+    Dim Rng As Range
+    Dim ad$, m&, mc$, shp As Shape
+    Dim nm$, n&, myFolder$
+    n = 0
+    myFolder = ThisWorkbook.Path & "\图片\"     '指定文件夹名称
+    Set Rng = Application.InputBox("请选择单元格", "选择", Type:=8)
+    Rng.Copy
+    ActiveSheet.Pictures.Paste
+    For Each shp In ActiveSheet.Shapes
+        If shp.Type = 13 Then
+            If Len(Dir(myFolder, vbDirectory)) = 0 Then
+                MkDir myFolder
+            End If
+            n = n + 1
+            ad = shp.TopLeftCell.Address
+            m = shp.TopLeftCell.Row
+            nm = Replace(Replace(Rng.Address, "$", ""), ":", "-") & ".png"
+            shp.CopyPicture xlScreen, xlBitmap
+            With ActiveSheet.ChartObjects.Add(0, 0, shp.Width, shp.Height).Chart '在工作表中添加一个图表对象
+                .Paste
+                .Export myFolder & nm, "PNG"'图形对象的名字
+                .Parent.Delete '删除工作表中添加的图表对象
+            End With
+            shp.Delete
+        End If
+    Next
+    MsgBox ("已保存到图片文件夹下")
+End Sub
+
+
+Sub 第二种方法()
+  Call RangeToPic(Range("A1:D5")) '直接输入要输出的区域……必须有Range()
+  Call RangeToPic(Selection) '按当前选中的区域
+   Call RangeToPic(Application.InputBox("Select Range", Type:=8)) '出现对话框选择区域
+End Sub
+
+Sub RangeToPic(Rng As Range, Optional Pnm = "", Optional Pth = "")
+    If Pth = "" Then Pth = ActiveWorkbook.Path '默认使用当前文件所在路径作为输出路径
+    If Pnm = "" Then Pnm = Left(ActiveWorkbook.Name, InStrRev(ActiveWorkbook.Name, ".") - 1) & "_" & Replace(Rng.Address(0, 0), ":", "_")
+    '默认使用当前【文件名_区域地址】作为输出文件名
+
+    If ActiveWindow.DisplayGridlines = True Then ActiveWindow.DisplayGridlines = False: flg = True '去掉默认格子线
+    Rng.CopyPicture Appearance:=xlScreen, Format:=xlBitmap '把选择范围内容转化为截屏图片信息
+    With ActiveSheet.ChartObjects.Add(0, 0, Rng.Width + 1, Rng.Height + 1).Chart '在A1处按图片尺寸稍大建立1个空白图表对象
+        .ChartArea.Border.LineStyle = 0 '去除边框
+        .Paste '把刚才截屏的图片信息粘贴上去
+        .Export Pth & "\" & Pnm & ".jpg", "JPG"  '按指定图片路径及名称导出jgp格式图片……如果区域内有图片应该用这个
+        .Export Pth & "\" & Pnm & ".png", "PNG"  '按指定图片路径及名称导出png格式图片……这个对于纯数据工作表来说更好
+        .Parent.Delete '删去该临时增加的图表对象
+    End With
+    If flg Then ActiveWindow.DisplayGridlines = True '恢复默认格子线
+End Sub

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/vue/3.2.36/vue.global.min.js"></script>
+</head>
+<div id="app">
+    <form v-on:submit.prevent="abc">
+        <input type="text" v-model="name" />
+        <input type="text" v-model="sex">
+        <input type="submit" value="提交">
+    </form>
+    <ul>
+        <!-- <li v-for="(item, index) in obj" :key="index"> -->
+        <li v-for="item in list" :key="index">
+            姓名:{{item.name}},
+            年龄:{{item.sex}}</li>
+    </ul>
+</div>
+
+
+<body>
+    <script>
+        const root = {
+            methods: {
+                abc() {
+                    console.log("22");
+                    // this.obj.name = this.name;
+                    // this.obj.sex = this.sex;
+                    // this.list.push(this.obj)// 这个是不成功的，因为取的obj是这个作用域以外的obj,所以每次的obj 是相同的
+                    //而如下几个是成功的，就是在每次调用函数时，都对obj斌值，因为数组对同一个对像，不同时刻的值
+                    //也会申请不同的空间去存放的（简单点理解，不同值的的对像不是同一个对像）
+                    this.obj = {}
+                    this.obj.name = this.name;
+                    this.obj.sex = this.sex;
+                    this.list.push(this.obj)
+                    //如下这个也是成功的
+                    // this.obj = {
+                    //     name: this.name,
+                    //     sex: this.sex
+                    // }
+                    // this.list.push(this.obj);
+
+                    // this.list.push({
+                    //     name: this.name,
+                    //     sex: this.sex
+                    // })//这个是成功的    
+                },
+            },
+            data() {
+                return {
+                    name: "",
+                    sex: '',
+                    obj: {
+                        name: "",
+                        age: ""
+                    },
+                    list: []
+                }
+            },
+        }
+        const app = Vue.createApp(root)
+        const vm = app.mount("#app")
+        window.vm = vm
+    </script>
+</body>
+
+</html>

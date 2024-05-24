@@ -1,0 +1,28 @@
+Sub 把一列中不同项目分拆到不同工作簿()
+    Tm = Timer
+    Application.DisplayAlerts = False
+    Application.ScreenUpdating = False
+    Set d = CreateObject("scripting.dictionary")
+    a = 1 '//标题行
+    b = 1 '//拆分项目所在的列
+    arr = Range(Cells(a + 1, b), Cells(Rows.Count, b).End(3))
+    For x = 1 To UBound(arr)
+        d(arr(x, 1)) = x
+    Next
+    brr = d.keys
+    For i = 0 To UBound(brr)
+        Workbooks.Add.SaveAs ThisWorkbook.Path & "\" & brr(i)
+        With ThisWorkbook.Sheets(1)
+            .Rows(a).AutoFilter Field:=b, Criteria1:=brr(i)
+            .AutoFilter.Range.SpecialCells(12).Copy Sheets(1).Range("A1")
+        End With
+        ActiveWorkbook.Close 1
+    Next
+    ThisWorkbook.Sheets(1).ShowAllData  '消除筛选
+    Application.DisplayAlerts = True
+    Application.ScreenUpdating = True
+    MsgBox "拆分完成，用时：" & Format(Timer - Tm, "0.00秒"), 64, "拆分报表"
+End Sub
+
+
+ 

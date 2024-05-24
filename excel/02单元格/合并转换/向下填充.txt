@@ -1,0 +1,11 @@
+Sub test()
+  Dim r%, i%
+  With ActiveSheet
+    r = .Cells(.Rows.Count, 1).End(xlUp).Row
+    For i = 2 To r
+      If .Cells(i, 3) = "" Then
+        .Cells(i, 3) = .Cells(i - 1, 3)
+      End If
+    Next
+  End With
+End Sub

@@ -1,0 +1,21 @@
+'webbrower获取表格
+'方法一：取出html内容，当做一个字符串处理，处理方法可以用vb的基本字符串函数或者正则，推荐使用后者
+'方法二：当做dom对象处理，直接读取表格对象。xx.cells(i,j)
+Sub two()
+    UserForm1.WebBrowser1.Silent = True
+    With UserForm1.WebBrowser1
+        surl = "http://data.eastmoney.com/rzrq/"
+        .Navigate surl, False
+        Do While Not .ReadyState = 4
+            DoEvents
+        Loop
+        Set objTable = UserForm1.WebBrowser1.Document.all.tags("table").Item(1)
+        Set objCell = objTable.Cells(24)
+        Set elementCell = objCell
+        Set objCell2 = objTable.Cells(33)
+        Set elementCell2 = objCell2
+        Range("a4") = Left(elementCell.innertext, Len(elementCell.innertext) - 1)
+        Range("b4") = Left(elementCell2.innertext, Len(elementCell.innertext) - 1) * 100
+    End With
+End Sub
+

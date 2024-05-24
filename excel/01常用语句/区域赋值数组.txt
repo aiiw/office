@@ -1,0 +1,2 @@
+arr = Sheet1.Range("A1:A" & Sheet1.Cells(Rows.Count, "A").End(xlUp).Row) '扩展本列有效数据
+ 

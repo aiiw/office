@@ -1,0 +1,1 @@
+﻿sht.Cells(sht.Rows.Count, 1).End(3).Row

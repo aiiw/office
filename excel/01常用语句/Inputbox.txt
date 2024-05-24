@@ -1,0 +1,6 @@
+﻿'InputBox方法：选择单元格区域
+Set rng = Application.InputBox("请选择区域", "确定区域", , , , , , 8)
+rem 其中type为 0 返回文本，type为1返回数字 type为2返回公式 ?，4 逻辑值 8单元格引用 16错误值 ?64数值数组。type不指定时，系统根据输入智能判断数据类型。
+
+'InputBox函数
+str = InputBox("请输入密码", "信息", "888888888")

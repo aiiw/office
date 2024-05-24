@@ -1,0 +1,7 @@
+Public Function FileFolderExists(ByVal strFullPath As String) As Boolean
+    If Not Dir(strFullPath, vbDirectory) = vbNullString Then
+    FileFolderExists = True
+    Else
+     FileFolderExists = False
+    End If
+End Function

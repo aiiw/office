@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            $.each([52, 97], function (index, value) {
+                alert(index + ': ' + value);
+            });
+            $("button").click(function () {
+                $("li").each(function () {
+                    alert($(this).text())
+                });
+            })
+        });
+    </script>
+
+    <button>输出每个列表项的值</button>
+    <ul>
+        <li>Coffee</li>
+        <li>Milk</li>
+        <li>Soda</li>
+    </ul>
+</body>
+
+</html>

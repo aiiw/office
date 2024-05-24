@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>js改变div的宽度和高度</title>
+    <style>
+        #mydiv {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+    <script>
+        function randomNum(minNum, maxNum) {
+            switch (arguments.length) {
+                case 1:
+                    return parseInt(Math.random() * minNum + 1, 10);
+                    break;
+                case 2:
+                    return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+                    break;
+                default:
+                    return 0;
+                    break;
+            }
+        }
+
+        //..
+        //...........
+        window.onload = function () {
+            //拿到div
+            var div = document.getElementById("mydiv");
+            //拿到两个按钮
+            var btns = document.getElementsByTagName("input");
+
+            //.........
+            //......
+            //......
+
+            btns[0].onclick = function () {
+                //拿到div显示出来的宽度
+                //alert(getStyle(div,"width"));
+                //alert(parseInt(getStyle(div,"width")) + 20);
+                //改变宽度
+                div.style.width = parseInt(getStyle(div, "width")) + 50 + "px";
+            }
+            btns[1].onclick = function () {
+                //改变高度
+                div.style.height = parseInt(getStyle(div, "height")) + 50 + "px";
+            }
+        }
+
+        //获取style样式的css属性,考虑兼容;ie,火狐/谷歌;
+        function getStyle(parm1, parm2) {
+            return parm1.currentStyle ? parm1.currentStyle[parm2] : getComputedStyle(parm1)[
+            parm2]; //parm1,要改变的元素代替名;parm2,要改变的属性名
+        }
+    </script>
+</head>
+
+<body>
+    <div id="mydiv"></div>
+    <input type="button" value="改变宽度" />
+    <input type="button" value="改变高度" />
+</body>
+
+</html>

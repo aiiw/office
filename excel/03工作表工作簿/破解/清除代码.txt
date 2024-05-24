@@ -1,0 +1,23 @@
+'第一种: 直接删除
+For Each vbc In ThisWorkbook.VBProject.VBComponents
+    Select Case vbc.Type
+    Case 1, 2, 3
+        With Application.VBE.ActiveVBProject.VBComponents
+            .Remove .Item(vbc.Name) '删除模块、类模块、窗体
+        End With
+    Case Else
+        vbc.CodeModule.DeleteLines 1, vbc.CodeModule.CountOfLines '删除工作表或Thisworkbook代码区代码
+    End Select
+Next
+'第二种: 另存为xlsx格式
+Sub text()
+    Dim a As Shape
+    Application.DisplayAlerts = False
+    For Each a In ActiveSheet.Shapes
+        a.Delete
+    Next
+    ActiveWorkbook.SaveAs Filename:=ThisWorkbook.Path & "\统计报表", FileFormat:=51
+    Application.DisplayAlerts = True
+End Sub
+
+

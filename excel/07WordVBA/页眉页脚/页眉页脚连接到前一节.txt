@@ -1,0 +1,25 @@
+Sub 页眉页脚连接到前一节()
+    Dim oWord As Word.Application
+    Set oWord = Word.Application
+    Dim oDoc As Document
+    Dim oSec As Section
+    Dim oFoot As HeaderFooter
+    Dim oHead As HeaderFooter
+    Set oDoc = oWord.ActiveDocument
+    With oDoc
+        iCount = .Sections.Count
+        For i = 1 To iCount
+            Set oSec = .Sections(i)
+            With oSec
+                '页眉
+                Set oHead = .Headers(wdHeaderFooterPrimary)
+                '页脚
+                Set oFoot = .Footers(wdHeaderFooterPrimary)
+                '页眉取消链接到前一节
+                oHead.LinkToPrevious = False
+                '页脚链接到前一节
+                oFoot.LinkToPrevious = True
+            End With
+        Next i
+    End With
+End Sub

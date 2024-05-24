@@ -1,0 +1,11 @@
+Sub Main()
+    Cells.Delete
+    With ActiveSheet.QueryTables.Add("url;http://data.eastmoney.com/hsgt/index.html", Range("a1"))
+        .WebFormatting = xlWebFormattingNone '不包含格式
+        .WebSelectionType = xlSpecifiedTables '指定table模式
+        .WebTables = "2" '第2张table
+        .Refresh False
+    End With
+End Sub
+
+

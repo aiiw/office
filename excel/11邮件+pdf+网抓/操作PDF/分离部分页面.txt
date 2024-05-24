@@ -1,0 +1,14 @@
+Sub 分离部分页面()
+    Dim PD As Acrobat.AcroPDDoc, NewDoc As Acrobat.AcroPDDoc, result As Boolean
+    Set PD = GetObject("", "AcroExch.PDDoc")
+    PD.Open "C:\temp\三国演义.pdf"
+    Set NewDoc = New Acrobat.AcroPDDoc
+    NewDoc.Create '创建空白PDF文档
+    result = NewDoc.InsertPages(nInsertPageAfter:=-1, iPDDocSource:=PD, lStartPage:=0, lNumPages:=3, lInsertFlags:=0)
+    If result Then
+        NewDoc.Save nType:=Acrobat.PDSaveFlags.PDSaveFull, sFullPath:="C:\temp\NewDoc.pdf"
+        NewDoc.Close
+    End If
+    PD.Close
+End Sub
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            // $("#bdaytime1").onblur(
+            //     alert($("#bdaytime1").val()),
+            //     console.log($("#bdaytime1").val())
+            // )
+            $("#bdaytime1").click(() => {
+                alert("aaaaaaaaaaaaaaaaaaaa");
+                // alert($("#bdaytime1").val())
+            })
+
+
+        });
+
+        function onblur1() {
+
+            alert($("#bdaytime2").val());
+            console.log($("#bdaytime2").val())
+
+        }
+    </script>
+    <label for="inputEmail3">第一个</label>
+    <input type="datetime-local" id="bdaytime1">
+    <br>
+    <label for="inputEmail3">第二个</label>
+    <input type="datetime-local" id="bdaytime2" onblur="onblur1()">
+
+</body>
+
+</html>

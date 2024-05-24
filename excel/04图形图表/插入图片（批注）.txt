@@ -1,0 +1,11 @@
+¡ùÅú×¢²åÈëÍ¼Æ¬
+Sub test()
+Dim rng As Range, com As Comment
+  [a:a].ClearComments
+For Each rng In Range("a2", [a2].End(xlDown))
+    Set com = rng.AddComment
+    com.Shape.Fill.UserPicture ThisWorkbook.Path & "\ËØ²ÄÍ¼Æ¬\" & rng.Value
+    com.Shape.Width = 100
+    com.Shape.Height = 60
+Next
+End Sub

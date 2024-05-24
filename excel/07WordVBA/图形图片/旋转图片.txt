@@ -1,0 +1,24 @@
+ Sub Rotate()
+Do Until ActiveDocument.InlineShapes.Count = 0
+ActiveDocument.InlineShapes(1).Select
+ActiveDocument.InlineShapes(1).ConvertToShape' 表示的是将嵌入式的图形转换为可以自由浮动的图形。
+Selection.ShapeRange.IncrementRotation 180# '这里的180#代码旋转的度数，0~359.9 为正值时顺时针旋转形状，为负值时逆时针旋转形状。
+Loop
+end sub
+
+
+Sub 旋转指定图片()
+    Dim blnIsInlineShape As Boolean
+    If Selection.Type = wdSelectionInlineShape Then
+        blnIsInlineShape = True
+        Selection.InlineShapes(1).ConvertToShape
+    End If
+    Dim intTurn As Integer
+    xz = InputBox("请输入要旋转的角度值" & vbCrLf & "正数表示顺时针，负数表示逆时针。", "图形旋转", 30)
+    For I = 1 To Int(360 / xz) * 5
+        Selection.ShapeRange.IncrementRotation xz
+        For k = 1 To 10000000
+            k = k + 1
+        Next
+    Next
+End Sub

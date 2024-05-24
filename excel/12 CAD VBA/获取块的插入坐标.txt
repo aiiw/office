@@ -1,0 +1,18 @@
+Sub GetInsertpoint()
+    Dim oEnt As AcadEntity
+    Dim varPick As Variant
+    Dim brBref As AcadBlockReference
+    Dim arAttR As AcadAttributeReference
+    Dim varAt As Variant
+    Dim i As Double
+    ThisDrawing.Utility.GetEntity oEnt, varPick, vbCr & "Get the block"
+    If TypeOf oEnt Is AcadBlockReference Then
+        MsgBox "Thank you, very nice!"
+        Set brBref = oEnt
+        MsgBox brBref.InsertionPoint(0) & brBref.InsertionPoint(1) & brBref.InsertionPoint(2)
+    Else
+        MsgBox "Not a block reference!"
+        Exit Sub
+    End If
+
+End Sub

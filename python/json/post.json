@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "a69a8f9e-1418-4bd7-b8ea-cd92a2c5637a",
+		"name": "mycollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://192.168.0.51:9990/CROSS/RESTful",
+			"request": {
+
+
+
+
+				"method": "POST",
+				"header": [
+					{
+						"key": "digi-type",
+						"value": "sync",
+						"type": "default"
+					},
+					{
+						"key": "digi-key",
+						"value": "d9f2fb3b8d769d7da38d1ab7023a66d2",
+						"type": "default"
+					},
+					{
+						"key": "digi-host",
+						"value": "{prod:"testclent",ip:"192.168.4.253",lang:"zh_CN",timestamp:"20220426153917733",ver:"1.0"}",
+						"type": "default"
+					},
+					{
+						"key": "digi-service",
+						"value": "{prod:"OA",name:"Message"}",
+						"type": "default"
+					},
+					{
+						"key": "digi-protocol",
+						"value": "raw",
+						"type": "default"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{"from_id":"admin","to_id":[{"user_id":"11608"}],"content":"ffffffffsfds"}"
+				},
+				"url": {
+					"raw": "http://192.168.0.51:9990/CROSS/RESTful",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"51"
+					],
+					"port": "9990",
+					"path": [
+						"CROSS",
+						"RESTful"
+					]
+				},
+
+
+
+
+
+
+
+			},
+			"response": []
+		}
+	]
+}

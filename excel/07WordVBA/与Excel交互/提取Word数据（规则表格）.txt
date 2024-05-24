@@ -1,0 +1,53 @@
+Sub 提取简历()
+    On Error Resume Next
+    n = 1
+    Set doc = CreateObject("word.application")
+    f = Dir(ThisWorkbook.Path & "\*.doc")
+    Do While f <> ""
+        n = n + 1
+        Set wd = doc.Documents.Open(ThisWorkbook.Path & "\" & f)
+        doc.Visible = True
+        With doc.Documents(1).Tables(1)
+            Cells(n, 1) = l(.cell(1, 2).Range) '姓名
+            Cells(n, 2) = l(.cell(2, 2).Range) '出生年月
+            Cells(n, 3) = l(.cell(4, 2).Range) '最高学历
+            Cells(n, 4) = l(.cell(5, 4).Range) '毕业学校
+            Cells(n, 5) = l(.cell(6, 2).Range) '职称
+            Cells(n, 6) = l(.cell(8, 4).Range) '邮箱
+            Cells(n, 7) = l(.cell(9, 2).Range) '联系电话
+        End With
+        f = Dir
+        wd.Close False
+    Loop
+    doc.Quit
+    MsgBox "完成！"
+End Sub
+Function l(a)
+    l = Left(a, Len(a) - 2)
+End Function
+
+
+
+Sub 提取数据()
+On Error Resume Next
+Dim wdapp As Word.Application
+Dim wddoc As Document
+Set wdapp = New Word.Application
+wdapp.Documents.Open Filename:=ThisWorkbook.Path & "\DEMO\9-4.demo.docx"
+'wdapp.Visible = True
+With wdapp.Documents(1).Tables(1).Range
+    For i = 1 To .Cells.Count
+        u = Left(.Cells(i).Range, Len(.Cells(i).Range) - 1)
+        If IsNumeric(u) Then '判断是否为数字形式的分数
+             n = n + 1
+             Cells(n + 1, 2) = u
+             Cells(n + 1, 1) = Left(.Cells(i - 1).Range, Len(.Cells(i - 1).Range) - 1) '要截取掉Word表格中的换行符
+         End If
+    Next
+End With
+    Cells(1, 1) = "姓名"
+    Cells(1, 2) = "分数"
+wdapp.Quit
+End Sub
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>收集客户端硬件信息</title>
+</head>
+
+<body>
+    <h1>客户端硬件信息收集</h1>
+
+    <button onclick="collectHardwareInfo()">点击收集硬件信息</button>
+
+    <h2>硬件信息结果：</h2>
+    <pre id="hardwareInfoResult"></pre>
+
+    <script>
+        function collectHardwareInfo() {
+            var hardwareInfo = {
+                appName: navigator.appName,
+                appVersion: navigator.appVersion,
+                platform: navigator.platform,
+                userAgent: navigator.userAgent
+            };
+
+            // 使用Fetch API将硬件信息发送给服务器
+            fetch('/submit-hardware-info', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(hardwareInfo)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("hardwareInfoResult").textContent = data.message;
+                })
+                .catch(error => {
+                    console.error('发生错误:', error);
+                });
+        }
+    </script>
+</body>
+
+</html>

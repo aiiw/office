@@ -1,0 +1,11 @@
+Sub xlam转为xls()
+Dim strFile, wb As Workbook
+strFile = Application.GetOpenFilename(FileFilter:="Micrsofe Excel文件(*.xlam), *.xlam")
+If strFile = False Then Exit Sub
+With Workbooks.Open(strFile)
+    .IsAddin = False
+    .SaveAs Filename:=Replace(strFile, "xlam", "xls"), FileFormat:=xlExcel8
+    .Close
+End With
+End Sub
+

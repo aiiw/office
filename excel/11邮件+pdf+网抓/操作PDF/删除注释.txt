@@ -1,0 +1,19 @@
+Sub É¾³ý×¢ÊÍ()
+    Dim App As Acrobat.AcroApp
+    Dim Doc As Acrobat.AcroAVDoc
+    Dim APV As Acrobat.AcroAVPageView
+    Dim PDPage As Acrobat.AcroPDPage, i As Integer, Count As Integer
+    Set App = GetObject("", "AcroExch.App")
+    App.Show
+    Set Doc = App.GetActiveDoc
+    Set APV = Doc.GetAVPageView
+    APV.GoTo 4
+    Set PDPage = APV.GetPage
+    With PDPage
+        Count = .GetNumAnnots
+        For i = 1 To Count
+            .RemoveAnnot 0
+        Next i
+    End With
+End Sub
+

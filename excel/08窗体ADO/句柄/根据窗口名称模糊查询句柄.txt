@@ -1,0 +1,37 @@
+﻿Declare Function FindWindow Lib "user32" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
+Declare Function GetWindow Lib "user32" (ByVal hwnd As Long, ByVal wCmd As Long) As Long
+Declare Function GetClassName Lib "user32" Alias "GetClassNameA" (ByVal hwnd As Long, ByVal lpClassName As String, ByVal nMaxCount As Long) As Long
+Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal hwnd As Long, ByVal lpString As String, ByVal cch As Long) As Long
+Const GW_HWNDNEXT = 2
+Function GetHwndByTitle(ByVal sWTitle As String)
+    '根据窗口标题模糊查询获取符合条件的窗户句柄数组
+    Dim oDic As Object
+    Set oDic = CreateObject("Scripting.Dictionary")
+    '先获取一个顶级窗口的句柄
+    hwnd = FindWindow(vbNullString, vbNullString)
+    '定义一个变量存储类名
+    Dim sCN As String
+    '定义一个变量存储窗口的标题名字
+    Dim sTitle As String
+    Do Until hwnd = 0
+        hwnd = GetWindow(hwnd, GW_HWNDNEXT)
+        '先填充空格
+        sCN = Space(1024)
+        sTitle = Space(1024)
+        Dim iLen1, iLen2
+        '获得实际的类名和标题名称的字符长度,如果是中文，则是字节数
+        iLen1 = GetClassName(hwnd, sCN, 1024)
+        iLen2 = GetWindowText(hwnd, sTitle, 1024)
+        sCN = Replace(Trim(Left(sCN, iLen1)), Chr(0), "")
+        sTitle = Replace(Trim(Left(sTitle, iLen2)), Chr(0), "")
+        sValue = sTitle & "!" & hwnd & "!" & sCN
+        oDic.Add sValue, ""
+    Loop
+    arrKey = oDic.keys
+    arr = VBA.Filter(arrKey, sWTitle)
+    If UBound(arr) >= 0 Then
+        GetHwndByTitle = arr
+    Else
+        GetHwndByTitle = 0
+    End If
+End Function

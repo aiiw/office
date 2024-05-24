@@ -1,0 +1,11 @@
+Sub ´òÓ¡PDFÎÄµµ()
+    Dim App As Acrobat.AcroApp
+    Dim Doc As Acrobat.AcroAVDoc
+    Dim result As Boolean, i As Integer
+    Dim Rect As Acrobat.AcroRect
+    Set App = GetObject("", "AcroExch.App")
+    App.Show
+    Set Doc = App.GetActiveDoc
+    Doc.PrintPages nFirstPage:=2, nLastPage:=5, nPSLevel:=2, bBinaryOK:=False, bShrinkToFit:=False
+End Sub
+

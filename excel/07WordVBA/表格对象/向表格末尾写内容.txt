@@ -1,0 +1,32 @@
+Sub test()
+    Dim tbl As Word.Table
+    For Each tbl In Selection.Range.Tables
+        tbl.Range.Cells(tbl.Range.Cells.Count).Select
+        Selection.Move wdCharacter, 2
+        Selection.TypeParagraph
+        Selection.Move wdParagraph, -1
+        Selection.TypeText "表格1"
+    Next
+End Sub
+Sub 向表格末尾插入内容并居中()
+    Dim tbl As Word.Table
+    For Each tbl In Selection.Range.Tables
+        tbl.Range.Cells(tbl.Range.Cells.Count).Select
+        Selection.Move wdCharacter, 2
+        Selection.TypeParagraph
+        Selection.Move wdParagraph, -1
+        Selection.TypeText "表格X"
+        Selection.Extend
+        '/字体格式
+        With Selection.Range.Font
+            .Color = -16777216
+            .NameFarEast = "宋体"
+            .Size = 10 '字号 四号
+            .Bold = 0 '加粗为1，不加粗为0
+        End With
+        With Selection.ParagraphFormat
+            .LineSpacing = 20 '行间距20磅
+            .Alignment = wdAlignParagraphCenter '居中显示
+        End With
+    Next
+End Sub

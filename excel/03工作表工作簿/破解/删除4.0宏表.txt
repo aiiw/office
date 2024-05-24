@@ -1,0 +1,14 @@
+Sub É¾³ý4ºê±íÉ¾³ýÃû³Æ() 'É¾³ý4.0ºê±í£¬É¾³ýÃû³Æ
+    Dim sh As Object, na As Name
+    Application.DisplayAlerts = False
+    For Each sh In Sheets
+       If sh.Type = xlExcel4MacroSheet Then
+       sh.Visible = -1
+       sh.Delete
+       End If
+    Next
+    For Each na In ActiveWorkbook.Names
+        na.Delete
+    Next
+End Sub
+

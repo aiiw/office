@@ -1,0 +1,58 @@
+'删除某页
+For i = 0 To UBound(arr)
+      .GoTo wdGoToPage, , arr(i)
+      .Bookmarks("\Page").Range.Delete
+Next
+
+
+删除第5页：
+sub test()
+ActiveDocument.Range(Selection.GoTo(wdGoToPage, wdGoToAbsolute, 5).Start ,_  Selection.GoTo(wdGoToPage, wdGoToAbsolute, 6).end).delete
+end sub
+
+
+删除第5页至第8页内容：
+
+sub test()
+ActiveDocument.Range(Selection.GoTo(wdGoToPage, wdGoToAbsolute, 5).Start ,_  Selection.GoTo(wdGoToPage, wdGoToAbsolute, 9).end).delete
+end sub
+
+
+删除第5页到最后一页的内容：
+Sub SelectToDocEnd()
+Dim sc As Range
+‘将光标定位至第5页页首
+    Selection.GoTo wdGoToPage, wdGoToAbsolute, 5
+‘选中光标处到文档最后
+    Selection.EndKey Unit:=wdStory, Extend:=wdExtend
+‘删除选中内容
+    Selection.Delete
+‘退格（删除最后空白页）
+Selection.TypeBackspace
+End Sub
+
+
+‘仅仅删除前两页
+Sub delepages()
+Dim CurrentPageStart As Long, CurrentPageEnd As Long, myRange As Range
+Dim Currentpage As Integer, Pages As Integer
+On Error Resume Next
+    With Selection
+        ActiveDocument.Range(0, 0).Select
+        .HomeKey wdStory
+    End With
+    '回到文档首
+    Currentpage = 1
+    For i = 1 To 2
+    CurrentPageStart = Selection.GoTo(what:=wdGoToPage, Which:=wdGoToNext, Name:=Currentpage).Start
+    CurrentPageEnd = Selection.GoTo(what:=wdGoToPage, Which:=wdGoToNext, Name:=Currentpage + 1).Start
+    Set myRange = ActiveDocument.Range(CurrentPageStart, CurrentPageEnd)
+    myRange.Select
+    Selection.Delete
+    With Selection
+        ActiveDocument.Range(0, 0).Select
+        .HomeKey wdStory
+    End With
+    '回到文档首
+    Next i
+End Sub

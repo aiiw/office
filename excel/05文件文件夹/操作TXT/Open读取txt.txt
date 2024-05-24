@@ -1,0 +1,72 @@
+Sub 读取一句()
+    Dim s As String
+    Open "D:\a.txt" For Input As #1
+        Line Input #1, s
+    Close #1
+    Debug.Print s
+End Sub
+Sub 导入txt读取所有行()
+    Dim arr()
+    pth = Application.GetOpenFilename("文件(*.*),*.*", , "请选择文件", , True)
+    For txtnum = 1 To UBound(pth)
+        Open pth(txtnum) For Input As #1
+            Do While Not EOF(1)
+                k = k + 1
+                ReDim Preserve arr(1 To k)
+                Line Input #1, arr(k)
+            Loop
+            Close #1
+        Next
+        ThisWorkbook.Worksheets(1).Range("a1").Resize(UBound(arr), 1) = Application.Transpose(arr)
+End Sub
+'
+'
+'
+'
+'
+'//读取txt并且按tab键盘切割
+Sub 数组法()
+    Dim a, b, k%, i%, j%, q%, ar()
+    Open ThisWorkbook.Path & "\123.txt" For Input As #1
+        a = Split(StrConv(InputB(LOF(1), 1), vbUnicode), vbCrLf)
+    Close #1
+    '-------------------------------------------------------------------------
+    '-------------把数组a里面的内容写入单元格-------------------------
+    '前面，咱们把txt中的每一行数据都写入到了数组a中。但是呢，咱们要把数组切割成三列，放入单元格。
+    '这里我把数组a的每一行切割开放入新的数组ar,你可以直接导入单元格，也可以进行一系列操作之后，放入单元格。
+    'VBA会直接进行运算，将字符串型数字转化为数值型数字。但是，最好还是加上val(),把字符串转化为数字在运算。因为你的标题行不会被转化为数字。
+    ReDim Preserve ar(0 To UBound(a), 1 To 3)  '定义ar动态数组
+    For i = 0 To UBound(a)
+        If a(i) <> "" Then
+            ar(i, 1) = Val(Split(a(i), vbTab)(0)) + 100 '将每行数据按vbTab分割开写入数组ar。这里我对他们都加上了数字100
+            '为什么是vbtab，VBtab代表的就是四个空格，你可以看下，你的txt中，每一行数据的三列之间都是vbtab隔开的。相当于手动按下Tab键的效果。一般的软件导出的txt数据都是以tab按键分割的。
+            ar(i, 2) = Val(Split(a(i), vbTab)(1)) + 100 '将每行数据按vbTab分割开写入数组ar
+            ar(i, 3) = Val(Split(a(i), vbTab)(2)) + 100 '将每行数据按vbTab分割开写入数组ar
+        Else
+        End If
+    Next
+    Cells.Clear '清除已有数据
+    [a1].Resize(UBound(ar), 3) = ar '将br数据写入excel
+    '------------------------------------------------
+End Sub
+'
+'
+'
+Sub 录制宏接导入txt()
+    Workbooks.OpenText Filename:= _
+    ThisWorkbook.Path & "\123.txt", _
+    Origin:=936, StartRow:=1, DataType:=xlDelimited, TextQualifier:= _
+    xlDoubleQuote, ConsecutiveDelimiter:=False, Tab:=True, Semicolon:=False, _
+    Comma:=False, Space:=False, Other:=False, FieldInfo:=Array(Array(1, 1), _
+    Array(2, 1), Array(3, 1)), TrailingMinusNumbers:=True
+    ActiveWorkbook.ActiveSheet.UsedRange.Copy ThisWorkbook.ActiveSheet.Range("a1")
+    ActiveWorkbook.Close False
+End Sub
+
+
+
+'全部读取
+Open File1 For Input As #1
+    str1 = StrConv(InputB(LOF(1), 1), vbUnicode)  '含有中文
+    str1=input(lof(1),1)      '只有ASCII字符
+

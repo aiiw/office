@@ -1,0 +1,63 @@
+'解决汉字出来是问号
+ strText = StrConv(.responseBody, vbUnicode)
+'Javascript表达式求值：
+Function JSEval(strText As String) As String
+    With CreateObject("MSScriptControl.ScriptControl")
+        .Language = "javascript"
+        JSEval = .Eval(strText)
+    End With
+End Function
+'↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓64 位↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+Function EvalByHtml(strText As String) As String
+    With CreateObject("htmlfile")
+        .write "<html><script></script></html>"
+        EvalByHtml = CallByName(.parentwindow, "eval", VbMethod, strText)
+    End With
+End Function
+'↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑64 位↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+'url转码：
+Function encodeURI(strText As String) As String
+    With CreateObject("msscriptcontrol.scriptcontrol")
+        .Language = "JavaScript"
+        encodeURI = .Eval("encodeURIComponent('" & strText & "');")
+    End With
+End Function
+'↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓64 位↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+Function encodeURIByHtml(ByVal strText As String) As String
+    With CreateObject("htmlfile")
+        .write "<html><script></script></html>"
+        encodeURIByHtml = CallByName(.parentwindow, "encodeURIComponent", VbMethod, strText)
+    End With
+End Function
+'↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑64 位↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+'流数据转成指定编码的文本:
+Function ByteToStr(arrByte, strCharset As String) As String
+    With CreateObject("Adodb.Stream")
+        .Type = 1 'adTypeBinary
+        .Open
+        .Write arrByte
+        .Position = 0
+        .Type = 2 'adTypeText
+        .Charset = strCharset
+        ByteToStr = .Readtext
+        .Close
+    End With
+End Function
+'文本按指定编码转为流数据：
+Function StrToByte(strText As String, strCharset As String)
+    With CreateObject("adodb.stream")
+        .Mode = 3 'adModeReadWrite
+        .Type = 2 'adTypeText
+        .Charset = strCharset
+        .Open
+        .Writetext strText
+        .Position = 0
+        .Type = 1 'adTypeBinary
+        '.Position = 2 '保留BOM头则不需此行代码，去除三个字节的BOM头就填入3，去除两个字节的就填入2
+        StrToByte = .Read
+        .Close
+    End With
+End Function
+

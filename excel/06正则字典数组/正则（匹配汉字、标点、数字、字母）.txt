@@ -1,0 +1,66 @@
+Sub Test3()
+    '遍历所有匹配项
+    Dim Reg As New VBScript_RegExp_55.regexp
+    Dim MC As VBScript_RegExp_55.MatchCollection
+    Dim M As VBScript_RegExp_55.Match
+    Dim Source As String
+    Source = "2017年××大学录取分数线 北京：理科671分文科668分，福建：理科649分文科637分，内蒙古：理科668分文科647分，广西：理科659分文科681分"
+    With Reg
+        .Global = True
+        .Pattern = "[一-龥]+："
+        Set MC = .Execute(Source)
+        For Each M In MC
+            Debug.Print M.FirstIndex, M.Length, M.Value
+        Next M
+    End With
+End Sub
+
+ Function num(s)
+        '验证数字
+        With CreateObject("vbscript.regexp")
+            .Pattern = "\d"
+            .Global = True
+            .IgnoreCase = True
+            .MultiLine = False
+            If .Test(s) Then
+                num = True
+            End If
+        End With
+    End Function
+    Function atoz(s)
+        '验证字母
+        With CreateObject("vbscript.regexp")
+            .Pattern = "[a-zA-Z]"
+            .Global = True
+            .IgnoreCase = True
+            .MultiLine = False
+            If .Test(s) Then
+                atoz = True
+            End If
+        End With
+    End Function
+
+    Function hz(s)
+        '验证汉字
+        With CreateObject("vbscript.regexp")
+            .Pattern = "[一-龥]"
+            .Global = True
+            .IgnoreCase = True
+            .MultiLine = False
+            If .Test(s) Then
+                hz = True
+            End If
+        End With
+    End Function
+    Function biaodian(s)
+        '验证标点
+        With CreateObject("vbscript.regexp")
+            .Pattern = "[\.\\\/\?\（\）\(\)\《\》\——\；\，\,\.\。\“ \ ”\<\>\！\、\:\{\}]"
+            .Global = True
+            .IgnoreCase = True
+            .MultiLine = False
+            If .test(s) Then
+                biaodian = True
+            End If
+        End With
+    End Function

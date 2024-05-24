@@ -1,0 +1,15 @@
+Sub Test6()
+    Dim st As ADODB.Stream
+    Set st = New ADODB.Stream
+    With st
+        .Type = adTypeText
+        .Mode = adModeReadWrite
+        .Charset = "UTF-8"
+        .Open
+        .WriteText "ÐÂÄÚÈÝ"
+        .SaveToFile "C:\a.txt", adSaveCreateOverWrite
+        .Flush
+        .Close
+    End With
+End Sub
+

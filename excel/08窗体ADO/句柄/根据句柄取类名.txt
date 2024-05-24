@@ -1,0 +1,17 @@
+﻿Public Declare Function GetClassName Lib "user32" Alias "GetClassNameA" (ByVal hwnd As Long, ByVal lpClassName As String, ByVal nMaxCount As Long) As Long
+Public Declare Function GetDesktopWindow Lib "user32" () As Long
+Sub QQ1722187970()
+ Dim iHwnd
+ iHwnd = GetDesktopWindow()
+ '定义一个变量存储类名
+ Dim sCN As String
+ '先填充空格
+ sCN = Space(255)
+ Dim iLEN
+ '获得实际的类名字符长度
+ iLEN = GetClassName(iHwnd, sCN, 256)
+ '提取实际的类名
+ sCN = Left(sCN, iLEN)
+ '输出类名
+ Debug.Print sCN, Len(sCN)
+End Sub

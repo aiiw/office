@@ -1,0 +1,32 @@
+Sub 提取文件属性()
+    Set fso = CreateObject("scripting.filesystemobject")
+    pth = Application.GetOpenFilename("文件(*.*),*.*", , "请选择文件", , True)
+    For i = 1 To UBound(pth)
+        Set f = fso.GetFile(pth(i))
+        Cells(i, 1) = f.Name
+        Cells(i, 2) = f.DateCreated '创建时间
+        Cells(i, 3) = f.DateLastModified '最后一次修改时间
+        Cells(i, 4) = Int(f.Size / 1024) & "K" '文件大小
+        Cells(i, 5) = fso.getbasename(pth(i)) '文件名
+        Cells(i, 6) = fso.getextensionname(pth(i)) '文件扩展名
+    Next
+End Sub
+
+Sub 利用FSO获取文件的若干属性()
+Dim PathStr As String, arr(), i As Integer
+PathStr = "C:\Users\Administrator\Desktop\VBE2019" '请自行修改路径
+With CreateObject("Scripting.FileSystemObject")
+  If .FolderExists(PathStr) Then
+    For Each FileStr In .GetFolder(PathStr).Files
+      i = i + 1
+      ReDim Preserve arr(1 To 3, 1 To i)
+      arr(1, i) = FileStr
+      arr(2, i) = .GetExtensionName(FileStr)
+      arr(3, i) = Round(.Getfile(FileStr).Size / 1024, 2) & "KB"
+    Next
+  Range("a1:c1") = Array("文件", "后缀名", "体积")
+  Range("a2").Resize(i, 3) = WorksheetFunction.Transpose(arr)
+  End If
+End With
+End Sub
+

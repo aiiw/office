@@ -1,0 +1,26 @@
+### 不存在insert 写法
+
+##### 思路:select B insert A       
+
+##### 表A与表B进行内联接,如果联接得上,即A表中已经存在这条记录,忽略,如果联接不上(即A.id is null),则插入.
+
+```sql
+第一次
+INSERT user_qyweixin
+select u.uid,u.BYNAME,'' a,'' b from user u
+left join user_qyweixin q
+on u.UID=q.user_id
+where q.user_id is null
+and u.BYNAME in ('61179')
+
+改造后
+INSERT user_qyweixin
+select t.uid,t.BYNAME,'' a,'' b from wx_user u INNER  join user t on u.wx_code=t.BYNAME
+left join user_qyweixin q on q.user_id=u.wx_code
+
+where not EXISTS (select 1 from user_qyweixin b where b.open_id=u.wx_code)
+and q.user_id is null
+and t.BYNAME in ('61179')
+
+```
+

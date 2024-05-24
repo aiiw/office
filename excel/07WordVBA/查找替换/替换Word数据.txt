@@ -1,0 +1,63 @@
+Sub 正则替换()
+    Set doc = CreateObject("word.application")
+    doc.Documents.Open ThisWorkbook.Path & "\死缓减刑建议书模本.doc"
+   'doc.Visible = True
+    c = doc.Documents(1).Range
+    Set regx = CreateObject("vbscript.regexp")
+    regx.Global = True
+    regx.Pattern = "罪犯数据\d+"
+    Set Mat = regx.Execute(c)
+    For Each m In Mat
+        doc.Documents(1).Content.Select
+        With doc.Selection.Find
+               .Text = m.Value
+                .Replacement.Text = "罪犯" & ActiveSheet.Cells(2, 1)
+                .Forward = True
+                .Wrap = 1
+                .Format = False
+                .MatchCase = False
+                .MatchWholeWord = False
+                .MatchByte = True
+                .MatchWildcards = False
+                .MatchSoundsLike = False
+                .MatchAllWordForms = False
+        End With
+       doc.Selection.Find.Execute Replace:=2
+    Next
+doc.activedocument.Close -1
+doc.Quit
+End Sub
+Sub  循环所有表格替换()
+    Application.ScreenUpdating = False
+    Dim l As Long, doc As Document
+    With Application.FileDialog(msoFileDialogFilePicker)
+        .AllowMultiSelect = True   '多选择
+        .Filters.Clear     '清除文件过滤器
+        .Filters.Add "Word 文件", "*.doc*"
+        .Show
+        For l = 1 To .SelectedItems.Count
+            Set doc = Documents.Open(.SelectedItems(l)) '打开文档
+            For tbnum = 1 To doc.Tables.Count
+                
+                Set rng = doc.Tables(tbnum).Range
+                For i = 1 To rng.Cells.Count - 1
+                    u = Trim(Left(rng.Cells(i).Range, Len(rng.Cells(i).Range) - 2))
+                    m = Trim(Left(rng.Cells(i + 1).Range, Len(rng.Cells(i + 1).Range) - 2))
+                    If n <> m Then
+                        If u = "分值" Then
+                            rng.Cells(i + 1).Range = "100分"
+                        ElseIf u = "考核时限" And m = "0分钟" Then
+                            rng.Cells(i + 1).Range = ""
+                        Else
+                        End If
+                    Else
+                    End If
+                Next
+            Next
+            doc.Close -1
+        Next
+    End With
+    Application.ScreenUpdating = True
+End Sub
+
+

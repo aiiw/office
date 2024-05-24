@@ -1,0 +1,17 @@
+    With Sheet6.Range("a:s")
+        If Sheet6.FilterMode = True Then Sheet6.ShowAllData
+         If date2 > date1 Then
+        .AutoFilter field:=1, Criteria1:=">=" & date1, Operator:=xlAnd, Criteria2:="<=" & date2 '日期筛选，同一列有两个筛选条件的情况
+        ElseIf date2 = date1 Then
+        .AutoFilter field:=1, Criteria1:=date1 '名称规格筛选
+        End If
+        If Range("B4") <> "" Then .AutoFilter field:=4, Criteria1:=Range("B4") '按某列进行筛选
+    End With
+    Sheet6.AutoFilter.Range.SpecialCells(12).Copy Sheet7.Cells(1, 4) '复制筛选后的数据
+    '/////////////////////如果不要表头，下面这种写法/////////////////////////////
+   'sht.Range("a4:cc10000").SpecialCells(12).Copy sht2.Cells(4, 1) '复制筛选后的数据
+ 
+'多条件筛选，筛选条件一定是一维数组
+     Arr = Application.Transpose(Worksheets("1.A权益").Range("b6:b7"))
+    sht.Range("d:ad").AutoFilter Field:=2, Criteria1:=Arr, Operator:=xlFilterValues
+ 

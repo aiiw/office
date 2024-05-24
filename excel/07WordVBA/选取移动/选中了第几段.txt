@@ -1,0 +1,12 @@
+ Dim doc As Document
+    Dim pStart As Long, pEnd As Long
+    Set doc = ActiveDocument
+    With selection.Paragraphs
+        pEnd = doc.Range(0, .Last.Range.end).Paragraphs.Count
+        If .Count > 1 Then
+            pStart = doc.Range(0, .first.Range.end).Paragraphs.Count
+            msgbox ("您选中了第" & pStart & "段到第" & pEnd & "段")
+        Else
+            msgbox ("您选中了第" & pEnd & "段")
+        End If
+    End With

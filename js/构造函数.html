@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function User() {
+
+        }
+        const user = new User()
+        console.log(user);
+
+        function Person(name, height) {
+            this.name = name;
+            this.height = height;
+            this.bark = function (fs) {
+                return fs
+
+            }
+
+            this.abc = function () {
+                console.log("这个是单独")
+            }
+        }
+        const person = new Person("aaa", 10)
+        // console.log(Person);
+        // const p1 = function () {
+        //     alert("aaaa")
+        // }
+        // Person.prototype.p1 = p1
+
+        function Admin(op) {
+
+            this.op = op
+        }
+
+
+        Admin.prototype = new Person("aaa", 10) //prototype 是类的对象，——proto--是实体的对像
+        const admin = new Admin('1')
+
+        function Manger(area) {
+            this.area = area
+        }
+
+        Manger.prototype = new Admin('1') //注意prototype 是一个对像{}
+        const manger = new Manger('china')
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

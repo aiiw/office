@@ -1,0 +1,13 @@
+在thisworkbook中写入
+Private Sub Workbook_Open()
+Set xlApp.app = Application
+End Sub
+类中
+Public WithEvents app As Application
+Private Sub app_SheetSelectionChange(ByVal Sh As Object, ByVal Target As Range)
+msgbox "加载成功"
+end sub
+模块中
+Public xlApp As New 类1
+
+

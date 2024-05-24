@@ -1,0 +1,8 @@
+Function subFindCol(oSheet As Worksheet, iRow As Integer, sField As String) As Integer
+'查找指定表格，指定行是否包含指定内容,如果找到返回列号，如果没找到返回-1
+    If Not (oSheet.Cells(iRow, 1).EntireRow.Find(sField) Is Nothing) Then
+        subFindCol = oSheet.Cells(iRow, 1).EntireRow.Find(sField, LookAt:=xlWhole).Column
+    Else
+        subFindCol = -1
+    End If
+End Function

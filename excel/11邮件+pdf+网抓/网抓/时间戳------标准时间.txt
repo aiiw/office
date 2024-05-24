@@ -1,0 +1,49 @@
+   
+  'VB.net获取当前时间戳
+ Function Timer_Stamp() As String '获取时间戳
+        Dim dtStart As DateTime = TimeZone.CurrentTimeZone.ToLocalTime(New DateTime(1970, 1, 1))
+        Dim dtNow As DateTime = DateTime.Parse(DateTime.Now.ToString())
+        Dim toNow As TimeSpan = dtNow.Subtract(dtStart)
+        Dim timeStamp As String = toNow.Ticks.ToString()
+        timeStamp = timeStamp.Substring(0, timeStamp.Length - 7)
+        Return timeStamp
+    End Function
+
+
+
+
+'标准时间---->时间戳
+'方法1: 利用javascript方法实现
+Sub javascript时间戳生成() '10位数字
+    With CreateObject("MSScriptControl.ScriptControl")
+        .Language = "javascript"
+        .addcode ("function a(){return Math.round(new Date().getTime()/1000)}")
+Debug.Print .eval("a()") '立即窗口输出
+    End With
+End Sub
+'方法2: VBscript实现
+Sub VBscript时间戳生成() '10位数字
+Debug.Print DateDiff("s", "01/01/1970 00:00:00", Now())  's秒
+End Sub
+
+
+'时间戳---->标准时间
+'方法1: 利用javascript实现
+Sub javascript时间戳() '10位数字
+    Dim t, MyDatetime As Date
+    t = "1442975474 "
+    With CreateObject("MSScriptControl.ScriptControl")
+        .Language = "javascript"
+        .addcode ("function a(t){return  new Date(t * 1000).toLocaleString();}")
+        MyDatetime = .eval("a(" & t & ")")
+Debug.Print MyDatetime
+Debug.Print Format(MyDatetime, "yy-mm-dd hh:mm") '这里加入格式输出
+    End With
+End Sub
+'方法2:利用Vbscript实现
+Sub VBscript时间戳1() '10位数字
+    t = "1442975474"
+Debug.Print DateAdd("s", t, "01/01/1970 08:00:00")
+End Sub
+
+

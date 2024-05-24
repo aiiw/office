@@ -1,0 +1,36 @@
+Sub readDoc()
+    Set WordApp = CreateObject("Word.Application")
+    Dim filePathArray()
+    Set diag1 = Application.FileDialog(msoFileDialogFilePicker)
+    '定义文件选择对话框
+    With diag1
+        .AllowMultiSelect = True '设置文件选择对话框能够选择多个文件
+        return1 = .Show '打开文件选择对话框
+        n = .SelectedItems.Count '将选中文件个数保存至变量n
+        If return1 = -1 Then
+            '如选中文件(retun1=-1)则将选中的文件路径保存到filePathArray数组
+            ReDim filePathArray(1 To n)
+            For i = 1 To n
+                filePathArray(i) = .SelectedItems(i)
+            Next
+        Else '如果未选中任何文件则提示
+            MsgBox "未选择任何文件", vbExclamation
+        End If
+    End With
+    For j = 1 To n
+        Set WordDoc = WordApp.Documents.Open(filePathArray(j))
+        '根据filePathArray数组中的路径逐个打开Word文件
+        Set ccSet = WordDoc.ContentControls
+        '将ccSet设为打开文档的内容控件集合
+        i = 1
+        For Each cc In ccSet '遍历所有内容控件
+            Application.ActiveSheet.Cells(j, i) = cc.Range.Text '将内容控件内容保存至单元格
+            i = i + 1
+        Next
+        WordDoc.Close '关闭当前Word文档
+    Next
+    WordApp.Quit
+End Sub
+
+
+

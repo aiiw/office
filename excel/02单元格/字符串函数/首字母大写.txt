@@ -1,0 +1,23 @@
+¡ùÊ××ÖÄ¸´óÐ´º¯Êý
+Function strToUcase(rg As Range) As String
+    Dim strTemp As String, strResult As String
+    Dim strSplit() As String, lngIndex As Long
+    
+    strTemp = rg.Text
+    strSplit = Split(strTemp, " ")
+    
+    For lngIndex = LBound(strSplit) To UBound(strSplit)
+        strTemp = Trim(strSplit(lngIndex))
+        strTemp = LCase(strTemp)
+        strSplit(lngIndex) = UCase(Left(strTemp, 1)) & Mid(strTemp, 2)
+    Next
+    
+    If UBound(strSplit) > 0 Then
+        ReDim Preserve strSplit(UBound(strSplit) + 1)
+        strSplit(UBound(strSplit)) = strSplit(0)
+        strSplit(0) = ""
+    End If
+    
+    strTemp = Join(strSplit, " ")
+    strToUcase = Trim(strTemp)
+End Function

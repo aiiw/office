@@ -1,0 +1,68 @@
+'pdf生成txt
+Sub cmd_imp()
+    Dim PDF_Path As String
+    PDF_Path = "C:\222.PDF"
+    Call Imp_Into_TXT(PDF_Path)
+End Sub
+Sub Imp_Into_TXT(PDF_File As String)
+    Dim AC_PD As Acrobat.AcroPDDoc
+    Dim AC_Hi As Acrobat.AcroHiliteList
+    Dim AC_PG As Acrobat.AcroPDPage
+    Dim AC_PGTxt As Acrobat.AcroPDTextSelect
+    Dim WS_PDF As Worksheet
+    Dim RW_Ct As Long
+    Dim Col_Num As Integer
+    Dim Li_Row As Long
+    Dim Yes_Fir As Boolean
+    Li_Row = Rows.Count
+    Dim Ct_Page As Long
+    Dim i As Long, j As Long, k As Long
+    Dim T_Str As String
+    Dim Hld_Txt As Variant
+    RW_Ct = 0
+    Col_Num = 1
+    Application.ScreenUpdating = False
+    Set AC_PD = New Acrobat.AcroPDDoc
+    Set AC_Hi = New Acrobat.AcroHiliteList
+    AC_Hi.Add 0, 32767
+    Dim str$
+    文件保存路径 = ThisWorkbook.Path & ""
+    TXT文件路径 = Dir(文件保存路径 & "" & "文档第" & i & "页.txt")
+    With AC_PD
+        .Open PDF_File
+        Ct_Page = .GetNumPages
+        If Ct_Page = -1 Then
+            MsgBox PDF_File & "  文件错误"
+            .Close
+            GoTo h_end
+        End If
+        Set WS_PDF = Worksheets("Sheet1")
+        For i = 1 To Ct_Page
+            Set AC_PG = .AcquirePage(i - 1)
+            Set AC_PGTxt = AC_PG.CreateWordHilite(AC_Hi)
+            T_Str = ""
+            If Not AC_PGTxt Is Nothing Then
+                With AC_PGTxt
+                    Debug.Print .GetNumText
+                    For j = 0 To .GetNumText - 1
+                        T_Str = T_Str & .GetText(j)
+                    Next j
+                End With
+            End If
+            Open 文件保存路径 & "" & "文档第" & i & "页.txt" For Output As #1
+                If Len(str) > 0 Then Print #1, str
+                Print #1, T_Str;
+            Close #1
+        Next i
+        .Close
+    End With
+    Application.ScreenUpdating = True
+    MsgBox "转换完毕"
+h_end:
+    Set WS_PDF = Nothing
+    Set AC_PGTxt = Nothing
+    Set AC_PG = Nothing
+    Set AC_Hi = Nothing
+    Set AC_PD = Nothing
+End Sub
+

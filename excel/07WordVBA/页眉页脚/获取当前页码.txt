@@ -1,0 +1,8 @@
+'当前页码
+p= Selection.Information(wdActiveEndPageNumber) 
+ '当前行
+r= Selection.Information(wdFirstCharacterLineNumber)
+
+
+
+

@@ -1,0 +1,36 @@
+Sub 求1000以内的质数()
+  Dim Arr(2 To 1000) As Boolean, arr2(1 To 500)  '声明为1到500是因1到1000之间的质数不可能超过一半
+  Dim i As Integer, j As Integer, K As Integer
+  For i = 2 To 1000  '从2到1000之间循环，1不是质数
+    If Arr(i) = False Then  '如果arr数据的第i个元素为False
+      For j = i * 2 To 1000 Step i  '从2的i倍到1000之间循环，步长值为i
+        Arr(j) = True  '将arr第j个元素赋值为True
+      Next
+      K = K + 1  '累加变量,该变量表示质数的个数
+      arr2(K) = i '将质数写入数组
+    End If
+  Next
+  [a1].Resize(K, 1) = WorksheetFunction.Transpose(arr2)  '将质数导入到单元格
+End Sub
+
+Sub 求1000以内的质数与合数()
+  Dim Arr(2 To 1000) As Integer, arr2(1 To 500)
+  Dim i As Integer, j As Integer, K As Integer, l As Integer
+  For i = 2 To 1000  '从2到1000之间循环，1不是质数
+    If Arr(i) Then  '如果arr数据的第i个元素大于0
+      For j = i * 2 To 1000 Step i  '从2的i倍到1000之间循环，步长值为i
+        Arr(j) = j  '将arr第j个元素赋值为j
+      Next
+      K = K + 1  '累加变量,该变量表示质数的个数
+      arr2(K) = i '将质数写入数组
+    End If
+  Next
+  [a1].Resize(K, 1) = WorksheetFunction.Transpose(arr2)  '将质数导入到单元格
+  With [B1].Resize(1000 - 1, 1) '1000-1是因为不计算1，剩下的数999个
+    .Value = WorksheetFunction.Transpose(Arr)  '将合数导入到单元格（包括0）
+    .Replace 0, "", xlWhole '将0替换成空
+    .SpecialCells(xlCellTypeBlanks).Delete '删除所有空单元格
+  End With
+End Sub
+
+

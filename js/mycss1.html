@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .one {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            background-color: bisque;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            /* 可以根据需要设置父元素高度 */
+        }
+
+        .nn {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            /* 将元素分散对齐 */
+
+
+        }
+
+        .n1 {
+
+            flex: 1;
+            background-color: blueviolet;
+            flex-direction: row;
+            text-align: center;
+            font-size: 0px;
+        }
+
+        /* .n1>a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+
+            border: 1px solid black;
+            padding: 0;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            overflow: hidden;
+
+
+
+        } */
+
+        .n1>a {
+            display: inline-block;
+            width: 50%;
+            height: 50px;
+
+            background-color: blue;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0px;
+            padding: 0px;
+            text-overflow: ellipsis;
+            font-size: 16px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .n2 {
+            flex: 5;
+            background-color: blue;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .n3 {
+            flex: 1;
+
+            background-color: aquamarine;
+        }
+
+        .n4 {
+            flex: 10;
+
+            background-color: rgb(157, 165, 42);
+        }
+
+
+
+        a:link {
+
+            color: rgb(43, 226, 98);
+
+
+        }
+
+        a:visited {
+            background-color: aquamarine;
+        }
+
+        a:hover {
+            background-color: rgb(187, 3, 141);
+            color: rgb(253, 3, 3);
+
+        }
+
+        a:active {
+            background-color: brown;
+        }
+
+        .m1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+            background-color: bisque;
+            box-shadow: 0 0 10px rgba(0, 0, 1, 1);
+            overflow: hidden;
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        .m1 a {
+
+            background-color: blueviolet;
+
+            color: brown;
+            max-height: 100%;
+            margin: 0px;
+            flex: 1
+        }
+
+        .m2 {
+            margin: 0px;
+            padding: 0px;
+            width: 500px;
+            background-color: blueviolet;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .m2 h2 {
+            margin: 29px;
+            padding: 0px;
+        }
+
+        .mydiv {
+            width: 0;
+            height: 0;
+            border-top: 50px solid blue;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            position: relative;
+        }
+    </style>
+
+<body>
+    <div class="one">
+        <h1>这是一个标题</h1>
+    </div>
+    <div class="nn">
+        <div class="n1">
+            <a href="http://">www.baidu.com1111111111</a>
+            <a href="http://">www.163.com</a>
+            <a href="http://">www.baidu.com</a>
+            <a href="http://">www.163.com</a>
+            <a href="http://">www.baidu.com</a>
+            <a href="http://">www.163.com</a></div>
+        <div class="n2">
+            <div class="n3"></div>
+            <div class="n4"></div>
+        </div>
+
+    </div>
+    123
+    <div class="m1">
+        <a>asdf2323232323222222222222222222223</a>
+    </div>
+    <div class="m2">
+        <h2>test</h2>
+    </div>
+    <script>
+        document.addEventListener('click', (a) => {
+            console.log(
+                `Received a 'click' event at (${a.clientX?.toString()}, ${a.clientY?.toString()})`);
+        });
+
+        // setTimeout(document.dispatchEvent(new Event('click')), 5000);
+        // setTimeout(() => {
+        //     console.log("3称");
+        //     document.dispatchEvent(new Event('click'));
+        // }, 3000)
+    </script>
+    <div class="mydiv">a</div>
+</body>
+
+</html>

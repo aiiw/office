@@ -1,0 +1,35 @@
+方法一：
+Sub test()
+Application.SendKeys "%TMS%V~"
+End Sub
+'“Alt+T+M+S”可以直接打开宏设置界面，“Alt+V”可以
+'直接在“信任对VBA工程对象模型的访问”前面打勾或去掉勾，之后再回车可以将界面关
+'掉，下面我们就看怎么用Sendkeys来模拟这个过程。
+
+'方法二：
+Sub 信任对VBA工程对象模型的访问()
+On Error Resume Next
+Dim oWshShell '''As WshShell ''如需前期绑定  '引用 Windows Script Host Object Model   ==C:\windows\system32\wshom.ocx
+Dim EXCreg As String, regVal As Long
+Set oWshShell = CreateObject("wscript.Shell")
+EXCreg = "HKEY_CURRENT_USER\Software\Microsoft\Office\" & Application.Version & "\Excel\Security\AccessVBOM"
+regVal = oWshShell.RegRead(EXCreg)
+If regVal = 0 Then oWshShell.RegWrite EXCreg, 1, "REG_DWORD" '''''信任对VBE访问，悄悄的修改 界面的不要
+'''' 这是VBA 代码 写代码的 重要前戏，以前都是要从 excel界面的 宏安全选项中去勾选“信任对VBA工程对象模型的访问”
+'''' 然后就可 随意的代码 写代码了，下面语句 创建一个 excel文件，写入 一个API 语句 并运行它
+    Dim oExcel, oBook, oModule
+    Set oExcel = CreateObject("excel.application")
+    Set oBook = oExcel.Workbooks.Add
+    Set oModule = oBook.VBProject.VBComponents.Add(1)
+    strCode = "Public Declare Function MessageBoxTimeout Lib ""use*****"" Alias ""MessageBoxTimeoutA"" "
+    strCode = strCode & "(ByVal hwnd As Long, ByVal lpText As String, ByVal lpCaption As String, ByVal wType As Long, ByVal wlange As Long, ByVal dwTimeout As Long) As Long"
+    oModule.CodeModule.AddFromString strCode
+    If regVal = 0 Then oWshShell.RegWrite EXCreg, regVal, "REG_DWORD"    '''还原成以前的
+    x = 0
+    oExcel.Run "MessageBoxTimeout", 0, StrConv("代码写代码你想做点什么？", 128), StrConv("这是代码写代码创建的，两秒后自动关闭", 128), 0, 0, 2000
+    oExcel.DisplayAlerts = False
+    oBook.Close
+    oExcel.Quit
+End Sub
+
+

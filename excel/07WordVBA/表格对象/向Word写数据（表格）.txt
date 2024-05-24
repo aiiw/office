@@ -1,0 +1,31 @@
+'----------------------------------------------------
+提供了拆分工作簿的另外一种思路
+'----------------------------------------------------
+Sub test()
+For i = 1 To 4 '共有4个车间，循环4次
+j = WorksheetFunction.CountIf([a:a], i & "车间") '算出每个车间的记录总数
+'----------------------------------------------------
+Dim wdapp As Word.Application '申明wdapp为word.application对象变量
+Set wdapp = New Word.Application '将word.application对象赋给wdapp
+With wdapp
+    .Documents.Add '新建word文档
+    .Visible = True
+    .Documents(1).Tables.Add .Selection.Range, j, 5 '在文档中新建一个j行5列的表格
+    .Documents(1).Tables(1).Style = "网格型"        '边框样式为网格型
+    For Each Rng In [a2:a18]
+        If Rng.Value = i & "车间" Then '如单元格值是i车间则
+            arr = Rng.EntireRow.Range("a1:e1")
+            For Each ar In arr
+                n = n + 1 '将所在行的单元格值循环写入word表的单元格中
+                .Documents(1).Tables(1).Range.Cells(n).Range = ar
+            Next
+        End If
+    Next
+    n = 0
+    .Documents(1).SaveAs ThisWorkbook.Path & "\DEMO\9-6\" & i & "车间.docx" '保存
+    .Quit '退出程序
+    End With
+'----------------------------------------------------
+Next
+End Sub
+

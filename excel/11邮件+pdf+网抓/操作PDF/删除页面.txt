@@ -1,0 +1,10 @@
+Sub 删除页面()
+    Dim PD As Acrobat.AcroPDDoc, Doc As Acrobat.AcroAVDoc
+    Set PD = GetObject("", "AcroExch.PDDoc")
+    PD.Open "C:\temp\三国演义.pdf"
+    Debug.Print PD.GetFileName
+    result = PD.DeletePages(nStartPage:=3, nEndPage:=6)
+    Set Doc = PD.OpenAVDoc("")
+    Doc.Close bNoSave:=False
+End Sub
+

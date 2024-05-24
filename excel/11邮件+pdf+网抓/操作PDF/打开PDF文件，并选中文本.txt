@@ -1,0 +1,17 @@
+Sub pdf()
+    '打开PDF文件，并选中文本
+    Dim objAcroApp As New Acrobat.AcroApp
+    Dim objAcroAVDoc As New Acrobat.AcroAVDoc
+    Dim lRet As Long
+    lRet = objAcroApp.Show
+    lRet = objAcroAVDoc.Open(路径 + 测试文件1, "")
+    lRet = objAcroAVDoc.FindText(测试文本, 0, 1, 1)
+    Print
+    lRet = objAcroAVDoc.ShowTextSelect()
+    Print
+    lRet = objAcroAVDoc.Close(1)
+    lRet = objAcroApp.Hide
+    lRet = objAcroApp.Exit
+    Set objAcroAVDoc = Nothing
+    Set objAcroApp = Nothing
+End 

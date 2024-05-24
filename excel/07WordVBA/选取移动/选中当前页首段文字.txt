@@ -1,0 +1,4 @@
+
+Sub 选中当前页的第一段文字()
+ActiveDocument.Bookmarks("\page").Range.Paragraphs.Item(1).Range.Select
+End Sub

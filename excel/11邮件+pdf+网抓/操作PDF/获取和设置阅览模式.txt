@@ -1,0 +1,11 @@
+Sub 获取和设置阅览模式()
+    Dim App As Acrobat.AcroApp
+    Dim Doc As Acrobat.AcroAVDoc
+    Dim result As Boolean, i As Integer
+    Set App = GetObject("", "AcroExch.App")
+    App.Show
+    Set Doc = App.GetActiveDoc
+    Debug.Print Doc.GetViewMode
+    Doc.SetViewMode nType:=Acrobat.PDViewMode.PDFullScreen
+End Sub
+

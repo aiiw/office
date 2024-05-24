@@ -1,0 +1,21 @@
+
+Sub 连接Mysql()
+    '///1. 引用ADO类库：前期或者后期绑定
+    '///2. ADO建立对数据源的链接
+    '///3. ADO执行SQL语言。
+    Dim conn As ADODB.Connection
+    Set conn = New ADODB.Connection '以上两句可简写Dim con As New ADODB.Connection
+    Dim rs As ADODB.Recordset
+    Set rs = New ADODB.Recordset '以上两句可简写Dim rs As New ADODB.Connection
+    conn.ConnectionString = "Driver={MySQL ODBC 8.0 Unicode Driver};Server=127.0.0.1;DB=myemployees;UID=root;PWD=123;OPTION=3;"
+    conn.Open
+    rs.Open "select * from jobs", conn '使用结果集对象执行sql语句
+    Range("A2").CopyFromRecordset rs '将数据输出到工作表
+    '可简写con.Open "Driver={MySQL ODBC 8.0 Unicode Driver};Server=192.168.1.139;DB=test;UID=root;PWD=abc;OPTION=3;"
+    MsgBox ("连接成功！" & vbCrLf & "数据库状态：" & conn.State & vbCrLf & "数据库版本：" & conn.Version)
+    conn.Close
+    Set conn = Nothing
+End Sub
+
+
+

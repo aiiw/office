@@ -1,0 +1,21 @@
+※定位所有错误值(SpecialCells方法)
+'Range.SpecialCells方法表示定位，语法为：Range.SpecialCells(Type, Value)
+'参数Type代表单元格类型，赋值为xlCellTypeBlanks表示空白单元格，赋值为xlCellTypeConstants表示常量单元格，xlCellTypeFormulas表示公式单元格，xlCellTypeVisible表示所有可见单元格
+'参数Value用于限定值的类型，赋值为16表示错误值，赋值为4表示逻辑值，赋值为4表示数值，赋值为2表示文本
+Sub 定位所有错误值()
+    Dim ValueErr As Range, FormulaErr As Range, ErrBl As Boolean '声明变量
+    On Error Resume Next '如果程序出错继续执行下一句
+    Set ValueErr = Cells.SpecialCells(xlCellTypeConstants, 16) '定位错误值单元格
+    If Err <> 0 Then '如果定位出错(表示没有)
+        ErrBl = True '将布尔变量赋值为True
+        Err.Clear    '清除错误，避免影响后续的判断
+    End If
+    Set FormulaErr = Cells.SpecialCells(xlCellTypeFormulas, 16) '定位错误公式单元格
+    If Err <> 0 Then '如果定位出错(表示没有)
+        '如果变量ErrBl的值为True，那么提示用户不存在错误值，否则定位错误值所在单元格
+        If ErrBl Then MsgBox "活动工作表不存在错误值", vbOKOnly + vbInformation, "友情提示" Else ValueErr.Select
+    Else '否则(表示没有错误)
+        '如果变量ErrBl的值为True，那么定位错误公式所在单元格，否则定位错误值和错误公式所在单元格
+        If ErrBl Then FormulaErr.Select Else Union(ValueErr, FormulaErr).Select
+    End If
+End Sub

@@ -1,0 +1,61 @@
+Sub SelectFile()
+    '选择多个文件
+    Dim l As Long
+    With Application.FileDialog(msoFileDialogFilePicker)
+        .AllowMultiSelect = True   '多选择
+        .Filters.Clear     '清除文件过滤器
+        .Filters.Add "Excel Files", "*.xls;*.xlw"
+        .Filters.Add "All Files", "*.*"    '设置两个文件过滤器
+        .Show
+        'FileDialog 对象的 Show 方法显示对话框，并且返回 -1（如果您按 OK）和 0（如果您按 Cancel）。
+        For l = 1 To .SelectedItems.Count
+            MsgBox "您选择的文件是：" & .SelectedItems(l), vbOKOnly + vbInformation, "智能Excel"
+        Next
+    End With
+End Sub
+Sub 插入图片()
+Dim file, n%, pah$
+pah = ThisWorkbook.Path & "\素材图片\"
+Application.FileDialog(msoFileDialogFilePicker).Show
+For Each file In Application.FileDialog(msoFileDialogFilePicker).SelectedItems
+    n = n + 1
+    ActiveCell(n, 1) = Replace(file, pah, "")
+    ActiveSheet.Shapes.AddPicture file, 1, 1, ActiveCell(n, 2).Left, ActiveCell(n, 2).Top, ActiveCell(n, 2).Width, ActiveCell(n, 2).Height
+Next
+End Sub
+
+
+'按时间先后顺序遍历文件
+Sub 按时间先后顺序遍历文件()
+    '1.FileDialog方法
+    Dim f()
+     Set fso = CreateObject("scripting.filesystemobject")
+    Set diag1 = Application.FileDialog(msoFileDialogFilePicker)
+    '定义文件选择对话框
+    With diag1
+        .AllowMultiSelect = True '设置文件选择对话框能够选择多个文件
+      .Filters.Clear     '清除文件过滤器
+        .Filters.Add "Word Files", "*.doc*"
+        return1 = .Show '打开文件选择对话框
+                
+        n = .SelectedItems.Count '将选中文件个数保存至变量n
+        If return1 = -1 Then
+            '如选中文件(retun1=-1)则将选中的文件路径保存到filePathArray数组
+            ReDim filePathArray(1 To 2, 1 To n)
+            For i = 1 To n
+                filePathArray(1, i) = .SelectedItems(i)
+                filePathArray(2, i) = fso.Getfile(filePathArray(1, i)).DateCreated '创建时间
+
+            Next
+        Else '如果未选中任何文件则提示
+            MsgBox "未选择任何文件", vbExclamation
+        End If
+    End With
+    
+    
+    
+End Sub
+
+
+
+

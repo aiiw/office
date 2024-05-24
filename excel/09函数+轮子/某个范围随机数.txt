@@ -1,0 +1,5 @@
+'取特定区间的数[a,b)表示为
+Int（(b * Rnd) + a）
+'生成某个范围内的随机整数
+Int((upperbound - lowerbound + 1) * Rnd + lowerbound)
+ 

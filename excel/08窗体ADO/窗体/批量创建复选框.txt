@@ -1,0 +1,12 @@
+
+Sub 批量创建复选框()
+  Dim cell As Range '声明变量
+  For Each cell In Range("B1:B10") '遍历B1:B10区域(对这个区域的每个单元格生成复选框),可根据实际需求修改范围
+   'CheckBoxes.Add方法用于生成复选框，其语法为：CheckBoxes.Add(Left,Top,Width,Height)
+    With ActiveSheet.CheckBoxes.Add(cell.Left, cell.Top, cell.Width, cell.Height) '生成复选框，其边距、宽度、高度由单元格决定
+      .Caption = "合格" '修改其名称
+    End With
+  Next
+End Sub
+
+

@@ -1,0 +1,15 @@
+Sub 重设分页符()
+ActiveSheet.ResetAllPageBreaks
+End Sub
+Sub 删除全部分页符()
+Dim N As Integer
+With ActiveSheet
+    For N = 1 To .HPageBreaks.Count  '删除全部水平分页符
+        .HPageBreaks(N).Delete
+    Next N
+    For N = 1 To .VPageBreaks.Count  '删除全部垂直分页符
+        .VPageBreaks(N).Delete
+    Next N
+End With
+End Sub
+

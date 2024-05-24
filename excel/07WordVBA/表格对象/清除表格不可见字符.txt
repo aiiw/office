@@ -1,0 +1,7 @@
+WorksheetFunction.Clean(.cell(1, 2).Range) 'cleanº¯Êý
+Replace(.cell(2, 2).Range, "", " ") 'Ìæ»»1
+Replace(.cell(2, 2).Range, Chr(7) & Chr(13), " ") 'Ìæ»»2
+l = Left(a, Len(a) - 2) '½ØÈ¡
+
+
+

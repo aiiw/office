@@ -1,0 +1,38 @@
+Sub 连接数据库()
+'第一步：告诉电脑，我们要用ADO，就是引用ADO工具
+'引用法
+'工具--引用--Microsoft Activex Date Objects 6.1 Library
+'工具--引用--Microsoft Activex Date Objects Recordset 6.0 Library
+'引用后再声明:
+'Dim conn As New Connection 声明链接对象
+'Dim rst As New Recordset 声明记录集对象
+'创建法
+'使用CreateObject函数创建
+'Set cnn = CreateObject("adodb.connection") '创建ado对象
+'Set rst = CreateObject("ADODB.recordset") '创建记录集
+
+''第二步：创建连接对象
+''2-1：给连接对象取名字
+'Dim con As ADODB.Connection     '声明对象变量
+''2-2：创建对象变量并赋值
+'Set con = New ADODB.Connection  '创建对象变量
+Dim con As New ADODB.Connection
+
+'第三步：建立Access数据库的连接
+'con.Open "provider=Microsoft.ace.oledb.12.0;data source=" & _
+ThisWorkbook.Path & "\学生管理.accdb" '一条写法
+'建立Excel的连接
+'con.Open "provider=Microsoft.ace.oledb.12.0;extended properties=excel 12.0;data source=" & _
+ThisWorkbook.Path & "\数据.xlsx" '一条写法
+
+With con '多条写法
+    .Provider = "Microsoft.ace.oledb.12.0" '驱动程序的提供者及版本(2007以上2003 8.0)
+    .ConnectionString = ThisWorkbook.Path & "\学生管理.accdb" ' 连接字符串 数据源的完整路径
+    .Open '打开数据库
+End With
+MsgBox "连接成功"
+End Sub
+
+
+
+

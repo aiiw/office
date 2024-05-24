@@ -1,0 +1,21 @@
+Sub DelBlank()
+    '
+    ' É¾³ý¿ÕÐÐ
+    '
+    '
+    Dim I As Paragraph, n As Integer
+    Application.ScreenUpdating = False
+    For Each I In ActiveDocument.Paragraphs
+        If Len(Trim(I.Range)) = 1 Then
+            I.Range.Delete
+            n = n + 1
+        End If
+    Next
+    MsgBox "¹²É¾³ý¿Õ°×¶ÎÂä" & n & "¸ö"
+    Application.ScreenUpdating = True
+End Sub
+
+
+
+
+

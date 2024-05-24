@@ -1,0 +1,8 @@
+    pth = Application.GetOpenFilename("文件(*.*),*.*", , "请选择文件", , True)
+    For i = 1 To UBound(pth)
+    Set wb = Workbooks.Open(pth(i))
+    next
+
+
+
+

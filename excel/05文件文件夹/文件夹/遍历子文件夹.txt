@@ -1,0 +1,10 @@
+Sub 获取子文件夹路径fso方法()
+    Set fso = CreateObject("scripting.filesystemobject")
+    With Application.FileDialog(msoFileDialogFolderPicker)
+        If .Show Then PathSht = .SelectedItems(1) Else Exit Sub
+    End With
+    Set f_num = fso.getfolder(PathSht)
+    For Each fl In f_num.subfolders
+    MsgBox fl.Path
+    Next
+End Sub

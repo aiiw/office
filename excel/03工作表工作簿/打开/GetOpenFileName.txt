@@ -1,0 +1,29 @@
+﻿'多文件
+Sub 循环打开工作簿()
+    Application.DisplayAlerts = False
+    Application.ScreenUpdating = False
+    Application.AskToUpdateLinks = False
+    pth = Application.GetOpenFilename("文件(*.xls*),*.xls*", , "请选择文件", , True)
+    If IsArray(pth) = False Then Exit Sub
+    For i = 1 To UBound(pth)
+        Set wb = Workbooks.Open(pth(i))
+        '########汇总数据的核心操作##########
+        wb.Close False
+    Next
+    Application.DisplayAlerts = True
+    Application.ScreenUpdating = True
+    Application.AskToUpdateLinks = True
+End Sub
+'单文件
+Sub 循环打开工作簿()
+    Application.DisplayAlerts = False
+    Application.ScreenUpdating = False
+    Application.AskToUpdateLinks = False
+    pth = Application.GetOpenFilename("文件(*.xls*),*.xls*", , "请选择文件", , False)
+    Set wb = Workbooks.Open(pth)
+    '########汇总数据的核心操作##########
+    wb.Close False
+    Application.DisplayAlerts = True
+    Application.ScreenUpdating = True
+    Application.AskToUpdateLinks = True
+End Sub

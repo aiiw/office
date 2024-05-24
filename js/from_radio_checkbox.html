@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 单  -->
+
+    <input type="radio" name="fruit" id="apple" value="apple">
+    <label for="apple">Apple</label><br>
+    <input type="radio" name="fruit" id="banana" value="banana">
+    <label for="banana">Banana</label><br>
+    <input type="radio" name="fruit" id="orange" value="orange">
+    <label for="orange">Orange</label><br>
+    <!-- 多 -->
+    <input type="checkbox" id="jack1" value="Jack1">
+    <label for="jack1">Jack1</label>
+    <input type="checkbox" id="jack2" value="Jack2">
+    <label for="jack2">Jack2</label>
+    <input type="checkbox" id="jack3" value="Jack3">
+    <label for="jack3">Jack3</label>
+    <input type="checkbox" id="jack4" value="Jack4">
+    <label for="jack4">Jack4</label>
+    <input type="checkbox" id="jack5" value="Jack5">
+    <label for="jack5">Jack5</label>
+    <div id="result"></div>
+</body>
+<script>
+    var myradios = document.querySelectorAll('[type="radio"]')
+    myradios.forEach((myradio) => {
+        console.log(myradio);
+
+        myradio.addEventListener('change', function (event) {
+            if (myradio.checked) {
+                console.log(myradio.value);
+                console.log("a:", myradio, "event:", `${event.target.value}`);
+            }
+
+
+        })
+
+    })
+
+    var checkboxes = document.querySelectorAll('[type="checkbox"]');
+    var resultDiv = document.getElementById('result');
+
+    checkboxes.forEach(function (checkbox) {
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                resultDiv.innerHTML = `You selected ${this.value}${this.checked}`;
+            }
+        });
+    });
+</script>
+
+</html>

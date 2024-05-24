@@ -1,0 +1,34 @@
+'按格式查找主要用到1个属性和1个方法:Application.FindFormat属性用于设置格式，Range.Find方法用于执行查找
+'使用Range.Find方法时一定要将SearchFormat参数赋值为True，否则只能查找值，而不是格式
+Sub 按格式查找() '本例演示查找红色背景的单元格，可自行添加其它格式
+    Dim fds As String, Rng As Range, TargetRng As Range '声明变量
+    Application.FindFormat.Clear '清除原来的格式设置
+    With Application.FindFormat '设置新的查找格式
+        .Interior.ColorIndex = 3 '第一个格式：单元格背景色为红色（6表示黄色）
+        ' .Font.Name = "宋体" '第二个条件：宋体字(使用否则自行决定)
+        ' .Font.Size = 20     '第三个条件：20号字(使用否则自行决定)
+    End With
+    With Range("A1:G1000") '在这个区域中查找(可自行修改)
+        Set Rng = .Find(what:="", SearchFormat:=True) '按格式查找
+        If Rng Is Nothing Then MsgBox "没有找到此类单元格": Exit Sub '如果没找到就提示用户，然后结束程序
+        Set TargetRng = Rng '将第一次找到的单元格赋值给秋量TargetRng
+        fds = Rng.Address '记录第一次找到的单元格的地址
+        Do '循环查找其它单元格
+            Set TargetRng = Union(TargetRng, Rng) '将变量TargetRng与变量Rng所代表的单元格合并为一个Range对象
+            Set Rng = .Find(what:="", after:=Rng, SearchFormat:=True) '查找下一个
+            If fds = Rng.Address Then Exit Do '如果当前找到的目标单元格的地址等于第一次找到的单元格的地址，那么结束循环
+        Loop
+        TargetRng.Select '选择目标单元格
+    End With
+End Sub
+
+
+
+Sub 查找最后一个黄色单元格()
+    Application.FindFormat.Interior.Color = 65535 '黄色单元格的编号
+    For i = 1 To 10  '举例查找前10行
+        Set Rng = Rows(i).Cells
+        Set cl = Rng.Find(What:="", After:=Rng.Cells(1, 1), LookIn:=xlFormulas, SearchOrder:=xlByRows, SearchDirection:=xlPrevious, SearchFormat:=True)
+        MsgBox cl.Address
+    Next
+End Sub

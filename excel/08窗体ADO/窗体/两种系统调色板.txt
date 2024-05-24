@@ -1,0 +1,33 @@
+Sub 显示颜色提取器()
+  On Error Resume Next
+  With CreateObject("MSComDlg.CommonDialog")
+    .CancelError = True
+    .Color = RGB(255, 0, 0)
+    .ShowColor
+    MsgBox .Color
+  End With
+End Sub
+Sub 调色板()
+    Dim oDialog As Dialog
+    Set oDialog = Excel.Application.Dialogs(xlDialogEditColor)
+    'show方法后一定要输入一个数值参数,才能打开xlDialogEditColor对话框
+    '该数值可以是1-56之间的任意整数
+    oDialog.Show (1)
+End Sub
+
+Sub 调色板2()'可以得到用户选择的颜色
+A = ActiveWorkbook.Colors(1)
+Application.Dialogs(xlDialogEditColor).Show (1)
+B = ActiveWorkbook.Colors(1)
+ActiveWorkbook.Colors(1) = A
+MsgBox B
+End Sub
+'因为这个方法是把工作簿调色板的第一格作为存放用户选择的颜色的。。Application.Dialogs(xlDialogEditColor).Show (1)
+'会把你原本调色板的第一格改成了用户选择的颜色，所以在改之前，就先把原来的颜色用变量A记下来,然后用户选择颜色，用户选择了颜色后，
+'调色板的第一格就会变成用户刚选的颜色，同时调色板窗口关闭，我们就把新的调色板第一格颜色读进变量B里，再把原来的颜色A放回调色板第一格去，
+'恢复现场。。。
+'那个1是代表用模式窗口的方式打开调色板窗口，不先把这个窗口关掉（无论你是改了颜色或什么都不做直接关闭窗口或按取消键都行）就不能在excel
+'再进行其他操作。
+
+
+

@@ -1,0 +1,13 @@
+Function BrowseFolders() As String  '浏览目录
+    Dim objshell As Object
+    Dim objFolder As Object
+    Set objshell = CreateObject("Shell.Application")
+    Set objFolder = objshell.BrowseForFolder(0, "请指定PDF文件所在的文件夹", 0, 0)
+    BrowseFolders = ""
+    If Not objFolder Is Nothing Then
+        BrowseFolders = objFolder.Self.Path
+    End If
+    Set objFolder = Nothing
+    Set objshell = Nothing
+End Function
+

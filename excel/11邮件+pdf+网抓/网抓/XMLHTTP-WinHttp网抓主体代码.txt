@@ -1,0 +1,15 @@
+Sub Main()
+    Dim strText As String
+    With CreateObject("MSXML2.XMLHTTP") 'CreateObject("WinHttp.WinHttpRequest.5.1")'
+        .Open "POST", "", False
+        .setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
+        .setRequestHeader "Referer", ""
+        .Send
+        strText = .responsetext
+        Debug.Print strText
+    End With
+End Sub
+
+
+
+

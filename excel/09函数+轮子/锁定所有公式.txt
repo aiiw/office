@@ -1,0 +1,8 @@
+
+'////////锁定所有公式所在单元格从而防止误修改吗？
+Sub test()
+Cells.Locked = True '锁定所有单元格
+Cells.SpecialCells(xlCellTypeConstants, 23).Locked = False '将公式以外的非空单元格取消锁定
+ActiveSheet.Protect DrawingObjects:=True, Contents:=True, Scenarios:=True '保护工作表
+End Sub
+

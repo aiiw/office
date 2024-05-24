@@ -1,0 +1,4 @@
+Sub Find方法例子()
+Set Rng = ActiveSheet.UsedRange
+set ss = Rng.Find("零件编号", , xlValues, xlWhole, xlByColumns, xlNext, True, True)
+End Sub

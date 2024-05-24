@@ -1,0 +1,17 @@
+Sub Test4()
+    '替换字母以外的所有字符
+    Dim Source As String
+    Dim reg As New VBScript_RegExp_55.RegExp
+    Dim result As String
+    Source = "Happy New Year 2018"
+    With reg
+        .Global = True
+        .IgnoreCase = True
+        .Pattern = "[^A-Z]"
+        result = .Replace(Source, "")
+        Debug.Print result
+    End With
+End Sub
+
+
+

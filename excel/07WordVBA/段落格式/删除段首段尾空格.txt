@@ -1,0 +1,95 @@
+Sub DelSpacesAheadPara()
+    '删除段首空格
+    If Len(Selection.Text) < 2 Then Exit Sub
+    OnErrorResumeNext
+    Selection.MoveStart Unit:=wdCharacter, Count:=-1   '向前移动一个字符，包含前回车符
+    Call FindReplaceChar(Selection, "^p^w", "^p", wdFindStop, bByte:=False)
+    If Selection.Start > ActiveDocument.Range.Start Then _
+    Selection.MoveStart Unit:=wdCharacter, Count:=1 '非起始位置
+End Sub
+Sub DelSpacesAfterPara()
+    '删除段尾空格
+    If Len(Selection.Text) < 2 Then Exit Sub
+    Call FindReplaceChar(Selection, "^w^p", "^p", wdFindStop, bByte:=False)
+End Sub
+Sub DelSpacesBoth()
+    '删除段首尾空格
+    If Len(Selection.Text) < 2 Then Exit Sub
+    
+    Dim rngSel As Range
+    Set rngSel = Selection.Range
+    rngSel.MoveStart Unit:=wdCharacter, Count:=-1
+    Call FindReplaceChar(rngSel, "^w^p", "^p", wdFindStop, bByte:=False)
+    Call FindReplaceChar(rngSel, "^p^w", "^p", wdFindStop, bByte:=False)
+    If Selection.Start > ActiveDocument.Range.Start Then _
+    rngSel.MoveStart Unit:=wdCharacter, Count:=1
+    rngSel.Select
+End Sub
+Sub DelBlankPara()
+    '删空行和无内容的行
+    Application.ScreenUpdating = False
+    rngSel.MoveStart Unit:=wdCharacter, Count:=-1
+    nPara = rngSel.Paragraphs.Count
+    rngSel.Find.ClearFormatting
+    rngSel.Find.Replacement.ClearFormatting
+    With rngSel.Find
+        .Text = "^p^w^p"
+        .Replacement.Text = "^p"
+        .Forward = True
+        .Wrap = wdFindStop
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchByte = False
+        .CorrectHangulEndings = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+        EndWith
+        DoWhile rngSel.Find.Execute(Replace:=wdReplaceAll)
+        '               nPara = rngSel.Paragraphs.Count
+    Loop
+    nPara = rngSel.Paragraphs.Count
+    rngSel.Find.ClearFormatting
+    rngSel.Find.Replacement.ClearFormatting
+    With rngSel.Find
+        .Text = "^p^p"
+        .Replacement.Text = "^p"
+        .Forward = True
+        .Wrap = wdFindStop
+        EndWith
+        DoWhile rngSel.Find.Execute(Replace:=wdReplaceAll) _
+        And nPara > rngSel.Paragraphs.Count
+        nPara = rngSel.Paragraphs.Count
+    Loop
+    '删首尾空白段
+    If rngSel.Start > ActiveDocument.Range.Start Then rngSel.MoveStart Unit:=wdCharacter, Count:=1
+    If rngSel.Paragraphs.Count > 1 And rngSel.Paragraphs(rngSel.Paragraphs.Count).Range.Characters(1) = Chr(13) Then _
+    rngSel.Paragraphs(rngSel.Paragraphs.Count).Range.Delete
+    rngSel.Select
+    Application.ScreenUpdating = True
+End Sub
+Private Sub FindReplaceChar(ByVal objSel As Object, ByVal strFind As String, _
+    ByVal strReplace As String, ByVal FindWrap As Integer, _
+    Optional ByVal bWild As Boolean = False, Optional ByVal bByte As Boolean = True)
+    '执行查找替换操作
+    objSel.Find.ClearFormatting
+    objSel.Find.Replacement.ClearFormatting
+    With objSel.Find
+        .Text = strFind
+        .Replacement.Text = strReplace
+        .Forward = True
+        .Wrap = FindWrap  'wdFindStop:停止,替换选定部分,若没选中,则默认替换至文档末尾
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchByte = bByte
+        .CorrectHangulEndings = False
+        .MatchWildcards = bWild
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+        End With
+        objSel.Find.Execute Replace:=wdReplaceAll
+        ActiveDocument.Activate
+End Sub
+

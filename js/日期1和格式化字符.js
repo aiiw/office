@@ -1,0 +1,11 @@
+var d = new Date()
+year = d.getFullYear()
+month = d.getMonth()
+day = d.getDay()
+time = d.getTime()
+str = `现在的日期为${year}年${month}月${day}日 ${time} `
+console.log(str)
+console.log(year)
+console.log(d)
+console.log(d.getDate())
+console.log(d.toDateString())

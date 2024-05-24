@@ -1,0 +1,11 @@
+
+Private Declare Function InternetGetConnectedState Lib "wininet.dll" _
+    (ByRef dwFlags As Long, ByVal dwReserved As Long) As Long
+
+Sub 运用VBA判断计算机是否连网()
+    If InternetGetConnectedState(0&, 0&) Then
+        MsgBox "已连网"
+    Else
+        MsgBox "未连网"
+    End If
+End Sub

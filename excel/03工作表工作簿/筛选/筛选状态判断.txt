@@ -1,0 +1,12 @@
+Sub test1() '最后结果始终是筛选状态
+    Range("A1").AutoFilter Field:=1 '不论当前是否是筛选状态，保证A1所在区域成为筛选状态
+End Sub
+
+
+
+Sub test2() '最后结果始终是解除筛选状态
+    Range("A1").AutoFilter Field:=1 '不论当前是否是筛选状态，保证A1所在区域成为筛选状态
+    Range("A1").AutoFilter '解除筛选状态。（注意因为上一句代码，已经保证成为筛选状态了）
+End Sub
+
+ 

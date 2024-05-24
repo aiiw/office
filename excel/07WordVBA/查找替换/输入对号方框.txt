@@ -1,0 +1,18 @@
+Sub 插入对号框()
+With ActiveDocument.Content
+        With .Find
+            '查找特殊的字符串
+            .ClearFormatting
+            .Text = "$$$$$$$$"
+            With .Replacement
+                .ClearFormatting
+                '替换为大写字母R
+                .Text = "R"
+                '要替换的格式
+                .Font.Name = "Wingdings 2"
+            End With
+            '批量查找替换
+            .Execute Format:=True, Replace:=wdReplaceAll
+        End With
+    End With
+End Sub

@@ -1,0 +1,45 @@
+
+Sub 插入页码()
+'
+    With ActiveDocument.Sections(1).Footers(wdHeaderFooterPrimary)
+     Set rng = .Range
+     rng.Font.Size = 16
+     rng.Font.Name = "Times New Roman"
+     rng.Text = "— "
+     rng.Collapse wdCollapseEnd
+     ActiveDocument.Fields.Add rng, wdFieldEmpty, "Page"
+     Set rng = .Range
+     rng.Collapse wdCollapseEnd
+     rng.Text = " —"
+     .Range.Fields.Update
+     .Range.ParagraphFormat.Alignment = wdAlignParagraphCenter
+     End With
+    If ActiveWindow.View.SplitSpecial <> wdPaneNone Then
+        ActiveWindow.Panes(2).Close
+    End If
+    If ActiveWindow.ActivePane.View.Type = wdNormalView Or ActiveWindow. _
+        ActivePane.View.Type = wdOutlineView Then
+        ActiveWindow.ActivePane.View.Type = wdPrintView
+    End If
+    ActiveWindow.ActivePane.View.SeekView = wdSeekCurrentPageHeader
+    With Selection.ParagraphFormat
+        .Borders(wdBorderLeft).LineStyle = wdLineStyleNone
+        .Borders(wdBorderRight).LineStyle = wdLineStyleNone
+        .Borders(wdBorderTop).LineStyle = wdLineStyleNone
+        .Borders(wdBorderBottom).LineStyle = wdLineStyleNone
+        With .Borders
+            .DistanceFromTop = 1
+            .DistanceFromLeft = 4
+            .DistanceFromBottom = 1
+            .DistanceFromRight = 4
+            .Shadow = False
+        End With
+    End With
+    With Options
+        .DefaultBorderLineStyle = wdLineStyleSingle
+        .DefaultBorderLineWidth = wdLineWidth075pt
+        .DefaultBorderColor = wdColorAutomatic
+    End With
+    ActiveWindow.ActivePane.View.SeekView = wdSeekMainDocument
+End Sub
+

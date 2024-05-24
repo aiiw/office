@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/vue/3.2.36/vue.global.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{src}}
+
+        <div>
+            <button id="btn" @click="abc">确定</button>
+
+        </div>
+        <div>
+            <img :src="src" />
+        </div>
+    </div>
+    <script>
+        // 创建一个Vue 应用
+        const btn = document.getElementById("btn")
+        const img = document.getElementById("img")
+        const vm = {
+            data() {
+                return {
+                    src: ""
+                }
+            },
+            methods: {
+                abc() {
+                    console.log("2323");
+                    var a = fetch('https://dog.ceo/api/breeds/image/random');
+                    // console.log(a);
+                    a.then(date => {
+
+                        return date.json() //别人是没有{}所以不用return,这里肯定是需要retrun 一个Promise对像,才能向下then传送
+
+                    }).then(a => {
+                        console.log(a.message), this.src = a.message
+                    })
+                }
+            },
+        }
+        const app = Vue.createApp(vm)
+        app.mount('#app')
+    </script>
+
+
+
+    <!-- <script>
+        btn.addEventListener('click', () => {
+            // console.log("2323");
+            var a = fetch('https://dog.ceo/api/breeds/image/random');
+            // console.log(a);
+            a.then(date => {
+
+                return date.json() //别人是没有{}所以不用return,这里肯定是需要retrun 一个Promise对像,才能向下then传送
+
+            }).then(a => {
+                console.log(a.message), img.src = a.message
+            })
+        })
+    </script> -->
+</body>
+
+</html>

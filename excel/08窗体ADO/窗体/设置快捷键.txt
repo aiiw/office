@@ -1,0 +1,10 @@
+Private Sub Workbook_Open()
+    Application.OnKey "^+K", "Demo"
+End Sub
+'application.onkey  "^Q" ,"宏名"
+'指定快捷键ctrl+shift+q
+'application.onkey  "^q" ,"宏名"
+'指定快捷键ctrl+q
+'application.onkey  "%q" ,"宏名"
+'指定快捷键alt+q
+

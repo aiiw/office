@@ -1,0 +1,7 @@
+Sub ÅúÁ¿É¾³ý¿ÕÐÐ()
+    For i = Cells(Rows.Count, "A").End(xlUp).Row To 1 Step -1
+        If WorksheetFunction.CountA(Rows(i)) = 0 Then
+            Rows(i).Delete
+        End If
+    Next
+End Sub

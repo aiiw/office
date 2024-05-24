@@ -1,0 +1,57 @@
+Sub 每页分割为一个新文档__保存到同目录下()
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    PathG = ActiveDocument.Path & "\拆分后文档\"
+    If fso.FolderExists(PathG) = True Then
+        fso.getfolder(PathG).Delete '//删除文件夹
+        MkDir PathG '//创建文件夹
+    Else
+        MkDir PathG '//创建文件夹
+    End If
+    Dim MyPath As String, PageCount As Integer
+    Dim StartRange As Long, EndRange As Long, MyRange As Range
+    Dim Fn As String, MyDoc As Document, i As Integer
+    On Error Resume Next
+    Application.ScreenUpdating = False
+    MyPath = ActiveDocument.Path    '取得文档路径
+    PageCount = Selection.Information(wdNumberOfPagesInDocument)    '取得文档总页数
+    Selection.HomeKey Unit:=wdStory    '将光标移至文档起点
+    For i = 1 To PageCount '/ 2 + (PageCount Mod 2)    '设置循环次数
+        StartRange = Selection.Start    '取得该页的第一个字符位置
+        Selection.EndKey Unit:=wdLine    '将光标移动到该页首行的最后位置
+        Fn = i & ActiveDocument.Name    '-1的目的是防止该页首行含有段落标记,导致出错.
+        ' If i * 2 >= PageCount Then    '如果循环到达最后一页
+        'EndRange = ActiveDocument.Content.End    '将文档最后位置赋值于EndRange
+        'Else
+        '否则,将下两页的起始位置赋值于EndRange(等同于下一页的最后位置)
+        Selection.GoToNext (wdGoToPage)
+        'Selection.GoToNext (wdGoToPage)
+        EndRange = Selection.Start
+        ' End If
+        Set MyRange = ActiveDocument.Range(StartRange, EndRange)  '将两页中的内容进行复制
+        MyRange.Copy
+        Set MyDoc = Documents.Add    '新建一空白文档
+        With MyDoc
+            .Content.Paste    '在新文档中粘贴
+            .Content.Paragraphs.Last.Range.Delete '删除新文档末尾多出来的一个段落标记
+            '//居中
+            .Application.Selection.HomeKey wdStory
+            .Application.Selection.Expand wdLine
+            .Application.Selection.ParagraphFormat.Alignment = wdAlignParagraphCenter
+            .Application.Selection.MoveDown wdLine
+            .Application.Selection.Expand wdLine
+            宗地编号 = Replace(Replace(.Application.Selection.Range.Text, "宗地编号:", ""), Chr(13), "")
+            '//
+            strNewName = PathG & "\" & 宗地编号 & ".docx"
+            MyDoc.SaveAs strNewName
+            MyDoc.Close True
+            ' Selection.EndKey Unit:=wdStory
+            ' Selection.TypeBackspace
+            ' Selection.Delete Unit:=wdCharacter, Count:=1
+            '以上三行代码的作用是删除掉分割后的文档出现的末页空白页
+            '.SaveAs FileName:=MyPath & "/" & Fn
+            '保存新文档到原文档所在目录。如果删除“MyPath & "/" & ”，。则保存到“我的文档”中。
+        End With
+    Next
+    Application.ScreenUpdating = True
+End Sub
+

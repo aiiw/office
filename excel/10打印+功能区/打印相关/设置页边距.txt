@@ -1,0 +1,13 @@
+Public Sub 页边距()
+    Dim ws As Worksheet
+    Set ws = ActiveSheet
+    With ws.PageSetup
+        .LeftMargin = 30    '页面的左边距
+        .RightMargin = 30    '页面的右左边距
+        .TopMargin = 50    '页面的顶部边距
+        .BottomMargin = 50    '页面的底部边距
+        .HeaderMargin = 40    '页面顶端到页眉的距离
+        .FooterMargin = 40    '页脚到页面底端的距离
+    End With
+    Set ws = Nothing
+End Sub
