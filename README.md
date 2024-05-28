@@ -18,7 +18,15 @@ git add . 表示添加新文件和编辑过的文件不包括删除的文件; gi
 
 git commit -m "提交注释"
 
-
+```
+echo "# newpy" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:aiiw/newpy.git
+git push -u origin main
+```
 
 
 
