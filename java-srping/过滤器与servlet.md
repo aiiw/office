@@ -27,7 +27,8 @@
 2. **Filter 的注解配置**（在 Servlet 类上使用注解）：
 
    ```
-   javaCopy Code@WebFilter(filterName = "MyFilter", urlPatterns = "/my/*")
+   javaCopy Code
+   @WebFilter(filterName = "MyFilter", urlPatterns = "/my/*")
    public class MyFilter implements Filter {
        // Filter 方法实现
    }

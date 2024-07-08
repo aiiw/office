@@ -8,6 +8,7 @@
 - `is_displayed()`：返回一个布尔值，表示元素是否可见。
 - `is_enabled()`：返回一个布尔值，表示元素是否可操作（比如输入框是否可输入）。
 - `is_selected()`：返回一个布尔值，表示元素是否被选中（比如复选框或单选按钮）。
+- outer_html = element.get_attribute('outerHTML') print(outer_html)
 
 方法：
 
