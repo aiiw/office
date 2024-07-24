@@ -18,6 +18,13 @@ du -sh
 du -sh *  当前目录 下各目录 的大小
 df -m
 
+du -sh * 是一个Unix/Linux系统下的命令，用于显示当前目录中所有文件和目录的磁盘使用情况摘要。让我们来解析这个命令：
+
+du：是"disk usage"的缩写，用于显示文件系统上的磁盘使用情况。
+-s：表示"summarize"，即汇总显示每个参数对应的总磁盘使用量。
+-h：表示"human-readable"，以易读的方式显示文件大小（例如，KB、MB、GB等）。
+
+
 chown -R oracle:oinstall 目录
 chmod 777 目录 第一个7个用户,第二个7是组,第三个7是其它
 
