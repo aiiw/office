@@ -35,3 +35,15 @@ grep -r --exclude="*aa*" -I "xceb001" .
 ```
 
 在这个示例中，`--exclude="*aa*"`表示要排除的文件名模式，即文件名中包含"aa"两个字符的文件。这样，`grep`命令将搜索文件名不包含"aa"两个字符的文件，并且还会排除二进制文件。
+
+grep -r -I "l_zxyq001" .
+
+
+
+grep -r 'FUNCTION cl_ap_formpath' .
+
+grep -r 'czzi934_pmwtuc_t_mask' .
+
+grep -r 'cl_mask_trans_method' -I
+
+ 
