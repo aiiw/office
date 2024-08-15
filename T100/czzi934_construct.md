@@ -4,6 +4,8 @@
 
 ##### 1318:DIALOG ATTRIBUTES(UNBUFFERED,FIELD ORDER FORM)
 
+-----------------
+
 ##### 		1单头
 
 ###### 		1321:CONSTRUCT BY NAME g_wc ON pmwtucdocno,l_txt,pmwtucownid,pmwtucowndp,pmwtuccrtid,pmwtuccrtdp,pmwtuccrtdt, 
@@ -30,6 +32,10 @@ g_wc = "pmwtucdocno='21212' and pmwtucownid='121' and pmwtucowndp='212' and pmwt
 
 ###### 		1649:END CONSTRUCT
 
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ##### 		2单身 且只对第一行收集
 
 ###### 		1652E:CONSTRUCT g_wc2_table1 ON pmwducseq,pmwduc000,pmwduc011,pmwduc001,pmwduc002,pmwduc003,pmwduc007
@@ -45,6 +51,8 @@ g_wc = "pmwtucdocno='21212' and pmwtucownid='121' and pmwtucowndp='212' and pmwt
 ​					--g_wc2 = "pmwduc001='7878' and pmwduc007='8787878'"
 
 ###### 		1920:END CONSTRUCT
+
+-------------------------------------------------------------------------------------------------------------
 
 ##### 1969:END DIALOG
 
@@ -71,3 +79,4 @@ main->OPTIONS->初始化CALL cl_ap_init("czz","")->锁定表LET g_forupd_sql->�
 -> czzi934_construct()->采列表的数据czzi934_browser_fill 收集到g_browser->抓取单头信息czzi934_fetch(这里会有重读EXECUTE czzi934_master_referesh)(show)->最终到CALL g_curr_diag.setCurrentRow("s_detail1",1)
 ```
 
+![image-20240815172347299](https://gitee.com/aiiw/images/raw/master/img/image-20240815172347299.png)

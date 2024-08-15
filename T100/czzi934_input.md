@@ -6,6 +6,8 @@
 
 ##### 	2718:DIALOG ATTRIBUTES(UNBUFFERED,FIELD ORDER FORM)
 
+---------
+
 ​			2722:#單頭段
 
 ​			INPUT BY NAME g_pmwtuc_m.pmwtucdocno,g_pmwtuc_m.l_txt 
@@ -19,6 +21,8 @@
 ​					..........有一个判断p_cmd  是否=U 不是,直接insert 是 直接update 
 
 ​			END INPUT
+
+-------------------
 
 ​				2961:#单身
 
@@ -40,6 +44,8 @@
 
 ​				END INPUT
 
+--------------------
+
 ​				3731:其他
 
 ​				{<section id="czzi934.input.other" type="s" >}
@@ -56,7 +62,7 @@
 | ---------- | ------------------------------------------------------------ |
 | 进入表格   | BEFORE INPUT BEFORE ROW BEFORE FIELD                         |
 | 同列移动   | [ON CHANGE] (for field A, if value has changed)                           AFTER FIELD (for field A)                        BEFORE FIELD (for field B) |
-| 不同列移动 | AFTER FIELD (for field A in the current row) [AFTER INSERT] (if a new row was inserted or new row was appended and modified) [ON ROW CHANGE] (if values have changed in current row) AFTER ROW (for the current) BEFORE ROW (the new row) BEFORE FIELD (for field B in the new row) |
+| 不同列移动 | AFTER FIELD (for field A in the current row)                                                                                                                                                                      [AFTER INSERT] (if a new row was inserted or new row was appended and modified)                                                                                                  [ON ROW CHANGE] (if values have changed in current row)                                                                                                                                           AFTER ROW (for the current) BEFORE ROW (the new row) BEFORE FIELD (for field B in the new row) |
 | 按下確定   | [ON CHANGE] AFTER FIELD [AFTER INSERT] (if a new row was created) [ON ROW CHANGE] (if values have changed) AFTER ROW AFTER INPUT |
 | 按下取消   | AFTER ROW       AFTER INPUT                                  |
 
@@ -68,3 +74,6 @@ main->OPTIONS->初始化CALL cl_ap_init("czz","")->锁定表LET g_forupd_sql->�
 -> CALL cqct098_input("a")->单头判断是更新还是新增->单身
 ```
 
+附单身图:
+
+![image-20240815175606242](https://gitee.com/aiiw/images/raw/master/img/image-20240815175606242.png)
