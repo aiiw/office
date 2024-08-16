@@ -28,7 +28,7 @@
 
 ​				INPUT ARRAY g_pmwduc_d FROM s_detail1.*
 
-​							BEFORE INPUT
+​							BEFORE INPUT (这里主要做b_fill 填充单身)
 
 ​							BEFORE ROW
 
@@ -41,6 +41,22 @@
 ​							    FETCH czzi934_bcl INTO g_pmwduc_d[l_ac].pmwducseq
 
 ​								这个地方复杂 大概的意思就是编辑,应该是不会区分p_cmd是新增还是修改,因为这个表格的改动都是编辑的.
+
+​									3701	            IF g_rec_b >= l_ac   g_rec_b 是取b_fill 填充后的单身数组的长度与l_ac   (取ARR_CURR() 获取 当前行)对比
+
+​															如果是单身数组>当前点击的行,就是定位到已经有的数据,这就走update流程,获取走的是新增流程.
+
+​								**BEFORE** **INSERT** 
+
+​											这个有数据新增时,会提前准备,例如写过一个自动添加项次的.
+
+​								AFTER INSTER
+
+​											这个会判断有没有重复,如果没有,就调用 CALL cqct098_insert_b('qckduc_t',gs_keys,"'1'")进行新增
+
+​								**ON** **ROW** **CHANGE**
+
+​											这个只在当前行更改后,直接有更新的脚本.
 
 ​				END INPUT
 
