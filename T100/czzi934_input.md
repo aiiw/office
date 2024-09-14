@@ -30,7 +30,7 @@
 
 ​							BEFORE INPUT (这里主要做b_fill 填充单身)
 
-​							BEFORE ROW
+##### 							BEFORE ROW
 
 ​							    OPEN czzi934_cl USING g_enterprise,g_pmwtuc_m.pmwtucdocno 
 
@@ -57,6 +57,16 @@
 ​								**ON** **ROW** **CHANGE**
 
 ​											这个只在当前行更改后,直接有更新的脚本.
+
+
+
+​								after row
+
+​												提交
+
+​								after input
+
+​												空的
 
 ​				END INPUT
 

@@ -50,4 +50,6 @@ grep -r 'FUNCTION ARR_CURR' .
 
 find . -name 'lib_cl_dlg*'
 
- 
+grep -r 'N cl_log_modified_record_d' .
+
+grep -r 'setCurrentRow' .
